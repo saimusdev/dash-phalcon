@@ -1,10 +1,12 @@
 # [Phalcon PHP](http://foundation.zurb.com) Dash docset
 
-[Foundation](http://foundation.zurb.com) documentation for Dash
+**NOT WORKING YET. SOON WILL UPDATE**
+
+[Phalcon PHP](http://phalconphp.com/en/) documentation for Dash
 
 This docset is to be used with [Dash for Mac](http://kapeli.com/dash).
 
-Based on the repo [dash-phalcon](https://github.com/omdevin/dash-phalcon).
+Based on the repo [dash-phalcon](https://github.com/omdevin/dash-phalcon) by omdevin.
 
 
 ## Basic Installation
