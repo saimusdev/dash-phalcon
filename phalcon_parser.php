@@ -11,17 +11,20 @@ if (count($argv) != 3) {
 define('DOCSET_NAME', $argv[1]);
 define('API_FOLDER', $argv[2]);
 
+echo "API FOLDER: " . API_FOLDER . PHP_EOL;
+echo "DOCSET NAME: " . DOCSET_NAME . PHP_EOL;
+
 // Excluded files in the parsing process
-$excluded_files = ['.DS_Store']; 
+$excluded_files = ['.', '..', 'index.html', '.DS_Store']; 
 $excluded_extensions = ['js','css','png','svg','png','jpg'];	
 	
-	
-define('CATEGORY', 'Category');
-define('COMPONENT', 'Component');
+
+define('CLASSN', 'Class');	
+define('CONSTANT', 'Constant');
+define('METHOD', 'Method');
 
 
 //  CREATE THE DATABASE...
-shell_exec("echo -e \"$(tput setaf 2)--> Creating the database...$(tput sgr0)\"");
 $sqlite = new PDO("sqlite:" . DOCSET_NAME . ".docset/Contents/Resources/docSet.dsidx");
 $create_table = 'CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);';
 $stmt = $sqlite->exec($create_table);
@@ -54,11 +57,11 @@ shell_exec("echo -e \"$(tput setaf 2)--> FINISHED!$(tput sgr0)\"");
 * @param string $pFile fileName to be processed
 */
 
-function parseFile($pFile)
+function parseFile($pFile, $sqlite)
 {
-	echo '> Scanning File: ' . $pFile . PHP_EOL;
+	echo '--> Scanning File: ' . $pFile . PHP_EOL;
 	
-	$html = file_get_html(PHALCON_API_FOLDER . '/' . $pFile);
+	$html = file_get_html($pFile);
 					
 	if ($html) {
 		// Open the SQLite connection
@@ -69,14 +72,14 @@ function parseFile($pFile)
 		searchFor($sqlite, array($class), CLASSN, $pFile);
 		
 		// Search the Constants
-		$constants	= $html->find('div[id=constants] p strong');
+		$constants = $html->find('div[id=constants] p strong');
 		if (count($constants) > 0) {
 			searchFor($sqlite, $constants, CONSTANT, $pFile);
 		}
 		unset($constants);
 		
 		// Search the Methods			
-		$methods	= $html->find('div[id=methods] p strong');
+		$methods = $html->find('div[id=methods] p strong');
 		if (count($methods) > 0) {
 			searchFor($sqlite, $methods, METHOD, $pFile);
 		}
@@ -99,7 +102,6 @@ function parseFile($pFile)
  */
 function searchFor($pSqlite, $pData, $pType, $pFile)
 {
-	shell_exec("echo -e \"$(tput setaf 2)--> Number of: ' . $pFile " . $pType . "found: " . count($pData) .  "$(tput sgr0)\"");	
 	$items = array();
 	
 	foreach ($pData as $item) {
@@ -146,12 +148,18 @@ function rewriteHtml($pHtml, $pFileName)
 			<a class="header-logo" href="http://phalconphp.com"><span class="logo-text">Phalcon</span></a>
 		</div>' . PHP_EOL;
 	
-	$docTitle = $pHtml->find('div[class=header-line]', 0);
-	$docTitle->outertext = '';
+	$pHtml->find('div[class=header-line]', 0)->outertext = '';
 
-	$docRelated = $pHtml->find('div[class=related]', 0);
-	$docRelated->outertext = '';
+	$pHtml->find('div[class=related]', 0)->outertext = '';
+	
+	$pHtml->find('div[id=other-formats]', 0)->outertext = '';
 
+	$pHtml->find('div[id=other-formats]', 0)->outertext = '';
+	
+	$pHtml->find('div[class=donate-wrap]', 0)->outertext = '';
+	
+	$pHtml->find('div[id=social-link]', 0)->outertext = '';
+	
 	$tdFirstCol = $pHtml->find('td[class=primary-box]', 0);
 	$tdFirstCol->outertext = '';
 	$tdFirstCol->width = '0px';

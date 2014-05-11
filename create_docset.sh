@@ -14,7 +14,10 @@ wget --recursive --page-requisites --html-extension --convert-links \
      --restrict-file-names=windows --domains phalconphp.com --no-parent $DOCUMENTATION_SRC
 
 mv docs.phalconphp.com/en/latest/* "${DOCSET_NAME}.docset/Contents/Resources/Documents/"
-#rm -rf docs.phalconphp.com
+
+cp -r phalcon-php-framework-documentation-latest/* "${DOCSET_NAME}.docset/Contents/Resources/Documents/"
+#mv phalcon-php-framework-documentation-latest/* "${DOCSET_NAME}.docset/Contents/Resources/Documents/"
+#rm -rf phalcon-php-framework-documentation-latest
 
 cat > "${DOCSET_NAME}.docset/Contents/Info.plist" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -48,7 +51,8 @@ echo -e "$(tput setaf 2)--> Creating the Property List$(tput sgr0)"
 
 # OPEN THE DOCSET
 if [ -d "$HOME/Library/Application Support/Dash/Docsets" ]; then
-	mkdir -p "$HOME/Library/Application Support/Dash/Docsets/$DOCSET_NAME"
-	mv -f "${DOCSET_NAME}.docset" "$HOME/Library/Application Support/Dash/Docsets/$DOCSET_NAME/"
-	open -a "/Applications/Dash.app" $HOME/Library/Application\ Support/Dash/Docsets/${DOCSET_NAME}/${DOCSET_NAME}.docset
+	exit 0
+	#mkdir -p "$HOME/Library/Application Support/Dash/Docsets/$DOCSET_NAME"
+	#mv -f "${DOCSET_NAME}.docset" "$HOME/Library/Application Support/Dash/Docsets/$DOCSET_NAME/"
+	#open -a "/Applications/Dash.app" $HOME/Library/Application\ Support/Dash/Docsets/${DOCSET_NAME}/${DOCSET_NAME}.docset
 fi

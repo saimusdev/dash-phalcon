@@ -1,19 +1,28 @@
-dash-phalcon
-============
+# [Phalcon PHP](http://foundation.zurb.com) Dash docset
 
-[Phalcon](http://phalconphp.com) PHP documentation for Dash
+[Foundation](http://foundation.zurb.com) documentation for Dash
 
 This docset is to be used with [Dash for Mac](http://kapeli.com/dash).
 
-Based on Phalcon version **1.2.6**
+Based on the repo [dash-phalcon](https://github.com/omdevin/dash-phalcon).
 
-**Script generation phalconParser.php**
 
-- Download the HTML documentation on [phalcon website](http://media.readthedocs.org/htmlzip/phalcon-php-framework-documentation/latest/phalcon-php-framework-documentation.zip)
-- Follow the [instructions](http://kapeli.com/docsets) to generate a Dash docset
-- In phalconParser.php, adjust the followong constants :
-	- PHALCON_API_FOLDER: full path where are stored the HTML files (phalcon-php-framework-documentation-latest/api)
-	- HTML_DESTINATION_FOLDER: full path of the target HTML files (phalconphp.docset/Contents/Resources/Documents/api)
-	- SQLITE_FILE: full path of the Dash SQLite file
+## Basic Installation
+Just copy the [Phalcon Docset](https://github.com/simioprg/dash-phalcon/blob/master/Phalcon.docset) provided to '/Users/myUserName/Library/Application Support/Dash/Docsets/**Phalcon**', but before create the **Phalcon** folder if it doesn't already exist.
 
-phalconParser.php uses [simplehtmldom](http://simplehtmldom.sourceforge.net)
+## Manual Build
+
+Basically, execute the following commands:
+
+```
+git clone https://github.com/simioprg/dash-phalcon.git
+cd dash-foundation
+./create_docset.sh
+cd ..
+rm -rf dash-foundation
+```
+
+## Notes
+
+Because the script provided downloads the documentation recursively from the website,
+it takes some time to download all the files. At least 4-6 minutes, so have patience.
