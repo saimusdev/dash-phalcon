@@ -8,15 +8,17 @@ if (count($argv) != 3) {
 }
 // Name of the final docset
 define('DOCSET_NAME', $argv[1]);
-define('API_FOLDER', $argv[2]);
+define('DOCSET_FOLDER', $argv[2]);
+define('API_FOLDER', $argv[2] . '/api');
 
 // Excluded files in the parsing process
 $excluded_files = ['.', '..', 'index.html', '.DS_Store']; 
 $excluded_extensions = ['txt','js','css','png','svg','png','jpg'];	
 	
-
+// Things to search for
 define('CLASSN', 'Class');	
 define('CONSTANT', 'Constant');
+define('GUIDE', 'Guide');
 define('METHOD', 'Method');
 
 
@@ -35,21 +37,71 @@ $iter = new RecursiveIteratorIterator(
 	    RecursiveIteratorIterator::CATCH_GET_CHILD // Ignore "Permission denied"
 );
 
-$paths = [API_FOLDER];
+$numClasses = 0;
+$numConstants = 0;
+$numGuides = 0;
+$numMethods = 0;
+	
+// Search for guides
+findGuides($sqlite, DOCSET_FOLDER . "/index.html");
+
+// Search for class names, methods & constants within each class
 foreach ($iter as $key => $file) {
     if ($file->isFile() && 
 			!in_array($file->getFilename(), $excluded_extensions) && 
 			!in_array($file->getExtension(), $excluded_extensions)) {
-		echo "Parsing " . $file . "..." . PHP_EOL;
-        parseFile($file, $sqlite);
+		echo $file . PHP_EOL;
+        findOther($file, $sqlite);
     }
 }
 
+// RESULTS
+echo exec("echo \"$(tput setaf 2)--> Found: " . $numClasses . " " . CLASSN .  "es$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $numConstants . " " . CONSTANT .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $numGuides . " " . GUIDE .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $numMethods . " " . METHOD .  "s$(tput sgr0)\"") . PHP_EOL;
+
 /**
-* parseFile parses the HTML documentation file
+* findGuides parses the index file in search for Guides
 * @param string $pFile fileName to be processed
+* @param object $pSqlite SQLite handler
 */
-function parseFile($file, $sqlite)
+function findGuides($sqlite, $fileName)
+{	
+	$html = file_get_html($fileName);
+	if ($html) {
+		// Open the SQLite connection
+		$sqlite->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
+		// Search the Guides
+		$guides = $html->find('li[class=toctree-l1]');
+		if (count($guides) > 0) {
+			foreach ($guides as $guide) {
+				if($guide) {
+					if (strpos($guide->innertext,'<a class="reference internal" ' .
+						'href="api/index.html">API Indice</a>') !== false) { 
+							break;
+					}
+					$numGuides++;
+					$anchor = $guide->find('a',0);
+					$guide->outertext = '<a name="//apple_ref/cpp/' . GUIDE . '/' .
+						urlencode($guide->plaintext) .'" class="dashAnchor">'.$guide->innertext.'</a>';
+					insert($sqlite, array($anchor->plaintext), GUIDE, $anchor->href);
+				}
+			}
+		}
+		
+		unset($guides);
+		$sqlite = null;	// Close the SQLite connection
+	}
+}
+
+/**
+* parseFile parses the HTML documentation file in search for Classes, Methods & Constants
+* @param string $pFile fileName to be processed
+* @param object $pSqlite SQLite handler
+*/
+function findOther($file, $sqlite)
 {	
 	$html = file_get_html($file);
 	if ($html) {
@@ -59,18 +111,21 @@ function parseFile($file, $sqlite)
 		// Search the Class
 		$class = $html->find('h1 strong', 0);
 		searchFor($sqlite, array($class), CLASSN, basename($file));
+		if ($class) {
+			$numClasses++
+		}
 		
 		// Search the Constants
 		$constants = $html->find('div[id=constants] p strong');
-		if (count($constants) > 0) {
+		if (($numConstants = count($constants)) > 0) {
 			searchFor($sqlite, $constants, CONSTANT, basename($file));
 		}
 		unset($constants);
 		
 		// Search the Methods			
 		$methods = $html->find('div[id=methods] p strong');
-		if (count($methods) > 0) {
-			searchFor($sqlite, $methods, METHOD, basename($file));
+		if (($numMethods = count($methods)) > 0) {
+			searchFor($sqlite, $methods, METHOD, 'api/' . basename($file));
 		}
 		unset($methods);
 		
@@ -95,10 +150,14 @@ function searchFor($pSqlite, $pData, $pType, $fileName)
 		if($item) {
 			array_push($items, $item->plaintext);
 			$item->outertext = '<a name="//apple_ref/cpp/' . $pType . '/' .
-			$item->plaintext .'" class="dashAnchor">'.$item->innertext.'</a>';
+			urlencode($item->plaintext) .'" class="dashAnchor">'.$item->innertext.'</a>';
 		}
 	}
 	insert($pSqlite, $items, $pType, $fileName);
+	echo "WTF: " . $pType . " " . count($items) . PHP_EOL;
+ 	if(count($items) != 0) {
+ 		insert($pSqlite, $items, $pType, $fileName);
+ 	}
 }
 
 /**
@@ -113,12 +172,13 @@ function insert($pSqlite, $pData, $pType, $fileName)
 {
 
 	$insert = 'INSERT OR IGNORE INTO searchIndex (name, type, path) VALUES (:name, :type, :path)';
-	$stmt = $pSqlite->prepare($insert);
 	
+	$stmt = $pSqlite->prepare($insert);
+
 	foreach ($pData as $data) {
 		$stmt->bindValue(':name', $data);
 		$stmt->bindValue(':type', $pType);
-		$stmt->bindValue(':path', 'api/' . $fileName);
+		$stmt->bindValue(':path', $fileName);
 		$stmt->execute();
 	}		
 }
@@ -142,6 +202,9 @@ function rewriteHtml($pHtml, $pFileName)
 		$headerLine->outertext = '';
 		$headerLine->width = '0px';
 		$headerLine->height = '0px';
+	}
+	if($table = $pHtml->find('table[width=90%]', 0)) {
+		$table->width='100%';
 	}
 	if($tableContents = $pHtml->find('td[class=primary-box]', 0)) {
 		$tableContents->innertext = '';
