@@ -34,3 +34,5 @@ Because the script provided downloads the full documentation recursively from th
 
 * The table of contents isn't working.
 * The guides aren't encoded/decoded properly.
+* "¶" Symbol appears on every class, method, constant or guide. It appears to be
+concatenated when the documentation is parsed.
