@@ -29,3 +29,8 @@ rm -rf dash-foundation
 ### Notes
 
 Because the script provided downloads the full documentation recursively from the [Phalcon PHP](http://phalconphp.com/en/)  website, it takes some time to download all the files. At least 5-15 minutes will be necessary. It depends on the connection speed.
+
+## Manual Build
+
+* The table of contents isn't working.
+* The guides aren't encoded/decoded properly.
