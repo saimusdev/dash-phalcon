@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setSiteSpeedSampleRate',100]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Annotations Parser &mdash; Phalcon 1.3.0 documentation</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css"/>
+<script type="text/javascript">var DOCUMENTATION_OPTIONS={URL_ROOT:'../',VERSION:'1.3.0',COLLAPSE_MODINDEX:false,FILE_SUFFIX:'.html',HAS_SOURCE:true};</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="../_static/docs.js.pagespeed.jm.73YAAA_a6c.js"></script>
+<link rel="shortcut icon" href="../_static/favicon.ico"/>
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html"/>
+<link rel="next" title="Command Line Applications" href="cli.html"/>
+<link rel="prev" title="Logging" href="logging.html"/>
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="annotations-parser">
+<h1>Annotations Parser<a class="headerlink" href="annotations.html#annotations-parser" title="Permalink to this headline">¶</a></h1>
+<p>It is the first time that an annotations parser component is written in C for the PHP world. Phalcon\Annotations is
+a general purpose component that provides ease of parsing and caching annotations in PHP classes to be used in applications.</p>
+<p>Annotations are read from docblocks in classes, methods and properties. An annotation can be placed at any position in the docblock:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * This is the class description</span>
+<span class="sd"> *</span>
+<span class="sd"> * @AmazingClass(true)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Example</span>
+<span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This a property with a special feature</span>
+<span class="sd">     *</span>
+<span class="sd">     * @SpecialFeature</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$someProperty</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This is a method</span>
+<span class="sd">     *</span>
+<span class="sd">     * @SpecialFeature</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">someMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above example we find some annotations in the comments, an annotation has the following syntax:</p>
+<p>&#64;Annotation-Name[(param1, param2, ...)]</p>
+<p>Also, an annotation could be placed at any part of a docblock:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * This a property with a special feature</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SpecialFeature</span>
+<span class="sd"> *</span>
+<span class="sd"> * More comments</span>
+<span class="sd"> *</span>
+<span class="sd"> * @AnotherSpecialFeature(true)</span>
+<span class="sd"> */</span>
+</pre></div>
+</div>
+<p>The parser is highly flexible, the following docblock is valid:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * This a property with a special feature @SpecialFeature({</span>
+<span class="sd">someParameter=&quot;the value&quot;, false</span>
+
+<span class="sd"> })  More comments @AnotherSpecialFeature(true) @MoreAnnotations</span>
+<span class="sd"> **/</span>
+</pre></div>
+</div>
+<p>However, to make the code more maintainable and understandable it is recommended to place annotations at the end of the docblock:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * This a property with a special feature</span>
+<span class="sd"> * More comments</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SpecialFeature({someParameter=&quot;the value&quot;, false})</span>
+<span class="sd"> * @AnotherSpecialFeature(true)</span>
+<span class="sd"> */</span>
+</pre></div>
+</div>
+<div class="section" id="reading-annotations">
+<h2>Reading Annotations<a class="headerlink" href="annotations.html#reading-annotations" title="Permalink to this headline">¶</a></h2>
+<p>A reflector is implemented to easily get the annotations defined on a class using an object-oriented interface:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Annotations\Adapter\Memory</span><span class="p">();</span>
+
+<span class="c1">//Reflect the annotations in the class Example</span>
+<span class="nv">$reflector</span> <span class="o">=</span> <span class="nv">$reader</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;Example&#39;</span><span class="p">);</span>
+
+<span class="c1">//Read the annotations in the class&#39; docblock</span>
+<span class="nv">$annotations</span> <span class="o">=</span> <span class="nv">$reflector</span><span class="o">-&gt;</span><span class="na">getClassAnnotations</span><span class="p">();</span>
+
+<span class="c1">//Traverse the annotations</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$annotations</span> <span class="k">as</span> <span class="nv">$annotation</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">//Print the annotation name</span>
+    <span class="k">echo</span> <span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">(),</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+    <span class="c1">//Print the number of arguments</span>
+    <span class="k">echo</span> <span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">numberArguments</span><span class="p">(),</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+    <span class="c1">//Print the arguments</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">getArguments</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The annotation reading process is very fast, however, for performance reasons it is recommended to store the parsed annotations using an adapter.
+Adapters cache the processed annotations avoiding the need of parse the annotations again and again.</p>
+<p><a class="reference internal" href="../api/Phalcon_Annotations_Adapter_Memory.html"><em>Phalcon\Annotations\Adapter\Memory</em></a> was used in the above example. This adapter
+only caches the annotations while the request is running, for this reason th adapter is more suitable for development. There are
+other adapters to swap out when the application is in production stage.</p>
+</div>
+<div class="section" id="types-of-annotations">
+<h2>Types of Annotations<a class="headerlink" href="annotations.html#types-of-annotations" title="Permalink to this headline">¶</a></h2>
+<p>Annotations may have parameters or not. A parameter could be a simple literal (strings, number, boolean, null), an array, a hashed list or other annotation:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Simple Annotation</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Annotation with parameters</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation(&quot;hello&quot;, &quot;world&quot;, 1, 2, 3, false, true)</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Annotation with named parameters</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation(first=&quot;hello&quot;, second=&quot;world&quot;, third=1)</span>
+<span class="sd"> * @SomeAnnotation(first: &quot;hello&quot;, second: &quot;world&quot;, third: 1)</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Passing an array</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation([1, 2, 3, 4])</span>
+<span class="sd"> * @SomeAnnotation({1, 2, 3, 4})</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Passing a hash as parameter</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation({first=1, second=2, third=3})</span>
+<span class="sd"> * @SomeAnnotation({&#39;first&#39;=1, &#39;second&#39;=2, &#39;third&#39;=3})</span>
+<span class="sd"> * @SomeAnnotation({&#39;first&#39;: 1, &#39;second&#39;: 2, &#39;third&#39;: 3})</span>
+<span class="sd"> * @SomeAnnotation([&#39;first&#39;: 1, &#39;second&#39;: 2, &#39;third&#39;: 3])</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Nested arrays/hashes</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation({&quot;name&quot;=&quot;SomeName&quot;, &quot;other&quot;={</span>
+<span class="sd"> *      &quot;foo1&quot;: &quot;bar1&quot;, &quot;foo2&quot;: &quot;bar2&quot;, {1, 2, 3},</span>
+<span class="sd"> * }})</span>
+<span class="sd"> */</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Nested Annotations</span>
+<span class="sd"> *</span>
+<span class="sd"> * @SomeAnnotation(first=@AnotherAnnotation(1, 2, 3))</span>
+<span class="sd"> */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="practical-usage">
+<h2>Practical Usage<a class="headerlink" href="annotations.html#practical-usage" title="Permalink to this headline">¶</a></h2>
+<p>Next we will explain some practical examples of annotations in PHP applications:</p>
+<div class="section" id="cache-enabler-with-annotations">
+<h3>Cache Enabler with Annotations<a class="headerlink" href="annotations.html#cache-enabler-with-annotations" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s pretend we&#8217;ve the following controller and the developer wants to create a plugin that automatically start the
+cache if the latest action executed is marked as cacheable. First off all we register a plugin in the Dispatcher service
+to be notified when a route is executed:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$di</span><span class="p">[</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nv">$eventsManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Events\Manager</span><span class="p">();</span>
+
+    <span class="c1">//Attach the plugin to &#39;dispatch&#39; events</span>
+    <span class="nv">$eventsManager</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;dispatch&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">CacheEnablerPlugin</span><span class="p">());</span>
+
+    <span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Mvc\Dispatcher</span><span class="p">();</span>
+    <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setEventsManager</span><span class="p">(</span><span class="nv">$eventsManager</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$dispatcher</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>CacheEnablerPlugin is a plugin that intercept every action executed in the dispatcher enabling the cache if needed:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Enables the cache for a view if the latest</span>
+<span class="sd"> * executed action has the annotation @Cache</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">CacheEnablerPlugin</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\User\Plugin</span>
+<span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This event is executed before every route is executed in the dispatcher</span>
+<span class="sd">     *</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">beforeExecuteRoute</span><span class="p">(</span><span class="nv">$event</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="c1">//Parse the annotations in the method currently executed</span>
+        <span class="nv">$annotations</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">annotations</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">(</span>
+            <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">getActiveController</span><span class="p">(),</span>
+            <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">getActiveMethod</span><span class="p">()</span>
+        <span class="p">);</span>
+
+        <span class="c1">//Check if the method has an annotation &#39;Cache&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$annotations</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;Cache&#39;</span><span class="p">))</span> <span class="p">{</span>
+
+            <span class="c1">//The method has the annotation &#39;Cache&#39;</span>
+            <span class="nv">$annotation</span> <span class="o">=</span> <span class="nv">$annotations</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;Cache&#39;</span><span class="p">);</span>
+
+            <span class="c1">//Get the lifetime</span>
+            <span class="nv">$lifetime</span> <span class="o">=</span> <span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">getNamedParameter</span><span class="p">(</span><span class="s1">&#39;lifetime&#39;</span><span class="p">);</span>
+
+            <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;lifetime&#39;</span> <span class="o">=&gt;</span> <span class="nv">$lifetime</span><span class="p">);</span>
+
+            <span class="c1">//Check if there is an user defined cache key</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">hasNamedParameter</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$annotation</span><span class="o">-&gt;</span><span class="na">getNamedParameter</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">//Enable the cache for the current method</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">cache</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, we can use the annotation in a controller:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">NewsController</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This is a comment</span>
+<span class="sd">     *</span>
+<span class="sd">     * @Cache(lifetime=86400)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">showAllAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">article</span> <span class="o">=</span> <span class="nx">Articles</span><span class="o">::</span><span class="na">find</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This is a comment</span>
+<span class="sd">     *</span>
+<span class="sd">     * @Cache(key=&quot;my-key&quot;, lifetime=86400)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">showAction</span><span class="p">(</span><span class="nv">$slug</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">article</span> <span class="o">=</span> <span class="nx">Articles</span><span class="o">::</span><span class="na">findFirstByTitle</span><span class="p">(</span><span class="nv">$slug</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="choose-template-to-render">
+<h3>Choose template to render<a class="headerlink" href="annotations.html#choose-template-to-render" title="Permalink to this headline">¶</a></h3>
+<p>In this example we&#8217;re going to use annotations to tell <a class="reference internal" href="views.html"><em>Phalcon\Mvc\View\Simple</em></a> what template must me rendered
+once the action has been executed:</p>
+</div>
+</div>
+<div class="section" id="annotations-adapters">
+<h2>Annotations Adapters<a class="headerlink" href="annotations.html#annotations-adapters" title="Permalink to this headline">¶</a></h2>
+<p>This component makes use of adapters to cache or no cache the parsed and processed annotations thus improving the performance or providing facilities to development/testing:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%"/>
+<col width="69%"/>
+<col width="27%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+<th class="head">API</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Memory</td>
+<td>The annotations are cached only in memory. When the request ends the cache is cleaned reloading the annotations in each request. This adapter is suitable for a development stage</td>
+<td><a class="reference internal" href="../api/Phalcon_Annotations_Adapter_Memory.html"><em>Phalcon\Annotations\Adapter\Memory</em></a></td>
+</tr>
+<tr class="row-odd"><td>Files</td>
+<td>Parsed and processed annotations are stored permanently in PHP files improving performance. This adapter must be used together with a bytecode cache.</td>
+<td><a class="reference internal" href="../api/Phalcon_Annotations_Adapter_Files.html"><em>Phalcon\Annotations\Adapter\Files</em></a></td>
+</tr>
+<tr class="row-even"><td>APC</td>
+<td>Parsed and processed annotations are stored permanently in the APC cache improving performance. This is the faster adapter</td>
+<td><a class="reference internal" href="../api/Phalcon_Annotations_Adapter_Apc.html"><em>Phalcon\Annotations\Adapter\Apc</em></a></td>
+</tr>
+<tr class="row-odd"><td>XCache</td>
+<td>Parsed and processed annotations are stored permanently in the XCache cache improving performance. This is a fast adapter too</td>
+<td><a class="reference internal" href="../api/Phalcon_Annotations_Adapter_Xcache.html"><em>Phalcon\Annotations\Adapter\Xcache</em></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="implementing-your-own-adapters">
+<h3>Implementing your own adapters<a class="headerlink" href="annotations.html#implementing-your-own-adapters" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../api/Phalcon_Annotations_AdapterInterface.html"><em>Phalcon\Annotations\AdapterInterface</em></a> interface must be implemented in order to create your own
+annotations adapters or extend the existing ones.</p>
+</div>
+</div>
+<div class="section" id="external-resources">
+<h2>External Resources<a class="headerlink" href="annotations.html#external-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://blog.phalconphp.com/post/47471246411/tutorial-creating-a-custom-models-initializer-with">Tutorial: Creating a custom model’s initializer with Annotations</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<div class="related">
+<ul>
+<li class="right">
+<a href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a href="cli.html" title="Command Line Applications">next</a> |</li>
+<li class="right">
+<a href="logging.html" title="Logging">previous</a> |</li>
+</ul>
+</div>
+
+</div>
+<script type="text/javascript">$(window).on("load",function(){var cx='009733439235723428699:lh9ltjgvdz8';var gcse=document.createElement('script');gcse.type='text/javascript';gcse.async=true;gcse.src=(document.location.protocol=='https:'?'https:':'http:')+'//www.google.com/cse/cse.js?cx='+cx;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse,s);});</script>
+<script pagespeed_no_defer="">//<![CDATA[
+(function(){var e=encodeURIComponent,f=window,h=document,m="width",n="documentElement",p="height",q="length",r="prototype",s="body",t="&",u="&ci=",w="&n=",x="&rd=",y=",",z="?",A="Content-Type",B="Microsoft.XMLHTTP",C="Msxml2.XMLHTTP",D="POST",E="application/x-www-form-urlencoded",F="img",G="input",H="load",I="oh=",J="on",K="pagespeed_url_hash",L="url=",M=function(a,c,d){if(a.addEventListener)a.addEventListener(c,d,!1);else if(a.attachEvent)a.attachEvent(J+c,d);else{var b=a[J+c];a[J+c]=function(){d.call(this);b&&b.call(this)}}};f.pagespeed=f.pagespeed||{};var N=f.pagespeed,O=function(a,c,d,b,g){this.d=a;this.f=c;this.g=d;this.a=g;this.c={height:f.innerHeight||h[n].clientHeight||h[s].clientHeight,width:f.innerWidth||h[n].clientWidth||h[s].clientWidth};this.e=b;this.b={}};O[r].j=function(a){a=a.getBoundingClientRect();return{top:a.top+(void 0!==f.pageYOffset?f.pageYOffset:(h[n]||h[s].parentNode||h[s]).scrollTop),left:a.left+(void 0!==f.pageXOffset?f.pageXOffset:(h[n]||h[s].parentNode||h[s]).scrollLeft)}};O[r].i=function(a){if(0>=a.offsetWidth&&0>=a.offsetHeight)return!1;a=this.j(a);var c=a.top.toString()+y+a.left.toString();if(this.b.hasOwnProperty(c))return!1;this.b[c]=!0;return a.top<=this.c[p]&&a.left<=this.c[m]};O[r].l=function(){for(var a=[F,G],c=[],d={},b=0;b<a[q];++b)for(var g=h.getElementsByTagName(a[b]),k=0;k<g[q];++k){var v=g[k].getAttribute(K);v&&g[k].getBoundingClientRect&&this.i(g[k])&&!(v in d)&&(c.push(v),d[v]=!0)}b=!1;a=I+this.g;this.a&&(a+=w+this.a);if(0!=c[q]){a+=u+e(c[0]);for(b=1;b<c[q];++b){d=y+e(c[b]);if(131072<a[q]+d[q])break;a+=d}b=!0}this.e&&(d=x+e(JSON.stringify(this.h())),131072>=a[q]+d[q]&&(a+=d),b=!0);N.criticalImagesBeaconData=a;if(b){var c=this.d,b=this.f,l;if(f.XMLHttpRequest)l=new XMLHttpRequest;else if(f.ActiveXObject)try{l=new ActiveXObject(C)}catch(P){try{l=new ActiveXObject(B)}catch(Q){}}l&&(l.open(D,c+(-1==c.indexOf(z)?z:t)+L+e(b)),l.setRequestHeader(A,E),l.send(a))}};O[r].h=function(){for(var a={},c=h.getElementsByTagName(F),d=0;d<c[q];++d){var b=c[d],g=b.getAttribute(K);if("undefined"==typeof b.naturalWidth||"undefined"==typeof b.naturalHeight||"undefined"==typeof g)break;if("undefined"==typeof a[b.src]&&0<b[m]&&0<b[p]&&0<b.naturalWidth&&0<b.naturalHeight||"undefined"!=typeof a[b.src]&&b[m]>=a[b.src].n&&b[p]>=a[b.src].m)a[g]={renderedWidth:b[m],renderedHeight:b[p],originalWidth:b.naturalWidth,originalHeight:b.naturalHeight}}return a};N.k=function(a,c,d,b,g){var k=new O(a,c,d,b,g);M(f,H,function(){f.setTimeout(function(){k.l()},0)})};N.criticalImagesBeaconInit=N.k;})();pagespeed.criticalImagesBeaconInit('/mod_pagespeed_beacon','http://docs.phalconphp.com/en/latest/reference/annotations.html','YzCdeUYw1v',false,'zYo1GlgWGdw');
+//]]></script><script type="text/javascript">if(window.parent==window){var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-29332509-1']);_gaq.push(['_setDomainName','docs.phalconphp.com']);_gaq.push(['_setAllowLinker',true]);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();}</script></body>
+</html>

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setSiteSpeedSampleRate',100]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Class Phalcon\Mvc\Application &mdash; Phalcon 1.3.0 documentation</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css"/>
+<script type="text/javascript">var DOCUMENTATION_OPTIONS={URL_ROOT:'../',VERSION:'1.3.0',COLLAPSE_MODINDEX:false,FILE_SUFFIX:'.html',HAS_SOURCE:true};</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="../_static/docs.js.pagespeed.jm.73YAAA_a6c.js"></script>
+<link rel="shortcut icon" href="../_static/favicon.ico"/>
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html"/>
+<link rel="up" title="API Indice" href="index.html"/>
+<link rel="next" title="Class Phalcon\Mvc\Application\Exception" href="Phalcon_Mvc_Application_Exception.html"/>
+<link rel="prev" title="Class Phalcon\Logger\Multiple" href="Phalcon_Logger_Multiple.html"/>
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-mvc-application">
+<h1>Class <strong>Phalcon\Mvc\Application</strong><a class="headerlink" href="Phalcon_Mvc_Application.html#class-phalcon-mvc-application" title="Permalink to this headline">¶</a></h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_DI_Injectable.html"><em>Phalcon\DI\Injectable</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Events_EventsAwareInterface.html"><em>Phalcon\Events\EventsAwareInterface</em></a>, <a class="reference internal" href="Phalcon_DI_InjectionAwareInterface.html"><em>Phalcon\DI\InjectionAwareInterface</em></a></p>
+<p>This component encapsulates all the complex operations behind instantiating every component needed and integrating it with the rest to allow the MVC pattern to operate as desired.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">class</span> <span class="nc">Application</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Application</span>
+ <span class="p">{</span>
+
+    <span class="o">/</span><span class="nx">\</span><span class="o">**</span>
+     <span class="o">*</span> <span class="nx">Register</span> <span class="nx">the</span> <span class="nx">services</span> <span class="nx">here</span> <span class="nx">to</span> <span class="nx">make</span> <span class="nx">them</span> <span class="nx">general</span> <span class="k">or</span> <span class="nx">register</span>
+     <span class="o">*</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">ModuleDefinition</span> <span class="nx">to</span> <span class="nx">make</span> <span class="nx">them</span> <span class="nx">module</span><span class="o">-</span><span class="nx">specific</span>
+     <span class="o">*/</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">_registerServices</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="o">/</span><span class="nx">\</span><span class="o">**</span>
+     <span class="o">*</span> <span class="k">This</span> <span class="nx">method</span> <span class="nx">registers</span> <span class="nx">all</span> <span class="nx">the</span> <span class="nx">modules</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">application</span>
+     <span class="o">*/</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">main</span><span class="p">()</span>
+    <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">registerModules</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;frontend&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                            <span class="s1">&#39;className&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Multiple\Frontend\Module&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;../apps/frontend/Module.php&#39;</span>
+                    <span class="p">),</span>
+                    <span class="s1">&#39;backend&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                            <span class="s1">&#39;className&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Multiple\Backend\Module&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;../apps/backend/Module.php&#39;</span>
+                    <span class="p">)</span>
+            <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$application</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">();</span>
+<span class="nv">$application</span><span class="o">-&gt;</span><span class="na">main</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Application.html#methods" title="Permalink to this headline">¶</a></h2>
+<p>public <strong>__construct</strong> ([<a class="reference internal" href="Phalcon_DI.html"><em>Phalcon\DI</em></a> $dependencyInjector])</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Application.html"><em>Phalcon\Mvc\Application</em></a> <strong>useImplicitView</strong> (<em>boolean</em> $implicitView)</p>
+<p>By default. The view is implicitly buffering all the output You can full disable the view component using this method</p>
+<p>public <strong>registerModules</strong> (<em>array</em> $modules, [<em>boolean</em> $merge])</p>
+<p>Register an array of modules present in the application</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">registerModules</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;frontend&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;className&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Multiple\Frontend\Module&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;../apps/frontend/Module.php&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;backend&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;className&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Multiple\Backend\Module&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;../apps/backend/Module.php&#39;</span>
+    <span class="p">)</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+<p>public <em>array</em> <strong>getModules</strong> ()</p>
+<p>Return the modules registered in the application</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Application.html"><em>Phalcon\Mvc\Application</em></a> <strong>setDefaultModule</strong> (<em>string</em> $defaultModule)</p>
+<p>Sets the module name to be used if the router doesn&#8217;t return a valid module</p>
+<p>public <em>string</em> <strong>getDefaultModule</strong> ()</p>
+<p>Returns the default module name</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a> <strong>handle</strong> ([<em>string</em> $uri])</p>
+<p>Handles a MVC request</p>
+<p>public <strong>setDI</strong> (<a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> $dependencyInjector) inherited from Phalcon\DI\Injectable</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> <strong>getDI</strong> () inherited from Phalcon\DI\Injectable</p>
+<p>Returns the internal dependency injector</p>
+<p>public <strong>setEventsManager</strong> (<a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> $eventsManager) inherited from Phalcon\DI\Injectable</p>
+<p>Sets the event manager</p>
+<p>public <a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> <strong>getEventsManager</strong> () inherited from Phalcon\DI\Injectable</p>
+<p>Returns the internal event manager</p>
+<p>public <strong>__get</strong> (<em>unknown</em> $property) inherited from Phalcon\DI\Injectable</p>
+<p>Magic method __get</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<div class="related">
+<ul>
+<li class="right">
+<a href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a href="Phalcon_Mvc_Application_Exception.html" title="Class Phalcon\Mvc\Application\Exception">next</a> |</li>
+<li class="right">
+<a href="Phalcon_Logger_Multiple.html" title="Class Phalcon\Logger\Multiple">previous</a> |</li>
+<li class="right"><a href="index.html">API Indice</a> &raquo;</li>
+</ul>
+</div>
+
+</div>
+<script type="text/javascript">$(window).on("load",function(){var cx='009733439235723428699:lh9ltjgvdz8';var gcse=document.createElement('script');gcse.type='text/javascript';gcse.async=true;gcse.src=(document.location.protocol=='https:'?'https:':'http:')+'//www.google.com/cse/cse.js?cx='+cx;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse,s);});</script>
+<script pagespeed_no_defer="">//<![CDATA[
+(function(){var e=encodeURIComponent,f=window,h=document,m="width",n="documentElement",p="height",q="length",r="prototype",s="body",t="&",u="&ci=",w="&n=",x="&rd=",y=",",z="?",A="Content-Type",B="Microsoft.XMLHTTP",C="Msxml2.XMLHTTP",D="POST",E="application/x-www-form-urlencoded",F="img",G="input",H="load",I="oh=",J="on",K="pagespeed_url_hash",L="url=",M=function(a,c,d){if(a.addEventListener)a.addEventListener(c,d,!1);else if(a.attachEvent)a.attachEvent(J+c,d);else{var b=a[J+c];a[J+c]=function(){d.call(this);b&&b.call(this)}}};f.pagespeed=f.pagespeed||{};var N=f.pagespeed,O=function(a,c,d,b,g){this.d=a;this.f=c;this.g=d;this.a=g;this.c={height:f.innerHeight||h[n].clientHeight||h[s].clientHeight,width:f.innerWidth||h[n].clientWidth||h[s].clientWidth};this.e=b;this.b={}};O[r].j=function(a){a=a.getBoundingClientRect();return{top:a.top+(void 0!==f.pageYOffset?f.pageYOffset:(h[n]||h[s].parentNode||h[s]).scrollTop),left:a.left+(void 0!==f.pageXOffset?f.pageXOffset:(h[n]||h[s].parentNode||h[s]).scrollLeft)}};O[r].i=function(a){if(0>=a.offsetWidth&&0>=a.offsetHeight)return!1;a=this.j(a);var c=a.top.toString()+y+a.left.toString();if(this.b.hasOwnProperty(c))return!1;this.b[c]=!0;return a.top<=this.c[p]&&a.left<=this.c[m]};O[r].l=function(){for(var a=[F,G],c=[],d={},b=0;b<a[q];++b)for(var g=h.getElementsByTagName(a[b]),k=0;k<g[q];++k){var v=g[k].getAttribute(K);v&&g[k].getBoundingClientRect&&this.i(g[k])&&!(v in d)&&(c.push(v),d[v]=!0)}b=!1;a=I+this.g;this.a&&(a+=w+this.a);if(0!=c[q]){a+=u+e(c[0]);for(b=1;b<c[q];++b){d=y+e(c[b]);if(131072<a[q]+d[q])break;a+=d}b=!0}this.e&&(d=x+e(JSON.stringify(this.h())),131072>=a[q]+d[q]&&(a+=d),b=!0);N.criticalImagesBeaconData=a;if(b){var c=this.d,b=this.f,l;if(f.XMLHttpRequest)l=new XMLHttpRequest;else if(f.ActiveXObject)try{l=new ActiveXObject(C)}catch(P){try{l=new ActiveXObject(B)}catch(Q){}}l&&(l.open(D,c+(-1==c.indexOf(z)?z:t)+L+e(b)),l.setRequestHeader(A,E),l.send(a))}};O[r].h=function(){for(var a={},c=h.getElementsByTagName(F),d=0;d<c[q];++d){var b=c[d],g=b.getAttribute(K);if("undefined"==typeof b.naturalWidth||"undefined"==typeof b.naturalHeight||"undefined"==typeof g)break;if("undefined"==typeof a[b.src]&&0<b[m]&&0<b[p]&&0<b.naturalWidth&&0<b.naturalHeight||"undefined"!=typeof a[b.src]&&b[m]>=a[b.src].n&&b[p]>=a[b.src].m)a[g]={renderedWidth:b[m],renderedHeight:b[p],originalWidth:b.naturalWidth,originalHeight:b.naturalHeight}}return a};N.k=function(a,c,d,b,g){var k=new O(a,c,d,b,g);M(f,H,function(){f.setTimeout(function(){k.l()},0)})};N.criticalImagesBeaconInit=N.k;})();pagespeed.criticalImagesBeaconInit('/mod_pagespeed_beacon','http://docs.phalconphp.com/en/latest/api/Phalcon_Mvc_Application.html','YzCdeUYw1v',false,'K6Eh8USX_YQ');
+//]]></script><script type="text/javascript">if(window.parent==window){var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-29332509-1']);_gaq.push(['_setDomainName','docs.phalconphp.com']);_gaq.push(['_setAllowLinker',true]);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();}</script></body>
+</html>

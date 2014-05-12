@@ -1,5 +1,7 @@
 #!/usr/bin/php --
 <?php
+// PHALCON PARSER -- Parses Phalcon Documentation, cleans it and fills a database with keywords
+
 require_once('simple_html_dom.php');
 
 if (count($argv) != 3) {
@@ -13,14 +15,17 @@ define('API_FOLDER', $argv[2] . '/api');
 
 // Excluded files in the parsing process
 $excluded_files = ['.', '..', 'index.html', '.DS_Store']; 
-$excluded_extensions = ['txt','js','css','png','svg','png','jpg'];	
+$excluded_extensions = ['txt','js','css','ico','png','svg','png','jpg'];	
 	
 // Things to search for
 define('CLASSN', 'Class');	
 define('CONSTANT', 'Constant');
 define('GUIDE', 'Guide');
 define('METHOD', 'Method');
-
+$GLOBALS['numClasses'] = 0;
+$GLOBALS['numConstants'] = 0;
+$GLOBALS['numGuides'] = 0;
+$GLOBALS['numMethods'] = 0;
 
 //  CREATE THE DATABASE...
 $sqlite = new PDO("sqlite:" . DOCSET_NAME . "/Contents/Resources/docSet.dsidx");
@@ -29,7 +34,6 @@ $stmt = $sqlite->exec($create_table);
 $create_index = 'CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);';
 $stmt = $sqlite->exec($create_index);
 
-// FILL THE DATABASE && CLEAN THE HTML FILES (FOR BETTER VISUALIZATION)
 $iter = new RecursiveIteratorIterator(
 	    new RecursiveDirectoryIterator(API_FOLDER, 
 			RecursiveDirectoryIterator::SKIP_DOTS),
@@ -37,11 +41,7 @@ $iter = new RecursiveIteratorIterator(
 	    RecursiveIteratorIterator::CATCH_GET_CHILD // Ignore "Permission denied"
 );
 
-$numClasses = 0;
-$numConstants = 0;
-$numGuides = 0;
-$numMethods = 0;
-	
+// FILL THE DATABASE...
 // Search for guides
 findGuides($sqlite, DOCSET_FOLDER . "/index.html");
 
@@ -50,16 +50,36 @@ foreach ($iter as $key => $file) {
     if ($file->isFile() && 
 			!in_array($file->getFilename(), $excluded_extensions) && 
 			!in_array($file->getExtension(), $excluded_extensions)) {
-		echo $file . PHP_EOL;
+		echo "Parsing " . $file . PHP_EOL;
         findOther($file, $sqlite);
     }
 }
 
-// RESULTS
-echo exec("echo \"$(tput setaf 2)--> Found: " . $numClasses . " " . CLASSN .  "es$(tput sgr0)\"") . PHP_EOL;
-echo exec("echo \"$(tput setaf 2)--> Found: " . $numConstants . " " . CONSTANT .  "s$(tput sgr0)\"") . PHP_EOL;
-echo exec("echo \"$(tput setaf 2)--> Found: " . $numGuides . " " . GUIDE .  "s$(tput sgr0)\"") . PHP_EOL;
-echo exec("echo \"$(tput setaf 2)--> Found: " . $numMethods . " " . METHOD .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Finished parsing!$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $GLOBALS['numClasses'] . " " . CLASSN .  "es$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $GLOBALS['numConstants'] . " " . CONSTANT .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $GLOBALS['numGuides'] . " " . GUIDE .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Found: " . $GLOBALS['numMethods'] . " " . METHOD .  "s$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Finished parsing!$(tput sgr0)\"") . PHP_EOL;
+echo exec("echo \"$(tput setaf 2)--> Cleaning the documentation...$(tput sgr0)\"") . PHP_EOL;
+
+$iter = new RecursiveIteratorIterator(
+	    new RecursiveDirectoryIterator(DOCSET_FOLDER, 
+			RecursiveDirectoryIterator::SKIP_DOTS),
+	    RecursiveIteratorIterator::SELF_FIRST,
+	    RecursiveIteratorIterator::CATCH_GET_CHILD // Ignore "Permission denied"
+);
+
+// CLEAN THE HTML FILES (FOR BETTER VISUALIZATION)
+foreach ($iter as $key => $file) {
+    if ($file->isFile() && 
+			!in_array($file->getFilename(), $excluded_extensions) && 
+			!in_array($file->getExtension(), $excluded_extensions)) {
+		echo "Cleaning " . $file . PHP_EOL;
+        rewriteHtml(file_get_html($file), $file);
+    }
+}
+echo exec("echo \"$(tput setaf 2)--> Finished cleaning!$(tput sgr0)\"") . PHP_EOL;
 
 /**
 * findGuides parses the index file in search for Guides
@@ -82,7 +102,7 @@ function findGuides($sqlite, $fileName)
 						'href="api/index.html">API Indice</a>') !== false) { 
 							break;
 					}
-					$numGuides++;
+					$GLOBALS['numGuides']++;
 					$anchor = $guide->find('a',0);
 					$guide->outertext = '<a name="//apple_ref/cpp/' . GUIDE . '/' .
 						urlencode($guide->plaintext) .'" class="dashAnchor">'.$guide->innertext.'</a>';
@@ -97,10 +117,11 @@ function findGuides($sqlite, $fileName)
 }
 
 /**
-* parseFile parses the HTML documentation file in search for Classes, Methods & Constants
-* @param string $pFile fileName to be processed
-* @param object $pSqlite SQLite handler
-*/
+ * parseFile parses the HTML documentation file in search for 
+ * Classes, Methods & Constants
+ * @param string $pFile fileName to be processed
+ * @param object $pSqlite SQLite handler
+ */
 function findOther($file, $sqlite)
 {	
 	$html = file_get_html($file);
@@ -110,28 +131,29 @@ function findOther($file, $sqlite)
 								PDO::ERRMODE_EXCEPTION);
 		// Search the Class
 		$class = $html->find('h1 strong', 0);
-		searchFor($sqlite, array($class), CLASSN, basename($file));
+		searchFor($sqlite, array($class), CLASSN, 'api/' . basename($file));
 		if ($class) {
-			$numClasses++
+			$GLOBALS['numClasses']++;
 		}
 		
-		// Search the Constants
+		// Search for Constants
 		$constants = $html->find('div[id=constants] p strong');
-		if (($numConstants = count($constants)) > 0) {
-			searchFor($sqlite, $constants, CONSTANT, basename($file));
+		if (count($constants) > 0) {
+			$GLOBALS['numConstants'] += count($constants);
+			searchFor($sqlite, $constants, CONSTANT, 'api/' . basename($file));
 		}
 		unset($constants);
 		
-		// Search the Methods			
+		// Search for Methods			
 		$methods = $html->find('div[id=methods] p strong');
-		if (($numMethods = count($methods)) > 0) {
+		if (count($methods) > 0) {
+			$GLOBALS['numMethods'] += count($methods);
 			searchFor($sqlite, $methods, METHOD, 'api/' . basename($file));
 		}
 		unset($methods);
 		
 		$sqlite = null;	// Close the SQLite connection
 		
-		rewriteHtml($html, $file);
 	}
 }
 
@@ -154,7 +176,6 @@ function searchFor($pSqlite, $pData, $pType, $fileName)
 		}
 	}
 	insert($pSqlite, $items, $pType, $fileName);
-	echo "WTF: " . $pType . " " . count($items) . PHP_EOL;
  	if(count($items) != 0) {
  		insert($pSqlite, $items, $pType, $fileName);
  	}
@@ -172,7 +193,6 @@ function insert($pSqlite, $pData, $pType, $fileName)
 {
 
 	$insert = 'INSERT OR IGNORE INTO searchIndex (name, type, path) VALUES (:name, :type, :path)';
-	
 	$stmt = $pSqlite->prepare($insert);
 
 	foreach ($pData as $data) {
@@ -184,7 +204,8 @@ function insert($pSqlite, $pData, $pType, $fileName)
 }
 
 /**
- * rewriteHtml removes menu, first colum of array from the Phalcon documentation in order to have something more readable in Dash viewer
+ * rewriteHtml removes menu, first colum of array from the Phalcon documentation in order to have 
+ * something more readable in Dash viewer
  * @param object $pHtml the HTML DOM
  * @param string $pFilename destination file where the new documentation must be written
  */
@@ -192,10 +213,10 @@ function insert($pSqlite, $pData, $pType, $fileName)
 function rewriteHtml($pHtml, $pFileName)
 {	
 	if($menuBar = $pHtml->find('div[class=size-wrap]', 0)) {
-		$menuBar->innertext = 
-			'<div class="header clear-fix" style="padding-bottom: 0;">
-				<a class="header-logo" href="http://phalconphp.com"><span class="logo-text">Phalcon</span></a>
-			</div>' . PHP_EOL;
+		$menuBar->innertext = '';
+		$menuBar->outertext = '';
+		$menuBar->width = '0px';
+		$menuBar->height = '0px';
 	}
 	if($headerLine = $pHtml->find('div[class=header-line]', 0)) {
 		$headerLine->innertext = '';
@@ -211,6 +232,12 @@ function rewriteHtml($pHtml, $pFileName)
 		$tableContents->outertext = '';
 		$tableContents->width = '0px';
 		$tableContents->height = '0px';
+	}
+	if($indexToc = $pHtml->find('div[id=table-of-contents]', 0)) {
+		$indexToc->innertext = '';
+		$indexToc->outertext = '';
+		$indexToc->width = '0px';
+		$indexToc->height = '0px';
 	}
 	if($otherFormats = $pHtml->find('div[id=other-formats]', 0)) {
 		$otherFormats->innertext = '';

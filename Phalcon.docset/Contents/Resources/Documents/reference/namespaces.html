@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setSiteSpeedSampleRate',100]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Working with Namespaces &mdash; Phalcon 1.3.0 documentation</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css"/>
+<script type="text/javascript">var DOCUMENTATION_OPTIONS={URL_ROOT:'../',VERSION:'1.3.0',COLLAPSE_MODINDEX:false,FILE_SUFFIX:'.html',HAS_SOURCE:true};</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="../_static/docs.js.pagespeed.jm.73YAAA_a6c.js"></script>
+<link rel="shortcut icon" href="../_static/favicon.ico"/>
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html"/>
+<link rel="next" title="Events Manager" href="events.html"/>
+<link rel="prev" title="Micro Applications" href="micro.html"/>
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="working-with-namespaces">
+<h1>Working with Namespaces<a class="headerlink" href="namespaces.html#working-with-namespaces" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://php.net/manual/en/language.namespaces.php">Namespaces</a> can be used to avoid class name collisions; this means that if you have two controllers in an application with the same name,
+a namespace can be used to differentiate them. Namespaces are also useful for creating bundles or modules.</p>
+<div class="section" id="setting-up-the-framework">
+<h2>Setting up the framework<a class="headerlink" href="namespaces.html#setting-up-the-framework" title="Permalink to this headline">¶</a></h2>
+<p>Using namespaces has some implications when loading the appropriate controller. To adjust the framework behavior to namespaces is necessary
+to perform one or all of the following tasks:</p>
+<p>Use an autoload strategy that takes into account the namespaces, for example with Phalcon\Loader:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+       <span class="s1">&#39;Store\Admin\Controllers&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;../bundles/admin/controllers/&quot;</span><span class="p">,</span>
+       <span class="s1">&#39;Store\Admin\Models&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;../bundles/admin/models/&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Specify it in the routes as a separate parameter in the route&#8217;s paths:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$router</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">&#39;/admin/users/my-profile&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;namespace&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Store\Admin&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Users&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;action&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Passing it as part of the route:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$router</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">&#39;/:namespace/admin/users/my-profile&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;namespace&#39;</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Users&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;action&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>If you are only working with the same namespace for every controller in your application, then you can define a default namespace
+in the Dispatcher, by doing this, you don&#8217;t need to specify a full class name in the router path:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Registering a dispatcher</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Mvc\Dispatcher</span><span class="p">();</span>
+    <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setDefaultNamespace</span><span class="p">(</span><span class="s1">&#39;Store\Admin\Controllers&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$dispatcher</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="controllers-in-namespaces">
+<h2>Controllers in Namespaces<a class="headerlink" href="namespaces.html#controllers-in-namespaces" title="Permalink to this headline">¶</a></h2>
+<p>The following example shows how to implement a controller that use namespaces:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Admin\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UsersController</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">profileAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="models-in-namespaces">
+<h2>Models in Namespaces<a class="headerlink" href="namespaces.html#models-in-namespaces" title="Permalink to this headline">¶</a></h2>
+<p>Take the following into consideration when using models in namespaces:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Models</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Robots</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Model</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If models have relationships they must include the namespace too:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Models</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Robots</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Model</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">initialize</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasMany</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;Store\Models\Parts&#39;</span><span class="p">,</span> <span class="s1">&#39;robots_id&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;alias&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;parts&#39;</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In PHQL you must write the statements including namespaces:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$phql</span> <span class="o">=</span> <span class="s1">&#39;SELECT r.* FROM Store\Models\Robots r JOIN Store\Models\Parts p&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<div class="related">
+<ul>
+<li class="right">
+<a href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a href="events.html" title="Events Manager">next</a> |</li>
+<li class="right">
+<a href="micro.html" title="Micro Applications">previous</a> |</li>
+</ul>
+</div>
+
+</div>
+<script type="text/javascript">$(window).on("load",function(){var cx='009733439235723428699:lh9ltjgvdz8';var gcse=document.createElement('script');gcse.type='text/javascript';gcse.async=true;gcse.src=(document.location.protocol=='https:'?'https:':'http:')+'//www.google.com/cse/cse.js?cx='+cx;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse,s);});</script>
+<script type="text/javascript">if(window.parent==window){var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-29332509-1']);_gaq.push(['_setDomainName','docs.phalconphp.com']);_gaq.push(['_setAllowLinker',true]);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();}</script></body>
+</html>
