@@ -10,7 +10,7 @@ Based on the version [dash-phalcon](https://github.com/omdevin/dash-phalcon) by 
 
 ## Basic Installation
 
-Just copy the [Phalcon Docset](https://github.com/simioprg/dash-phalcon/blob/master/Phalcon.docset) provided to '/Users/username/Library/Application Support/Dash/Docsets/**Phalcon**', but before make sure that the **Phalcon** folder
+Just copy the [Phalcon Docset](https://github.com/simioprg/dash-phalcon/releases/download/1.0/Phalcon.zip) provided to '/Users/username/Library/Application Support/Dash/Docsets/**Phalcon**', but before make sure that the **Phalcon** folder
 is created.
 
 ## Manual Build
