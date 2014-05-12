@@ -32,6 +32,6 @@ Because the script provided downloads the full documentation recursively from th
 
 ## Known Issues
 
-* The table of contents isn't working.
-* The guides aren't encoded/decoded properly.
-* A "¶" symbol appears on every class, method, constant or guide. It appears to be concatenated when the documentation is parsed.
+* The table of contents isn't working. See also [#1](/../../issues/)
+* The guides aren't encoded/decoded properly. See also [#2](/../../issues/)
+* A "¶" symbol appears on every class, method, constant or guide. It appears to be concatenated when the documentation is parsed. See also [#3](/../../issues/)
