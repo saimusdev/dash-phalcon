@@ -1,2 +1,0 @@
-Table of contents not working, when it did before.
-Url encoded but not decoded (Ex.: Guides).
