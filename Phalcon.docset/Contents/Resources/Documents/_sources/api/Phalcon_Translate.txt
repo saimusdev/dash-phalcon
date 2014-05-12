@@ -1,3 +1,0 @@
-Abstract class **Phalcon\\Translate**
-=====================================
-
