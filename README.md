@@ -1,16 +1,17 @@
 # [Phalcon PHP](http://foundation.zurb.com) Dash docset
 
-**NOT WORKING YET. SOON WILL UPDATE**
 
 [Phalcon PHP](http://phalconphp.com/en/) documentation for Dash
 
 This docset is to be used with [Dash for Mac](http://kapeli.com/dash).
 
-Based on the repo [dash-phalcon](https://github.com/omdevin/dash-phalcon) by omdevin.
+Based on the version [dash-phalcon](https://github.com/omdevin/dash-phalcon) by **omdevin**.
 
 
 ## Basic Installation
-Just copy the [Phalcon Docset](https://github.com/simioprg/dash-phalcon/blob/master/Phalcon.docset) provided to '/Users/myUserName/Library/Application Support/Dash/Docsets/**Phalcon**', but before create the **Phalcon** folder if it doesn't already exist.
+
+Just copy the [Phalcon Docset](https://github.com/simioprg/dash-phalcon/blob/master/Phalcon.docset) provided to '/Users/username/Library/Application Support/Dash/Docsets/**Phalcon**', but before make sure that the **Phalcon** folder
+is created.
 
 ## Manual Build
 
@@ -24,7 +25,6 @@ cd ..
 rm -rf dash-foundation
 ```
 
-## Notes
+### Notes
 
-Because the script provided downloads the documentation recursively from the website,
-it takes some time to download all the files. At least 4-6 minutes, so have patience.
+Because the script provided downloads the full documentation recursively from the [Phalcon PHP](http://phalconphp.com/en/)  website, it takes some time to download all the files. At least 4-6 minutes will be necessary. Please have patience.
