@@ -4,7 +4,8 @@
 [Phalcon PHP](http://phalconphp.com/en/) documentation for Dash
 
 This docset is to be used with [Dash for Mac](http://kapeli.com/dash),
-or [Zeal docs]( http://zealdocs.org), which is available for Windows.
+or [Zeal docs]( http://zealdocs.org) (which is available for Windows and many
+Linux distros).
 
 Based on the version [dash-phalcon](https://github.com/omdevin/dash-phalcon) by **omdevin**.
 
