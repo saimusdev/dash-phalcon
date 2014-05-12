@@ -104,8 +104,9 @@ function findGuides($sqlite, $fileName)
 					}
 					$GLOBALS['numGuides']++;
 					$anchor = $guide->find('a',0);
+					$guideName = urlencode($guide->plaintext);
 					$guide->outertext = '<a name="//apple_ref/cpp/' . GUIDE . '/' .
-						urlencode($guide->plaintext) .'" class="dashAnchor">'.$guide->innertext.'</a>';
+						$guideName .'" class="dashAnchor">'.$guide->innertext.'</a>';
 					insert($sqlite, array($anchor->plaintext), GUIDE, $anchor->href);
 				}
 			}
@@ -170,9 +171,10 @@ function searchFor($pSqlite, $pData, $pType, $fileName)
 	
 	foreach ($pData as $item) {
 		if($item) {
+			$pName = urlencode($item->plaintext);
 			array_push($items, $item->plaintext);
 			$item->outertext = '<a name="//apple_ref/cpp/' . $pType . '/' .
-			urlencode($item->plaintext) .'" class="dashAnchor">'.$item->innertext.'</a>';
+				$pName .'" class="dashAnchor">'.$item->innertext.'</a>';
 		}
 	}
 	insert($pSqlite, $items, $pType, $fileName);
@@ -246,6 +248,7 @@ function rewriteHtml($pHtml, $pFileName)
 		$otherFormats->height = '0px';
 	}
 	if($related = $pHtml->find('div[class=related]', 0)) {
+		$relatedUl = $related->find('ul', 0);
 		$related->innertext = '';
 		$related->outertext = '';
 		$related->width = '0px';
