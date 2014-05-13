@@ -32,6 +32,6 @@ Because the script provided downloads the full documentation recursively from th
 
 ## Known Issues
 
-* The table of contents isn't working. See also [#1](/../../issues/1)
 * The guides aren't encoded/decoded properly. See also [#2](/../../issues/2)
 * A "¶" symbol appears on every class, method, constant or guide. It appears to be concatenated when the documentation is parsed. See also [#3](/../../issues/3)
+* The documentation isn't 'mobile friendly'. Which means that it has a min-width and it can't get any smaller than that certain point. Aka scrolling issue. See also [#4](/../../issues/4)
