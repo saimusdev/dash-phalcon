@@ -10,7 +10,7 @@ Based on the version [dash-phalcon](https://github.com/omdevin/dash-phalcon) by 
 
 ## Basic Installation
 
-* If you plan on using it with **Dash**, just copy the [Phalcon docset](https://github.com/simioprg/dash-phalcon/releases/download/1.0/Phalcon.zip) provided to '/Users/username/Library/Application Support/Dash/Docsets/'. [Dash for Mac](http://kapeli.com/dash) for more info.
+* If you plan on using it with **Dash**, just copy the [Phalcon docset](https://github.com/simioprg/dash-phalcon/releases/download/v1.0.2/Phalcon.zip) provided to '/Users/username/Library/Application Support/Dash/Docsets/'. [Dash for Mac](http://kapeli.com/dash) for more info.
 * If you're going to use it with **Zeal** you'll find where to store the [Phalcon docset](https://github.com/simioprg/dash-phalcon/releases/download/1.0/Phalcon.zip) in the application 'Options' menu. Visit [their Github page](https://github.com/jkozera/zeal) for more info. 
 
 
