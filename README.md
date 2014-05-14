@@ -34,5 +34,3 @@ Because the script provided downloads the full documentation recursively from th
 
 * The guides aren't encoded/decoded properly. See also [#2](/../../issues/2)
 * A "¶" symbol appears on every class, method, constant or guide. It appears to be concatenated when the documentation is parsed. See also [#3](/../../issues/3)
-* Four menu buttons appear on the bottom of every page which shouldn't appear at all. See also [#5](/../../issues/5)
- 
