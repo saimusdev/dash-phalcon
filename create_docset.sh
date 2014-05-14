@@ -47,6 +47,16 @@ EOF
 echo -e "$(tput setaf 2)--> Parsing the documentation...$(tput sgr0)"
 php phalcon_parser.php ${DOCSET_NAME}.docset ${DOCSET_NAME}.docset/Contents/Resources/Documents
 
+# AVOID HORIZONTAL SCROLLING BY DIMINISHING MIN-WIDTH OF HTLM DOC
+for stylesheet in `find ${DOCSET_NAME}.docset/Contents/Resources/Documents -name *.css`; do
+	cat >> $stylesheet << EOF
+.size-wrap  { min-width: 80px; }
+.header-line  { min-width: 100px; }
+body { min-width: 110px; }
+div.related { visibility:hidden; }
+EOF
+done
+
 # OPEN THE DOCSET
 if [ -d "$HOME/Library/Application Support/Dash/Docsets" ]; then
 	echo -e "$(tput setaf 2)--> Moving the docset into $HOME/Library/Application Support/Dash/Docsets/$DOCSET_NAM$(tput sgr0)"

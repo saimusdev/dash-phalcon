@@ -124,7 +124,7 @@ function findGuides($sqlite, $fileName)
  * @param object $pSqlite SQLite handler
  */
 function findOther($file, $sqlite)
-{	
+{		
 	$html = file_get_html($file);
 	if ($html) {
 		// Open the SQLite connection
@@ -153,8 +153,10 @@ function findOther($file, $sqlite)
 		}
 		unset($methods);
 		
-		$sqlite = null;	// Close the SQLite connection
+		// Save to html in-page anchors created for constants and methods
+		file_put_contents($file, $html);
 		
+		$sqlite = null;	// Close the SQLite connection
 	}
 }
 
@@ -172,12 +174,12 @@ function searchFor($pSqlite, $pData, $pType, $fileName)
 	foreach ($pData as $item) {
 		if($item) {
 			$pName = urlencode($item->plaintext);
-			array_push($items, $item->plaintext);
+			array_push($items, $item->plaintext);	
 			$item->outertext = '<a name="//apple_ref/cpp/' . $pType . '/' .
-				$pName .'" class="dashAnchor">'.$item->innertext.'</a>';
+				$pName .'" id="' . $item->plaintext . '" class="dashAnchor">'.$item->innertext.'</a>';
+			
 		}
 	}
-	insert($pSqlite, $items, $pType, $fileName);
  	if(count($items) != 0) {
  		insert($pSqlite, $items, $pType, $fileName);
  	}
@@ -200,7 +202,7 @@ function insert($pSqlite, $pData, $pType, $fileName)
 	foreach ($pData as $data) {
 		$stmt->bindValue(':name', $data);
 		$stmt->bindValue(':type', $pType);
-		$stmt->bindValue(':path', $fileName);
+		$stmt->bindValue(':path', $fileName . "#" . $data);
 		$stmt->execute();
 	}		
 }
@@ -217,14 +219,10 @@ function rewriteHtml($pHtml, $pFileName)
 	if($menuBar = $pHtml->find('div[class=size-wrap]', 0)) {
 		$menuBar->innertext = '';
 		$menuBar->outertext = '';
-		$menuBar->width = '0px';
-		$menuBar->height = '0px';
 	}
 	if($headerLine = $pHtml->find('div[class=header-line]', 0)) {
 		$headerLine->innertext = '';
 		$headerLine->outertext = '';
-		$headerLine->width = '0px';
-		$headerLine->height = '0px';
 	}
 	if($table = $pHtml->find('table[width=90%]', 0)) {
 		$table->width='100%';
@@ -232,33 +230,25 @@ function rewriteHtml($pHtml, $pFileName)
 	if($tableContents = $pHtml->find('td[class=primary-box]', 0)) {
 		$tableContents->innertext = '';
 		$tableContents->outertext = '';
-		$tableContents->width = '0px';
-		$tableContents->height = '0px';
 	}
 	if($indexToc = $pHtml->find('div[id=table-of-contents]', 0)) {
 		$indexToc->innertext = '';
 		$indexToc->outertext = '';
-		$indexToc->width = '0px';
-		$indexToc->height = '0px';
 	}
 	if($otherFormats = $pHtml->find('div[id=other-formats]', 0)) {
 		$otherFormats->innertext = '';
 		$otherFormats->outertext = '';
-		$otherFormats->width = '0px';
-		$otherFormats->height = '0px';
 	}
+	/* Solved this one with css
 	if($related = $pHtml->find('div[class=related]', 0)) {
 		$relatedUl = $related->find('ul', 0);
 		$related->innertext = '';
 		$related->outertext = '';
-		$related->width = '0px';
-		$related->height = '0px';
 	}
+	*/
 	if($footer = $pHtml->find('div[id=footer]', 0)) {
 		$footer->innertext = '';
 		$footer->outertext = '';
-		$footer->width = '0px';
-		$footer->height = '0px';
 	}
 	
 	file_put_contents($pFileName, $pHtml);	
