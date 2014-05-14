@@ -104,7 +104,7 @@ function findGuides($sqlite, $fileName)
 					}
 					$GLOBALS['numGuides']++;
 					$anchor = $guide->find('a',0);
-					$guideName = urlencode($guide->plaintext);
+					$guideName = $guide->plaintext;
 					$guide->outertext = '<a name="//apple_ref/cpp/' . GUIDE . '/' .
 						$guideName .'" class="dashAnchor">'.$guide->innertext.'</a>';
 					insert($sqlite, array($anchor->plaintext), GUIDE, $anchor->href);
@@ -173,7 +173,7 @@ function searchFor($pSqlite, $pData, $pType, $fileName)
 	
 	foreach ($pData as $item) {
 		if($item) {
-			$pName = urlencode($item->plaintext);
+			$pName = $item->plaintext;
 			array_push($items, $item->plaintext);	
 			$item->outertext = '<a name="//apple_ref/cpp/' . $pType . '/' .
 				$pName .'" id="' . $item->plaintext . '" class="dashAnchor">'.$item->innertext.'</a>';
