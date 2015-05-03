@@ -27,7 +27,7 @@ $GLOBALS['numConstants'] = 0;
 $GLOBALS['numGuides'] = 0;
 $GLOBALS['numMethods'] = 0;
 
-//  CREATE THE DATABASE...
+// CREATE THE DATABASE...
 $sqlite = new PDO("sqlite:" . DOCSET_NAME . "/Contents/Resources/docSet.dsidx");
 $create_table = 'CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);';
 $stmt = $sqlite->exec($create_table);
