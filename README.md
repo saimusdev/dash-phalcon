@@ -24,4 +24,6 @@ git clone https://github.com/saimusdev/dash-phalcon.git
 cd dash-phalcon
 git co phalcon-2.0.0
 ./build.sh
+cd ..
+rm -rf dash-phalcon
 ```
