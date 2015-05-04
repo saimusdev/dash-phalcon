@@ -18,12 +18,11 @@ If you're going to use it with **Zeal** you'll find where to store the [Phalcon 
 
 ## Manual Build
 
-The docset can be built by running one of the following commands in your terminal. You can build the docset with either `curl` or `wget`.
+The docset can be built by running the following commands in your terminal
 
-#### with curl
-
-`curl -L https://raw.github.com/saimusdev/dash-phalcon/master/build.sh | sh`
-
-#### with wget
-
-`wget https://raw.github.com/saimusdev/dash-phalcon/master/build.sh  -O - | sh`
+```
+git clone https://github.com/saimusdev/dash-phalcon.git
+cd dash-phalcon
+git co phalcon-1.3.0
+./build.sh
+```
