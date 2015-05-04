@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Universal Class Loader — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="next" title="Logging" href="logging.html">
+<link rel="prev" title="Multi-lingual Support" href="translate.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="universal-class-loader">
+<h1>Universal Class Loader</h1>
+<p><a class="reference internal" href="../api/Phalcon_Loader.html"><em>Phalcon\Loader</em></a> is a component that allows you to load project classes automatically,
+based on some predefined rules. Since this component is written in C, it provides the lowest overhead in
+reading and interpreting external PHP files.</p>
+<p>The behavior of this component is based on the PHP’s capability of <a class="reference external" href="http://www.php.net/manual/en/language.oop5.autoload.php">autoloading classes</a>. If a class that does
+not exist is used in any part of the code, a special handler will try to load it.
+<a class="reference internal" href="../api/Phalcon_Loader.html"><em>Phalcon\Loader</em></a> serves as the special handler for this operation.
+By loading classes on a need to load basis, the overall performance is increased since the only file
+reads that occur are for the files needed. This technique is called <a class="reference external" href="http://en.wikipedia.org/wiki/Lazy_initialization">lazy initialization</a>.</p>
+<p>With this component you can load files from other projects or vendors, this autoloader is <a class="reference external" href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> compliant.</p>
+<p><a class="reference internal" href="../api/Phalcon_Loader.html"><em>Phalcon\Loader</em></a> offers four options to autoload classes. You can use them one at a time or combine them.</p>
+<div class="section" id="registering-namespaces">
+<h2>Registering Namespaces
+</h2>
+<p>If you’re organizing your code using namespaces, or external libraries do so, the registerNamespaces() provides the autoloading mechanism. It
+takes an associative array, which keys are namespace prefixes and their values are directories where the classes are located in. The namespace
+separator will be replaced by the directory separator when the loader try to find the classes. Remember always to add a trailing slash at
+the end of the paths.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// Creates the autoloader</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="c1">//Register some namespaces</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+       <span class="s2">"Example\Base"</span>    <span class="o">=&gt;</span> <span class="s2">"vendor/example/base/"</span><span class="p">,</span>
+       <span class="s2">"Example\Adapter"</span> <span class="o">=&gt;</span> <span class="s2">"vendor/example/adapter/"</span><span class="p">,</span>
+       <span class="s2">"Example"</span>         <span class="o">=&gt;</span> <span class="s2">"vendor/example/"</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// register autoloader</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+<span class="c1">// The required class will automatically include the</span>
+<span class="c1">// file vendor/example/adapter/Some.php</span>
+<span class="nv">$some</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example\Adapter\Some</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-prefixes">
+<h2>Registering Prefixes
+</h2>
+<p>This strategy is similar to the namespaces strategy. It takes an associative array, which keys are prefixes and their values are directories
+where the classes are located in. The namespace separator and the “_” underscore character will be replaced by the directory separator when
+the loader try to find the classes. Remember always to add a trailing slash at the end of the paths.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// Creates the autoloader</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="c1">//Register some prefixes</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerPrefixes</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+       <span class="s2">"Example_Base"</span>     <span class="o">=&gt;</span> <span class="s2">"vendor/example/base/"</span><span class="p">,</span>
+       <span class="s2">"Example_Adapter"</span>  <span class="o">=&gt;</span> <span class="s2">"vendor/example/adapter/"</span><span class="p">,</span>
+       <span class="s2">"Example_"</span>         <span class="o">=&gt;</span> <span class="s2">"vendor/example/"</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// register autoloader</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+<span class="c1">// The required class will automatically include the</span>
+<span class="c1">// file vendor/example/adapter/Some.php</span>
+<span class="nv">$some</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Example_Adapter_Some</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-directories">
+<h2>Registering Directories
+</h2>
+<p>The third option is to register directories, in which classes could be found. This option is not recommended in terms of performance,
+since Phalcon will need to perform a significant number of file stats on each folder, looking for the file with the same name as the class.
+It’s important to register the directories in relevance order. Remember always add a trailing slash at the end of the paths.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// Creates the autoloader</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="c1">// Register some directories</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerDirs</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"library/MyComponent/"</span><span class="p">,</span>
+        <span class="s2">"library/OtherComponent/Other/"</span><span class="p">,</span>
+        <span class="s2">"vendor/example/adapters/"</span><span class="p">,</span>
+        <span class="s2">"vendor/example/"</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// register autoloader</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+<span class="c1">// The required class will automatically include the file from</span>
+<span class="c1">// the first directory where it has been located</span>
+<span class="c1">// i.e. library/OtherComponent/Other/Some.php</span>
+<span class="nv">$some</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Some</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-classes">
+<h2>Registering Classes
+</h2>
+<p>The last option is to register the class name and its path. This autoloader can be very useful when the folder convention of the
+project does not allow for easy retrieval of the file using the path and the class name. This is the fastest method of autoloading.
+However the more your application grows, the more classes/files need to be added to this autoloader, which will effectively make
+maintenance of the class list very cumbersome and it is not recommended.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// Creates the autoloader</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="c1">// Register some classes</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerClasses</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"Some"</span>         <span class="o">=&gt;</span> <span class="s2">"library/OtherComponent/Other/Some.php"</span><span class="p">,</span>
+        <span class="s2">"Example\Base"</span> <span class="o">=&gt;</span> <span class="s2">"vendor/example/adapters/Example/BaseClass.php"</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// register autoloader</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+<span class="c1">// Requiring a class will automatically include the file it references</span>
+<span class="c1">// in the associative array</span>
+<span class="c1">// i.e. library/OtherComponent/Other/Some.php</span>
+<span class="nv">$some</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Some</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-file-extensions">
+<h2>Additional file extensions
+</h2>
+<p>Some autoloading strategies such as “prefixes”, “namespaces” or “directories” automatically append the “php” extension at the end of the checked file. If you
+are using additional extensions you could set it with the method “setExtensions”. Files are checked in the order as it were defined:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">// Creates the autoloader</span>
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="c1">//Set file extensions to check</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">setExtensions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"php"</span><span class="p">,</span> <span class="s2">"inc"</span><span class="p">,</span> <span class="s2">"phb"</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifying-current-strategies">
+<h2>Modifying current strategies
+</h2>
+<p>Additional auto-loading data can be added to existing values in the following way:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// Adding more directories</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerDirs</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"../app/library/"</span><span class="p">,</span>
+        <span class="s2">"../app/plugins/"</span>
+    <span class="p">),</span>
+    <span class="k">true</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Passing “true” as second parameter will merge the current values with new ones in any strategy.</p>
+</div>
+<div class="section" id="security-layer">
+<h2>Security Layer
+</h2>
+<p>Phalcon\Loader offers a security layer sanitizing by default class names avoiding possible inclusion of unauthorized files.
+Consider the following example:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Basic autoloader</span>
+<span class="nb">spl_autoload_register</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$className</span> <span class="o">.</span> <span class="s1">'.php'</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">require</span> <span class="nv">$className</span> <span class="o">.</span> <span class="s1">'.php'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The above auto-loader lacks of any security check, if by mistake in a function that launch the auto-loader,
+a malicious prepared string is used as parameter this would allow to execute any file accessible by the application:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//This variable is not filtered and comes from an insecure source</span>
+<span class="nv">$className</span> <span class="o">=</span> <span class="s1">'../processes/important-process'</span><span class="p">;</span>
+
+<span class="c1">//Check if the class exists triggering the auto-loader</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">class_exists</span><span class="p">(</span><span class="nv">$className</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If ‘../processes/important-process.php’ is a valid file, an external user could execute the file without
+authorization.</p>
+<p>To avoid these or most sophisticated attacks, Phalcon\Loader removes any invalid character from the class name
+reducing the possibility of being attacked.</p>
+</div>
+<div class="section" id="autoloading-events">
+<h2>Autoloading Events
+</h2>
+<p>In the following example, the EventsManager is working with the class loader, allowing us to obtain debugging information regarding the flow of operation:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$eventsManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Events\Manager</span><span class="p">();</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+   <span class="s1">'Example\\Base'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/base/'</span><span class="p">,</span>
+   <span class="s1">'Example\\Adapter'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/adapter/'</span><span class="p">,</span>
+   <span class="s1">'Example'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/'</span>
+<span class="p">));</span>
+
+<span class="c1">//Listen all the loader events</span>
+<span class="nv">$eventsManager</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">'loader'</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$event</span><span class="p">,</span> <span class="nv">$loader</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getType</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'beforeCheckPath'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">getCheckedPath</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">setEventsManager</span><span class="p">(</span><span class="nv">$eventsManager</span><span class="p">);</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Some events when returning boolean false could stop the active operation. The following events are supported:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%">
+<col width="38%">
+<col width="37%">
+<col width="14%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd">
+<th class="head">Event Name</th>
+<th class="head" colspan="2">Triggered</th>
+<th class="head">Can stop operation?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even">
+<td>beforeCheckClass</td>
+<td colspan="2">Triggered before starting the autoloading process</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd">
+<td>pathFound</td>
+<td colspan="2">Triggered when the loader locate a class</td>
+<td>No</td>
+</tr>
+<tr class="row-even">
+<td>afterCheckClass</td>
+<td colspan="2">Triggered after finish the autoloading process. If this event is launched the autoloader didn’t find the class file</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting
+</h2>
+<p>Some things to keep in mind when using the universal autoloader:</p>
+<ul class="simple">
+<li>Auto-loading process is case-sensitive, the class will be loaded as it is written in the code</li>
+<li>Strategies based on namespaces/prefixes are faster than the directories strategy</li>
+<li>If a cache bytecode like <a class="reference external" href="http://php.net/manual/en/book.apc.php">APC</a> is installed this will used to retrieve the requested file (an implicit caching of the file is performed)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

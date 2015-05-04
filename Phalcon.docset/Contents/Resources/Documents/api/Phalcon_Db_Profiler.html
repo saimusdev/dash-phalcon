@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Db\Profiler — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Db\Profiler\Item" href="Phalcon_Db_Profiler_Item.html">
+<link rel="prev" title="Class Phalcon\Db\Index" href="Phalcon_Db_Index.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-db-profiler">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CDb%5CProfiler" id="Phalcon\Db\Profiler" class="dashAnchor"></a><strong>Phalcon\Db\Profiler</strong>
+</h1>
+<p>Instances of Phalcon\Db can generate execution profiles on SQL statements sent to the relational database. Profiled information includes execution time in miliseconds. This helps you to identify bottlenecks in your applications.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$profiler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Db\Profiler</span><span class="p">();</span>
+
+<span class="c1">//Set the connection profiler</span>
+<span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">setProfiler</span><span class="p">(</span><span class="nv">$profiler</span><span class="p">);</span>
+
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT buyer_name, quantity, product_name</span>
+<span class="s2">FROM buyers LEFT JOIN products ON</span>
+<span class="s2">buyers.pid=products.id"</span><span class="p">;</span>
+
+<span class="c1">//Execute a SQL statement</span>
+<span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+<span class="c1">//Get the last profile in the profiler</span>
+<span class="nv">$profile</span> <span class="o">=</span> <span class="nv">$profiler</span><span class="o">-&gt;</span><span class="na">getLastProfile</span><span class="p">();</span>
+
+<span class="k">echo</span> <span class="s2">"SQL Statement: "</span><span class="p">,</span> <span class="nv">$profile</span><span class="o">-&gt;</span><span class="na">getSQLStatement</span><span class="p">(),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"Start Time: "</span><span class="p">,</span> <span class="nv">$profile</span><span class="o">-&gt;</span><span class="na">getInitialTime</span><span class="p">(),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"Final Time: "</span><span class="p">,</span> <span class="nv">$profile</span><span class="o">-&gt;</span><span class="na">getFinalTime</span><span class="p">(),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"Total Elapsed Time: "</span><span class="p">,</span> <span class="nv">$profile</span><span class="o">-&gt;</span><span class="na">getTotalElapsedSeconds</span><span class="p">(),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public <a class="reference internal" href="Phalcon_Db_Profiler.html"><em>Phalcon\Db\Profiler</em></a> <a name="//apple_ref/cpp/Method/startProfile" id="startProfile" class="dashAnchor"></a><strong>startProfile</strong> (<em>string</em> $sqlStatement, [<em>unknown</em> $sqlVariables], [<em>unknown</em> $sqlBindTypes])</p>
+<p>Starts the profile of a SQL sentence</p>
+<p>public <a class="reference internal" href="Phalcon_Db_Profiler.html"><em>Phalcon\Db\Profiler</em></a> <a name="//apple_ref/cpp/Method/stopProfile" id="stopProfile" class="dashAnchor"></a><strong>stopProfile</strong> ()</p>
+<p>Stops the active profile</p>
+<p>public <em>integer</em> <a name="//apple_ref/cpp/Method/getNumberTotalStatements" id="getNumberTotalStatements" class="dashAnchor"></a><strong>getNumberTotalStatements</strong> ()</p>
+<p>Returns the total number of SQL statements processed</p>
+<p>public <em>double</em> <a name="//apple_ref/cpp/Method/getTotalElapsedSeconds" id="getTotalElapsedSeconds" class="dashAnchor"></a><strong>getTotalElapsedSeconds</strong> ()</p>
+<p>Returns the total time in seconds spent by the profiles</p>
+<p>public <a class="reference internal" href="Phalcon_Db_Profiler_Item.html"><em>Phalcon\Db\Profiler\Item</em></a> [] <a name="//apple_ref/cpp/Method/getProfiles" id="getProfiles" class="dashAnchor"></a><strong>getProfiles</strong> ()</p>
+<p>Returns all the processed profiles</p>
+<p>public <a class="reference internal" href="Phalcon_Db_Profiler.html"><em>Phalcon\Db\Profiler</em></a> <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> ()</p>
+<p>Resets the profiler, cleaning up all the profiles</p>
+<p>public <a class="reference internal" href="Phalcon_Db_Profiler_Item.html"><em>Phalcon\Db\Profiler\Item</em></a> <a name="//apple_ref/cpp/Method/getLastProfile" id="getLastProfile" class="dashAnchor"></a><strong>getLastProfile</strong> ()</p>
+<p>Returns the last profile executed in the profiler</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

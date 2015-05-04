@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Debug — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Abstract class Phalcon\Dispatcher" href="Phalcon_Dispatcher.html">
+<link rel="prev" title="Class Phalcon\Db\Result\Pdo" href="Phalcon_Db_Result_Pdo.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-debug">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CDebug" id="Phalcon\Debug" class="dashAnchor"></a><strong>Phalcon\Debug</strong>
+</h1>
+<p>Provides debug capabilities to Phalcon applications</p>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/setUri" id="setUri" class="dashAnchor"></a><strong>setUri</strong> (<em>string</em> $uri)</p>
+<p>Change the base URI for static resources</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/setShowBackTrace" id="setShowBackTrace" class="dashAnchor"></a><strong>setShowBackTrace</strong> (<em>boolean</em> $showBackTrace)</p>
+<p>Sets if files the exception’s backtrace must be showed</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/setShowFiles" id="setShowFiles" class="dashAnchor"></a><strong>setShowFiles</strong> (<em>boolean</em> $showFiles)</p>
+<p>Set if files part of the backtrace must be shown in the output</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/setShowFileFragment" id="setShowFileFragment" class="dashAnchor"></a><strong>setShowFileFragment</strong> (<em>boolean</em> $showFileFragment)</p>
+<p>Sets if files must be completely opened and showed in the output or just the fragment related to the exception</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/listen" id="listen" class="dashAnchor"></a><strong>listen</strong> ([<em>boolean</em> $exceptions], [<em>boolean</em> $lowSeverity])</p>
+<p>Listen for uncaught exceptions and unsilent notices or warnings</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/listenExceptions" id="listenExceptions" class="dashAnchor"></a><strong>listenExceptions</strong> ()</p>
+<p>Listen for uncaught exceptions</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/listenLowSeverity" id="listenLowSeverity" class="dashAnchor"></a><strong>listenLowSeverity</strong> ()</p>
+<p>Listen for unsilent notices or warnings</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/debugVar" id="debugVar" class="dashAnchor"></a><strong>debugVar</strong> (<em>mixed</em> $var, [<em>string</em> $key])</p>
+<p>Adds a variable to the debug output</p>
+<p>public <a class="reference internal" href="Phalcon_Debug.html"><em>Phalcon\Debug</em></a> <a name="//apple_ref/cpp/Method/clearVars" id="clearVars" class="dashAnchor"></a><strong>clearVars</strong> ()</p>
+<p>Clears are variables added previously</p>
+<p>protected <em>string</em> <a name="//apple_ref/cpp/Method/_escapeString" id="_escapeString" class="dashAnchor"></a><strong>_escapeString</strong> ()</p>
+<p>Escapes a string with htmlentities</p>
+<p>protected <em>string</em> <a name="//apple_ref/cpp/Method/_getArrayDump" id="_getArrayDump" class="dashAnchor"></a><strong>_getArrayDump</strong> ()</p>
+<p>Produces a recursive representation of an array</p>
+<p>protected <em>string</em> <a name="//apple_ref/cpp/Method/_getVarDump" id="_getVarDump" class="dashAnchor"></a><strong>_getVarDump</strong> ()</p>
+<p>Produces an string representation of a variable</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getMajorVersion" id="getMajorVersion" class="dashAnchor"></a><strong>getMajorVersion</strong> ()</p>
+<p>Returns the major framework’s version</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getVersion" id="getVersion" class="dashAnchor"></a><strong>getVersion</strong> ()</p>
+<p>Generates a link to the current version documentation</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getCssSources" id="getCssSources" class="dashAnchor"></a><strong>getCssSources</strong> ()</p>
+<p>Returns the css sources</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getJsSources" id="getJsSources" class="dashAnchor"></a><strong>getJsSources</strong> ()</p>
+<p>Returns the javascript sources</p>
+<p>protected <a name="//apple_ref/cpp/Method/showTraceItem" id="showTraceItem" class="dashAnchor"></a><strong>showTraceItem</strong> ()</p>
+<p>Shows a backtrace item</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/onUncaughtException" id="onUncaughtException" class="dashAnchor"></a><strong>onUncaughtException</strong> (<em>Exception</em> $exception)</p>
+<p>Handles uncaught exceptions</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getCharset" id="getCharset" class="dashAnchor"></a><strong>getCharset</strong> ()</p>
+<p>Returns the character set used to display the HTML</p>
+<p>public <em>PhalconDebug</em> <a name="//apple_ref/cpp/Method/setCharset" id="setCharset" class="dashAnchor"></a><strong>setCharset</strong> (<em>string</em> $charset)</p>
+<p>Sets the character set used to display the HTML</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getLinesBeforeContext" id="getLinesBeforeContext" class="dashAnchor"></a><strong>getLinesBeforeContext</strong> ()</p>
+<p>Returns the number of lines deplayed before the error line</p>
+<p>public <em>PhalconDebug</em> <a name="//apple_ref/cpp/Method/setLinesBeforeContext" id="setLinesBeforeContext" class="dashAnchor"></a><strong>setLinesBeforeContext</strong> (<em>int</em> $lines)</p>
+<p>Sets the number of lines deplayed before the error line</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getLinesAfterContext" id="getLinesAfterContext" class="dashAnchor"></a><strong>getLinesAfterContext</strong> ()</p>
+<p>Returns the number of lines deplayed after the error line</p>
+<p>public <em>PhalconDebug</em> <a name="//apple_ref/cpp/Method/setLinesAfterContext" id="setLinesAfterContext" class="dashAnchor"></a><strong>setLinesAfterContext</strong> (<em>int</em> $lines)</p>
+<p>Sets the number of lines deplayed after the error line</p>
+<p>protected <a name="//apple_ref/cpp/Method/getFileLink" id="getFileLink" class="dashAnchor"></a><strong>getFileLink</strong> (<em>unknown</em> $file, <em>unknown</em> $line, <em>unknown</em> $format)</p>
+<p>...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

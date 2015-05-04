@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\Http\Request\FileInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\Http\ResponseInterface" href="Phalcon_Http_ResponseInterface.html">
+<link rel="prev" title="Interface Phalcon\Http\RequestInterface" href="Phalcon_Http_RequestInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-http-request-fileinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CRequest%5CFileInterface" id="Phalcon\Http\Request\FileInterface" class="dashAnchor"></a><strong>Phalcon\Http\Request\FileInterface</strong>
+</h1>
+<p>Phalcon\Http\Request\FileInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>abstract public <em>int</em> <a name="//apple_ref/cpp/Method/getSize" id="getSize" class="dashAnchor"></a><strong>getSize</strong> ()</p>
+<p>Returns the file size of the uploaded file</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getName" id="getName" class="dashAnchor"></a><strong>getName</strong> ()</p>
+<p>Returns the real name of the uploaded file</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getTempName" id="getTempName" class="dashAnchor"></a><strong>getTempName</strong> ()</p>
+<p>Returns the temporal name of the uploaded file</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getType" id="getType" class="dashAnchor"></a><strong>getType</strong> ()</p>
+<p>Returns the mime type reported by the browser This mime type is not completely secure, use getRealType() instead</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getRealType" id="getRealType" class="dashAnchor"></a><strong>getRealType</strong> ()</p>
+<p>Gets the real mime type of the upload file using finfo</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/moveTo" id="moveTo" class="dashAnchor"></a><strong>moveTo</strong> (<em>string</em> $destination)</p>
+<p>Move the temporary file to a destination</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

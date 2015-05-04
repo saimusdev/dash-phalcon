@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Image\Adapter\Imagick — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Image\Exception" href="Phalcon_Image_Exception.html">
+<link rel="prev" title="Class Phalcon\Image\Adapter\GD" href="Phalcon_Image_Adapter_GD.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-image-adapter-imagick">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CImage%5CAdapter%5CImagick" id="Phalcon\Image\Adapter\Imagick" class="dashAnchor"></a><strong>Phalcon\Image\Adapter\Imagick</strong>
+</h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Image_AdapterInterface.html"><em>Phalcon\Image\AdapterInterface</em></a></p>
+<p>Image manipulation support. Allows images to be resized, cropped, etc.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Image\Adapter\Imagick</span><span class="p">(</span><span class="s2">"upload/test.jpg"</span><span class="p">);</span>
+<span class="nv">$image</span><span class="o">-&gt;</span><span class="na">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$image</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'success'</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public static <em>boolean</em> <a name="//apple_ref/cpp/Method/check" id="check" class="dashAnchor"></a><strong>check</strong> ()</p>
+<p>Checks if Imagick is enabled</p>
+<p>public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>string</em> $file, [<em>unknown</em> $width], [<em>unknown</em> $height])</p>
+<p>Phalcon\Image\Imagick constructor</p>
+<p>protected <a name="//apple_ref/cpp/Method/_resize" id="_resize" class="dashAnchor"></a><strong>_resize</strong> (<em>int</em> $width, <em>int</em> $height)</p>
+<p>Execute a resize.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_liquidRescale" id="_liquidRescale" class="dashAnchor"></a><strong>_liquidRescale</strong> (<em>unknown</em> $width, <em>unknown</em> $height, <em>unknown</em> $delta_x, <em>unknown</em> $regidity)</p>
+<p>This method scales the images using liquid rescaling method. Only support Imagick</p>
+<p>protected <a name="//apple_ref/cpp/Method/_crop" id="_crop" class="dashAnchor"></a><strong>_crop</strong> (<em>int</em> $width, <em>int</em> $height, <em>int</em> $offset_x, <em>int</em> $offset_y)</p>
+<p>Execute a crop.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_rotate" id="_rotate" class="dashAnchor"></a><strong>_rotate</strong> (<em>int</em> $degrees)</p>
+<p>Execute a rotation.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_flip" id="_flip" class="dashAnchor"></a><strong>_flip</strong> (<em>int</em> $direction)</p>
+<p>Execute a flip.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_sharpen" id="_sharpen" class="dashAnchor"></a><strong>_sharpen</strong> (<em>int</em> $amount)</p>
+<p>Execute a sharpen.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_reflection" id="_reflection" class="dashAnchor"></a><strong>_reflection</strong> (<em>int</em> $height, <em>int</em> $opacity, <em>boolean</em> $fade_in)</p>
+<p>Execute a reflection.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_watermark" id="_watermark" class="dashAnchor"></a><strong>_watermark</strong> (<a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> $watermark, <em>int</em> $offset_x, <em>int</em> $offset_y, <em>int</em> $opacity)</p>
+<p>Execute a watermarking.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_text" id="_text" class="dashAnchor"></a><strong>_text</strong> (<em>unknown</em> $text, <em>int</em> $offset_x, <em>int</em> $offset_y, <em>int</em> $opacity, <em>int</em> $r, <em>int</em> $g, <em>int</em> $b, <em>int</em> $size, <em>string</em> $fontfile)</p>
+<p>Execute a text</p>
+<p>protected <a name="//apple_ref/cpp/Method/_mask" id="_mask" class="dashAnchor"></a><strong>_mask</strong> (<em>unknown</em> $mask)</p>
+<p>Composite one image onto another</p>
+<p>protected <a name="//apple_ref/cpp/Method/_background" id="_background" class="dashAnchor"></a><strong>_background</strong> (<em>int</em> $r, <em>int</em> $g, <em>int</em> $b, <em>int</em> $opacity)</p>
+<p>Execute a background.</p>
+<p>protected <a name="//apple_ref/cpp/Method/_blur" id="_blur" class="dashAnchor"></a><strong>_blur</strong> (<em>unknown</em> $radius)</p>
+<p>Blur image</p>
+<p>protected <a name="//apple_ref/cpp/Method/_pixelate" id="_pixelate" class="dashAnchor"></a><strong>_pixelate</strong> (<em>unknown</em> $amount)</p>
+<p>Pixelate image</p>
+<p>protected <em>boolean</em> <a name="//apple_ref/cpp/Method/_save" id="_save" class="dashAnchor"></a><strong>_save</strong> (<em>string</em> $file, <em>int</em> $quality)</p>
+<p>Execute a save.</p>
+<p>protected <em>string</em> <a name="//apple_ref/cpp/Method/_render" id="_render" class="dashAnchor"></a><strong>_render</strong> (<em>string</em> $type, <em>int</em> $quality)</p>
+<p>Execute a render.</p>
+<p>public <a name="//apple_ref/cpp/Method/__destruct" id="__destruct" class="dashAnchor"></a><strong>__destruct</strong> ()</p>
+<p>Destroys the loaded image to free up resources.</p>
+<p>public <a name="//apple_ref/cpp/Method/getInternalImInstance" id="getInternalImInstance" class="dashAnchor"></a><strong>getInternalImInstance</strong> ()</p>
+<p>...</p>
+<p>public static <a name="//apple_ref/cpp/Method/setResourceLimit" id="setResourceLimit" class="dashAnchor"></a><strong>setResourceLimit</strong> (<em>unknown</em> $resource, <em>unknown</em> $limit)</p>
+<p>...</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getRealPath" id="getRealPath" class="dashAnchor"></a><strong>getRealPath</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the real path of the image file</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getWidth" id="getWidth" class="dashAnchor"></a><strong>getWidth</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the width of images</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getHeight" id="getHeight" class="dashAnchor"></a><strong>getHeight</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the height of images</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getType" id="getType" class="dashAnchor"></a><strong>getType</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the type of images</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getMime" id="getMime" class="dashAnchor"></a><strong>getMime</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the mime of images</p>
+<p>public <em>resource</em> <a name="//apple_ref/cpp/Method/getImage" id="getImage" class="dashAnchor"></a><strong>getImage</strong> () inherited from Phalcon\Image\Adapter</p>
+<p>Returns the image of images</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/resize" id="resize" class="dashAnchor"></a><strong>resize</strong> ([<em>unknown</em> $width], [<em>unknown</em> $height], [<em>unknown</em> $master]) inherited from Phalcon\Image\Adapter</p>
+<p>Resize the image to the given size. Either the width or the height can be omitted and the image will be resized proportionally.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/liquidRescale" id="liquidRescale" class="dashAnchor"></a><strong>liquidRescale</strong> (<em>unknown</em> $width, <em>unknown</em> $height, [<em>unknown</em> $delta_x], [<em>unknown</em> $rigidity]) inherited from Phalcon\Image\Adapter</p>
+<p>This method scales the images using liquid rescaling method. Only support Imagick</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/crop" id="crop" class="dashAnchor"></a><strong>crop</strong> (<em>unknown</em> $width, <em>unknown</em> $height, [<em>unknown</em> $offset_x], [<em>unknown</em> $offset_y]) inherited from Phalcon\Image\Adapter</p>
+<p>Crop an image to the given size. Either the width or the height can be omitted and the current width or height will be used.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/rotate" id="rotate" class="dashAnchor"></a><strong>rotate</strong> (<em>unknown</em> $degrees) inherited from Phalcon\Image\Adapter</p>
+<p>Rotate the image by a given amount.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/flip" id="flip" class="dashAnchor"></a><strong>flip</strong> (<em>unknown</em> $direction) inherited from Phalcon\Image\Adapter</p>
+<p>Flip the image along the horizontal or vertical axis.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/sharpen" id="sharpen" class="dashAnchor"></a><strong>sharpen</strong> (<em>unknown</em> $amount) inherited from Phalcon\Image\Adapter</p>
+<p>Sharpen the image by a given amount.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/reflection" id="reflection" class="dashAnchor"></a><strong>reflection</strong> ([<em>unknown</em> $height], [<em>unknown</em> $opacity], [<em>unknown</em> $fade_in]) inherited from Phalcon\Image\Adapter</p>
+<p>Add a reflection to an image. The most opaque part of the reflection will be equal to the opacity setting and fade out to full transparent. Alpha transparency is preserved.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_AdapterInterface.html"><em>Phalcon\Image\AdapterInterface</em></a> <a name="//apple_ref/cpp/Method/watermark" id="watermark" class="dashAnchor"></a><strong>watermark</strong> (<em>unknown</em> $watermark, [<em>unknown</em> $offset_x], [<em>unknown</em> $offset_y], [<em>unknown</em> $opacity]) inherited from Phalcon\Image\Adapter</p>
+<p>Add a watermark to an image with a specified opacity. Alpha transparency will be preserved.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/text" id="text" class="dashAnchor"></a><strong>text</strong> (<em>unknown</em> $text, [<em>unknown</em> $offset_x], [<em>unknown</em> $offset_y], [<em>unknown</em> $opacity], [<em>unknown</em> $color], [<em>unknown</em> $size], [<em>unknown</em> $fontfile]) inherited from Phalcon\Image\Adapter</p>
+<p>Add a text to an image with a specified opacity.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/mask" id="mask" class="dashAnchor"></a><strong>mask</strong> (<em>unknown</em> $mask) inherited from Phalcon\Image\Adapter</p>
+<p>Composite one image onto another</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/background" id="background" class="dashAnchor"></a><strong>background</strong> (<em>unknown</em> $color, [<em>unknown</em> $quality]) inherited from Phalcon\Image\Adapter</p>
+<p>Set the background color of an image. This is only useful for images with alpha transparency.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/blur" id="blur" class="dashAnchor"></a><strong>blur</strong> ([<em>unknown</em> $radius]) inherited from Phalcon\Image\Adapter</p>
+<p>Blur image</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/pixelate" id="pixelate" class="dashAnchor"></a><strong>pixelate</strong> ([<em>unknown</em> $amount]) inherited from Phalcon\Image\Adapter</p>
+<p>Pixelate image</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/save" id="save" class="dashAnchor"></a><strong>save</strong> ([<em>unknown</em> $file], [<em>unknown</em> $quality]) inherited from Phalcon\Image\Adapter</p>
+<p>Save the image. If the filename is omitted, the original image will be overwritten.</p>
+<p>public <a class="reference internal" href="Phalcon_Image_Adapter.html"><em>Phalcon\Image\Adapter</em></a> <a name="//apple_ref/cpp/Method/render" id="render" class="dashAnchor"></a><strong>render</strong> ([<em>unknown</em> $type], [<em>unknown</em> $quality]) inherited from Phalcon\Image\Adapter</p>
+<p>Render the image and return the binary string.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

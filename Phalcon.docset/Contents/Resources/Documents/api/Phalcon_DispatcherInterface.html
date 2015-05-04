@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\DispatcherInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\EscaperInterface" href="Phalcon_EscaperInterface.html">
+<link rel="prev" title="Interface Phalcon\DiInterface" href="Phalcon_DiInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-dispatcherinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CDispatcherInterface" id="Phalcon\DispatcherInterface" class="dashAnchor"></a><strong>Phalcon\DispatcherInterface</strong>
+</h1>
+<p>Phalcon\DispatcherInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>abstract public <a name="//apple_ref/cpp/Method/setActionSuffix" id="setActionSuffix" class="dashAnchor"></a><strong>setActionSuffix</strong> (<em>string</em> $actionSuffix)</p>
+<p>Sets the default action suffix</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setDefaultNamespace" id="setDefaultNamespace" class="dashAnchor"></a><strong>setDefaultNamespace</strong> (<em>string</em> $namespace)</p>
+<p>Sets the default namespace</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setDefaultAction" id="setDefaultAction" class="dashAnchor"></a><strong>setDefaultAction</strong> (<em>string</em> $actionName)</p>
+<p>Sets the default action name</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setActionName" id="setActionName" class="dashAnchor"></a><strong>setActionName</strong> (<em>string</em> $actionName)</p>
+<p>Sets the action name to be dispatched</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getActionName" id="getActionName" class="dashAnchor"></a><strong>getActionName</strong> ()</p>
+<p>Gets last dispatched action name</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setParams" id="setParams" class="dashAnchor"></a><strong>setParams</strong> (<em>array</em> $params)</p>
+<p>Sets action params to be dispatched</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getParams" id="getParams" class="dashAnchor"></a><strong>getParams</strong> ()</p>
+<p>Gets action params</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setParam" id="setParam" class="dashAnchor"></a><strong>setParam</strong> (<em>mixed</em> $param, <em>mixed</em> $value)</p>
+<p>Set a param by its name or numeric index</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/getParam" id="getParam" class="dashAnchor"></a><strong>getParam</strong> (<em>mixed</em> $param, [<em>string|array</em> $filters])</p>
+<p>Gets a param by its name or numeric index</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isFinished" id="isFinished" class="dashAnchor"></a><strong>isFinished</strong> ()</p>
+<p>Checks if the dispatch loop is finished or has more pendent controllers/tasks to disptach</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/getReturnedValue" id="getReturnedValue" class="dashAnchor"></a><strong>getReturnedValue</strong> ()</p>
+<p>Returns value returned by the lastest dispatched action</p>
+<p>abstract public <em>object</em> <a name="//apple_ref/cpp/Method/dispatch" id="dispatch" class="dashAnchor"></a><strong>dispatch</strong> ()</p>
+<p>Dispatches a handle action taking into account the routing parameters</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/forward" id="forward" class="dashAnchor"></a><strong>forward</strong> (<em>array</em> $forward)</p>
+<p>Forwards the execution flow to another controller/action</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\Mvc\Model\ResultsetInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\Mvc\Model\TransactionInterface" href="Phalcon_Mvc_Model_TransactionInterface.html">
+<link rel="prev" title="Interface Phalcon\Mvc\Model\ResultInterface" href="Phalcon_Mvc_Model_ResultInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-mvc-model-resultsetinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CModel%5CResultsetInterface" id="Phalcon\Mvc\Model\ResultsetInterface" class="dashAnchor"></a><strong>Phalcon\Mvc\Model\ResultsetInterface</strong>
+</h1>
+<p>Phalcon\Mvc\Model\ResultsetInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>abstract public <em>int</em> <a name="//apple_ref/cpp/Method/getType" id="getType" class="dashAnchor"></a><strong>getType</strong> ()</p>
+<p>Returns the internal type of data retrieval that the resultset is using</p>
+<p>abstract public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/getFirst" id="getFirst" class="dashAnchor"></a><strong>getFirst</strong> ()</p>
+<p>Get first row in the resultset</p>
+<p>abstract public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/getLast" id="getLast" class="dashAnchor"></a><strong>getLast</strong> ()</p>
+<p>Get last row in the resultset</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setIsFresh" id="setIsFresh" class="dashAnchor"></a><strong>setIsFresh</strong> (<em>boolean</em> $isFresh)</p>
+<p>Set if the resultset is fresh or an old one cached</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isFresh" id="isFresh" class="dashAnchor"></a><strong>isFresh</strong> ()</p>
+<p>Tell if the resultset if fresh or an old one cached</p>
+<p>abstract public <a class="reference internal" href="Phalcon_Cache_BackendInterface.html"><em>Phalcon\Cache\BackendInterface</em></a> <a name="//apple_ref/cpp/Method/getCache" id="getCache" class="dashAnchor"></a><strong>getCache</strong> ()</p>
+<p>Returns the associated cache for the resultset</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/toArray" id="toArray" class="dashAnchor"></a><strong>toArray</strong> ()</p>
+<p>Returns a complete resultset as an array, if the resultset has a big number of rows it could consume more memory than currently it does.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

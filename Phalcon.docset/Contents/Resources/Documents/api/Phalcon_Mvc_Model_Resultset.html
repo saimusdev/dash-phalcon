@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Abstract class Phalcon\Mvc\Model\Resultset — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Mvc\Model\Resultset\Complex" href="Phalcon_Mvc_Model_Resultset_Complex.html">
+<link rel="prev" title="Class Phalcon\Mvc\Model\Relation" href="Phalcon_Mvc_Model_Relation.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="abstract-class-phalcon-mvc-model-resultset">
+<h1>Abstract class <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CModel%5CResultset" id="Phalcon\Mvc\Model\Resultset" class="dashAnchor"></a><strong>Phalcon\Mvc\Model\Resultset</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Mvc_Model_ResultsetInterface.html"><em>Phalcon\Mvc\Model\ResultsetInterface</em></a>, Iterator, Traversable, SeekableIterator, Countable, ArrayAccess, Serializable</p>
+<p>This component allows to Phalcon\Mvc\Model returns large resulsets with the minimum memory consumption Resulsets can be traversed using a standard foreach or a while statement. If a resultset is serialized it will dump all the rows into a big array. Then unserialize will retrieve the rows as they were before serializing.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//Using a standard foreach</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"type='virtual'"</span><span class="p">,</span> <span class="s2">"order"</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">));</span>
+ <span class="k">foreach</span> <span class="p">(</span><span class="nv">$robots</span> <span class="k">as</span> <span class="nv">$robot</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1">//Using a while</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"type='virtual'"</span><span class="p">,</span> <span class="s2">"order"</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">));</span>
+ <span class="nv">$robots</span><span class="o">-&gt;</span><span class="na">rewind</span><span class="p">();</span>
+ <span class="k">while</span> <span class="p">(</span><span class="nv">$robots</span><span class="o">-&gt;</span><span class="na">valid</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nv">$robot</span> <span class="o">=</span> <span class="nv">$robots</span><span class="o">-&gt;</span><span class="na">current</span><span class="p">();</span>
+  <span class="k">echo</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+  <span class="nv">$robots</span><span class="o">-&gt;</span><span class="na">next</span><span class="p">();</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="constants">
+<h2>Constants
+</h2>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/TYPE_RESULT_FULL" id="TYPE_RESULT_FULL" class="dashAnchor"></a><strong>TYPE_RESULT_FULL</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/TYPE_RESULT_PARTIAL" id="TYPE_RESULT_PARTIAL" class="dashAnchor"></a><strong>TYPE_RESULT_PARTIAL</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HYDRATE_RECORDS" id="HYDRATE_RECORDS" class="dashAnchor"></a><strong>HYDRATE_RECORDS</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HYDRATE_OBJECTS" id="HYDRATE_OBJECTS" class="dashAnchor"></a><strong>HYDRATE_OBJECTS</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HYDRATE_ARRAYS" id="HYDRATE_ARRAYS" class="dashAnchor"></a><strong>HYDRATE_ARRAYS</strong></p>
+</div>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public <a name="//apple_ref/cpp/Method/next" id="next" class="dashAnchor"></a><strong>next</strong> ()</p>
+<p>Moves cursor to next row in the resultset</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/key" id="key" class="dashAnchor"></a><strong>key</strong> ()</p>
+<p>Gets pointer number of active row in the resultset</p>
+<p>public <a name="//apple_ref/cpp/Method/rewind" id="rewind" class="dashAnchor"></a><strong>rewind</strong> ()</p>
+<p>Rewinds resultset to its beginning</p>
+<p>public <a name="//apple_ref/cpp/Method/seek" id="seek" class="dashAnchor"></a><strong>seek</strong> (<em>int</em> $position)</p>
+<p>Changes internal pointer to a specific position in the resultset</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/count" id="count" class="dashAnchor"></a><strong>count</strong> ()</p>
+<p>Counts how many rows are in the resultset</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/offsetExists" id="offsetExists" class="dashAnchor"></a><strong>offsetExists</strong> (<em>unknown</em> $property)</p>
+<p>Checks whether offset exists in the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/offsetGet" id="offsetGet" class="dashAnchor"></a><strong>offsetGet</strong> (<em>unknown</em> $property)</p>
+<p>Gets row in a specific position of the resultset</p>
+<p>public <a name="//apple_ref/cpp/Method/offsetSet" id="offsetSet" class="dashAnchor"></a><strong>offsetSet</strong> (<em>unknown</em> $property, <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $value)</p>
+<p>Resultsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface</p>
+<p>public <a name="//apple_ref/cpp/Method/offsetUnset" id="offsetUnset" class="dashAnchor"></a><strong>offsetUnset</strong> (<em>unknown</em> $property)</p>
+<p>Resultsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getType" id="getType" class="dashAnchor"></a><strong>getType</strong> ()</p>
+<p>Returns the internal type of data retrieval that the resultset is using</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/getFirst" id="getFirst" class="dashAnchor"></a><strong>getFirst</strong> ()</p>
+<p>Get first row in the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/getLast" id="getLast" class="dashAnchor"></a><strong>getLast</strong> ()</p>
+<p>Get last row in the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model_Resultset.html"><em>Phalcon\Mvc\Model\Resultset</em></a> <a name="//apple_ref/cpp/Method/setIsFresh" id="setIsFresh" class="dashAnchor"></a><strong>setIsFresh</strong> (<em>boolean</em> $isFresh)</p>
+<p>Set if the resultset is fresh or an old one cached</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/isFresh" id="isFresh" class="dashAnchor"></a><strong>isFresh</strong> ()</p>
+<p>Tell if the resultset if fresh or an old one cached</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model_Resultset.html"><em>Phalcon\Mvc\Model\Resultset</em></a> <a name="//apple_ref/cpp/Method/setHydrateMode" id="setHydrateMode" class="dashAnchor"></a><strong>setHydrateMode</strong> (<em>int</em> $hydrateMode)</p>
+<p>Sets the hydration mode in the resultset</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getHydrateMode" id="getHydrateMode" class="dashAnchor"></a><strong>getHydrateMode</strong> ()</p>
+<p>Returns the current hydration mode</p>
+<p>public <a class="reference internal" href="Phalcon_Cache_BackendInterface.html"><em>Phalcon\Cache\BackendInterface</em></a> <a name="//apple_ref/cpp/Method/getCache" id="getCache" class="dashAnchor"></a><strong>getCache</strong> ()</p>
+<p>Returns the associated cache for the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> <a name="//apple_ref/cpp/Method/current" id="current" class="dashAnchor"></a><strong>current</strong> ()</p>
+<p>Returns current row in the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model_MessageInterface.html"><em>Phalcon\Mvc\Model\MessageInterface</em></a> [] <a name="//apple_ref/cpp/Method/getMessages" id="getMessages" class="dashAnchor"></a><strong>getMessages</strong> ()</p>
+<p>Returns the error messages produced by a batch operation</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> ([<em>Closure</em> $conditionCallback])</p>
+<p>Deletes every record in the resultset</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> [] <a name="//apple_ref/cpp/Method/filter" id="filter" class="dashAnchor"></a><strong>filter</strong> (<em>callback</em> $filter)</p>
+<p>Filters a resultset returning only those the developer requires</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$filtered</span> <span class="o">=</span> <span class="nv">$robots</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$robot</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$robot</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/toArray" id="toArray" class="dashAnchor"></a><strong>toArray</strong> () inherited from Phalcon\Mvc\Model\ResultsetInterface</p>
+<p>Returns a complete resultset as an array, if the resultset has a big number of rows it could consume more memory than currently it does.</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/valid" id="valid" class="dashAnchor"></a><strong>valid</strong> () inherited from Iterator</p>
+<p>...</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/serialize" id="serialize" class="dashAnchor"></a><strong>serialize</strong> () inherited from Serializable</p>
+<p>...</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/unserialize" id="unserialize" class="dashAnchor"></a><strong>unserialize</strong> (<em>unknown</em> $serialized) inherited from Serializable</p>
+<p>...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\Http\RequestInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\Http\Request\FileInterface" href="Phalcon_Http_Request_FileInterface.html">
+<link rel="prev" title="Interface Phalcon\Forms\ElementInterface" href="Phalcon_Forms_ElementInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-http-requestinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CRequestInterface" id="Phalcon\Http\RequestInterface" class="dashAnchor"></a><strong>Phalcon\Http\RequestInterface</strong>
+</h1>
+<p>Phalcon\Http\RequestInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> ([<em>string</em> $name], [<em>string|array</em> $filters], [<em>mixed</em> $defaultValue])</p>
+<p>Gets a variable from the $_REQUEST superglobal applying filters if needed</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/getPost" id="getPost" class="dashAnchor"></a><strong>getPost</strong> ([<em>string</em> $name], [<em>string|array</em> $filters], [<em>mixed</em> $defaultValue])</p>
+<p>Gets a variable from the $_POST superglobal applying filters if needed</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/getPut" id="getPut" class="dashAnchor"></a><strong>getPut</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue])</p>
+<p>...</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/getQuery" id="getQuery" class="dashAnchor"></a><strong>getQuery</strong> ([<em>string</em> $name], [<em>string|array</em> $filters], [<em>mixed</em> $defaultValue])</p>
+<p>Gets variable from $_GET superglobal applying filters if needed</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/getServer" id="getServer" class="dashAnchor"></a><strong>getServer</strong> (<em>string</em> $name)</p>
+<p>Gets variable from $_SERVER superglobal</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/has" id="has" class="dashAnchor"></a><strong>has</strong> (<em>string</em> $name)</p>
+<p>Checks whether $_SERVER superglobal has certain index</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/hasPost" id="hasPost" class="dashAnchor"></a><strong>hasPost</strong> (<em>string</em> $name)</p>
+<p>Checks whether $_POST superglobal has certain index</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/hasPut" id="hasPut" class="dashAnchor"></a><strong>hasPut</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/hasQuery" id="hasQuery" class="dashAnchor"></a><strong>hasQuery</strong> (<em>string</em> $name)</p>
+<p>Checks whether $_SERVER superglobal has certain index</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/hasServer" id="hasServer" class="dashAnchor"></a><strong>hasServer</strong> (<em>string</em> $name)</p>
+<p>Checks whether $_SERVER superglobal has certain index</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getHeader" id="getHeader" class="dashAnchor"></a><strong>getHeader</strong> (<em>string</em> $header)</p>
+<p>Gets HTTP header from request data</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getScheme" id="getScheme" class="dashAnchor"></a><strong>getScheme</strong> ()</p>
+<p>Gets HTTP schema (http/https)</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isAjax" id="isAjax" class="dashAnchor"></a><strong>isAjax</strong> ()</p>
+<p>Checks whether request has been made using ajax. Checks if $_SERVER[‘HTTP_X_REQUESTED_WITH’]==’XMLHttpRequest’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isSoapRequested" id="isSoapRequested" class="dashAnchor"></a><strong>isSoapRequested</strong> ()</p>
+<p>Checks whether request has been made using SOAP</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isSecureRequest" id="isSecureRequest" class="dashAnchor"></a><strong>isSecureRequest</strong> ()</p>
+<p>Checks whether request has been made using any secure layer</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getRawBody" id="getRawBody" class="dashAnchor"></a><strong>getRawBody</strong> ()</p>
+<p>Gets HTTP raws request body</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getServerAddress" id="getServerAddress" class="dashAnchor"></a><strong>getServerAddress</strong> ()</p>
+<p>Gets active server address IP</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getServerName" id="getServerName" class="dashAnchor"></a><strong>getServerName</strong> ()</p>
+<p>Gets active server name</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getHttpHost" id="getHttpHost" class="dashAnchor"></a><strong>getHttpHost</strong> ()</p>
+<p>Gets information about schema, host and port used by the request</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getClientAddress" id="getClientAddress" class="dashAnchor"></a><strong>getClientAddress</strong> ([<em>boolean</em> $trustForwardedHeader])</p>
+<p>Gets most possibly client IPv4 Address. This methods search in $_SERVER[‘REMOTE_ADDR’] and optionally in $_SERVER[‘HTTP_X_FORWARDED_FOR’]</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getMethod" id="getMethod" class="dashAnchor"></a><strong>getMethod</strong> ()</p>
+<p>Gets HTTP method which request has been made</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getUserAgent" id="getUserAgent" class="dashAnchor"></a><strong>getUserAgent</strong> ()</p>
+<p>Gets HTTP user agent used to made the request</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isMethod" id="isMethod" class="dashAnchor"></a><strong>isMethod</strong> (<em>string|array</em> $methods)</p>
+<p>Check if HTTP method match any of the passed methods</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isPost" id="isPost" class="dashAnchor"></a><strong>isPost</strong> ()</p>
+<p>Checks whether HTTP method is POST. if $_SERVER[‘REQUEST_METHOD’]==’POST’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isGet" id="isGet" class="dashAnchor"></a><strong>isGet</strong> ()</p>
+<p>Checks whether HTTP method is GET. if $_SERVER[‘REQUEST_METHOD’]==’GET’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isPut" id="isPut" class="dashAnchor"></a><strong>isPut</strong> ()</p>
+<p>Checks whether HTTP method is PUT. if $_SERVER[‘REQUEST_METHOD’]==’PUT’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isHead" id="isHead" class="dashAnchor"></a><strong>isHead</strong> ()</p>
+<p>Checks whether HTTP method is HEAD. if $_SERVER[‘REQUEST_METHOD’]==’HEAD’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isDelete" id="isDelete" class="dashAnchor"></a><strong>isDelete</strong> ()</p>
+<p>Checks whether HTTP method is DELETE. if $_SERVER[‘REQUEST_METHOD’]==’DELETE’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isOptions" id="isOptions" class="dashAnchor"></a><strong>isOptions</strong> ()</p>
+<p>Checks whether HTTP method is OPTIONS. if $_SERVER[‘REQUEST_METHOD’]==’OPTIONS’</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/hasFiles" id="hasFiles" class="dashAnchor"></a><strong>hasFiles</strong> ([<em>boolean</em> $notErrored])</p>
+<p>Checks whether request include attached files</p>
+<p>abstract public <a class="reference internal" href="Phalcon_Http_Request_FileInterface.html"><em>Phalcon\Http\Request\FileInterface</em></a> [] <a name="//apple_ref/cpp/Method/getUploadedFiles" id="getUploadedFiles" class="dashAnchor"></a><strong>getUploadedFiles</strong> ([<em>boolean</em> $notErrored])</p>
+<p>Gets attached files as Phalcon\Http\Request\FileInterface compatible instances</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getHTTPReferer" id="getHTTPReferer" class="dashAnchor"></a><strong>getHTTPReferer</strong> ()</p>
+<p>Gets web page that refers active request. ie: <a class="reference external" href="http://www.google.com">http://www.google.com</a></p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getAcceptableContent" id="getAcceptableContent" class="dashAnchor"></a><strong>getAcceptableContent</strong> ()</p>
+<p>Gets array with mime/types and their quality accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT’]</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getBestAccept" id="getBestAccept" class="dashAnchor"></a><strong>getBestAccept</strong> ()</p>
+<p>Gets best mime/type accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT’]</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getClientCharsets" id="getClientCharsets" class="dashAnchor"></a><strong>getClientCharsets</strong> ()</p>
+<p>Gets charsets array and their quality accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT_CHARSET’]</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getBestCharset" id="getBestCharset" class="dashAnchor"></a><strong>getBestCharset</strong> ()</p>
+<p>Gets best charset accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT_CHARSET’]</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getLanguages" id="getLanguages" class="dashAnchor"></a><strong>getLanguages</strong> ()</p>
+<p>Gets languages array and their quality accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT_LANGUAGE’]</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getBestLanguage" id="getBestLanguage" class="dashAnchor"></a><strong>getBestLanguage</strong> ()</p>
+<p>Gets best language accepted by the browser/client from $_SERVER[‘HTTP_ACCEPT_LANGUAGE’]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

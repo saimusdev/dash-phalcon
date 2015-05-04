@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Cache\Backend\Xcache — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Cache\Exception" href="Phalcon_Cache_Exception.html">
+<link rel="prev" title="Class Phalcon\Cache\Backend\Mongo" href="Phalcon_Cache_Backend_Mongo.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-cache-backend-xcache">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CCache%5CBackend%5CXcache" id="Phalcon\Cache\Backend\Xcache" class="dashAnchor"></a><strong>Phalcon\Cache\Backend\Xcache</strong>
+</h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_Cache_Backend.html"><em>Phalcon\Cache\Backend</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Cache_BackendInterface.html"><em>Phalcon\Cache\BackendInterface</em></a></p>
+<p>Allows to cache output fragments, PHP data and raw data using an XCache backend</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Cache data for 2 days</span>
+<span class="nv">$frontCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Cache\Frontend\Data</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'lifetime'</span> <span class="o">=&gt;</span> <span class="mi">172800</span>
+<span class="p">));</span>
+
+  <span class="nv">$cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Cache\Backend\Xcache</span><span class="p">(</span><span class="nv">$frontCache</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'prefix'</span> <span class="o">=&gt;</span> <span class="s1">'app-data'</span>
+  <span class="p">));</span>
+
+<span class="c1">//Cache arbitrary data</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">'my-data'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+
+<span class="c1">//Get data</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'my-data'</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<a class="reference internal" href="Phalcon_Cache_FrontendInterface.html"><em>Phalcon\Cache\FrontendInterface</em></a> $frontend, [<em>array</em> $options])</p>
+<p>Phalcon\Cache\Backend\Xcache constructor</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> (<em>string</em> $keyName, [<em>long</em> $lifetime])</p>
+<p>Returns cached content</p>
+<p>public <a name="//apple_ref/cpp/Method/save" id="save" class="dashAnchor"></a><strong>save</strong> ([<em>string</em> $keyName], [<em>string</em> $content], [<em>long</em> $lifetime], [<em>boolean</em> $stopBuffer])</p>
+<p>Stores cached content into the XCache backend and stops the frontend</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> (<em>string</em> $keyName)</p>
+<p>Deletes a value from the cache by its key</p>
+<p>public <em>array</em> <a name="//apple_ref/cpp/Method/queryKeys" id="queryKeys" class="dashAnchor"></a><strong>queryKeys</strong> ([<em>string</em> $prefix])</p>
+<p>Query the existing cached keys</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/exists" id="exists" class="dashAnchor"></a><strong>exists</strong> ([<em>string</em> $keyName], [<em>long</em> $lifetime])</p>
+<p>Checks if the cache entry exists and has not expired</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/increment" id="increment" class="dashAnchor"></a><strong>increment</strong> ([<em>unknown</em> $key_name], [<em>long</em> $value])</p>
+<p>Atomic increment of a given key, by number $value</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/decrement" id="decrement" class="dashAnchor"></a><strong>decrement</strong> ([<em>unknown</em> $key_name], [<em>long</em> $value])</p>
+<p>Atomic decrement of a given key, by number $value</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/flush" id="flush" class="dashAnchor"></a><strong>flush</strong> ()</p>
+<p>Immediately invalidates all existing items.</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/start" id="start" class="dashAnchor"></a><strong>start</strong> (<em>int|string</em> $keyName, [<em>long</em> $lifetime]) inherited from Phalcon\Cache\Backend</p>
+<p>Starts a cache. The $keyname allows to identify the created fragment</p>
+<p>public <a name="//apple_ref/cpp/Method/stop" id="stop" class="dashAnchor"></a><strong>stop</strong> ([<em>boolean</em> $stopBuffer]) inherited from Phalcon\Cache\Backend</p>
+<p>Stops the frontend without store any cached content</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/getFrontend" id="getFrontend" class="dashAnchor"></a><strong>getFrontend</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Returns front-end instance adapter related to the back-end</p>
+<p>public <em>array</em> <a name="//apple_ref/cpp/Method/getOptions" id="getOptions" class="dashAnchor"></a><strong>getOptions</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Returns the backend options</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/isFresh" id="isFresh" class="dashAnchor"></a><strong>isFresh</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Checks whether the last cache is fresh or cached</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/isStarted" id="isStarted" class="dashAnchor"></a><strong>isStarted</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Checks whether the cache has starting buffering or not</p>
+<p>public <a name="//apple_ref/cpp/Method/setLastKey" id="setLastKey" class="dashAnchor"></a><strong>setLastKey</strong> (<em>string</em> $lastKey) inherited from Phalcon\Cache\Backend</p>
+<p>Sets the last key used in the cache</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getLastKey" id="getLastKey" class="dashAnchor"></a><strong>getLastKey</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Gets the last key stored by the cache</p>
+<p>public <em>int</em> <a name="//apple_ref/cpp/Method/getLifetime" id="getLifetime" class="dashAnchor"></a><strong>getLifetime</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Gets the last lifetime set</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Abstract class Phalcon\Db — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Abstract class Phalcon\Db\Adapter" href="Phalcon_Db_Adapter.html">
+<link rel="prev" title="Class Phalcon\DI\Service\Builder" href="Phalcon_DI_Service_Builder.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="abstract-class-phalcon-db">
+<h1>Abstract class <a name="//apple_ref/cpp/Class/Phalcon%5CDb" id="Phalcon\Db" class="dashAnchor"></a><strong>Phalcon\Db</strong>
+</h1>
+<p>Phalcon\Db and its related classes provide a simple SQL database interface for Phalcon Framework. The Phalcon\Db is the basic class you use to connect your PHP application to an RDBMS. There is a different adapter class for each brand of RDBMS. This component is intended to lower level database operations. If you want to interact with databases using higher level of abstraction use Phalcon\Mvc\Model. Phalcon\Db is an abstract class. You only can use it with a database adapter like Phalcon\Db\Adapter\Pdo</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">try</span> <span class="p">{</span>
+
+  <span class="nv">$connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Db\Adapter\Pdo\Mysql</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'192.168.0.11'</span><span class="p">,</span>
+     <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'sigma'</span><span class="p">,</span>
+     <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">,</span>
+     <span class="s1">'dbname'</span> <span class="o">=&gt;</span> <span class="s1">'blog'</span><span class="p">,</span>
+     <span class="s1">'port'</span> <span class="o">=&gt;</span> <span class="s1">'3306'</span><span class="p">,</span>
+  <span class="p">));</span>
+
+  <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">"SELECT * FROM robots LIMIT 5"</span><span class="p">);</span>
+  <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">Phalcon\Db</span><span class="o">::</span><span class="na">FETCH_NUM</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nv">$robot</span> <span class="o">=</span> <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$robot</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Phalcon\Db\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">(),</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="constants">
+<h2>Constants
+</h2>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_USE_DEFAULT" id="FETCH_USE_DEFAULT" class="dashAnchor"></a><strong>FETCH_USE_DEFAULT</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_LAZY" id="FETCH_LAZY" class="dashAnchor"></a><strong>FETCH_LAZY</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_ASSOC" id="FETCH_ASSOC" class="dashAnchor"></a><strong>FETCH_ASSOC</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_NUM" id="FETCH_NUM" class="dashAnchor"></a><strong>FETCH_NUM</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_BOTH" id="FETCH_BOTH" class="dashAnchor"></a><strong>FETCH_BOTH</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_OBJ" id="FETCH_OBJ" class="dashAnchor"></a><strong>FETCH_OBJ</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_BOUND" id="FETCH_BOUND" class="dashAnchor"></a><strong>FETCH_BOUND</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_COLUMN" id="FETCH_COLUMN" class="dashAnchor"></a><strong>FETCH_COLUMN</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_CLASS" id="FETCH_CLASS" class="dashAnchor"></a><strong>FETCH_CLASS</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_INTO" id="FETCH_INTO" class="dashAnchor"></a><strong>FETCH_INTO</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_FUNC" id="FETCH_FUNC" class="dashAnchor"></a><strong>FETCH_FUNC</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_NAMED" id="FETCH_NAMED" class="dashAnchor"></a><strong>FETCH_NAMED</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_KEY_PAIR" id="FETCH_KEY_PAIR" class="dashAnchor"></a><strong>FETCH_KEY_PAIR</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_GROUP" id="FETCH_GROUP" class="dashAnchor"></a><strong>FETCH_GROUP</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_UNIQUE" id="FETCH_UNIQUE" class="dashAnchor"></a><strong>FETCH_UNIQUE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_CLASSTYPE" id="FETCH_CLASSTYPE" class="dashAnchor"></a><strong>FETCH_CLASSTYPE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_SERIALIZE" id="FETCH_SERIALIZE" class="dashAnchor"></a><strong>FETCH_SERIALIZE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/FETCH_PROPS_LATE" id="FETCH_PROPS_LATE" class="dashAnchor"></a><strong>FETCH_PROPS_LATE</strong></p>
+</div>
+<div class="section" id="methods">
+<h2>Methods
+</h2>
+<p>public static <a name="//apple_ref/cpp/Method/setup" id="setup" class="dashAnchor"></a><strong>setup</strong> (<em>array</em> $options)</p>
+<p>Enables/disables options in the Database component</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</body>
+</html>

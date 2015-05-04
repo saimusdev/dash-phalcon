@@ -32,7 +32,8 @@ task :default => [
 # Docset specific variables
 DOMAIN = "phalconphp.com"
 DOCS_FOLDER = "docs." << DOMAIN
-DOCSET_NAME = "Phalcon 1.3.0"
+DOCSET_NAME = "Phalcon"
+DOCSET_NAME_SMALL = "phalcon"
 DOCSET_FOLDER = "#{DOCSET_NAME}.docset"
 DOCSET_DOCS_SUBFOLDER = "#{DOCSET_FOLDER}/Contents/Resources/Documents"
 PLIST_FILE = "#{DOCSET_FOLDER}/Contents/Info.plist"
@@ -155,11 +156,11 @@ task :plist do
         << "<plist version='1.0'>\n" \
         << "<dict>\n" \
         << tab_space << "<key>CFBundleIdentifier</key>\n" \
-        << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
+        << tab_space << "<string>#{DOCSET_NAME_SMALL}</string>\n" \
         << tab_space << "<key>CFBundleName</key>\n" \
         << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
         << tab_space << "<key>DocSetPlatformFamily</key>\n" \
-        << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
+        << tab_space << "<string>#{DOCSET_NAME_SMALL}</string>\n" \
         << tab_space << "<key>isDashDocset</key>\n" \
         << tab_space << "<true/>\n" \
         << tab_space << "<key>dashIndexFilePath</key>\n" \
