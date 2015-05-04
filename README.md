@@ -13,7 +13,7 @@ If you plan on using it with **Dash**, just copy the [Phalcon docset](https://gi
 
 #### for Zeal
 
-If you're going to use it with **Zeal** you'll find where to store the [Phalcon docset](https://github.com/simioprg/dash-phalcon/releases/download/v1.0.2/Phalcon.zip) in the application 'Options' menu. Visit [their Github page](https://github.com/jkozera/zeal) for more info. 
+If you're going to use it with **Zeal** you'll find where to store the [Phalcon docset](https://github.com/saimusdev/dash-phalcon/releases/download/2.0.0/Phalcon_2.docset.zip) in the application 'Options' menu. Visit [their Github page](https://github.com/jkozera/zeal) for more info. 
 
 ## Manual Build
 
