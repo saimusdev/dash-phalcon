@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Http\Response\Cookies — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Http\Response\Exception" href="Phalcon_Http_Response_Exception.html">
+    <link rel="prev" title="Class Phalcon\Http\Response" href="Phalcon_Http_Response.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-http-response-cookies">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CResponse%5CCookies" id="Phalcon\Http\Response\Cookies" class="dashAnchor"></a><strong>Phalcon\Http\Response\Cookies</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Http_Response_CookiesInterface.html"><em>Phalcon\Http\Response\CookiesInterface</em></a>, <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\InjectionAwareInterface</span></tt></p>
+<p>This class is a bag to manage the cookies A cookies bag is automatically registered as part of the ‘response’ service in the DI</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Http_Response_Cookies.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<em>unknown</em> $dependencyInjector)</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Returns the internal dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Response_Cookies.html"><em>Phalcon\Http\Response\Cookies</em></a>  <a name="//apple_ref/cpp/Method/useEncryption" id="useEncryption" class="dashAnchor"></a><strong>useEncryption</strong> (<em>unknown</em> $useEncryption)</p>
+<p>Set if cookies in the bag must be automatically encrypted/decrypted</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isUsingEncryption" id="isUsingEncryption" class="dashAnchor"></a><strong>isUsingEncryption</strong> ()</p>
+<p>Returns if the bag is automatically encrypting/decrypting cookies</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Response_Cookies.html"><em>Phalcon\Http\Response\Cookies</em></a>  <a name="//apple_ref/cpp/Method/set" id="set" class="dashAnchor"></a><strong>set</strong> (<em>unknown</em> $name, [<em>unknown</em> $value], [<em>unknown</em> $expire], [<em>unknown</em> $path], [<em>unknown</em> $secure], [<em>unknown</em> $domain], [<em>unknown</em> $httpOnly])</p>
+<p>Sets a cookie to be sent at the end of the request This method overrides any cookie set before with the same name</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> (<em>unknown</em> $name)</p>
+<p>Gets a cookie from the bag</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/has" id="has" class="dashAnchor"></a><strong>has</strong> (<em>unknown</em> $name)</p>
+<p>Check if a cookie is defined in the bag or exists in the _COOKIE superglobal</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> (<em>unknown</em> $name)</p>
+<p>Deletes a cookie by its name This method does not removes cookies from the _COOKIE superglobal</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/send" id="send" class="dashAnchor"></a><strong>send</strong> ()</p>
+<p>Sends the cookies to the client Cookies aren’t sent if headers are sent in the current request</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Response_Cookies.html"><em>Phalcon\Http\Response\Cookies</em></a>  <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> ()</p>
+<p>Reset set cookies</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

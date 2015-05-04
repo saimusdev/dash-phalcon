@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Http\Cookie — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Http\Cookie\Exception" href="Phalcon_Http_Cookie_Exception.html">
+    <link rel="prev" title="Class Phalcon\Forms\Manager" href="Phalcon_Forms_Manager.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-http-cookie">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CCookie" id="Phalcon\Http\Cookie" class="dashAnchor"></a><strong>Phalcon\Http\Cookie</strong>
+</h1>
+<p><em>implements</em> <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\InjectionAwareInterface</span></tt></p>
+<p>Provide OO wrappers to manage a HTTP cookie</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Http_Cookie.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>unknown</em> $name, [<em>unknown</em> $value], [<em>unknown</em> $expire], [<em>unknown</em> $path], [<em>unknown</em> $secure], [<em>unknown</em> $domain], [<em>unknown</em> $httpOnly])</p>
+<p>Phalcon\Http\Cookie constructor</p>
+<p>public  <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<em>unknown</em> $dependencyInjector)</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Returns the internal dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setValue" id="setValue" class="dashAnchor"></a><strong>setValue</strong> (<em>unknown</em> $value)</p>
+<p>Sets the cookie’s value</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getValue" id="getValue" class="dashAnchor"></a><strong>getValue</strong> ([<em>unknown</em> $filters], [<em>unknown</em> $defaultValue])</p>
+<p>Returns the cookie’s value</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/send" id="send" class="dashAnchor"></a><strong>send</strong> ()</p>
+<p>Sends the cookie to the HTTP client Stores the cookie definition in session</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/restore" id="restore" class="dashAnchor"></a><strong>restore</strong> ()</p>
+<p>Reads the cookie-related info from the SESSION to restore the cookie as it was set This method is automatically called internally so normally you don’t need to call it</p>
+<p>public  <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> ()</p>
+<p>Deletes the cookie by setting an expire time in the past</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/useEncryption" id="useEncryption" class="dashAnchor"></a><strong>useEncryption</strong> (<em>unknown</em> $useEncryption)</p>
+<p>Sets if the cookie must be encrypted/decrypted automatically</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isUsingEncryption" id="isUsingEncryption" class="dashAnchor"></a><strong>isUsingEncryption</strong> ()</p>
+<p>Check if the cookie is using implicit encryption</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setExpiration" id="setExpiration" class="dashAnchor"></a><strong>setExpiration</strong> (<em>unknown</em> $expire)</p>
+<p>Sets the cookie’s expiration time</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getExpiration" id="getExpiration" class="dashAnchor"></a><strong>getExpiration</strong> ()</p>
+<p>Returns the current expiration time</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setPath" id="setPath" class="dashAnchor"></a><strong>setPath</strong> (<em>unknown</em> $path)</p>
+<p>Sets the cookie’s expiration time</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getName" id="getName" class="dashAnchor"></a><strong>getName</strong> ()</p>
+<p>Returns the current cookie’s name</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getPath" id="getPath" class="dashAnchor"></a><strong>getPath</strong> ()</p>
+<p>Returns the current cookie’s path</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setDomain" id="setDomain" class="dashAnchor"></a><strong>setDomain</strong> (<em>unknown</em> $domain)</p>
+<p>Sets the domain that the cookie is available to</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getDomain" id="getDomain" class="dashAnchor"></a><strong>getDomain</strong> ()</p>
+<p>Returns the domain that the cookie is available to</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setSecure" id="setSecure" class="dashAnchor"></a><strong>setSecure</strong> (<em>unknown</em> $secure)</p>
+<p>Sets if the cookie must only be sent when the connection is secure (HTTPS)</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/getSecure" id="getSecure" class="dashAnchor"></a><strong>getSecure</strong> ()</p>
+<p>Returns whether the cookie must only be sent when the connection is secure (HTTPS)</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Cookie.html"><em>Phalcon\Http\Cookie</em></a>  <a name="//apple_ref/cpp/Method/setHttpOnly" id="setHttpOnly" class="dashAnchor"></a><strong>setHttpOnly</strong> (<em>unknown</em> $httpOnly)</p>
+<p>Sets if the cookie is accessible only through the HTTP protocol</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/getHttpOnly" id="getHttpOnly" class="dashAnchor"></a><strong>getHttpOnly</strong> ()</p>
+<p>Returns if the cookie is accessible only through the HTTP protocol</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/__toString" id="__toString" class="dashAnchor"></a><strong>__toString</strong> ()</p>
+<p>Magic __toString method converts the cookie’s value to string</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

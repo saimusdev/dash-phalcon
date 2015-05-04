@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Debug\Dump — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Debug\Exception" href="Phalcon_Debug_Exception.html">
+    <link rel="prev" title="Class Phalcon\Debug" href="Phalcon_Debug.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-debug-dump">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CDebug%5CDump" id="Phalcon\Debug\Dump" class="dashAnchor"></a><strong>Phalcon\Debug\Dump</strong>
+</h1>
+<p>Dumps information about a variable(s)</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">\Phalcon\Debug\Dump</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="s2">"string"</span><span class="p">;</span>
+<span class="nv">$bar</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"key"</span> <span class="o">=&gt;</span> <span class="s2">"value"</span><span class="p">];</span>
+<span class="nv">$baz</span> <span class="o">=</span> <span class="k">new</span> <span class="k">stdClass</span><span class="p">();</span>
+<span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">\Phalcon\Debug\Dump</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">vars</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$baz</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Debug_Dump.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/getDetailed" id="getDetailed" class="dashAnchor"></a><strong>getDetailed</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setDetailed" id="setDetailed" class="dashAnchor"></a><strong>setDetailed</strong> (<em>unknown</em> $detailed)</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>unknown</em> $styles], [<em>unknown</em> $detailed])</p>
+<p>Phalcon\Debug\Dump constructor</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/all" id="all" class="dashAnchor"></a><strong>all</strong> ()</p>
+<p>Alias of vars() method</p>
+<p>protected <em>string</em>  <a name="//apple_ref/cpp/Method/getStyle" id="getStyle" class="dashAnchor"></a><strong>getStyle</strong> (<em>unknown</em> $type)</p>
+<p>Get style for type</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/setStyles" id="setStyles" class="dashAnchor"></a><strong>setStyles</strong> ([<em>unknown</em> $styles])</p>
+<p>Set styles for vars type</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/one" id="one" class="dashAnchor"></a><strong>one</strong> (<em>unknown</em> $variable, [<em>unknown</em> $name])</p>
+<p>Alias of var() method</p>
+<p>protected <em>string</em>  <a name="//apple_ref/cpp/Method/output" id="output" class="dashAnchor"></a><strong>output</strong> (<em>unknown</em> $variable, [<em>unknown</em> $name], [<em>unknown</em> $tab])</p>
+<p>Prepare an HTML string of information about a single variable.</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/var" id="var" class="dashAnchor"></a><strong>var</strong> (<em>unknown</em> $variable, [<em>unknown</em> $name])</p>
+<p>Returns an HTML string of information about a single variable.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">\Phalcon\Debug\Dump</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">var</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/vars" id="vars" class="dashAnchor"></a><strong>vars</strong> ()</p>
+<p>Returns an HTML string of debugging information about any number of variables, each wrapped in a “pre” tag.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="s2">"string"</span><span class="p">;</span>
+<span class="nv">$bar</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"key"</span> <span class="o">=&gt;</span> <span class="s2">"value"</span><span class="p">];</span>
+<span class="nv">$baz</span> <span class="o">=</span> <span class="k">new</span> <span class="k">stdClass</span><span class="p">();</span>
+<span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">\Phalcon\Debug\Dump</span><span class="p">())</span><span class="o">-&gt;</span><span class="na">vars</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nv">$bar</span><span class="p">,</span> <span class="nv">$baz</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

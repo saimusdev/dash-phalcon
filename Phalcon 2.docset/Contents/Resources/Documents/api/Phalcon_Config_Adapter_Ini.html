@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Config\Adapter\Ini — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Config\Adapter\Json" href="Phalcon_Config_Adapter_Json.html">
+    <link rel="prev" title="Class Phalcon\Config" href="Phalcon_Config.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-config-adapter-ini">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CConfig%5CAdapter%5CIni" id="Phalcon\Config\Adapter\Ini" class="dashAnchor"></a><strong>Phalcon\Config\Adapter\Ini</strong>
+</h1>
+<p><em>extends</em> class <a class="reference internal" href="Phalcon_Config.html"><em>Phalcon\Config</em></a></p>
+<p><em>implements</em> Countable, ArrayAccess</p>
+<p>Reads ini files and converts them to Phalcon\Config objects.  Given the next configuration file:</p>
+<div class="highlight-ini">
+<div class="highlight"><pre>  &lt;?php
+
+   [database]
+   adapter = Mysql
+   host = localhost
+   username = scott
+   password = cheetah
+   dbname = test_db
+
+   [phalcon]
+   controllersDir = "../app/controllers/"
+   modelsDir = "../app/models/"
+   viewsDir = "../app/views/"
+
+You can read it as follows:
+</pre></div>
+</div>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Config\Adapter\Ini</span><span class="p">(</span><span class="s2">"path/config.ini"</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">phalcon</span><span class="o">-&gt;</span><span class="na">controllersDir</span><span class="p">;</span>
+ <span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">database</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Config_Adapter_Ini.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>unknown</em> $filePath)</p>
+<p>Phalcon\Config\Adapter\Ini constructor</p>
+<p>protected <em>array parsed path</em>  <a name="//apple_ref/cpp/Method/_parseIniString" id="_parseIniString" class="dashAnchor"></a><strong>_parseIniString</strong> (<em>unknown</em> $path, <em>unknown</em> $value)</p>
+<p>Build multidimensional array from string</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_parseIniString</span><span class="p">(</span><span class="s1">'path.hello.world'</span><span class="p">,</span> <span class="s1">'value for last key'</span><span class="p">);</span>
+
+ <span class="c1">// result</span>
+ <span class="p">[</span>
+      <span class="s1">'path'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+          <span class="s1">'hello'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s1">'world'</span> <span class="o">=&gt;</span> <span class="s1">'value for last key'</span><span class="p">,</span>
+          <span class="p">],</span>
+      <span class="p">],</span>
+ <span class="p">];</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/offsetExists" id="offsetExists" class="dashAnchor"></a><strong>offsetExists</strong> (<em>unknown</em> $index) inherited from Phalcon\Config</p>
+<p>Allows to check whether an attribute is defined using the array-syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nb">var_dump</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">'database'</span><span class="p">]));</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> (<em>unknown</em> $index, [<em>unknown</em> $defaultValue]) inherited from Phalcon\Config</p>
+<p>Gets an attribute from the configuration, if the attribute isn’t defined returns null If the value is exactly null or is not defined the default value will be used instead</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'controllersDir'</span><span class="p">,</span> <span class="s1">'../app/controllers/'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/offsetGet" id="offsetGet" class="dashAnchor"></a><strong>offsetGet</strong> (<em>unknown</em> $index) inherited from Phalcon\Config</p>
+<p>Gets an attribute using the array-syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nb">print_r</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">'database'</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/offsetSet" id="offsetSet" class="dashAnchor"></a><strong>offsetSet</strong> (<em>unknown</em> $index, <em>unknown</em> $value) inherited from Phalcon\Config</p>
+<p>Sets an attribute using the array-syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$config</span><span class="p">[</span><span class="s1">'database'</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s1">'Sqlite'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/offsetUnset" id="offsetUnset" class="dashAnchor"></a><strong>offsetUnset</strong> (<em>unknown</em> $index) inherited from Phalcon\Config</p>
+<p>Unsets an attribute using the array-syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nb">unset</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">'database'</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>public <em>this merged config</em>  <a name="//apple_ref/cpp/Method/merge" id="merge" class="dashAnchor"></a><strong>merge</strong> (<em>unknown</em> $config) inherited from Phalcon\Config</p>
+<p>Merges a configuration into the current one</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$appConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Config</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'database'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'localhost'</span><span class="p">)));</span>
+ <span class="nv">$globalConfig</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="nv">$config2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/toArray" id="toArray" class="dashAnchor"></a><strong>toArray</strong> () inherited from Phalcon\Config</p>
+<p>Converts recursively the object to an array</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$config</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/count" id="count" class="dashAnchor"></a><strong>count</strong> () inherited from Phalcon\Config</p>
+<p>Returns the count of properties set in the config</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">print</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">print</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>public static  <a name="//apple_ref/cpp/Method/__set_state" id="__set_state" class="dashAnchor"></a><strong>__set_state</strong> (<em>unknown</em> $data) inherited from Phalcon\Config</p>
+<p>Restores the state of a Phalcon\Config object</p>
+<p>private <em>Config merged config</em>  <a name="//apple_ref/cpp/Method/_merge" id="_merge" class="dashAnchor"></a><strong>_merge</strong> (<em>unknown</em> $config, [<em>unknown</em> $instance]) inherited from Phalcon\Config</p>
+<p>Helper method for merge configs (forwarding nested config instance)</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

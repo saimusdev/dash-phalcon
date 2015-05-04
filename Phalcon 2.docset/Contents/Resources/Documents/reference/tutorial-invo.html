@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Tutorial 2: Introducing INVO — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="next" title="Tutorial 3: Securing INVO" href="tutorial-invo-2.html">
+    <link rel="prev" title="Tutorial 1: Let’s learn by example" href="tutorial.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="tutorial-2-introducing-invo">
+<h1>Tutorial 2: Introducing INVO</h1>
+<p>In this second tutorial, we’ll explain a more complete application in order to deepen the development with Phalcon.
+INVO is one of the applications we have created as samples. INVO is a small website that allows their users to
+generate invoices, and do other tasks such as manage their customers and products. You can clone its code from <a class="reference external" href="https://github.com/phalcon/invo">Github</a>.</p>
+<p>Also, INVO was made with <a class="reference external" href="http://getbootstrap.com/">Bootstrap</a> as client-side framework. Although the application does not generate
+invoices, it still serves as an example to understand how the framework works.</p>
+<div class="section" id="project-structure">
+<h2>Project Structure<a class="headerlink" href="tutorial-invo.html#project-structure" title="Permalink to this headline">¶</a>
+</h2>
+<p>Once you clone the project in your document root you’ll see the following structure:</p>
+<div class="highlight-bash">
+<div class="highlight"><pre>invo/
+    app/
+        config/
+        controllers/
+        library/
+        forms/
+        models/
+        plugins/
+        views/
+    public/
+        bootstrap/
+        css/
+        js/
+    schemas/
+</pre></div>
+</div>
+<p>As you know, Phalcon does not impose a particular file structure for application development. This project
+provides a simple MVC structure and a public document root.</p>
+<p>Once you open the application in your browser <a class="reference external" href="http://localhost/invo">http://localhost/invo</a> you’ll see something like this:</p>
+<div class="figure align-center">
+<img alt="../_images/invo-1.png" src="../_images/invo-1.png">
+</div>
+<p>The application is divided into two parts, a frontend, that is a public part where visitors can receive information
+about INVO and request contact information. The second part is the backend, an administrative area where a
+registered user can manage his/her products and customers.</p>
+</div>
+<div class="section" id="routing">
+<h2>Routing<a class="headerlink" href="tutorial-invo.html#routing" title="Permalink to this headline">¶</a>
+</h2>
+<p>INVO uses the standard route that is built-in with the <a class="reference internal" href="routing.html"><em>Router</em></a> component. These routes match the following
+pattern: /:controller/:action/:params. This means that the first part of a URI is the controller, the second the
+action and the rest are the parameters.</p>
+<p>The following route <cite>/session/register</cite> executes the controller SessionController and its action registerAction.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="tutorial-invo.html#configuration" title="Permalink to this headline">¶</a>
+</h2>
+<p>INVO has a configuration file that sets general parameters in the application. This file is located at
+app/config/config.ini and it’s loaded in the very first lines of the application bootstrap (public/index.php):</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Config\Adapter\Ini</span> <span class="k">as</span> <span class="nx">ConfigIni</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Read the configuration</span>
+<span class="sd"> */</span>
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfigIni</span><span class="p">(</span><span class="nx">APP_PATH</span> <span class="o">.</span> <span class="s1">'app/config/config.ini'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="config.html"><em>Phalcon\Config</em></a> allows us to manipulate the file in an object-oriented way.
+In this example, we’re using a ini file as configuration, however, there are more adapters supported
+for configuration files. The configuration file contains the following settings:</p>
+<div class="highlight-ini">
+<div class="highlight"><pre><span class="k">[database]</span>
+<span class="na">adapter</span>  <span class="o">=</span> <span class="s">Mysql</span>
+<span class="na">host</span>     <span class="o">=</span> <span class="s">localhost</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">root</span>
+<span class="na">password</span> <span class="o">=</span>
+<span class="na">name</span>     <span class="o">=</span> <span class="s">invo</span>
+
+<span class="k">[application]</span>
+<span class="na">controllersDir</span> <span class="o">=</span> <span class="s">app/controllers/</span>
+<span class="na">modelsDir</span>      <span class="o">=</span> <span class="s">app/models/</span>
+<span class="na">viewsDir</span>       <span class="o">=</span> <span class="s">app/views/</span>
+<span class="na">pluginsDir</span>     <span class="o">=</span> <span class="s">app/plugins/</span>
+<span class="na">formsDir</span>       <span class="o">=</span> <span class="s">app/forms/</span>
+<span class="na">libraryDir</span>     <span class="o">=</span> <span class="s">app/library/</span>
+<span class="na">baseUri</span>        <span class="o">=</span> <span class="s">/invo/</span>
+</pre></div>
+</div>
+<p>Phalcon hasn’t any pre-defined convention settings. Sections help us to organize the options as appropriate.
+In this file there are two sections to be used later “application” and “database”.</p>
+</div>
+<div class="section" id="autoloaders">
+<h2>Autoloaders<a class="headerlink" href="tutorial-invo.html#autoloaders" title="Permalink to this headline">¶</a>
+</h2>
+<p>The second part that appears in the bootstrap file (public/index.php) is the autoloader:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Auto-loader configuration</span>
+<span class="sd"> */</span>
+<span class="k">require</span> <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="s1">'app/config/loader.php'</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The autoloader registers a set of directories in which the application will look for
+the classes that it eventually will need.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * We're a registering a set of directories taken from the configuration file</span>
+<span class="sd"> */</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerDirs</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">controllersDir</span><span class="p">,</span>
+        <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">pluginsDir</span><span class="p">,</span>
+        <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">libraryDir</span><span class="p">,</span>
+        <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">modelsDir</span><span class="p">,</span>
+        <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">formsDir</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Note that the above code has registered the directories that were defined in the configuration file. The only
+directory that is not registered is the viewsDir, because it contains HTML + PHP files but no classes.
+Also, note that we have using a constant called APP_PATH, this constant is defined in the bootstrap
+(public/index.php) to allow us have a reference to the root of our project:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="nb">define</span><span class="p">(</span><span class="s1">'APP_PATH'</span><span class="p">,</span> <span class="nb">realpath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'/'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-services">
+<h2>Registering services<a class="headerlink" href="tutorial-invo.html#registering-services" title="Permalink to this headline">¶</a>
+</h2>
+<p>Another file that is required in the bootstrap is (app/config/services.php). This file allow
+us to organize the services that INVO does use.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Load application services</span>
+<span class="sd"> */</span>
+<span class="k">require</span> <span class="nx">APP_PATH</span> <span class="o">.</span> <span class="s1">'app/config/services.php'</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Service registration is achieved as in the previous tutorial, making use of a closure to lazily loads
+the required components:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Mvc\Url</span> <span class="k">as</span> <span class="nx">UrlProvider</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * The URL component is used to generate all kind of urls in the application</span>
+<span class="sd"> */</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'url'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$config</span><span class="p">){</span>
+    <span class="nv">$url</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlProvider</span><span class="p">();</span>
+    <span class="nv">$url</span><span class="o">-&gt;</span><span class="na">setBaseUri</span><span class="p">(</span><span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">baseUri</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$url</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>We will discuss this file in depth later</p>
+</div>
+<div class="section" id="handling-the-request">
+<h2>Handling the Request<a class="headerlink" href="tutorial-invo.html#handling-the-request" title="Permalink to this headline">¶</a>
+</h2>
+<p>If we skip to the end of the file (public/index.php), the request is finally handled by Phalcon\Mvc\Application
+which initializes and executes all that is necessary to make the application run:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Mvc\Application</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Application</span><span class="p">(</span><span class="nv">$di</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getContent</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependency-injection">
+<h2>Dependency Injection<a class="headerlink" href="tutorial-invo.html#dependency-injection" title="Permalink to this headline">¶</a>
+</h2>
+<p>Look at the first line of the code block above, the Application class constructor is receiving the variable
+$di as an argument. What is the purpose of that variable? Phalcon is a highly decoupled framework,
+so we need a component that acts as glue to make everything work together. That component is Phalcon\DI.
+It is a service container that also performs dependency injection and service location,
+instantiating all components as they are needed by the application.</p>
+<p>There are many ways of registering services in the container. In INVO, most services have been registered using
+anonymous functions/closures. Thanks to this, the objects are instantiated in a lazy way, reducing the resources needed
+by the application.</p>
+<p>For instance, in the following excerpt the session service is registered. The anonymous function will only be
+called when the application requires access to the session data:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Session\Adapter\Files</span> <span class="k">as</span> <span class="nx">Session</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// Start the session the first time a component requests the session service</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'session'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Session</span><span class="p">();</span>
+    <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nv">$session</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Here, we have the freedom to change the adapter, perform additional initialization and much more. Note that the service
+was registered using the name “session”. This is a convention that will allow the framework to identify the active
+service in the services container.</p>
+<p>A request can use many services and registering each service individually can be a cumbersome task. For that reason,
+the framework provides a variant of Phalcon\DI called Phalcon\DI\FactoryDefault whose task is to register
+all services providing a full-stack framework.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\DI\FactoryDefault</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// The FactoryDefault Dependency Injector automatically registers the</span>
+<span class="c1">// right services providing a full-stack framework</span>
+<span class="nv">$di</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FactoryDefault</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>It registers the majority of services with components provided by the framework as standard. If we need to override
+the definition of some service we could just set it again as we did above with “session” or “url”.
+This is the reason for the existence of the variable $di.</p>
+<p>In next chapter, we will see how to authentication and authorization is implemented in INVO.</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

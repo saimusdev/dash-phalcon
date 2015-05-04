@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Db\Dialect\Oracle — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Db\Dialect\Postgresql" href="Phalcon_Db_Dialect_Postgresql.html">
+    <link rel="prev" title="Abstract class Phalcon\Db\Dialect" href="Phalcon_Db_Dialect.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-db-dialect-oracle">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CDb%5CDialect%5COracle" id="Phalcon\Db\Dialect\Oracle" class="dashAnchor"></a><strong>Phalcon\Db\Dialect\Oracle</strong>
+</h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_Db_Dialect.html"><em>Phalcon\Db\Dialect</em></a></p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Db_Dialect_Oracle.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/limit" id="limit" class="dashAnchor"></a><strong>limit</strong> (<em>unknown</em> $sqlQuery, <em>unknown</em> $number) inherited from Phalcon\Db\Dialect</p>
+<p>Generates the SQL for LIMIT clause</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$dialect</span><span class="o">-&gt;</span><span class="na">limit</span><span class="p">(</span><span class="s1">'SELECT * FROM robots'</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nv">$sql</span><span class="p">;</span> <span class="c1">// SELECT * FROM robots LIMIT 10</span>
+</pre></div>
+</div>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/forUpdate" id="forUpdate" class="dashAnchor"></a><strong>forUpdate</strong> (<em>unknown</em> $sqlQuery) inherited from Phalcon\Db\Dialect</p>
+<p>Returns a SQL modified with a FOR UPDATE clause</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$dialect</span><span class="o">-&gt;</span><span class="na">forUpdate</span><span class="p">(</span><span class="s1">'SELECT * FROM robots'</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nv">$sql</span><span class="p">;</span> <span class="c1">// SELECT * FROM robots FOR UPDATE</span>
+</pre></div>
+</div>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/sharedLock" id="sharedLock" class="dashAnchor"></a><strong>sharedLock</strong> (<em>unknown</em> $sqlQuery) inherited from Phalcon\Db\Dialect</p>
+<p>Returns a SQL modified with a LOCK IN SHARE MODE clause</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$dialect</span><span class="o">-&gt;</span><span class="na">sharedLock</span><span class="p">(</span><span class="s1">'SELECT * FROM robots'</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nv">$sql</span><span class="p">;</span> <span class="c1">// SELECT * FROM robots LOCK IN SHARE MODE</span>
+</pre></div>
+</div>
+<p>final public <em>string</em>  <a name="//apple_ref/cpp/Method/getColumnList" id="getColumnList" class="dashAnchor"></a><strong>getColumnList</strong> (<em>unknown</em> $columnList) inherited from Phalcon\Db\Dialect</p>
+<p>Gets a list of columns with escaped identifiers</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nv">$dialect</span><span class="o">-&gt;</span><span class="na">getColumnList</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'column1'</span><span class="p">,</span> <span class="s1">'column'</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getSqlExpression" id="getSqlExpression" class="dashAnchor"></a><strong>getSqlExpression</strong> (<em>unknown</em> $expression, [<em>unknown</em> $escapeChar]) inherited from Phalcon\Db\Dialect</p>
+<p>Transforms an intermediate representation for a expression into a database system valid expression</p>
+<p>final public <em>string</em>  <a name="//apple_ref/cpp/Method/getSqlTable" id="getSqlTable" class="dashAnchor"></a><strong>getSqlTable</strong> (<em>unknown</em> $table, [<em>unknown</em> $escapeChar]) inherited from Phalcon\Db\Dialect</p>
+<p>Transform an intermediate representation of a schema/table into a database system valid expression</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/select" id="select" class="dashAnchor"></a><strong>select</strong> (<em>unknown</em> $definition) inherited from Phalcon\Db\Dialect</p>
+<p>Builds a SELECT statement</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/supportsSavepoints" id="supportsSavepoints" class="dashAnchor"></a><strong>supportsSavepoints</strong> () inherited from Phalcon\Db\Dialect</p>
+<p>Checks whether the platform supports savepoints</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/supportsReleaseSavepoints" id="supportsReleaseSavepoints" class="dashAnchor"></a><strong>supportsReleaseSavepoints</strong> () inherited from Phalcon\Db\Dialect</p>
+<p>Checks whether the platform supports releasing savepoints.</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/createSavepoint" id="createSavepoint" class="dashAnchor"></a><strong>createSavepoint</strong> (<em>unknown</em> $name) inherited from Phalcon\Db\Dialect</p>
+<p>Generate SQL to create a new savepoint</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/releaseSavepoint" id="releaseSavepoint" class="dashAnchor"></a><strong>releaseSavepoint</strong> (<em>unknown</em> $name) inherited from Phalcon\Db\Dialect</p>
+<p>Generate SQL to release a savepoint</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/rollbackSavepoint" id="rollbackSavepoint" class="dashAnchor"></a><strong>rollbackSavepoint</strong> (<em>unknown</em> $name) inherited from Phalcon\Db\Dialect</p>
+<p>Generate SQL to rollback a savepoint</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

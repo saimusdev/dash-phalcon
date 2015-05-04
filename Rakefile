@@ -32,8 +32,8 @@ task :default => [
 # Docset specific variables
 DOMAIN = "phalconphp.com"
 DOCS_FOLDER = "docs." << DOMAIN << "/en/latest"
-DOCSET_NAME = "Phalcon"
-DOCSET_NAME_SMALL = "phalcon2"
+DOCSET_NAME = "Phalcon 2"
+DOCSET_NAME_SMALL = "phalcon"
 DOCSET_FOLDER = "#{DOCSET_NAME}.docset"
 DOCSET_DOCS_SUBFOLDER = "#{DOCSET_FOLDER}/Contents/Resources/Documents"
 PLIST_FILE = "#{DOCSET_FOLDER}/Contents/Info.plist"
@@ -244,7 +244,7 @@ end
 # Delete all temporary files
 task :rm do
   print_task "Cleaning..."
-  #FileUtils.rm_rf(DOCS_FOLDER) if File.directory? DOCS_FOLDER
+  FileUtils.rm_rf(DOCS_FOLDER) if File.directory? DOCS_FOLDER
   if File.directory? DOCSET_FOLDER
   	#FileUtils.rm_rf(DOCSET_FOLDER) if File.directory? DOCSET_FOLDER
   	remove_unnecessaries

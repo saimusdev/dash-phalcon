@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Interface Phalcon\Http\RequestInterface — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Interface Phalcon\Http\Request\FileInterface" href="Phalcon_Http_Request_FileInterface.html">
+    <link rel="prev" title="Interface Phalcon\Forms\ElementInterface" href="Phalcon_Forms_ElementInterface.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="interface-phalcon-http-requestinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CRequestInterface" id="Phalcon\Http\RequestInterface" class="dashAnchor"></a><strong>Phalcon\Http\RequestInterface</strong>
+</h1>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Http_RequestInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getPost" id="getPost" class="dashAnchor"></a><strong>getPost</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getQuery" id="getQuery" class="dashAnchor"></a><strong>getQuery</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getServer" id="getServer" class="dashAnchor"></a><strong>getServer</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/has" id="has" class="dashAnchor"></a><strong>has</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/hasPost" id="hasPost" class="dashAnchor"></a><strong>hasPost</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/hasQuery" id="hasQuery" class="dashAnchor"></a><strong>hasQuery</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/hasServer" id="hasServer" class="dashAnchor"></a><strong>hasServer</strong> (<em>unknown</em> $name)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHeader" id="getHeader" class="dashAnchor"></a><strong>getHeader</strong> (<em>unknown</em> $header)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getScheme" id="getScheme" class="dashAnchor"></a><strong>getScheme</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isAjax" id="isAjax" class="dashAnchor"></a><strong>isAjax</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isSoapRequested" id="isSoapRequested" class="dashAnchor"></a><strong>isSoapRequested</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isSecureRequest" id="isSecureRequest" class="dashAnchor"></a><strong>isSecureRequest</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getRawBody" id="getRawBody" class="dashAnchor"></a><strong>getRawBody</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getServerAddress" id="getServerAddress" class="dashAnchor"></a><strong>getServerAddress</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getServerName" id="getServerName" class="dashAnchor"></a><strong>getServerName</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHttpHost" id="getHttpHost" class="dashAnchor"></a><strong>getHttpHost</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getClientAddress" id="getClientAddress" class="dashAnchor"></a><strong>getClientAddress</strong> ([<em>unknown</em> $trustForwardedHeader])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getMethod" id="getMethod" class="dashAnchor"></a><strong>getMethod</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getUserAgent" id="getUserAgent" class="dashAnchor"></a><strong>getUserAgent</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isMethod" id="isMethod" class="dashAnchor"></a><strong>isMethod</strong> (<em>unknown</em> $methods)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isPost" id="isPost" class="dashAnchor"></a><strong>isPost</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isGet" id="isGet" class="dashAnchor"></a><strong>isGet</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isPut" id="isPut" class="dashAnchor"></a><strong>isPut</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isHead" id="isHead" class="dashAnchor"></a><strong>isHead</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isDelete" id="isDelete" class="dashAnchor"></a><strong>isDelete</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isOptions" id="isOptions" class="dashAnchor"></a><strong>isOptions</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/hasFiles" id="hasFiles" class="dashAnchor"></a><strong>hasFiles</strong> ([<em>unknown</em> $notErrored])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getUploadedFiles" id="getUploadedFiles" class="dashAnchor"></a><strong>getUploadedFiles</strong> ([<em>unknown</em> $notErrored])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHTTPReferer" id="getHTTPReferer" class="dashAnchor"></a><strong>getHTTPReferer</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getAcceptableContent" id="getAcceptableContent" class="dashAnchor"></a><strong>getAcceptableContent</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBestAccept" id="getBestAccept" class="dashAnchor"></a><strong>getBestAccept</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getClientCharsets" id="getClientCharsets" class="dashAnchor"></a><strong>getClientCharsets</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBestCharset" id="getBestCharset" class="dashAnchor"></a><strong>getBestCharset</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getLanguages" id="getLanguages" class="dashAnchor"></a><strong>getLanguages</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBestLanguage" id="getBestLanguage" class="dashAnchor"></a><strong>getBestLanguage</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBasicAuth" id="getBasicAuth" class="dashAnchor"></a><strong>getBasicAuth</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getDigestAuth" id="getDigestAuth" class="dashAnchor"></a><strong>getDigestAuth</strong> ()</p>
+<p>...</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Http\Request — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Http\Request\Exception" href="Phalcon_Http_Request_Exception.html">
+    <link rel="prev" title="Class Phalcon\Http\Cookie\Exception" href="Phalcon_Http_Cookie_Exception.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-http-request">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CRequest" id="Phalcon\Http\Request" class="dashAnchor"></a><strong>Phalcon\Http\Request</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Http_RequestInterface.html"><em>Phalcon\Http\RequestInterface</em></a>, <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\InjectionAwareInterface</span></tt></p>
+<p>Encapsulates request information for easy and secure access from application controllers.    The request object is a simple value object that is passed between the dispatcher and controller classes. It packages the HTTP request environment.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Http\Request</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isPost</span><span class="p">()</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isAjax</span><span class="p">()</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">'Request was made using POST and AJAX'</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Http_Request.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<em>unknown</em> $dependencyInjector)</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Returns the internal dependency injector</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue], [<em>unknown</em> $notAllowEmpty], [<em>unknown</em> $noRecursive])</p>
+<p>Gets a variable from the $_REQUEST superglobal applying filters if needed. If no parameters are given the $_REQUEST superglobal is returned</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Returns value from $_REQUEST["user_email"] without sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">);</span>
+
+<span class="c1">//Returns value from $_REQUEST["user_email"] with sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getPost" id="getPost" class="dashAnchor"></a><strong>getPost</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue], [<em>unknown</em> $notAllowEmpty], [<em>unknown</em> $noRecursive])</p>
+<p>Gets a variable from the $_POST superglobal applying filters if needed If no parameters are given the $_POST superglobal is returned</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Returns value from $_POST["user_email"] without sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">);</span>
+
+<span class="c1">//Returns value from $_POST["user_email"] with sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getPut" id="getPut" class="dashAnchor"></a><strong>getPut</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue], [<em>unknown</em> $notAllowEmpty], [<em>unknown</em> $noRecursive])</p>
+<p>Gets a variable from put request</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Returns value from $_PUT["user_email"] without sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPut</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">);</span>
+
+<span class="c1">//Returns value from $_PUT["user_email"] with sanitizing</span>
+<span class="nv">$userEmail</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getPut</span><span class="p">(</span><span class="s2">"user_email"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getQuery" id="getQuery" class="dashAnchor"></a><strong>getQuery</strong> ([<em>unknown</em> $name], [<em>unknown</em> $filters], [<em>unknown</em> $defaultValue], [<em>unknown</em> $notAllowEmpty], [<em>unknown</em> $noRecursive])</p>
+<p>Gets variable from $_GET superglobal applying filters if needed If no parameters are given the $_GET superglobal is returned</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Returns value from $_GET["id"] without sanitizing</span>
+<span class="nv">$id</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">(</span><span class="s2">"id"</span><span class="p">);</span>
+
+<span class="c1">//Returns value from $_GET["id"] with sanitizing</span>
+<span class="nv">$id</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"int"</span><span class="p">);</span>
+
+<span class="c1">//Returns value from $_GET["id"] with a default value</span>
+<span class="nv">$id</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getServer" id="getServer" class="dashAnchor"></a><strong>getServer</strong> (<em>unknown</em> $name)</p>
+<p>Gets variable from $_SERVER superglobal</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/has" id="has" class="dashAnchor"></a><strong>has</strong> (<em>unknown</em> $name)</p>
+<p>Checks whether $_REQUEST superglobal has certain index</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/hasPost" id="hasPost" class="dashAnchor"></a><strong>hasPost</strong> (<em>string</em> $name)</p>
+<p>Checks whether $_POST superglobal has certain index</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/hasQuery" id="hasQuery" class="dashAnchor"></a><strong>hasQuery</strong> (<em>unknown</em> $name)</p>
+<p>Checks whether $_GET superglobal has certain index</p>
+<p>final public <em>boolean</em>  <a name="//apple_ref/cpp/Method/hasServer" id="hasServer" class="dashAnchor"></a><strong>hasServer</strong> (<em>unknown</em> $name)</p>
+<p>Checks whether $_SERVER superglobal has certain index</p>
+<p>final public <em>string</em>  <a name="//apple_ref/cpp/Method/getHeader" id="getHeader" class="dashAnchor"></a><strong>getHeader</strong> (<em>unknown</em> $header)</p>
+<p>Gets HTTP header from request data</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getScheme" id="getScheme" class="dashAnchor"></a><strong>getScheme</strong> ()</p>
+<p>Gets HTTP schema (http/https)</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isAjax" id="isAjax" class="dashAnchor"></a><strong>isAjax</strong> ()</p>
+<p>Checks whether request has been made using ajax</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isSoapRequested" id="isSoapRequested" class="dashAnchor"></a><strong>isSoapRequested</strong> ()</p>
+<p>Checks whether request has been made using SOAP</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isSecureRequest" id="isSecureRequest" class="dashAnchor"></a><strong>isSecureRequest</strong> ()</p>
+<p>Checks whether request has been made using any secure layer</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getRawBody" id="getRawBody" class="dashAnchor"></a><strong>getRawBody</strong> ()</p>
+<p>Gets HTTP raw request body</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getJsonRawBody" id="getJsonRawBody" class="dashAnchor"></a><strong>getJsonRawBody</strong> ([<em>unknown</em> $associative])</p>
+<p>Gets decoded JSON HTTP raw request body</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getServerAddress" id="getServerAddress" class="dashAnchor"></a><strong>getServerAddress</strong> ()</p>
+<p>Gets active server address IP</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getServerName" id="getServerName" class="dashAnchor"></a><strong>getServerName</strong> ()</p>
+<p>Gets active server name</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getHttpHost" id="getHttpHost" class="dashAnchor"></a><strong>getHttpHost</strong> ()</p>
+<p>Gets information about schema, host and port used by the request</p>
+<p>final public <em>string</em>  <a name="//apple_ref/cpp/Method/getURI" id="getURI" class="dashAnchor"></a><strong>getURI</strong> ()</p>
+<p>Gets HTTP URI which request has been made</p>
+<p>public <em>string|boolean</em>  <a name="//apple_ref/cpp/Method/getClientAddress" id="getClientAddress" class="dashAnchor"></a><strong>getClientAddress</strong> ([<em>unknown</em> $trustForwardedHeader])</p>
+<p>Gets most possible client IPv4 Address. This method search in _SERVER[‘REMOTE_ADDR’] and optionally in _SERVER[‘HTTP_X_FORWARDED_FOR’]</p>
+<p>final public <em>string</em>  <a name="//apple_ref/cpp/Method/getMethod" id="getMethod" class="dashAnchor"></a><strong>getMethod</strong> ()</p>
+<p>Gets HTTP method which request has been made</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getUserAgent" id="getUserAgent" class="dashAnchor"></a><strong>getUserAgent</strong> ()</p>
+<p>Gets HTTP user agent used to made the request</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isMethod" id="isMethod" class="dashAnchor"></a><strong>isMethod</strong> (<em>unknown</em> $methods)</p>
+<p>Check if HTTP method match any of the passed methods</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isPost" id="isPost" class="dashAnchor"></a><strong>isPost</strong> ()</p>
+<p>Checks whether HTTP method is POST. if _SERVER[“REQUEST_METHOD”]===”POST”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isGet" id="isGet" class="dashAnchor"></a><strong>isGet</strong> ()</p>
+<p>Checks whether HTTP method is GET. if _SERVER[“REQUEST_METHOD”]===”GET”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isPut" id="isPut" class="dashAnchor"></a><strong>isPut</strong> ()</p>
+<p>Checks whether HTTP method is PUT. if _SERVER[“REQUEST_METHOD”]===”PUT”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isPatch" id="isPatch" class="dashAnchor"></a><strong>isPatch</strong> ()</p>
+<p>Checks whether HTTP method is PATCH. if _SERVER[“REQUEST_METHOD”]===”PATCH”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isHead" id="isHead" class="dashAnchor"></a><strong>isHead</strong> ()</p>
+<p>Checks whether HTTP method is HEAD. if _SERVER[“REQUEST_METHOD”]===”HEAD”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isDelete" id="isDelete" class="dashAnchor"></a><strong>isDelete</strong> ()</p>
+<p>Checks whether HTTP method is DELETE. if _SERVER[“REQUEST_METHOD”]===”DELETE”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isOptions" id="isOptions" class="dashAnchor"></a><strong>isOptions</strong> ()</p>
+<p>Checks whether HTTP method is OPTIONS. if _SERVER[“REQUEST_METHOD”]===”OPTIONS”</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/hasFiles" id="hasFiles" class="dashAnchor"></a><strong>hasFiles</strong> ([<em>unknown</em> $onlySuccessful])</p>
+<p>Checks whether request include attached files</p>
+<p>private  <a name="//apple_ref/cpp/Method/hasFileHelper" id="hasFileHelper" class="dashAnchor"></a><strong>hasFileHelper</strong> (<em>unknown</em> $data, <em>unknown</em> $onlySuccessful)</p>
+<p>...</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Request_File.html"><em>Phalcon\Http\Request\File</em></a> [] <a name="//apple_ref/cpp/Method/getUploadedFiles" id="getUploadedFiles" class="dashAnchor"></a><strong>getUploadedFiles</strong> ([<em>unknown</em> $notErrored])</p>
+<p>Gets attached files as Phalcon\Http\Request\File instances</p>
+<p>protected <em>array</em>  <a name="//apple_ref/cpp/Method/smoothFiles" id="smoothFiles" class="dashAnchor"></a><strong>smoothFiles</strong> (<em>unknown</em> $names, <em>unknown</em> $types, <em>unknown</em> $tmp_names, <em>unknown</em> $sizes, <em>unknown</em> $errors, <em>unknown</em> $prefix)</p>
+<p>smooth out $_FILES to have plain array with all files uploaded</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getHeaders" id="getHeaders" class="dashAnchor"></a><strong>getHeaders</strong> ()</p>
+<p>Returns the available headers in the request</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getHTTPReferer" id="getHTTPReferer" class="dashAnchor"></a><strong>getHTTPReferer</strong> ()</p>
+<p>Gets web page that refers active request. ie: <a class="reference external" href="http://www.google.com">http://www.google.com</a></p>
+<p>protected <em>array</em>  <a name="//apple_ref/cpp/Method/_getQualityHeader" id="_getQualityHeader" class="dashAnchor"></a><strong>_getQualityHeader</strong> (<em>unknown</em> $serverIndex, <em>unknown</em> $name)</p>
+<p>Process a request header and return an array of values with their qualities</p>
+<p>protected <em>string</em>  <a name="//apple_ref/cpp/Method/_getBestQuality" id="_getBestQuality" class="dashAnchor"></a><strong>_getBestQuality</strong> (<em>unknown</em> $qualityParts, <em>unknown</em> $name)</p>
+<p>Process a request header and return the one with best quality</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getContentType" id="getContentType" class="dashAnchor"></a><strong>getContentType</strong> ()</p>
+<p>Gets content type which request has been made</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getAcceptableContent" id="getAcceptableContent" class="dashAnchor"></a><strong>getAcceptableContent</strong> ()</p>
+<p>Gets array with mime/types and their quality accepted by the browser/client from _SERVER[“HTTP_ACCEPT”]</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getBestAccept" id="getBestAccept" class="dashAnchor"></a><strong>getBestAccept</strong> ()</p>
+<p>Gets best mime/type accepted by the browser/client from _SERVER[“HTTP_ACCEPT”]</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getClientCharsets" id="getClientCharsets" class="dashAnchor"></a><strong>getClientCharsets</strong> ()</p>
+<p>Gets charsets array and their quality accepted by the browser/client from _SERVER[“HTTP_ACCEPT_CHARSET”]</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getBestCharset" id="getBestCharset" class="dashAnchor"></a><strong>getBestCharset</strong> ()</p>
+<p>Gets best charset accepted by the browser/client from _SERVER[“HTTP_ACCEPT_CHARSET”]</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getLanguages" id="getLanguages" class="dashAnchor"></a><strong>getLanguages</strong> ()</p>
+<p>Gets languages array and their quality accepted by the browser/client from _SERVER[“HTTP_ACCEPT_LANGUAGE”]</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getBestLanguage" id="getBestLanguage" class="dashAnchor"></a><strong>getBestLanguage</strong> ()</p>
+<p>Gets best language accepted by the browser/client from _SERVER[“HTTP_ACCEPT_LANGUAGE”]</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getBasicAuth" id="getBasicAuth" class="dashAnchor"></a><strong>getBasicAuth</strong> ()</p>
+<p>Gets auth info accepted by the browser/client from $_SERVER[‘PHP_AUTH_USER’]</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getDigestAuth" id="getDigestAuth" class="dashAnchor"></a><strong>getDigestAuth</strong> ()</p>
+<p>Gets auth info accepted by the browser/client from $_SERVER[‘PHP_AUTH_DIGEST’]</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

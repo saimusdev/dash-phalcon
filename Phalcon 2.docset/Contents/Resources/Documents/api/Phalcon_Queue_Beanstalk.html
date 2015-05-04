@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Queue\Beanstalk — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Queue\Beanstalk\Job" href="Phalcon_Queue_Beanstalk_Job.html">
+    <link rel="prev" title="Class Phalcon\Paginator\Exception" href="Phalcon_Paginator_Exception.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-queue-beanstalk">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CQueue%5CBeanstalk" id="Phalcon\Queue\Beanstalk" class="dashAnchor"></a><strong>Phalcon\Queue\Beanstalk</strong>
+</h1>
+<ul class="simple">
+<li>Phalcon\Queue\Beanstalk * * Class to access the beanstalk queue service. * Partially implements the protocol version 1.2 *</li>
+</ul>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Queue_Beanstalk.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>unknown</em> $options])</p>
+<p>public <em>resource</em>  <a name="//apple_ref/cpp/Method/connect" id="connect" class="dashAnchor"></a><strong>connect</strong> ()</p>
+<p>Makes a connection to the Beanstalkd server</p>
+<p>public  <a name="//apple_ref/cpp/Method/put" id="put" class="dashAnchor"></a><strong>put</strong> (<em>unknown</em> $data, [<em>unknown</em> $options])</p>
+<p>Inserts jobs into the queue</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em>  <a name="//apple_ref/cpp/Method/reserve" id="reserve" class="dashAnchor"></a><strong>reserve</strong> ([<em>unknown</em> $timeout])</p>
+<p>Reserves a job in the queue</p>
+<p>public <em>string|boolean</em>  <a name="//apple_ref/cpp/Method/choose" id="choose" class="dashAnchor"></a><strong>choose</strong> (<em>unknown</em> $tube)</p>
+<p>Change the active tube. By default the tube is “default”</p>
+<p>public <em>string|boolean</em>  <a name="//apple_ref/cpp/Method/watch" id="watch" class="dashAnchor"></a><strong>watch</strong> (<em>unknown</em> $tube)</p>
+<p>Change the active tube. By default the tube is “default”</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em>  <a name="//apple_ref/cpp/Method/peekReady" id="peekReady" class="dashAnchor"></a><strong>peekReady</strong> ()</p>
+<p>Inspect the next ready job.</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em>  <a name="//apple_ref/cpp/Method/peekBuried" id="peekBuried" class="dashAnchor"></a><strong>peekBuried</strong> ()</p>
+<p>Return the next job in the list of buried jobs</p>
+<p>final public <em>array</em>  <a name="//apple_ref/cpp/Method/readStatus" id="readStatus" class="dashAnchor"></a><strong>readStatus</strong> ()</p>
+<p>Reads the latest status from the Beanstalkd server</p>
+<p>public <em>string|boolean Data or `false` on error.</em>  <a name="//apple_ref/cpp/Method/read" id="read" class="dashAnchor"></a><strong>read</strong> ([<em>unknown</em> $length])</p>
+<p>Reads a packet from the socket. Prior to reading from the socket will check for availability of the connection.</p>
+<p>protected <em>integer|boolean</em>  <a name="//apple_ref/cpp/Method/write" id="write" class="dashAnchor"></a><strong>write</strong> (<em>unknown</em> $data)</p>
+<p>Writes data to the socket. Performs a connection if none is available</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/disconnect" id="disconnect" class="dashAnchor"></a><strong>disconnect</strong> ()</p>
+<p>Closes the connection to the beanstalk server.</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>
