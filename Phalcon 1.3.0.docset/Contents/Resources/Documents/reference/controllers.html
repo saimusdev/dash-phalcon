@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Using Controllers — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="using-controllers">
-<h1>Using Controllers
-</h1>
+<h1>Using Controllers</h1>
 <p>The controllers provide a number of methods that are called actions. Actions are methods on a controller that handle requests. By default all
 public methods on a controller map to actions and are accessible by an URL. Actions are responsible for interpreting the request and creating
 the response. Usually responses are in the form of a rendered view, but there are other ways to create responses as well.</p>
@@ -129,7 +129,7 @@ the application services.</p>
 </pre></div>
 </div>
 <div class="section" id="dispatch-loop">
-<h2>Dispatch Loop<a class="headerlink" href="controllers.html#dispatch-loop" title="Permalink to this headline">¶</a>
+<h2>Dispatch Loop
 </h2>
 <p>The dispatch loop will be executed within the Dispatcher until there are no actions left to be executed. In the above example only one
 action was executed. Now we’ll see how “forward” can provide a more complex flow of operation in the dispatch loop, by forwarding
@@ -184,7 +184,7 @@ your application will halt. If there are no other actions to be dispatched by th
 the view layer of the MVC that is managed by <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a>.</p>
 </div>
 <div class="section" id="initializing-controllers">
-<h2>Initializing Controllers<a class="headerlink" href="controllers.html#initializing-controllers" title="Permalink to this headline">¶</a>
+<h2>Initializing Controllers
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Controller.html"><em>Phalcon\Mvc\Controller</em></a> offers the initialize method, which is executed first, before any
 action is executed on a controller. The use of the “__construct” method is not recommended.</p>
@@ -239,7 +239,7 @@ provided by developer).</div>
 </blockquote>
 </div>
 <div class="section" id="injecting-services">
-<h2>Injecting Services<a class="headerlink" href="controllers.html#injecting-services" title="Permalink to this headline">¶</a>
+<h2>Injecting Services
 </h2>
 <p>If a controller extends <a class="reference internal" href="../api/Phalcon_Mvc_Controller.html"><em>Phalcon\Mvc\Controller</em></a> then it has easy access to the service
 container in application. For example, if we have registered a service like this:</p>
@@ -285,7 +285,7 @@ container in application. For example, if we have registered a service like this
 <p>If you’re using Phalcon as a full-stack framework, you can read the services provided <a class="reference internal" href="di.html"><em>by default</em></a> in the framework.</p>
 </div>
 <div class="section" id="request-and-response">
-<h2>Request and Response<a class="headerlink" href="controllers.html#request-and-response" title="Permalink to this headline">¶</a>
+<h2>Request and Response
 </h2>
 <p>Assuming that the framework provides a set of pre-registered services. We explain how to interact with the HTTP environment.
 The “request” service contains an instance of <a class="reference internal" href="../api/Phalcon_Http_Request.html"><em>Phalcon\Http\Request</em></a> and the “response”
@@ -339,7 +339,7 @@ an afterDispatch event - it can be useful to access the response directly:</p>
 <p>Learn more about the HTTP environment in their dedicated articles <a class="reference internal" href="request.html"><em>request</em></a> and <a class="reference internal" href="response.html"><em>response</em></a>.</p>
 </div>
 <div class="section" id="session-data">
-<h2>Session Data<a class="headerlink" href="controllers.html#session-data" title="Permalink to this headline">¶</a>
+<h2>Session Data
 </h2>
 <p>Sessions help us maintain persistent data between requests. You could access a <a class="reference internal" href="../api/Phalcon_Session_Bag.html"><em>Phalcon\Session\Bag</em></a>
 from any controller to encapsulate data that need to be persistent.</p>
@@ -364,7 +364,7 @@ from any controller to encapsulate data that need to be persistent.</p>
 </div>
 </div>
 <div class="section" id="using-services-as-controllers">
-<h2>Using Services as Controllers<a class="headerlink" href="controllers.html#using-services-as-controllers" title="Permalink to this headline">¶</a>
+<h2>Using Services as Controllers
 </h2>
 <p>Services may act as controllers, controllers classes are always requested from the services container. Accordingly,
 any other class registered with its name can easily replace a controller:</p>
@@ -386,7 +386,7 @@ any other class registered with its name can easily replace a controller:</p>
 </div>
 </div>
 <div class="section" id="creating-a-base-controller">
-<h2>Creating a Base Controller<a class="headerlink" href="controllers.html#creating-a-base-controller" title="Permalink to this headline">¶</a>
+<h2>Creating a Base Controller
 </h2>
 <p>Some application features like access control lists, translation, cache, and template engines are often common to many
 controllers. In cases like these the creation of a “base controller” is encouraged to ensure your code stays <a class="reference external" href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. A base
@@ -432,7 +432,7 @@ loaded using any autoloader:</p>
 </div>
 </div>
 <div class="section" id="events-in-controllers">
-<h2>Events in Controllers<a class="headerlink" href="controllers.html#events-in-controllers" title="Permalink to this headline">¶</a>
+<h2>Events in Controllers
 </h2>
 <p>Controllers automatically act as listeners for <a class="reference internal" href="dispatching.html"><em>dispatcher</em></a> events, implementing methods with those event names allow
 you to implement hook points before/after the actions are executed:</p>
@@ -478,6 +478,7 @@ you to implement hook points before/after the actions are executed:</p>
 
 
 </div>
+
 
 </body>
 </html>

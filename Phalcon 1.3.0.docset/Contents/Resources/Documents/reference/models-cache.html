@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Caching in the ORM — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="caching-in-the-orm">
-<h1>Caching in the ORM
-</h1>
+<h1>Caching in the ORM</h1>
 <p>Every application is different, we could have models whose data change frequently and others that rarely change.
 Accessing database systems is often one of the most common bottlenecks in terms of performance. This is due to
 the complex connection/communication processes that PHP must do in each request to obtain data from the database.
@@ -38,7 +38,7 @@ application requires it.</p>
 The framework gives you the tools to implement the cache where you demand of it according to the architecture
 of your application.</p>
 <div class="section" id="caching-resultsets">
-<h2>Caching Resultsets<a class="headerlink" href="models-cache.html#caching-resultsets" title="Permalink to this headline">¶</a>
+<h2>Caching Resultsets
 </h2>
 <p>A well established technique to avoid the continuous access to the database is to cache resultsets that don’t change
 frequently using a system with faster access (usually memory).</p>
@@ -115,7 +115,7 @@ available caching mechanism and whether the performance impact to simply retriev
 first place is acceptable.</p>
 </div>
 <div class="section" id="overriding-find-findfirst">
-<h2>Overriding find/findFirst<a class="headerlink" href="models-cache.html#overriding-find-findfirst" title="Permalink to this headline">¶</a>
+<h2>Overriding find/findFirst
 </h2>
 <p>As seen above, these methods are available in models that inherit <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>:</p>
 <div class="highlight-php">
@@ -271,7 +271,7 @@ you can create a base class for all of them:</p>
 </div>
 </div>
 <div class="section" id="forcing-cache">
-<h2>Forcing Cache<a class="headerlink" href="models-cache.html#forcing-cache" title="Permalink to this headline">¶</a>
+<h2>Forcing Cache
 </h2>
 <p>Earlier we saw how Phalcon\Mvc\Model has a built-in integration with the caching component provided by the framework. To make a record/resultset
 cacheable we pass the key ‘cache’ in the array of parameters:</p>
@@ -327,7 +327,7 @@ we can override the find/findFirst method to force every query to be cached:</p>
 </div>
 </div>
 <div class="section" id="caching-phql-queries">
-<h2>Caching PHQL Queries<a class="headerlink" href="models-cache.html#caching-phql-queries" title="Permalink to this headline">¶</a>
+<h2>Caching PHQL Queries
 </h2>
 <p>All queries in the ORM, no matter how high level syntax we used to create them are handled internally using PHQL.
 This language gives you much more freedom to create all kinds of queries. Of course these queries can be cached:</p>
@@ -363,7 +363,7 @@ This language gives you much more freedom to create all kinds of queries. Of cou
 </div>
 </div>
 <div class="section" id="reusable-related-records">
-<h2>Reusable Related Records<a class="headerlink" href="models-cache.html#reusable-related-records" title="Permalink to this headline">¶</a>
+<h2>Reusable Related Records
 </h2>
 <p>Some models may have relationships to other models. This allows us to easily check the records that relate to instances in memory:</p>
 <div class="highlight-php">
@@ -474,7 +474,7 @@ add a more sophisticated cache for this scenario overriding the models manager:<
 </div>
 </div>
 <div class="section" id="caching-related-records">
-<h2>Caching Related Records<a class="headerlink" href="models-cache.html#caching-related-records" title="Permalink to this headline">¶</a>
+<h2>Caching Related Records
 </h2>
 <p>When a related record is queried, the ORM internally builds the appropriate condition and gets the required records using find/findFirst
 in the target model according to the following table:</p>
@@ -534,7 +534,7 @@ in the target model according to the following table:</p>
 </div>
 </div>
 <div class="section" id="caching-related-records-recursively">
-<h2>Caching Related Records Recursively<a class="headerlink" href="models-cache.html#caching-related-records-recursively" title="Permalink to this headline">¶</a>
+<h2>Caching Related Records Recursively
 </h2>
 <p>In this scenario, we assume that everytime we query a result we also retrieve their associated records.
 If we store the records found together with their related entities perhaps we could reduce a bit the overhead required
@@ -638,7 +638,7 @@ Note that this process can also be performed with PHQL following an alternative 
 </div>
 </div>
 <div class="section" id="caching-based-on-conditions">
-<h2>Caching based on Conditions<a class="headerlink" href="models-cache.html#caching-based-on-conditions" title="Permalink to this headline">¶</a>
+<h2>Caching based on Conditions
 </h2>
 <p>In this scenario, the cache is implemented conditionally according to current conditions received.
 According to the range where the primary key is located we choose a different cache backend:</p>
@@ -881,7 +881,7 @@ tell us the possible range to be used in the cache:</p>
 </div>
 </div>
 <div class="section" id="caching-of-phql-planning">
-<h2>Caching of PHQL planning<a class="headerlink" href="models-cache.html#caching-of-phql-planning" title="Permalink to this headline">¶</a>
+<h2>Caching of PHQL planning
 </h2>
 <p>As well as most moderns database systems PHQL internally caches the execution plan,
 if the same statement is executed several times PHQL reuses the previously generated plan
@@ -943,6 +943,7 @@ reducing the overall execution time, also protecting your application against <a
 
 
 </div>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Tutorial 3: Creating a Simple REST API — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="tutorial-3-creating-a-simple-rest-api">
-<h1>Tutorial 3: Creating a Simple REST API
-</h1>
+<h1>Tutorial 3: Creating a Simple REST API</h1>
 <p>In this tutorial, we will explain how to create a simple application that provides a <a class="reference external" href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> API using the
 different HTTP methods:</p>
 <ul class="simple">
@@ -38,7 +38,7 @@ different HTTP methods:</p>
 <li>DELETE to delete data</li>
 </ul>
 <div class="section" id="defining-the-api">
-<h2>Defining the API<a class="headerlink" href="tutorial-rest.html#defining-the-api" title="Permalink to this headline">¶</a>
+<h2>Defining the API
 </h2>
 <p>The API consists of the following methods:</p>
 <table border="1" class="docutils">
@@ -89,7 +89,7 @@ different HTTP methods:</p>
 </table>
 </div>
 <div class="section" id="creating-the-application">
-<h2>Creating the Application<a class="headerlink" href="tutorial-rest.html#creating-the-application" title="Permalink to this headline">¶</a>
+<h2>Creating the Application
 </h2>
 <p>As the application is so simple, we will not implement any full MVC environment to develop it. In this case,
 we will use a <a class="reference internal" href="micro.html"><em>micro application</em></a> to meet our goal.</p>
@@ -168,7 +168,7 @@ by example, explicitly sets that the “id” parameter must have a numeric form
 <p>When a defined route matches the requested URI then the application executes the corresponding handler.</p>
 </div>
 <div class="section" id="creating-a-model">
-<h2>Creating a Model<a class="headerlink" href="tutorial-rest.html#creating-a-model" title="Permalink to this headline">¶</a>
+<h2>Creating a Model
 </h2>
 <p>Our API provides information about ‘robots’, these data are stored in a database. The following model allows us to
 access that table in an object-oriented way. We have implemented some business rules using built-in validators
@@ -246,7 +246,7 @@ application:</p>
 </div>
 </div>
 <div class="section" id="retrieving-data">
-<h2>Retrieving Data<a class="headerlink" href="tutorial-rest.html#retrieving-data" title="Permalink to this headline">¶</a>
+<h2>Retrieving Data
 </h2>
 <p>The first “handler” that we will implement is which by method GET returns all available robots. Let’s use PHQL to
 perform this simple query returning the results as JSON:</p>
@@ -332,7 +332,7 @@ anonymous function allows us to pass some variables from the global to local sco
 </div>
 </div>
 <div class="section" id="inserting-data">
-<h2>Inserting Data<a class="headerlink" href="tutorial-rest.html#inserting-data" title="Permalink to this headline">¶</a>
+<h2>Inserting Data
 </h2>
 <p>Taking the data as a JSON string inserted in the body of the request, we also use PHQL for insertion:</p>
 <div class="highlight-php">
@@ -384,7 +384,7 @@ anonymous function allows us to pass some variables from the global to local sco
 </div>
 </div>
 <div class="section" id="updating-data">
-<h2>Updating Data<a class="headerlink" href="tutorial-rest.html#updating-data" title="Permalink to this headline">¶</a>
+<h2>Updating Data
 </h2>
 <p>The data update is similar to insertion. The “id” passed as parameter indicates what robot must be updated:</p>
 <div class="highlight-php">
@@ -428,7 +428,7 @@ anonymous function allows us to pass some variables from the global to local sco
 </div>
 </div>
 <div class="section" id="deleting-data">
-<h2>Deleting Data<a class="headerlink" href="tutorial-rest.html#deleting-data" title="Permalink to this headline">¶</a>
+<h2>Deleting Data
 </h2>
 <p>The data delete is similar to update. The “id” passed as parameter indicates what robot must be deleted:</p>
 <div class="highlight-php">
@@ -467,7 +467,7 @@ anonymous function allows us to pass some variables from the global to local sco
 </div>
 </div>
 <div class="section" id="testing-our-application">
-<h2>Testing our Application<a class="headerlink" href="tutorial-rest.html#testing-our-application" title="Permalink to this headline">¶</a>
+<h2>Testing our Application
 </h2>
 <p>Using <a class="reference external" href="http://en.wikipedia.org/wiki/CURL">curl</a> we’ll test every route in our application verifying its proper operation:</p>
 <p>Obtain all the robots:</p>
@@ -567,7 +567,7 @@ Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>
 </div>
 </div>
 <div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="tutorial-rest.html#conclusion" title="Permalink to this headline">¶</a>
+<h2>Conclusion
 </h2>
 <p>As we have seen, develop a RESTful API with Phalcon is easy. Later in the documentation we’ll explain in detail how to
 use micro applications and the <a class="reference internal" href="phql.html"><em>PHQL</em></a> language.</p>
@@ -583,6 +583,7 @@ use micro applications and the <a class="reference internal" href="phql.html"><e
 
 
 </div>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Micro Applications — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="micro-applications">
-<h1>Micro Applications
-</h1>
+<h1>Micro Applications</h1>
 <p>With Phalcon you can create “Micro-Framework like” applications. By doing this, you only need to write a minimal amount of
 code to create a PHP application. Micro applications are suitable to implement small applications, APIs and
 prototypes in a practical way.</p>
@@ -45,7 +45,7 @@ prototypes in a practical way.</p>
 </pre></div>
 </div>
 <div class="section" id="creating-a-micro-application">
-<h2>Creating a Micro Application<a class="headerlink" href="micro.html#creating-a-micro-application" title="Permalink to this headline">¶</a>
+<h2>Creating a Micro Application
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Micro.html"><em>Phalcon\Mvc\Micro</em></a> is the class responsible for implementing a micro application.</p>
 <div class="highlight-php">
@@ -56,7 +56,7 @@ prototypes in a practical way.</p>
 </div>
 </div>
 <div class="section" id="defining-routes">
-<h2>Defining routes<a class="headerlink" href="micro.html#defining-routes" title="Permalink to this headline">¶</a>
+<h2>Defining routes
 </h2>
 <p>After instantiating the object, you will need to add some routes. <a class="reference internal" href="../api/Phalcon_Mvc_Router.html"><em>Phalcon\Mvc\Router</em></a> manages routing internally.
 Routes must always start with /. A HTTP method constraint is optionally required when defining routes, so as to instruct
@@ -124,7 +124,7 @@ which the route is constrained for:</p>
 </pre></div>
 </div>
 <div class="section" id="routes-with-parameters">
-<h3>Routes with Parameters<a class="headerlink" href="micro.html#routes-with-parameters" title="Permalink to this headline">¶</a>
+<h3>Routes with Parameters
 </h3>
 <p>Defining parameters in routes is very easy as demonstrated above. The name of the parameter has to be enclosed in brackets. Parameter
 formatting is also available using regular expressions to ensure consistency of data. This is demonstrated in the example below:</p>
@@ -140,7 +140,7 @@ formatting is also available using regular expressions to ensure consistency of 
 </div>
 </div>
 <div class="section" id="starting-route">
-<h3>Starting Route<a class="headerlink" href="micro.html#starting-route" title="Permalink to this headline">¶</a>
+<h3>Starting Route
 </h3>
 <p>Normally, the starting route in an application is the route /, and it will more frequent to be accessed by the method GET.
 This scenario is coded as follows:</p>
@@ -155,7 +155,7 @@ This scenario is coded as follows:</p>
 </div>
 </div>
 <div class="section" id="rewrite-rules">
-<h3>Rewrite Rules<a class="headerlink" href="micro.html#rewrite-rules" title="Permalink to this headline">¶</a>
+<h3>Rewrite Rules
 </h3>
 <p>The following rules can be used together with Apache to rewrite the URis:</p>
 <div class="highlight-apacheconf">
@@ -169,7 +169,7 @@ This scenario is coded as follows:</p>
 </div>
 </div>
 <div class="section" id="working-with-responses">
-<h2>Working with Responses<a class="headerlink" href="micro.html#working-with-responses" title="Permalink to this headline">¶</a>
+<h2>Working with Responses
 </h2>
 <p>You are free to produce any kind of response in a handler: directly make an output, use a template engine, include a view,
 return a json, etc.:</p>
@@ -230,7 +230,7 @@ response:</p>
 </div>
 </div>
 <div class="section" id="making-redirections">
-<h2>Making redirections<a class="headerlink" href="micro.html#making-redirections" title="Permalink to this headline">¶</a>
+<h2>Making redirections
 </h2>
 <p>Redirections could be performed to forward the execution flow to another route:</p>
 <div class="highlight-php">
@@ -248,7 +248,7 @@ response:</p>
 </div>
 </div>
 <div class="section" id="generating-urls-for-routes">
-<h2>Generating URLs for Routes<a class="headerlink" href="micro.html#generating-urls-for-routes" title="Permalink to this headline">¶</a>
+<h2>Generating URLs for Routes
 </h2>
 <p><a class="reference internal" href="url.html"><em>Phalcon\Mvc\Url</em></a> can be used to produce URLs based on the defined routes. You need to set up a name for the route;
 by this way the “url” service can produce the corresponding URL:</p>
@@ -276,7 +276,7 @@ by this way the “url” service can produce the corresponding URL:</p>
 </div>
 </div>
 <div class="section" id="interacting-with-the-dependency-injector">
-<h2>Interacting with the Dependency Injector<a class="headerlink" href="micro.html#interacting-with-the-dependency-injector" title="Permalink to this headline">¶</a>
+<h2>Interacting with the Dependency Injector
 </h2>
 <p>In the micro application, a <a class="reference internal" href="di.html"><em>Phalcon\DI\FactoryDefault</em></a> services container is created implicitly; additionally you
 can create outside the application a container to manipulate its services:</p>
@@ -336,7 +336,7 @@ can create outside the application a container to manipulate its services:</p>
 </div>
 </div>
 <div class="section" id="not-found-handler">
-<h2>Not-Found Handler<a class="headerlink" href="micro.html#not-found-handler" title="Permalink to this headline">¶</a>
+<h2>Not-Found Handler
 </h2>
 <p>When an user tries to access a route that is not defined, the micro application will try to execute the “Not-Found” handler.
 An example of that behavior is below:</p>
@@ -351,7 +351,7 @@ An example of that behavior is below:</p>
 </div>
 </div>
 <div class="section" id="models-in-micro-applications">
-<h2>Models in Micro Applications<a class="headerlink" href="micro.html#models-in-micro-applications" title="Permalink to this headline">¶</a>
+<h2>Models in Micro Applications
 </h2>
 <p><a class="reference internal" href="models.html"><em>Models</em></a> can be used transparently in Micro Applications, only is required an autoloader to load models:</p>
 <div class="highlight-php">
@@ -378,7 +378,7 @@ An example of that behavior is below:</p>
 </div>
 </div>
 <div class="section" id="micro-application-events">
-<h2>Micro Application Events<a class="headerlink" href="micro.html#micro-application-events" title="Permalink to this headline">¶</a>
+<h2>Micro Application Events
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Micro.html"><em>Phalcon\Mvc\Micro</em></a> is able to send events to the <a class="reference internal" href="events.html"><em>EventsManager</em></a> (if it is present).
 Events are triggered using the type “micro”. The following events are supported:</p>
@@ -457,7 +457,7 @@ Events are triggered using the type “micro”. The following events are suppor
 </div>
 </div>
 <div class="section" id="middleware-events">
-<h2>Middleware events<a class="headerlink" href="micro.html#middleware-events" title="Permalink to this headline">¶</a>
+<h2>Middleware events
 </h2>
 <p>In addition to the events manager, events can be added using the methods ‘before’, ‘after’ and ‘finish’:</p>
 <div class="highlight-php">
@@ -576,7 +576,7 @@ Events are triggered using the type “micro”. The following events are suppor
 </table>
 </div>
 <div class="section" id="using-controllers-as-handlers">
-<h2>Using Controllers as Handlers<a class="headerlink" href="micro.html#using-controllers-as-handlers" title="Permalink to this headline">¶</a>
+<h2>Using Controllers as Handlers
 </h2>
 <p>Medium applications using the Micro\MVC approach may require organize handlers in controllers.
 You can use <a class="reference internal" href="../api/Phalcon_Mvc_Micro_Collection.html"><em>Phalcon\Mvc\Micro\Collection</em></a> to group handlers that belongs to controllers:</p>
@@ -632,7 +632,7 @@ provide better performance loading controllers only if the related routes are ma
 </div>
 </div>
 <div class="section" id="returning-responses">
-<h2>Returning Responses<a class="headerlink" href="micro.html#returning-responses" title="Permalink to this headline">¶</a>
+<h2>Returning Responses
 </h2>
 <p>Handlers may return raw responses using <a class="reference internal" href="response.html"><em>Phalcon\Http\Response</em></a> or a component that implements the relevant interface.
 When responses are returned by handlers they are automatically sent by the application.</p>
@@ -659,7 +659,7 @@ When responses are returned by handlers they are automatically sent by the appli
 </div>
 </div>
 <div class="section" id="rendering-views">
-<h2>Rendering Views<a class="headerlink" href="micro.html#rendering-views" title="Permalink to this headline">¶</a>
+<h2>Rendering Views
 </h2>
 <p><a class="reference internal" href="views.html"><em>Phalcon\Mvc\View\Simple</em></a> can be used to render views, the following example shows how to do that:</p>
 <div class="highlight-php">
@@ -687,7 +687,7 @@ When responses are returned by handlers they are automatically sent by the appli
 </div>
 </div>
 <div class="section" id="related-sources">
-<h2>Related Sources<a class="headerlink" href="micro.html#related-sources" title="Permalink to this headline">¶</a>
+<h2>Related Sources
 </h2>
 <ul class="simple">
 <li>
@@ -707,6 +707,7 @@ When responses are returned by handlers they are automatically sent by the appli
 
 
 </div>
+
 
 </body>
 </html>

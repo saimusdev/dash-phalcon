@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Dispatching Controllers — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,12 +28,11 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="dispatching-controllers">
-<h1>Dispatching Controllers
-</h1>
+<h1>Dispatching Controllers</h1>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Dispatcher.html"><em>Phalcon\Mvc\Dispatcher</em></a> is the component responsible for instantiating controllers and executing the required actions
 on them in an MVC application. Understanding its operation and capabilities helps us get more out of the services provided by the framework.</p>
 <div class="section" id="the-dispatch-loop">
-<h2>The Dispatch Loop<a class="headerlink" href="dispatching.html#the-dispatch-loop" title="Permalink to this headline">¶</a>
+<h2>The Dispatch Loop
 </h2>
 <p>This is an important process that has much to do with the MVC flow itself, especially with the controller part. The work occurs within the controller
 dispatcher. The controller files are read, loaded, and instantiated. Then the required actions are executed. If an action forwards the flow to another
@@ -62,7 +62,7 @@ within <a class="reference internal" href="../api/Phalcon_Mvc_Dispatcher.html"><
 </div>
 <p>The code above lacks validations, filters and additional checks, but it demonstrates the normal flow of operation in the dispatcher.</p>
 <div class="section" id="dispatch-loop-events">
-<h3>Dispatch Loop Events<a class="headerlink" href="dispatching.html#dispatch-loop-events" title="Permalink to this headline">¶</a>
+<h3>Dispatch Loop Events
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Dispatcher.html"><em>Phalcon\Mvc\Dispatcher</em></a> is able to send events to an <a class="reference internal" href="events.html"><em>EventsManager</em></a> if it is present. Events are triggered using the type “dispatch”. Some events when returning boolean false could stop the active operation. The following events are supported:</p>
 <table border="1" class="docutils">
@@ -188,7 +188,7 @@ within <a class="reference internal" href="../api/Phalcon_Mvc_Dispatcher.html"><
 </div>
 </div>
 <div class="section" id="forwarding-to-other-actions">
-<h2>Forwarding to other actions<a class="headerlink" href="dispatching.html#forwarding-to-other-actions" title="Permalink to this headline">¶</a>
+<h2>Forwarding to other actions
 </h2>
 <p>The dispatch loop allows us to forward the execution flow to another controller/action. This is very useful to check if the user can
 access to certain options, redirect users to other screens or simply reuse code.</p>
@@ -271,7 +271,7 @@ to complete the process.</p>
 </table>
 </div>
 <div class="section" id="preparing-parameters">
-<h2>Preparing Parameters<a class="headerlink" href="dispatching.html#preparing-parameters" title="Permalink to this headline">¶</a>
+<h2>Preparing Parameters
 </h2>
 <p>Thanks to the hooks points provided by <a class="reference internal" href="../api/Phalcon_Mvc_Dispatcher.html"><em>Phalcon\Mvc\Dispatcher</em></a> you can easily
 adapt your application to any URL schema:</p>
@@ -351,7 +351,7 @@ adapt your application to any URL schema:</p>
 </div>
 </div>
 <div class="section" id="getting-parameters">
-<h2>Getting Parameters<a class="headerlink" href="dispatching.html#getting-parameters" title="Permalink to this headline">¶</a>
+<h2>Getting Parameters
 </h2>
 <p>When a route provides named parameters you can receive them in a controller, a view or any other component that extends
 <a class="reference internal" href="../api/Phalcon_DI_Injectable.html"><em>Phalcon\DI\Injectable</em></a>.</p>
@@ -383,11 +383,11 @@ adapt your application to any URL schema:</p>
 </div>
 </div>
 <div class="section" id="preparing-actions">
-<h2>Preparing actions<a class="headerlink" href="dispatching.html#preparing-actions" title="Permalink to this headline">¶</a>
+<h2>Preparing actions
 </h2>
 <p>You can also define an arbitrary schema for actions before be dispatched.</p>
 <div class="section" id="camelize-action-names">
-<h3>Camelize action names<a class="headerlink" href="dispatching.html#camelize-action-names" title="Permalink to this headline">¶</a>
+<h3>Camelize action names
 </h3>
 <p>If the original URL is: <a class="reference external" href="http://example.com/admin/products/show-latest-products">http://example.com/admin/products/show-latest-products</a>,
 and for example you want to camelize ‘show-latest-products’ to ‘ShowLatestProducts’,
@@ -418,7 +418,7 @@ the following code is required:</p>
 </div>
 </div>
 <div class="section" id="remove-legacy-extensions">
-<h3>Remove legacy extensions<a class="headerlink" href="dispatching.html#remove-legacy-extensions" title="Permalink to this headline">¶</a>
+<h3>Remove legacy extensions
 </h3>
 <p>If the original URL always contains a ‘.php’ extension:</p>
 <p><a class="reference external" href="http://example.com/admin/products/show-latest-products.php">http://example.com/admin/products/show-latest-products.php</a>
@@ -454,7 +454,7 @@ the following code is required:</p>
 </div>
 </div>
 <div class="section" id="inject-model-instances">
-<h3>Inject model instances<a class="headerlink" href="dispatching.html#inject-model-instances" title="Permalink to this headline">¶</a>
+<h3>Inject model instances
 </h3>
 <p>In this example, the developer wants to inspect the parameters that an action will receive in order to dynamically
 inject model instances.</p>
@@ -537,7 +537,7 @@ A developer can improve it to inject any kind of dependency or model in actions 
 </div>
 </div>
 <div class="section" id="handling-not-found-exceptions">
-<h2>Handling Not-Found Exceptions<a class="headerlink" href="dispatching.html#handling-not-found-exceptions" title="Permalink to this headline">¶</a>
+<h2>Handling Not-Found Exceptions
 </h2>
 <p>Using the <a class="reference internal" href="events.html"><em>EventsManager</em></a> it’s possible to insert a hook point before the dispatcher throws an exception
 when the controller/action combination wasn’t found:</p>
@@ -631,7 +631,7 @@ controller events are redirected to the latest try/catch.</div>
 </blockquote>
 </div>
 <div class="section" id="implementing-your-own-dispatcher">
-<h2>Implementing your own Dispatcher<a class="headerlink" href="dispatching.html#implementing-your-own-dispatcher" title="Permalink to this headline">¶</a>
+<h2>Implementing your own Dispatcher
 </h2>
 <p>The <a class="reference internal" href="../api/Phalcon_Mvc_DispatcherInterface.html"><em>Phalcon\Mvc\DispatcherInterface</em></a> interface must be implemented to create your own dispatcher
 replacing the one provided by Phalcon.</p>
@@ -647,6 +647,7 @@ replacing the one provided by Phalcon.</p>
 
 
 </div>
+
 
 </body>
 </html>

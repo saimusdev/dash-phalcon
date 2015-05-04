@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Queueing — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="queueing">
-<h1>Queueing
-</h1>
+<h1>Queueing</h1>
 <p>Perform activities like process a video, resize images or send emails aren’t suitable to be executed
 online or in real time because it may slow the loading time of pages, impacting the user experience.</p>
 <p>The best solution here is implementing background jobs. A web application must put the job
@@ -37,7 +37,7 @@ into a queue and wait that it will be processed.</p>
 Phalcon provides a client for <a class="reference external" href="http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/">Beanstalk</a>, a job queueing backend inspired by <a class="reference external" href="http://memcached.org/">Memcache</a>.
 It’s simple, lightweight, and completely specialized on job queueing.</p>
 <div class="section" id="putting-jobs-into-the-queue">
-<h2>Putting Jobs into the Queue<a class="headerlink" href="queue.html#putting-jobs-into-the-queue" title="Permalink to this headline">¶</a>
+<h2>Putting Jobs into the Queue
 </h2>
 <p>After connecting to Bens can insert as many jobs as required. The developer can define the message
 structure according to the needs of the application:</p>
@@ -129,7 +129,7 @@ The message is stored in the queue immediately and does not have a certain time 
 </div>
 </div>
 <div class="section" id="retrieving-messages">
-<h2>Retrieving Messages<a class="headerlink" href="queue.html#retrieving-messages" title="Permalink to this headline">¶</a>
+<h2>Retrieving Messages
 </h2>
 <p>Once a job is placed into the queue, those messages can be consumed by a background job which have enough time to complete
 the task:</p>
@@ -177,6 +177,7 @@ implementing queues.</p>
 
 
 </div>
+
 
 </body>
 </html>

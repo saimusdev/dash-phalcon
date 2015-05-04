@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Database Abstraction Layer — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="database-abstraction-layer">
-<h1>Database Abstraction Layer
-</h1>
+<h1>Database Abstraction Layer</h1>
 <p><a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> is the component behind <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> that powers the model layer
 in the framework. It consists of an independent high-level abstraction layer for database systems completely written in C.</p>
 <p>This component allows for a lower level database manipulation than using traditional models.</p>
@@ -37,7 +37,7 @@ in the framework. It consists of an independent high-level abstraction layer for
 for a complete reference.</div>
 </blockquote>
 <div class="section" id="database-adapters">
-<h2>Database Adapters<a class="headerlink" href="db.html#database-adapters" title="Permalink to this headline">¶</a>
+<h2>Database Adapters
 </h2>
 <p>This component makes use of adapters to encapsulate specific database system details. Phalcon uses <a class="reference external" href="http://www.php.net/manual/en/book.pdo.php">PDO</a> to connect to databases. The following
 database engines are supported:</p>
@@ -78,14 +78,14 @@ database engines are supported:</p>
 </tbody>
 </table>
 <div class="section" id="implementing-your-own-adapters">
-<h3>Implementing your own adapters<a class="headerlink" href="db.html#implementing-your-own-adapters" title="Permalink to this headline">¶</a>
+<h3>Implementing your own adapters
 </h3>
 <p>The <a class="reference internal" href="../api/Phalcon_Db_AdapterInterface.html"><em>Phalcon\Db\AdapterInterface</em></a> interface must be implemented in order to create your own
 database adapters or extend the existing ones.</p>
 </div>
 </div>
 <div class="section" id="database-dialects">
-<h2>Database Dialects<a class="headerlink" href="db.html#database-dialects" title="Permalink to this headline">¶</a>
+<h2>Database Dialects
 </h2>
 <p>Phalcon encapsulates the specific details of each database engine in dialects. Those provide common functions and SQL generator to the adapters.</p>
 <table border="1" class="docutils">
@@ -125,13 +125,13 @@ database adapters or extend the existing ones.</p>
 </tbody>
 </table>
 <div class="section" id="implementing-your-own-dialects">
-<h3>Implementing your own dialects<a class="headerlink" href="db.html#implementing-your-own-dialects" title="Permalink to this headline">¶</a>
+<h3>Implementing your own dialects
 </h3>
 <p>The <a class="reference internal" href="../api/Phalcon_Db_DialectInterface.html"><em>Phalcon\Db\DialectInterface</em></a> interface must be implemented in order to create your own database dialects or extend the existing ones.</p>
 </div>
 </div>
 <div class="section" id="connecting-to-databases">
-<h2>Connecting to Databases<a class="headerlink" href="db.html#connecting-to-databases" title="Permalink to this headline">¶</a>
+<h2>Connecting to Databases
 </h2>
 <p>To create a connection it’s necessary instantiate the adapter class. It only requires an array with the connection parameters. The example
 below shows how to create a connection passing both required and optional parameters:</p>
@@ -207,7 +207,7 @@ below shows how to create a connection passing both required and optional parame
 </div>
 </div>
 <div class="section" id="setting-up-additional-pdo-options">
-<h2>Setting up additional PDO options<a class="headerlink" href="db.html#setting-up-additional-pdo-options" title="Permalink to this headline">¶</a>
+<h2>Setting up additional PDO options
 </h2>
 <p>You can set PDO options at connection time by passing the parameters ‘options’:</p>
 <div class="highlight-php">
@@ -228,7 +228,7 @@ below shows how to create a connection passing both required and optional parame
 </div>
 </div>
 <div class="section" id="finding-rows">
-<h2>Finding Rows<a class="headerlink" href="db.html#finding-rows" title="Permalink to this headline">¶</a>
+<h2>Finding Rows
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> provides several methods to query rows from tables. The specific SQL syntax of the target database engine is required in this case:</p>
 <div class="highlight-php">
@@ -319,7 +319,7 @@ below shows how to create a connection passing both required and optional parame
 </div>
 </div>
 <div class="section" id="binding-parameters">
-<h2>Binding Parameters<a class="headerlink" href="db.html#binding-parameters" title="Permalink to this headline">¶</a>
+<h2>Binding Parameters
 </h2>
 <p>Bound parameters is also supported in <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a>. Although there is a minimal performance impact by using
 bound parameters, you are encouraged to use this methodology so as to eliminate the possibility of your code being subject to SQL
@@ -338,7 +338,7 @@ injection attacks. Both string and positional placeholders are supported. Bindin
 </div>
 </div>
 <div class="section" id="inserting-updating-deleting-rows">
-<h2>Inserting/Updating/Deleting Rows<a class="headerlink" href="db.html#inserting-updating-deleting-rows" title="Permalink to this headline">¶</a>
+<h2>Inserting/Updating/Deleting Rows
 </h2>
 <p>To insert, update or delete rows, you can use raw SQL or use the preset functions provided by the class:</p>
 <div class="highlight-php">
@@ -389,7 +389,7 @@ injection attacks. Both string and positional placeholders are supported. Bindin
 </div>
 </div>
 <div class="section" id="transactions-and-nested-transactions">
-<h2>Transactions and Nested Transactions<a class="headerlink" href="db.html#transactions-and-nested-transactions" title="Permalink to this headline">¶</a>
+<h2>Transactions and Nested Transactions
 </h2>
 <p>Working with transactions is supported as it is with PDO. Perform data manipulation inside transactions
 often increase the performance on most database systems:</p>
@@ -460,7 +460,7 @@ is created:</p>
 </div>
 </div>
 <div class="section" id="database-events">
-<h2>Database Events<a class="headerlink" href="db.html#database-events" title="Permalink to this headline">¶</a>
+<h2>Database Events
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> is able to send events to a <a class="reference internal" href="events.html"><em>EventsManager</em></a> if it’s present.
 Some events when returning boolean false could stop the active operation. The following events are supported:</p>
@@ -558,7 +558,7 @@ Some events when returning boolean false could stop the active operation. The fo
 </div>
 </div>
 <div class="section" id="profiling-sql-statements">
-<h2>Profiling SQL Statements<a class="headerlink" href="db.html#profiling-sql-statements" title="Permalink to this headline">¶</a>
+<h2>Profiling SQL Statements
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> includes a profiling component called <a class="reference internal" href="../api/Phalcon_Db_Profiler.html"><em>Phalcon\Db\Profiler</em></a>, that is used to analyze the performance of database operations so as to diagnose performance problems and discover bottlenecks.</p>
 <p>Database profiling is really easy With <a class="reference internal" href="../api/Phalcon_Db_Profiler.html"><em>Phalcon\Db\Profiler</em></a>:</p>
@@ -644,7 +644,7 @@ Some events when returning boolean false could stop the active operation. The fo
 </div>
 </div>
 <div class="section" id="logging-sql-statements">
-<h2>Logging SQL Statements<a class="headerlink" href="db.html#logging-sql-statements" title="Permalink to this headline">¶</a>
+<h2>Logging SQL Statements
 </h2>
 <p>Using high-level abstraction components such as <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> to access a database, it is difficult to understand which statements are sent to the database system. <a class="reference internal" href="../api/Phalcon_Logger.html"><em>Phalcon\Logger</em></a> interacts with <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a>, providing logging capabilities on the database abstraction layer.</p>
 <div class="highlight-php">
@@ -683,7 +683,7 @@ Some events when returning boolean false could stop the active operation. The fo
 </pre></div>
 </div>
 <div class="section" id="implementing-your-own-logger">
-<h3>Implementing your own Logger<a class="headerlink" href="db.html#implementing-your-own-logger" title="Permalink to this headline">¶</a>
+<h3>Implementing your own Logger
 </h3>
 <p>You can implement your own logger class for database queries, by creating a class that implements a single method called “log”.
 The method needs to accept a string as the first argument. You can then pass your logging object to Phalcon\Db::setLogger(),
@@ -691,7 +691,7 @@ and from then on any SQL statement executed will call that method to log the res
 </div>
 </div>
 <div class="section" id="describing-tables-views">
-<h2>Describing Tables/Views<a class="headerlink" href="db.html#describing-tables-views" title="Permalink to this headline">¶</a>
+<h2>Describing Tables/Views
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> also provides methods to retrieve detailed information about tables and views:</p>
 <div class="highlight-php">
@@ -767,14 +767,14 @@ and from then on any SQL statement executed will call that method to log the res
 </div>
 </div>
 <div class="section" id="creating-altering-dropping-tables">
-<h2>Creating/Altering/Dropping Tables<a class="headerlink" href="db.html#creating-altering-dropping-tables" title="Permalink to this headline">¶</a>
+<h2>Creating/Altering/Dropping Tables
 </h2>
 <p>Different database systems (MySQL, Postgresql etc.) offer the ability to create, alter or drop tables with the use of
 commands such as CREATE, ALTER or DROP. The SQL syntax differs based on which database system is used.
 <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> offers a unified interface to alter tables, without the need to
 differentiate the SQL syntax based on the target storage system.</p>
 <div class="section" id="creating-tables">
-<h3>Creating Tables<a class="headerlink" href="db.html#creating-tables" title="Permalink to this headline">¶</a>
+<h3>Creating Tables
 </h3>
 <p>The following example shows how to create a table:</p>
 <div class="highlight-php">
@@ -934,7 +934,7 @@ differentiate the SQL syntax based on the target storage system.</p>
 </table>
 </div>
 <div class="section" id="altering-tables">
-<h3>Altering Tables<a class="headerlink" href="db.html#altering-tables" title="Permalink to this headline">¶</a>
+<h3>Altering Tables
 </h3>
 <p>As your application grows, you might need to alter your database, as part of a refactoring or adding new features.
 Not all database systems allow to modify existing columns or add columns between two existing ones. <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a>
@@ -967,7 +967,7 @@ is limited by these constraints.</p>
 </div>
 </div>
 <div class="section" id="dropping-tables">
-<h3>Dropping Tables<a class="headerlink" href="db.html#dropping-tables" title="Permalink to this headline">¶</a>
+<h3>Dropping Tables
 </h3>
 <p>Examples on dropping tables:</p>
 <div class="highlight-php">
@@ -993,6 +993,7 @@ is limited by these constraints.</p>
 
 
 </div>
+
 
 </body>
 </html>

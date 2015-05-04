@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Using Views — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,15 +28,14 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="using-views">
-<h1>Using Views
-</h1>
+<h1>Using Views</h1>
 <p>Views represent the user interface of your application. Views are often HTML files with embedded PHP code that perform tasks
 related solely to the presentation of the data. Views handle the job of providing data to the web browser or other tool that
 is used to make requests from your application.</p>
 <p>The <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> and <a class="reference internal" href="../api/Phalcon_Mvc_View_Simple.html"><em>Phalcon\Mvc\View\Simple</em></a>
 are responsible for the managing the view layer of your MVC application.</p>
 <div class="section" id="integrating-views-with-controllers">
-<h2>Integrating Views with Controllers<a class="headerlink" href="views.html#integrating-views-with-controllers" title="Permalink to this headline">¶</a>
+<h2>Integrating Views with Controllers
 </h2>
 <p>Phalcon automatically passes the execution to the view component as soon as a particular controller has completed its cycle. The view component
 will look in the views folder for a folder named as the same name of the last controller executed and then for a file named as the last action
@@ -93,7 +93,7 @@ executed. For instance, if a request is made to the URL <em>http://127.0.0.1/blo
 how to pass the $postId parameter to the respective view template.</p>
 </div>
 <div class="section" id="hierarchical-rendering">
-<h2>Hierarchical Rendering<a class="headerlink" href="views.html#hierarchical-rendering" title="Permalink to this headline">¶</a>
+<h2>Hierarchical Rendering
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> supports a hierarchy of files and is the default component for view rendering in Phalcon.
 This hierarchy allows for common layout points (commonly used views), as well as controller named folders defining respective view templates.</p>
@@ -195,7 +195,7 @@ on where to inject the contents of the previous view executed in the hierarchy. 
 </pre></div>
 </div>
 <div class="section" id="using-templates">
-<h3>Using Templates<a class="headerlink" href="views.html#using-templates" title="Permalink to this headline">¶</a>
+<h3>Using Templates
 </h3>
 <p>Templates are views that can be used to share common view code. They act as controller layouts, so you need to place them in the
 layouts directory.</p>
@@ -307,7 +307,7 @@ layouts directory.</p>
 </div>
 </div>
 <div class="section" id="control-rendering-levels">
-<h3>Control Rendering Levels<a class="headerlink" href="views.html#control-rendering-levels" title="Permalink to this headline">¶</a>
+<h3>Control Rendering Levels
 </h3>
 <p>As seen above, <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> supports a view hierarchy. You might need to control the level of rendering
 produced by the view component. The method PhalconMvc\View::setRenderLevel() offers this functionality.</p>
@@ -393,7 +393,7 @@ produced by the view component. The method PhalconMvc\View::setRenderLevel() off
 </table>
 </div>
 <div class="section" id="disabling-render-levels">
-<h3>Disabling render levels<a class="headerlink" href="views.html#disabling-render-levels" title="Permalink to this headline">¶</a>
+<h3>Disabling render levels
 </h3>
 <p>You can permanently or temporarily disable render levels. A level could be permanently disabled if it isn’t used at all in the whole application:</p>
 <div class="highlight-php">
@@ -441,7 +441,7 @@ produced by the view component. The method PhalconMvc\View::setRenderLevel() off
 </div>
 </div>
 <div class="section" id="picking-views">
-<h3>Picking Views<a class="headerlink" href="views.html#picking-views" title="Permalink to this headline">¶</a>
+<h3>Picking Views
 </h3>
 <p>As mentioned above, when <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> is managed by <a class="reference internal" href="../api/Phalcon_Mvc_Application.html"><em>Phalcon\Mvc\Application</em></a>
 the view rendered is the one related with the last controller and action executed. You could override this by using the Phalcon\Mvc\View::pick() method:</p>
@@ -468,7 +468,7 @@ the view rendered is the one related with the last controller and action execute
 </div>
 </div>
 <div class="section" id="disabling-the-view">
-<h3>Disabling the view<a class="headerlink" href="views.html#disabling-the-view" title="Permalink to this headline">¶</a>
+<h3>Disabling the view
 </h3>
 <p>If your controller doesn’t produce any output in the view (or not even have one) you may disable the view component
 avoiding unnecessary processing:</p>
@@ -515,7 +515,7 @@ avoiding unnecessary processing:</p>
 </div>
 </div>
 <div class="section" id="simple-rendering">
-<h2>Simple Rendering<a class="headerlink" href="views.html#simple-rendering" title="Permalink to this headline">¶</a>
+<h2>Simple Rendering
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_View_Simple.html"><em>Phalcon\Mvc\View\Simple</em></a> is an alternative component to <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a>.
 It keeps most of the philosophy of <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> but lacks of a hierarchy of files which is, in fact,
@@ -582,7 +582,7 @@ as <a class="reference internal" href="volt.html"><em>Volt</em></a> and others.<
 </div>
 </div>
 <div class="section" id="using-partials">
-<h2>Using Partials<a class="headerlink" href="views.html#using-partials" title="Permalink to this headline">¶</a>
+<h2>Using Partials
 </h2>
 <p>Partial templates are another way of breaking the rendering process into simpler more manageable chunks that can be reused by different
 parts of the application. With a partial, you can move the code for rendering a particular piece of a response to its own file.</p>
@@ -608,7 +608,7 @@ can be more easily understood. For example, you might have a view that looks lik
 </div>
 </div>
 <div class="section" id="transfer-values-from-the-controller-to-views">
-<h2>Transfer values from the controller to views<a class="headerlink" href="views.html#transfer-values-from-the-controller-to-views" title="Permalink to this headline">¶</a>
+<h2>Transfer values from the controller to views
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> is available in each controller using the view variable ($this-&gt;view). You can
 use that object to set variables directly to the view from a controller action by using the setVar() method.</p>
@@ -657,7 +657,7 @@ from a simple string, integer etc. variable to a more complex structure such as 
 </div>
 </div>
 <div class="section" id="using-models-in-the-view-layer">
-<h2>Using models in the view layer<a class="headerlink" href="views.html#using-models-in-the-view-layer" title="Permalink to this headline">¶</a>
+<h2>Using models in the view layer
 </h2>
 <p>Application models are always available at the view layer. The <a class="reference internal" href="../api/Phalcon_Loader.html"><em>Phalcon\Loader</em></a> will instantiate them at
 runtime automatically:</p>
@@ -677,7 +677,7 @@ runtime automatically:</p>
 it is not possible to forward the execution flow to another controller in the case of an error or an exception.</p>
 </div>
 <div class="section" id="caching-view-fragments">
-<h2>Caching View Fragments<a class="headerlink" href="views.html#caching-view-fragments" title="Permalink to this headline">¶</a>
+<h2>Caching View Fragments
 </h2>
 <p>Sometimes when you develop dynamic websites and some areas of them are not updated very often, the output is exactly
 the same between requests. <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> offers caching a part or the whole
@@ -798,7 +798,7 @@ expired to make the calculations/queries to display data in the view:</p>
 <p>The <a class="reference external" href="https://github.com/phalcon/php-site">PHP alternative site</a> is an example of implementing the caching of fragments.</p>
 </div>
 <div class="section" id="template-engines">
-<h2>Template Engines<a class="headerlink" href="views.html#template-engines" title="Permalink to this headline">¶</a>
+<h2>Template Engines
 </h2>
 <p>Template Engines helps designers to create views without use a complicated syntax. Phalcon includes a powerful and fast templating engine
 called <a class="reference internal" href="volt.html"><em>Volt</em></a>.</p>
@@ -809,7 +809,7 @@ for the user. This usually increases the number of resources that your applicati
 still possible to access the API inside these templates with a little more effort.</p>
 <p>This component uses adapters, these help Phalcon to speak with those external template engines in a unified way, let’s see how to do that integration.</p>
 <div class="section" id="creating-your-own-template-engine-adapter">
-<h3>Creating your own Template Engine Adapter<a class="headerlink" href="views.html#creating-your-own-template-engine-adapter" title="Permalink to this headline">¶</a>
+<h3>Creating your own Template Engine Adapter
 </h3>
 <p>There are many template engines, which you might want to integrate or create one of your own. The first step to start using an external template engine is create an adapter for it.</p>
 <p>A template engine adapter is a class that acts as bridge between <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> and the template engine itself.
@@ -859,7 +859,7 @@ when it’s necessary.</p>
 </div>
 </div>
 <div class="section" id="changing-the-template-engine">
-<h3>Changing the Template Engine<a class="headerlink" href="views.html#changing-the-template-engine" title="Permalink to this headline">¶</a>
+<h3>Changing the Template Engine
 </h3>
 <p>You can replace or add more a template engine from the controller as follows:</p>
 <div class="highlight-php">
@@ -922,7 +922,7 @@ Template files related to the particular engine must have those extensions.</p>
 </div>
 </div>
 <div class="section" id="injecting-services-in-view">
-<h2>Injecting services in View<a class="headerlink" href="views.html#injecting-services-in-view" title="Permalink to this headline">¶</a>
+<h2>Injecting services in View
 </h2>
 <p>Every view executed is included inside a <a class="reference internal" href="../api/Phalcon_DI_Injectable.html"><em>Phalcon\DI\Injectable</em></a> instance, providing easy access
 to the application’s service container.</p>
@@ -943,11 +943,11 @@ The service “url” (usually <a class="reference internal" href="url.html"><em
 </div>
 </div>
 <div class="section" id="stand-alone-component">
-<h2>Stand-Alone Component<a class="headerlink" href="views.html#stand-alone-component" title="Permalink to this headline">¶</a>
+<h2>Stand-Alone Component
 </h2>
 <p>All the components in Phalcon can be used as <em>glue</em> components individually because they are loosely coupled to each other:</p>
 <div class="section" id="id1">
-<h3>Hierarchical Rendering<a class="headerlink" href="views.html#id1" title="Permalink to this headline">¶</a>
+<h3>Hierarchical Rendering
 </h3>
 <p>Using <a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> in a stand-alone mode can be demonstrated below</p>
 <div class="highlight-php">
@@ -995,7 +995,7 @@ The service “url” (usually <a class="reference internal" href="url.html"><em
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Simple Rendering<a class="headerlink" href="views.html#id2" title="Permalink to this headline">¶</a>
+<h3>Simple Rendering
 </h3>
 <p>Using <a class="reference internal" href="../api/Phalcon_Mvc_View_Simple.html"><em>Phalcon\Mvc\View\Simple</em></a> in a stand-alone mode can be demonstrated below:</p>
 <div class="highlight-php">
@@ -1019,7 +1019,7 @@ The service “url” (usually <a class="reference internal" href="url.html"><em
 </div>
 </div>
 <div class="section" id="view-events">
-<h2>View Events<a class="headerlink" href="views.html#view-events" title="Permalink to this headline">¶</a>
+<h2>View Events
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_View.html"><em>Phalcon\Mvc\View</em></a> and <a class="reference internal" href="../api/Phalcon_Mvc_View_Simple.html"><em>Phalcon\Mvc\View</em></a> are able to send
 events to an <a class="reference internal" href="events.html"><em>EventsManager</em></a> if it is present. Events are triggered using the type “view”. Some events when returning
@@ -1131,6 +1131,7 @@ boolean false could stop the active operation. The following events are supporte
 
 
 </div>
+
 
 </body>
 </html>

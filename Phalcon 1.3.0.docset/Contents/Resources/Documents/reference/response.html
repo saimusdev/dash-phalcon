@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Returning Responses — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="returning-responses">
-<h1>Returning Responses
-</h1>
+<h1>Returning Responses</h1>
 <p>Part of the HTTP cycle is returning responses to clients. <a class="reference internal" href="../api/Phalcon_Http_Response.html"><em>Phalcon\Http\Response</em></a> is the Phalcon
 component designed to achieve this task. HTTP responses are usually composed by headers and body. The following is an example of basic usage:</p>
 <div class="highlight-php">
@@ -73,7 +73,7 @@ directly from a controller’s action follow this example:</p>
 </pre></div>
 </div>
 <div class="section" id="working-with-headers">
-<h2>Working with Headers<a class="headerlink" href="response.html#working-with-headers" title="Permalink to this headline">¶</a>
+<h2>Working with Headers
 </h2>
 <p>Headers are an important part of the HTTP response. It contains useful information about the response state like the HTTP status,
 type of response and much more.</p>
@@ -103,7 +103,7 @@ retrieves the headers before sending it to client:</p>
 </div>
 </div>
 <div class="section" id="making-redirections">
-<h2>Making Redirections<a class="headerlink" href="response.html#making-redirections" title="Permalink to this headline">¶</a>
+<h2>Making Redirections
 </h2>
 <p>With <a class="reference internal" href="../api/Phalcon_Http_Response.html"><em>Phalcon\Http\Response</em></a> you can also execute HTTP redirections:</p>
 <div class="highlight-php">
@@ -139,7 +139,7 @@ how you can redirect using a route you have defined in your application:</p>
 will be executed anyway. You can disable the view from a controller by executing $this-&gt;view-&gt;disable();</p>
 </div>
 <div class="section" id="http-cache">
-<h2>HTTP Cache<a class="headerlink" href="response.html#http-cache" title="Permalink to this headline">¶</a>
+<h2>HTTP Cache
 </h2>
 <p>One of the easiest ways to improve the performance in your applications and reduce the server traffic is using HTTP Cache.
 Most modern browsers support HTTP caching. HTTP Cache is one of the reasons many websites are currently fast.</p>
@@ -155,7 +155,7 @@ Most modern browsers support HTTP caching. HTTP Cache is one of the reasons many
 <em>ETag:</em> An etag is a unique identifier that must be created including the modification timestamp of the current page</li>
 </ul>
 <div class="section" id="setting-an-expiration-time">
-<h3>Setting an Expiration Time<a class="headerlink" href="response.html#setting-an-expiration-time" title="Permalink to this headline">¶</a>
+<h3>Setting an Expiration Time
 </h3>
 <p>The expiration date is one of the easiest and most effective ways to cache a page in the client (browser).
 Starting from the current date we add the amount of time the page will be stored
@@ -184,7 +184,7 @@ in the browser cache. Until this date expires no new content will be requested f
 make pages expire and this may represent a limitation for this cache mechanism.</p>
 </div>
 <div class="section" id="cache-control">
-<h3>Cache-Control<a class="headerlink" href="response.html#cache-control" title="Permalink to this headline">¶</a>
+<h3>Cache-Control
 </h3>
 <p>This header provides a safer way to cache the pages served. We simply must specify a time in seconds telling the browser
 how long it must keep the page in its cache:</p>
@@ -205,7 +205,7 @@ how long it must keep the page in its cache:</p>
 </div>
 </div>
 <div class="section" id="e-tag">
-<h3>E-Tag<a class="headerlink" href="response.html#e-tag" title="Permalink to this headline">¶</a>
+<h3>E-Tag
 </h3>
 <p>An “entity-tag” or “E-tag” is a unique identifier that helps the browser realize if the page has changed or not between two requests.
 The identifier must be calculated taking into account that this must change if the previously served content has changed:</p>
@@ -233,6 +233,7 @@ The identifier must be calculated taking into account that this must change if t
 
 
 </div>
+
 
 </body>
 </html>

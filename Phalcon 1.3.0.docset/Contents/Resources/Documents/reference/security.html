@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Security — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,11 +28,10 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="security">
-<h1>Security
-</h1>
+<h1>Security</h1>
 <p>This component aids the developer in common security tasks such as password hashing and Cross-Site Request Forgery protection (CSRF).</p>
 <div class="section" id="password-hashing">
-<h2>Password Hashing<a class="headerlink" href="security.html#password-hashing" title="Permalink to this headline">¶</a>
+<h2>Password Hashing
 </h2>
 <p>Storing passwords in plain text is a bad security practice. Anyone with access to the database will immediately have access to all user
 accounts thus being able to engage in unauthorized activities. To combat that, many applications use the familiar one way hashing methods
@@ -101,7 +101,7 @@ its encryption will be slow. We can check if the password is correct as follows:
 <p>The salt is generated using pseudo-random bytes with the PHP’s function <a class="reference external" href="http://php.net/manual/en/function.openssl-random-pseudo-bytes.php">openssl_random_pseudo_bytes</a> so is required to have the <a class="reference external" href="http://php.net/manual/en/book.openssl.php">openssl</a> extension loaded.</p>
 </div>
 <div class="section" id="cross-site-request-forgery-csrf-protection">
-<h2>Cross-Site Request Forgery (CSRF) protection<a class="headerlink" href="security.html#cross-site-request-forgery-csrf-protection" title="Permalink to this headline">¶</a>
+<h2>Cross-Site Request Forgery (CSRF) protection
 </h2>
 <p>This is another common attack against web sites and applications. Forms designed to perform tasks such as user registration or adding comments
 are vulnerable to this attack.</p>
@@ -152,7 +152,7 @@ token in the session to the one submitted by the form:</p>
 <p>Adding a <a class="reference external" href="http://www.google.com/recaptcha">captcha</a> to the form is also recommended to completely avoid the risks of this attack.</p>
 </div>
 <div class="section" id="setting-up-the-component">
-<h2>Setting up the component<a class="headerlink" href="security.html#setting-up-the-component" title="Permalink to this headline">¶</a>
+<h2>Setting up the component
 </h2>
 <p>This component is automatically registered in the services container as ‘security’, you can re-register it
 to setup it’s options:</p>
@@ -172,7 +172,7 @@ to setup it’s options:</p>
 </div>
 </div>
 <div class="section" id="external-resources">
-<h2>External Resources<a class="headerlink" href="security.html#external-resources" title="Permalink to this headline">¶</a>
+<h2>External Resources
 </h2>
 <ul class="simple">
 <li>
@@ -190,6 +190,7 @@ to setup it’s options:</p>
 
 
 </div>
+
 
 </body>
 </html>

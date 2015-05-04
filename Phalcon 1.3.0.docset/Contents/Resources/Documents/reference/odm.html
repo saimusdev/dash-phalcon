@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>ODM (Object-Document Mapper) — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="odm-object-document-mapper">
-<h1>ODM (Object-Document Mapper)
-</h1>
+<h1>ODM (Object-Document Mapper)</h1>
 <p>In addition to its ability to <a class="reference internal" href="models.html"><em>map tables</em></a> in relational databases, Phalcon can map documents from NoSQL databases.
 The ODM offers a CRUD functionality, events, validations among other services.</p>
 <p>Due to the absence of SQL queries and planners, NoSQL databases can see real improvements in performance using the Phalcon approach.
@@ -53,7 +53,7 @@ Additionally, there are no SQL building reducing the possibility of SQL injectio
 </tbody>
 </table>
 <div class="section" id="creating-models">
-<h2>Creating Models<a class="headerlink" href="odm.html#creating-models" title="Permalink to this headline">¶</a>
+<h2>Creating Models
 </h2>
 <p>A model is a class that extends from <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a>. It must be placed in the models directory. A model
 file must contain a single class; its class name should be in camel case notation:</p>
@@ -86,7 +86,7 @@ you can use the getSource() method:</p>
 </div>
 </div>
 <div class="section" id="understanding-documents-to-objects">
-<h2>Understanding Documents To Objects<a class="headerlink" href="odm.html#understanding-documents-to-objects" title="Permalink to this headline">¶</a>
+<h2>Understanding Documents To Objects
 </h2>
 <p>Every instance of a model represents a document in the collection. You can easily access collection data by reading object properties. For example,
 for a collection “robots” with the documents:</p>
@@ -105,7 +105,7 @@ connecting to: <span class="nb">test</span>
 </div>
 </div>
 <div class="section" id="models-in-namespaces">
-<h2>Models in Namespaces<a class="headerlink" href="odm.html#models-in-namespaces" title="Permalink to this headline">¶</a>
+<h2>Models in Namespaces
 </h2>
 <p>Namespaces can be used to avoid class name collision. In this case it is necessary to indicate the name of the related collection using getSource:</p>
 <div class="highlight-php">
@@ -148,7 +148,7 @@ connecting to: <span class="nb">test</span>
 </div>
 </div>
 <div class="section" id="setting-a-connection">
-<h2>Setting a Connection<a class="headerlink" href="odm.html#setting-a-connection" title="Permalink to this headline">¶</a>
+<h2>Setting a Connection
 </h2>
 <p>Connections are retrieved from the services container. By default, Phalcon tries to find the connection in a service called “mongo”:</p>
 <div class="highlight-php">
@@ -169,7 +169,7 @@ connecting to: <span class="nb">test</span>
 </div>
 </div>
 <div class="section" id="finding-documents">
-<h2>Finding Documents<a class="headerlink" href="odm.html#finding-documents" title="Permalink to this headline">¶</a>
+<h2>Finding Documents
 </h2>
 <p>As <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> relies on the Mongo PHP extension you have the same facilities
 to query documents and convert them transparently to model instances:</p>
@@ -287,7 +287,7 @@ to query documents and convert them transparently to model instances:</p>
 <p>If you have experience with SQL databases, you may want to check the <a class="reference external" href="http://www.php.net/manual/en/mongo.sqltomongo.php">SQL to Mongo Mapping Chart</a>.</p>
 </div>
 <div class="section" id="aggregations">
-<h2>Aggregations<a class="headerlink" href="odm.html#aggregations" title="Permalink to this headline">¶</a>
+<h2>Aggregations
 </h2>
 <p>A model can return calculations using <a class="reference external" href="http://docs.mongodb.org/manual/applications/aggregation/">aggregation framework</a> provided by Mongo. The aggregated values are calculate without having to use MapReduce.
 With this option is easy perform tasks such as totaling or averaging field values:</p>
@@ -309,7 +309,7 @@ With this option is easy perform tasks such as totaling or averaging field value
 </div>
 </div>
 <div class="section" id="creating-updating-records">
-<h2>Creating Updating/Records<a class="headerlink" href="odm.html#creating-updating-records" title="Permalink to this headline">¶</a>
+<h2>Creating Updating/Records
 </h2>
 <p>The method Phalcon\Mvc\Collection::save() allows you to create/update documents according to whether they already exist in the collection
 associated with a model. The ‘save’ method is called internally by the create and update methods of <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a>.</p>
@@ -340,7 +340,7 @@ associated with a model. The ‘save’ method is called internally by the creat
 </pre></div>
 </div>
 <div class="section" id="validation-messages">
-<h3>Validation Messages<a class="headerlink" href="odm.html#validation-messages" title="Permalink to this headline">¶</a>
+<h3>Validation Messages
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> has a messaging subsystem that provides a flexible way to output or store the
 validation messages generated during the insert/update processes.</p>
@@ -361,7 +361,7 @@ generated the message or the message type:</p>
 </div>
 </div>
 <div class="section" id="validation-events-and-events-manager">
-<h3>Validation Events and Events Manager<a class="headerlink" href="odm.html#validation-events-and-events-manager" title="Permalink to this headline">¶</a>
+<h3>Validation Events and Events Manager
 </h3>
 <p>Models allow you to implement events that will be thrown when performing an insert or update. They help define business rules for a
 certain model. The following are the events supported by <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> and their order of execution:</p>
@@ -556,7 +556,7 @@ objects created in our application use the same EventsManager, then we need to a
 </div>
 </div>
 <div class="section" id="implementing-a-business-rule">
-<h3>Implementing a Business Rule<a class="headerlink" href="odm.html#implementing-a-business-rule" title="Permalink to this headline">¶</a>
+<h3>Implementing a Business Rule
 </h3>
 <p>When an insert, update or delete is executed, the model verifies if there are any methods with the names of the events listed in the table above.</p>
 <p>We recommend that validation methods are declared protected to prevent that business logic implementation from being exposed publicly.</p>
@@ -582,7 +582,7 @@ objects created in our application use the same EventsManager, then we need to a
 <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> will assume a true value.</p>
 </div>
 <div class="section" id="validating-data-integrity">
-<h3>Validating Data Integrity<a class="headerlink" href="odm.html#validating-data-integrity" title="Permalink to this headline">¶</a>
+<h3>Validating Data Integrity
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> provides several events to validate data and implement business rules. The special “validation”
 event allows us to call built-in validators over the record. Phalcon exposes a few built-in validators that can be used at this stage of validation.</p>
@@ -738,7 +738,7 @@ the value is not included in the method, then the validator will fail and return
 </div>
 </div>
 <div class="section" id="deleting-records">
-<h2>Deleting Records<a class="headerlink" href="odm.html#deleting-records" title="Permalink to this headline">¶</a>
+<h2>Deleting Records
 </h2>
 <p>The method Phalcon\Mvc\Collection::delete() allows to delete a document. You can use it as follows:</p>
 <div class="highlight-php">
@@ -809,7 +809,7 @@ the value is not included in the method, then the validator will fail and return
 </table>
 </div>
 <div class="section" id="validation-failed-events">
-<h2>Validation Failed Events<a class="headerlink" href="odm.html#validation-failed-events" title="Permalink to this headline">¶</a>
+<h2>Validation Failed Events
 </h2>
 <p>Another type of events is available when the data validation process finds any inconsistency:</p>
 <table border="1" class="docutils">
@@ -840,7 +840,7 @@ the value is not included in the method, then the validator will fail and return
 </table>
 </div>
 <div class="section" id="implicit-ids-vs-user-primary-keys">
-<h2>Implicit Ids vs. User Primary Keys<a class="headerlink" href="odm.html#implicit-ids-vs-user-primary-keys" title="Permalink to this headline">¶</a>
+<h2>Implicit Ids vs. User Primary Keys
 </h2>
 <p>By default Phalcon\Mvc\Collection assumes that the _id attribute is automatically generated using <a class="reference external" href="http://www.php.net/manual/en/class.mongoid.php">MongoIds</a>.
 If a model uses custom primary keys this behavior can be overridden:</p>
@@ -858,7 +858,7 @@ If a model uses custom primary keys this behavior can be overridden:</p>
 </div>
 </div>
 <div class="section" id="setting-multiple-databases">
-<h2>Setting multiple databases<a class="headerlink" href="odm.html#setting-multiple-databases" title="Permalink to this headline">¶</a>
+<h2>Setting multiple databases
 </h2>
 <p>In Phalcon, all models can belong to the same database connection or have an individual one. Actually, when
 <a class="reference internal" href="../api/Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> needs to connect to the database it requests the “mongo” service
@@ -895,7 +895,7 @@ in the application’s services container. You can overwrite this service settin
 </div>
 </div>
 <div class="section" id="injecting-services-into-models">
-<h2>Injecting services into Models<a class="headerlink" href="odm.html#injecting-services-into-models" title="Permalink to this headline">¶</a>
+<h2>Injecting services into Models
 </h2>
 <p>You may be required to access the application services within a model, the following example explains how to do that:</p>
 <div class="highlight-php">
@@ -932,6 +932,7 @@ obtaining the “flash” service from the DI container. By doing this, we don�
 
 
 </div>
+
 
 </body>
 </html>

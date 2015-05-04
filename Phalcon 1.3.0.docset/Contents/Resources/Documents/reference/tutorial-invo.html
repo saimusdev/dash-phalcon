@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Tutorial 2: Explaining INVO — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,15 +28,14 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="tutorial-2-explaining-invo">
-<h1>Tutorial 2: Explaining INVO
-</h1>
+<h1>Tutorial 2: Explaining INVO</h1>
 <p>In this second tutorial, we’ll explain a more complete application in order to deepen the development with Phalcon.
 INVO is one of the applications we have created as samples. INVO is a small website that allows their users to
 generate invoices, and do other tasks such as manage their customers and products. You can clone its code from <a class="reference external" href="https://github.com/phalcon/invo">Github</a>.</p>
 <p>Also, INVO was made with <a class="reference external" href="http://getbootstrap.com/">Bootstrap</a> as client-side framework. Although the application does not generate
 invoices, it still serves as an example to understand how the framework works.</p>
 <div class="section" id="project-structure">
-<h2>Project Structure<a class="headerlink" href="tutorial-invo.html#project-structure" title="Permalink to this headline">¶</a>
+<h2>Project Structure
 </h2>
 <p>Once you clone the project in your document root you’ll see the following structure:</p>
 <div class="highlight-bash">
@@ -65,7 +65,7 @@ about INVO and request contact information. The second part is the backend, an a
 registered user can manage his/her products and customers.</p>
 </div>
 <div class="section" id="routing">
-<h2>Routing<a class="headerlink" href="tutorial-invo.html#routing" title="Permalink to this headline">¶</a>
+<h2>Routing
 </h2>
 <p>INVO uses the standard route that is built-in with the Router component. These routes match the following
 pattern: /:controller/:action/:params. This means that the first part of a URI is the controller, the second the
@@ -73,7 +73,7 @@ action and the rest are the parameters.</p>
 <p>The following route /session/register executes the controller SessionController and its action registerAction.</p>
 </div>
 <div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="tutorial-invo.html#configuration" title="Permalink to this headline">¶</a>
+<h2>Configuration
 </h2>
 <p>INVO has a configuration file that sets general parameters in the application. This file is read in the first few lines
 of the bootstrap file (public/index.php):</p>
@@ -111,7 +111,7 @@ contains the following settings:</p>
 there are three sections to be used later.</p>
 </div>
 <div class="section" id="autoloaders">
-<h2>Autoloaders<a class="headerlink" href="tutorial-invo.html#autoloaders" title="Permalink to this headline">¶</a>
+<h2>Autoloaders
 </h2>
 <p>The second part that appears in the bootstrap file (public/index.php) is the autoloader. The autoloader registers a set
 of directories in which the application will look for the classes that it eventually will need.</p>
@@ -134,7 +134,7 @@ of directories in which the application will look for the classes that it eventu
 directory that is not registered is the viewsDir, because it contains HTML + PHP files but no classes.</p>
 </div>
 <div class="section" id="handling-the-request">
-<h2>Handling the Request<a class="headerlink" href="tutorial-invo.html#handling-the-request" title="Permalink to this headline">¶</a>
+<h2>Handling the Request
 </h2>
 <p>If we skip to the end of the file, the request is finally handled by Phalcon\Mvc\Application
 which initializes and executes all that is necessary to make the application run:</p>
@@ -148,7 +148,7 @@ which initializes and executes all that is necessary to make the application run
 </div>
 </div>
 <div class="section" id="dependency-injection">
-<h2>Dependency Injection<a class="headerlink" href="tutorial-invo.html#dependency-injection" title="Permalink to this headline">¶</a>
+<h2>Dependency Injection
 </h2>
 <p>Look at the first line of the code block above, the Application class constructor is receiving the variable $di as an argument.
 What is the purpose of that variable? Phalcon is a highly decoupled framework, so we need a component that acts as glue
@@ -189,7 +189,7 @@ the definition of some service we could just set it again as we did above with �
 existence of the variable $di.</p>
 </div>
 <div class="section" id="log-into-the-application">
-<h2>Log into the Application<a class="headerlink" href="tutorial-invo.html#log-into-the-application" title="Permalink to this headline">¶</a>
+<h2>Log into the Application
 </h2>
 <p>A “log in” facility will allow us to work on backend controllers. The separation between backend controllers and frontend ones
 is only logical. All controllers are located in the same directory (app/controllers/).</p>
@@ -309,7 +309,7 @@ where we invoke them.</p>
 </div>
 </div>
 <div class="section" id="securing-the-backend">
-<h2>Securing the Backend<a class="headerlink" href="tutorial-invo.html#securing-the-backend" title="Permalink to this headline">¶</a>
+<h2>Securing the Backend
 </h2>
 <p>The backend is a private area where only registered users have access. Therefore, it is necessary to check that only
 registered users have access to these controllers. If you aren’t logged into the application and you try to access,
@@ -339,7 +339,7 @@ events that allow us to modify their internal flow of operation. As the Dependen
 for components, a new component called <a class="reference internal" href="events.html"><em>EventsManager</em></a> allows us to intercept the events produced
 by a component, routing the events to listeners.</p>
 <div class="section" id="events-management">
-<h3>Events Management<a class="headerlink" href="tutorial-invo.html#events-management" title="Permalink to this headline">¶</a>
+<h3>Events Management
 </h3>
 <p>An <a class="reference internal" href="events.html"><em>EventsManager</em></a> allows us to attach listeners to a particular type of event. The type that
 interests us now is “dispatch”. The following code filters all events produced by the Dispatcher:</p>
@@ -450,7 +450,7 @@ If the user does not have access we redirect to the home screen as explained bef
 </div>
 </div>
 <div class="section" id="providing-an-acl-list">
-<h3>Providing an ACL list<a class="headerlink" href="tutorial-invo.html#providing-an-acl-list" title="Permalink to this headline">¶</a>
+<h3>Providing an ACL list
 </h3>
 <p>In the above example we have obtained the ACL using the method $this-&gt;_getAcl(). This method is also
 implemented in the Plugin. Now we are going to explain step-by-step how we built the access control list (ACL):</p>
@@ -526,7 +526,7 @@ all the resources of both frontend and backend. The role “Guests” only has a
 </div>
 </div>
 <div class="section" id="user-components">
-<h2>User Components<a class="headerlink" href="tutorial-invo.html#user-components" title="Permalink to this headline">¶</a>
+<h2>User Components
 </h2>
 <p>All the UI elements and visual style of the application has been achieved mostly through <a class="reference external" href="http://getbootstrap.com/">Bootstrap</a>.
 Some elements, such as the navigation bar changes according to the state of the application. For example, in the
@@ -597,7 +597,7 @@ in the container and by just accessing an attribute with the same name as a prev
 </div>
 </div>
 <div class="section" id="working-with-the-crud">
-<h2>Working with the CRUD<a class="headerlink" href="tutorial-invo.html#working-with-the-crud" title="Permalink to this headline">¶</a>
+<h2>Working with the CRUD
 </h2>
 <p>Most options that manipulate data (companies, products and types of products), were developed using a basic and
 common <a class="reference external" href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> (Create, Read, Update and Delete). Each CRUD contains the following files:</p>
@@ -684,7 +684,7 @@ common <a class="reference external" href="http://en.wikipedia.org/wiki/Create,_
 </pre></div>
 </div>
 <div class="section" id="the-search-form">
-<h3>The Search Form<a class="headerlink" href="tutorial-invo.html#the-search-form" title="Permalink to this headline">¶</a>
+<h3>The Search Form
 </h3>
 <p>Every CRUD starts with a search form. This form shows each field that has the table (products), allowing the user
 creating a search criteria from any field. Table “products” has a relationship to the table “products_types”.
@@ -721,7 +721,7 @@ is submitted, the action “search” is executed in the controller performing t
 the user.</p>
 </div>
 <div class="section" id="performing-a-search">
-<h3>Performing a Search<a class="headerlink" href="tutorial-invo.html#performing-a-search" title="Permalink to this headline">¶</a>
+<h3>Performing a Search
 </h3>
 <p>The action “search” has a dual behavior. When accessed via POST, it performs a search based on the data sent from the
 form. But when accessed via GET it moves the current page in the paginator. To differentiate one from another HTTP method,
@@ -822,7 +822,7 @@ search returned results, then we create a paginator to navigate easily through t
 </div>
 </div>
 <div class="section" id="creating-and-updating-records">
-<h3>Creating and Updating Records<a class="headerlink" href="tutorial-invo.html#creating-and-updating-records" title="Permalink to this headline">¶</a>
+<h3>Creating and Updating Records
 </h3>
 <p>Now let’s see how the CRUD creates and updates records. From the “new” and “edit” views the data entered by the user
 are sent to the actions “create” and “save” that perform actions of “creating” and “updating” products respectively.</p>
@@ -931,7 +931,7 @@ the user can change any value and then sent it back to the database through to t
 </div>
 </div>
 <div class="section" id="changing-the-title-dynamically">
-<h2>Changing the Title Dynamically<a class="headerlink" href="tutorial-invo.html#changing-the-title-dynamically" title="Permalink to this headline">¶</a>
+<h2>Changing the Title Dynamically
 </h2>
 <p>When you browse between one option and another will see that the title changes dynamically indicating where
 we are currently working. This is achieved in each controller initializer:</p>
@@ -983,7 +983,7 @@ we are currently working. This is achieved in each controller initializer:</p>
 </div>
 </div>
 <div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="tutorial-invo.html#conclusion" title="Permalink to this headline">¶</a>
+<h2>Conclusion
 </h2>
 <p>This tutorial covers many more aspects of building applications with Phalcon, hope you have served to
 learn more and get more out of the framework.</p>
@@ -999,6 +999,7 @@ learn more and get more out of the framework.</p>
 
 
 </div>
+
 
 </body>
 </html>

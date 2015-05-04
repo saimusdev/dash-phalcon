@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Phalcon Query Language (PHQL) — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="phalcon-query-language-phql">
-<h1>Phalcon Query Language (PHQL)
-</h1>
+<h1>Phalcon Query Language (PHQL)</h1>
 <p>Phalcon Query Language, PhalconQL or simply PHQL is a high-level, object-oriented SQL dialect that allows to write queries using a
 standardized SQL-like language. PHQL is implemented as a parser (written in C) that translates syntax in that of the target RDBMS.</p>
 <p>To achieve the highest performance possible, Phalcon provides a parser that uses the same technology as <a class="reference external" href="http://en.wikipedia.org/wiki/Lemon_Parser_Generator">SQLite</a>. This technology
@@ -44,7 +44,7 @@ finally it converts it to the respective SQL dialect of the target RDBMS.</p>
 <li>PHQL implements a high-level abstraction allowing you to handle tables as models and fields as class attributes</li>
 </ul>
 <div class="section" id="usage-example">
-<h2>Usage Example<a class="headerlink" href="phql.html#usage-example" title="Permalink to this headline">¶</a>
+<h2>Usage Example
 </h2>
 <p>To better explain how PHQL works consider the following example. We have two models “Cars” and “Brands”:</p>
 <div class="highlight-php">
@@ -113,7 +113,7 @@ finally it converts it to the respective SQL dialect of the target RDBMS.</p>
 </div>
 </div>
 <div class="section" id="creating-phql-queries">
-<h2>Creating PHQL Queries<a class="headerlink" href="phql.html#creating-phql-queries" title="Permalink to this headline">¶</a>
+<h2>Creating PHQL Queries
 </h2>
 <p>PHQL queries can be created just by instantiating the class <a class="reference internal" href="../api/Phalcon_Mvc_Model_Query.html"><em>Phalcon\Mvc\Model\Query</em></a>:</p>
 <div class="highlight-php">
@@ -156,7 +156,7 @@ finally it converts it to the respective SQL dialect of the target RDBMS.</p>
 </div>
 </div>
 <div class="section" id="selecting-records">
-<h2>Selecting Records<a class="headerlink" href="phql.html#selecting-records" title="Permalink to this headline">¶</a>
+<h2>Selecting Records
 </h2>
 <p>As the familiar SQL, PHQL allows querying of records using the SELECT statement we know, except that instead of specifying tables, we use the models classes:</p>
 <div class="highlight-php">
@@ -190,7 +190,7 @@ finally it converts it to the respective SQL dialect of the target RDBMS.</p>
 </pre></div>
 </div>
 <div class="section" id="result-types">
-<h3>Result Types<a class="headerlink" href="phql.html#result-types" title="Permalink to this headline">¶</a>
+<h3>Result Types
 </h3>
 <p>Depending on the type of columns we query, the result type will vary. If you retrieve a single whole object, then the object returned is
 a <a class="reference internal" href="../api/Phalcon_Mvc_Model_Resultset_Simple.html"><em>Phalcon\Mvc\Model\Resultset\Simple</em></a>. This kind of resultset is a set of complete model objects:</p>
@@ -263,7 +263,7 @@ This allows access to both complete objects and scalars at once:</p>
 <p>Scalars are mapped as properties of each “row”, while complete objects are mapped as properties with the name of its related model.</p>
 </div>
 <div class="section" id="joins">
-<h3>Joins<a class="headerlink" href="phql.html#joins" title="Permalink to this headline">¶</a>
+<h3>Joins
 </h3>
 <p>It’s easy to request records from multiple models using PHQL. Most kinds of Joins are supported. As we defined
 relationships in the models, PHQL adds these conditions automatically:</p>
@@ -346,7 +346,7 @@ relationships in the models, PHQL adds these conditions automatically:</p>
 </div>
 </div>
 <div class="section" id="aggregations">
-<h3>Aggregations<a class="headerlink" href="phql.html#aggregations" title="Permalink to this headline">¶</a>
+<h3>Aggregations
 </h3>
 <p>The following examples show how to use aggregations in PHQL:</p>
 <div class="highlight-php">
@@ -387,7 +387,7 @@ relationships in the models, PHQL adds these conditions automatically:</p>
 </div>
 </div>
 <div class="section" id="conditions">
-<h3>Conditions<a class="headerlink" href="phql.html#conditions" title="Permalink to this headline">¶</a>
+<h3>Conditions
 </h3>
 <p>Conditions allow us to filter the set of records we want to query. The WHERE clause allows to do that:</p>
 <div class="highlight-php">
@@ -436,7 +436,7 @@ relationships in the models, PHQL adds these conditions automatically:</p>
 </div>
 </div>
 <div class="section" id="inserting-data">
-<h2>Inserting Data<a class="headerlink" href="phql.html#inserting-data" title="Permalink to this headline">¶</a>
+<h2>Inserting Data
 </h2>
 <p>With PHQL it’s possible to insert data using the familiar INSERT statement:</p>
 <div class="highlight-php">
@@ -506,7 +506,7 @@ because the price does not meet the business rule that we implemented:</p>
 </div>
 </div>
 <div class="section" id="updating-data">
-<h2>Updating Data<a class="headerlink" href="phql.html#updating-data" title="Permalink to this headline">¶</a>
+<h2>Updating Data
 </h2>
 <p>Updating rows is very similar than inserting rows. As you may know, the instruction to
 update records is UPDATE. When a record is updated the events related to the update operation
@@ -571,7 +571,7 @@ In summary, the following code:</p>
 </div>
 </div>
 <div class="section" id="deleting-data">
-<h2>Deleting Data<a class="headerlink" href="phql.html#deleting-data" title="Permalink to this headline">¶</a>
+<h2>Deleting Data
 </h2>
 <p>When a record is deleted the events related to the delete operation will be executed for each row:</p>
 <div class="highlight-php">
@@ -599,7 +599,7 @@ In summary, the following code:</p>
 <p>DELETE operations are also executed in two phases like UPDATEs.</p>
 </div>
 <div class="section" id="creating-queries-using-the-query-builder">
-<h2>Creating queries using the Query Builder<a class="headerlink" href="phql.html#creating-queries-using-the-query-builder" title="Permalink to this headline">¶</a>
+<h2>Creating queries using the Query Builder
 </h2>
 <p>A builder is available to create PHQL queries without the need to write PHQL statements, also providing IDE facilities:</p>
 <div class="highlight-php">
@@ -754,7 +754,7 @@ In summary, the following code:</p>
 </pre></div>
 </div>
 <div class="section" id="bound-parameters">
-<h3>Bound Parameters<a class="headerlink" href="phql.html#bound-parameters" title="Permalink to this headline">¶</a>
+<h3>Bound Parameters
 </h3>
 <p>Bound parameters in the query builder can be set as the query is constructed or past all at once when executing:</p>
 <div class="highlight-php">
@@ -780,7 +780,7 @@ In summary, the following code:</p>
 </div>
 </div>
 <div class="section" id="disallow-literals-in-phql">
-<h2>Disallow literals in PHQL<a class="headerlink" href="phql.html#disallow-literals-in-phql" title="Permalink to this headline">¶</a>
+<h2>Disallow literals in PHQL
 </h2>
 <p>Literals can be disabled in PHQL, this means that directly using strings, numbers and boolean values in PHQL strings
 will be disallowed. If PHQL statements are created embedding external data on them, this could open the application
@@ -822,7 +822,7 @@ secure way like this:</p>
 another security decision a developer could take in web applications.</p>
 </div>
 <div class="section" id="escaping-reserved-words">
-<h2>Escaping Reserved Words<a class="headerlink" href="phql.html#escaping-reserved-words" title="Permalink to this headline">¶</a>
+<h2>Escaping Reserved Words
 </h2>
 <p>PHQL has a few reserved words, if you want to use any of them as attributes or models names, you need to escape those
 words using the cross-database escaping delimiters ‘[‘ and ‘]’:</p>
@@ -839,7 +839,7 @@ words using the cross-database escaping delimiters ‘[‘ and ‘]’:</p>
 <p>The delimiters are dynamically translated to valid delimiters depending on the database system where the application is currently running on.</p>
 </div>
 <div class="section" id="phql-lifecycle">
-<h2>PHQL Lifecycle<a class="headerlink" href="phql.html#phql-lifecycle" title="Permalink to this headline">¶</a>
+<h2>PHQL Lifecycle
 </h2>
 <p>Being a high-level language, PHQL gives developers the ability to personalize and customize different aspects in order to suit their needs.
 The following is the life cycle of each PHQL statement executed:</p>
@@ -850,7 +850,7 @@ The following is the life cycle of each PHQL statement executed:</p>
 </ul>
 </div>
 <div class="section" id="using-raw-sql">
-<h2>Using Raw SQL<a class="headerlink" href="phql.html#using-raw-sql" title="Permalink to this headline">¶</a>
+<h2>Using Raw SQL
 </h2>
 <p>A database system could offer specific SQL extensions that aren’t supported by PHQL, in this case, a raw SQL can be appropriate:</p>
 <div class="highlight-php">
@@ -905,7 +905,7 @@ The following is the life cycle of each PHQL statement executed:</p>
 </div>
 </div>
 <div class="section" id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="phql.html#troubleshooting" title="Permalink to this headline">¶</a>
+<h2>Troubleshooting
 </h2>
 <p>Some things to keep in mind when using PHQL:</p>
 <ul class="simple">
@@ -926,6 +926,7 @@ The following is the life cycle of each PHQL statement executed:</p>
 
 
 </div>
+
 
 </body>
 </html>

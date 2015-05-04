@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Dependency Injection/Service Location — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="dependency-injection-service-location">
-<h1>Dependency Injection/Service Location
-</h1>
+<h1>Dependency Injection/Service Location</h1>
 <p>The following example is a bit lengthy, but explains why use service location and dependency injection.
 First, let’s pretend we are developing a component called SomeComponent. This performs a task that is not important now.
 Our component has some dependency that is a connection to a database.</p>
@@ -380,7 +380,7 @@ of our component:</p>
 saving resources. The component is now highly decoupled. For example, we can replace the manner in which connections are created,
 their behavior or any other aspect of them and that would not affect the component.</p>
 <div class="section" id="our-approach">
-<h2>Our approach<a class="headerlink" href="di.html#our-approach" title="Permalink to this headline">¶</a>
+<h2>Our approach
 </h2>
 <p>Phalcon\DI is a component implementing Dependency Injection and Location of services and it’s itself a container for them.</p>
 <p>Since Phalcon is highly decoupled, Phalcon\DI is essential to integrate the different components of the framework. The developer can
@@ -391,7 +391,7 @@ one way to get the required dependencies within a component.</p>
 <p>Additionally, this pattern increases testability in the code, thus making it less prone to errors.</p>
 </div>
 <div class="section" id="registering-services-in-the-container">
-<h2>Registering services in the Container<a class="headerlink" href="di.html#registering-services-in-the-container" title="Permalink to this headline">¶</a>
+<h2>Registering services in the Container
 </h2>
 <p>The framework itself or the developer can register services. When a component A requires component B (or an instance of its class) to operate, it
 can request component B from the container, rather than creating a new instance component B.</p>
@@ -458,11 +458,11 @@ code more complicated. The lambda function is a good balance between the two, bu
 <p>Phalcon\DI offers lazy loading for every service it stores. Unless the developer chooses to instantiate an object directly and store it
 in the container, any object stored in it (via array, string, etc.) will be lazy loaded i.e. instantiated only when requested.</p>
 <div class="section" id="simple-registration">
-<h3>Simple Registration<a class="headerlink" href="di.html#simple-registration" title="Permalink to this headline">¶</a>
+<h3>Simple Registration
 </h3>
 <p>As seen before, there are several ways to register services. These we call simple:</p>
 <div class="section" id="string">
-<h4>String<a class="headerlink" href="di.html#string" title="Permalink to this headline">¶</a>
+<h4>String
 </h4>
 <p>This type expects the name of a valid class, returning an object of the specified class, if the class is not loaded it will be instantiated using an auto-loader.
 This type of definition does not allow to specify arguments for the class constructor or parameters:</p>
@@ -475,7 +475,7 @@ This type of definition does not allow to specify arguments for the class constr
 </div>
 </div>
 <div class="section" id="object">
-<h4>Object<a class="headerlink" href="di.html#object" title="Permalink to this headline">¶</a>
+<h4>Object
 </h4>
 <p>This type expects an object. Due to the fact that object does not need to be resolved as it is
 already an object, one could say that it is not really a dependency injection,
@@ -490,7 +490,7 @@ the same object/value:</p>
 </div>
 </div>
 <div class="section" id="closures-anonymous-functions">
-<h4>Closures/Anonymous functions<a class="headerlink" href="di.html#closures-anonymous-functions" title="Permalink to this headline">¶</a>
+<h4>Closures/Anonymous functions
 </h4>
 <p>This method offers greater freedom to build the dependency as desired, however, it is difficult to
 change some of the parameters externally without having to completely change the definition of dependency:</p>
@@ -525,7 +525,7 @@ change some of the parameters externally without having to completely change the
 </div>
 </div>
 <div class="section" id="complex-registration">
-<h3>Complex Registration<a class="headerlink" href="di.html#complex-registration" title="Permalink to this headline">¶</a>
+<h3>Complex Registration
 </h3>
 <p>If it is required to change the definition of a service without instantiating/resolving the service,
 then, we need to define the services using the array syntax. Define a service using an array definition
@@ -566,7 +566,7 @@ can be a little more verbose:</p>
 </div>
 <p>In addition by using the array syntax you can use three types of dependency injection:</p>
 <div class="section" id="constructor-injection">
-<h4>Constructor Injection<a class="headerlink" href="di.html#constructor-injection" title="Permalink to this headline">¶</a>
+<h4>Constructor Injection
 </h4>
 <p>This injection type passes the dependencies/arguments to the class constructor.
 Let’s pretend we have the following component:</p>
@@ -614,7 +614,7 @@ Let’s pretend we have the following component:</p>
 while the second is a boolean value (true) that is passed as it is.</p>
 </div>
 <div class="section" id="setter-injection">
-<h4>Setter Injection<a class="headerlink" href="di.html#setter-injection" title="Permalink to this headline">¶</a>
+<h4>Setter Injection
 </h4>
 <p>Classes may have setters to inject optional dependencies, our previous class can be changed to accept the dependencies with setters:</p>
 <div class="highlight-php">
@@ -673,7 +673,7 @@ while the second is a boolean value (true) that is passed as it is.</p>
 </div>
 </div>
 <div class="section" id="properties-injection">
-<h4>Properties Injection<a class="headerlink" href="di.html#properties-injection" title="Permalink to this headline">¶</a>
+<h4>Properties Injection
 </h4>
 <p>A less common strategy is to inject dependencies or parameters directly into public attributes of the class:</p>
 <div class="highlight-php">
@@ -756,7 +756,7 @@ according to the application needs.</p>
 </div>
 </div>
 <div class="section" id="resolving-services">
-<h2>Resolving Services<a class="headerlink" href="di.html#resolving-services" title="Permalink to this headline">¶</a>
+<h2>Resolving Services
 </h2>
 <p>Obtaining a service from the container is a matter of simply calling the “get” method. A new instance of the service will be returned:</p>
 <div class="highlight-php">
@@ -787,7 +787,7 @@ according to the application needs.</p>
 </div>
 </div>
 <div class="section" id="shared-services">
-<h2>Shared services<a class="headerlink" href="di.html#shared-services" title="Permalink to this headline">¶</a>
+<h2>Shared services
 </h2>
 <p>Services can be registered as “shared” services this means that they always will act as <a class="reference external" href="http://en.wikipedia.org/wiki/Singleton_pattern">singletons</a>. Once the service is resolved for the first time
 the same instance of it is returned every time a consumer retrieve the service from the container:</p>
@@ -825,7 +825,7 @@ the service is obtained from the DI, you can use the ‘getShared’ method:</p>
 </div>
 </div>
 <div class="section" id="manipulating-services-individually">
-<h2>Manipulating services individually<a class="headerlink" href="di.html#manipulating-services-individually" title="Permalink to this headline">¶</a>
+<h2>Manipulating services individually
 </h2>
 <p>Once a service is registered in the service container, you can retrieve it to manipulate it individually:</p>
 <div class="highlight-php">
@@ -851,7 +851,7 @@ the service is obtained from the DI, you can use the ‘getShared’ method:</p>
 </div>
 </div>
 <div class="section" id="instantiating-classes-via-the-service-container">
-<h2>Instantiating classes via the Service Container<a class="headerlink" href="di.html#instantiating-classes-via-the-service-container" title="Permalink to this headline">¶</a>
+<h2>Instantiating classes via the Service Container
 </h2>
 <p>When you request a service to the service container, if it can’t find out a service with the same name it’ll try to load a class with
 the same name. With this behavior we can replace any class by another simply by registering a service with its name:</p>
@@ -880,7 +880,7 @@ fallback to a valid autoloader to finally load the class. By doing this, you can
 for it.</p>
 </div>
 <div class="section" id="automatic-injecting-of-the-di-itself">
-<h2>Automatic Injecting of the DI itself<a class="headerlink" href="di.html#automatic-injecting-of-the-di-itself" title="Permalink to this headline">¶</a>
+<h2>Automatic Injecting of the DI itself
 </h2>
 <p>If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates,
 to do this, you need to implement the <a class="reference internal" href="../api/Phalcon_DI_InjectionAwareInterface.html"><em>Phalcon\DI\InjectionAwareInterface</em></a> in your classes:</p>
@@ -918,7 +918,7 @@ to do this, you need to implement the <a class="reference internal" href="../api
 </div>
 </div>
 <div class="section" id="avoiding-service-resolution">
-<h2>Avoiding service resolution<a class="headerlink" href="di.html#avoiding-service-resolution" title="Permalink to this headline">¶</a>
+<h2>Avoiding service resolution
 </h2>
 <p>Some services are used in each of the requests made to the application, eliminate the process of resolving the service
 could add some small improvement in performance.</p>
@@ -934,7 +934,7 @@ could add some small improvement in performance.</p>
 </div>
 </div>
 <div class="section" id="organizing-services-in-files">
-<h2>Organizing services in files<a class="headerlink" href="di.html#organizing-services-in-files" title="Permalink to this headline">¶</a>
+<h2>Organizing services in files
 </h2>
 <p>You can better organize your application by moving the service registration to individual files instead of
 doing everything in the application’s bootstrap:</p>
@@ -959,7 +959,7 @@ doing everything in the application’s bootstrap:</p>
 </div>
 </div>
 <div class="section" id="accessing-the-di-in-a-static-way">
-<h2>Accessing the DI in a static way<a class="headerlink" href="di.html#accessing-the-di-in-a-static-way" title="Permalink to this headline">¶</a>
+<h2>Accessing the DI in a static way
 </h2>
 <p>If needed you can access the latest DI created in a static function in the following way:</p>
 <div class="highlight-php">
@@ -979,7 +979,7 @@ doing everything in the application’s bootstrap:</p>
 </div>
 </div>
 <div class="section" id="factory-default-di">
-<h2>Factory Default DI<a class="headerlink" href="di.html#factory-default-di" title="Permalink to this headline">¶</a>
+<h2>Factory Default DI
 </h2>
 <p>Although the decoupled character of Phalcon offers us great freedom and flexibility, maybe we just simply want to use it as a full-stack
 framework. To achieve this, the framework provides a variant of Phalcon\DI called Phalcon\DI\FactoryDefault. This class automatically
@@ -990,7 +990,7 @@ registers the appropriate services bundled with the framework to act as full-sta
 </div>
 </div>
 <div class="section" id="service-name-conventions">
-<h2>Service Name Conventions<a class="headerlink" href="di.html#service-name-conventions" title="Permalink to this headline">¶</a>
+<h2>Service Name Conventions
 </h2>
 <p>Although you can register services with the names you want, Phalcon has a several naming conventions that allow it to get the
 the correct (built-in) service when you need it.</p>
@@ -1156,7 +1156,7 @@ the correct (built-in) service when you need it.</p>
 </table>
 </div>
 <div class="section" id="implementing-your-own-di">
-<h2>Implementing your own DI<a class="headerlink" href="di.html#implementing-your-own-di" title="Permalink to this headline">¶</a>
+<h2>Implementing your own DI
 </h2>
 <p>The <a class="reference internal" href="../api/Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> interface must be implemented to create your own DI replacing the one provided by Phalcon or extend the current one.</p>
 </div>
@@ -1171,6 +1171,7 @@ the correct (built-in) service when you need it.</p>
 
 
 </div>
+
 
 </body>
 </html>

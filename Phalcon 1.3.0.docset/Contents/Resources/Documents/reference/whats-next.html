@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Increasing Performance: What’s next? — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,19 +28,18 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="increasing-performance-what-s-next">
-<h1>Increasing Performance: What’s next?
-</h1>
+<h1>Increasing Performance: What’s next?</h1>
 <p>Get faster applications requires refine many aspects: server, client, network, database, web server, static sources, etc.
 In this chapter we highlight scenarios where you can improve performance and how detect what is really slow in
 your application.</p>
 <div class="section" id="profile-on-the-server">
-<h2>Profile on the Server<a class="headerlink" href="whats-next.html#profile-on-the-server" title="Permalink to this headline">¶</a>
+<h2>Profile on the Server
 </h2>
 <p>Each application is different, the permanent profiling is important to understand where performance can be increased.
 Profiling gives us a real picture on what is really slow and what does not. Profiles can vary between a request and another,
 so it is important to make enough measurements to make conclusions.</p>
 <div class="section" id="profiling-with-xdebug">
-<h3>Profiling with XDebug<a class="headerlink" href="whats-next.html#profiling-with-xdebug" title="Permalink to this headline">¶</a>
+<h3>Profiling with XDebug
 </h3>
 <p><a class="reference external" href="http://xdebug.org/docs">Xdebug</a> provides an easier way to profile PHP applications, just install the extension and enable profiling in the php.ini:</p>
 <div class="highlight-ini">
@@ -52,7 +52,7 @@ so it is important to make enough measurements to make conclusions.</p>
 </div>
 </div>
 <div class="section" id="profiling-with-xhprof">
-<h3>Profiling with Xhprof<a class="headerlink" href="whats-next.html#profiling-with-xhprof" title="Permalink to this headline">¶</a>
+<h3>Profiling with Xhprof
 </h3>
 <p><a class="reference external" href="https://github.com/facebook/xhprof">Xhprof</a> is another interesting extension to profile PHP applications. Add the following line to the start of the bootstrap file:</p>
 <div class="highlight-php">
@@ -86,7 +86,7 @@ so it is important to make enough measurements to make conclusions.</p>
 </div>
 </div>
 <div class="section" id="profiling-sql-statements">
-<h3>Profiling SQL Statements<a class="headerlink" href="whats-next.html#profiling-sql-statements" title="Permalink to this headline">¶</a>
+<h3>Profiling SQL Statements
 </h3>
 <p>Most database systems provide tools to identify slow SQL statements. Detecting and fixing slow queries is very important in order to increase performance
 in the server side. In the Mysql case, you can use the slow query log to know what SQL queries are taking more time than expected:</p>
@@ -98,12 +98,12 @@ in the server side. In the Mysql case, you can use the slow query log to know wh
 </div>
 </div>
 <div class="section" id="profile-on-the-client">
-<h2>Profile on the Client<a class="headerlink" href="whats-next.html#profile-on-the-client" title="Permalink to this headline">¶</a>
+<h2>Profile on the Client
 </h2>
 <p>Sometimes we may need to improve the loading of static elements such as images, javascript and css to improve performance.
 The following tools are useful to detect common bottlenecks in the client side:</p>
 <div class="section" id="profile-with-chrome-firefox">
-<h3>Profile with Chrome/Firefox<a class="headerlink" href="whats-next.html#profile-with-chrome-firefox" title="Permalink to this headline">¶</a>
+<h3>Profile with Chrome/Firefox
 </h3>
 <p>Most modern browsers have tools to profile the page loading time. In Chrome you can use the web inspector to know how much time is taking the
 loading of the different resources required by a single page:</p>
@@ -117,14 +117,14 @@ loading of the different resources required by a single page:</p>
 </div>
 </div>
 <div class="section" id="yahoo-yslow">
-<h2>Yahoo! YSlow<a class="headerlink" href="whats-next.html#yahoo-yslow" title="Permalink to this headline">¶</a>
+<h2>Yahoo! YSlow
 </h2>
 <p><a class="reference external" href="http://developer.yahoo.com/yslow/">YSlow</a> analyzes web pages and suggests ways to improve their performance based on a set of <a class="reference external" href="http://developer.yahoo.com/performance/rules.html">rules for high performance web pages</a></p>
 <div class="figure align-center">
 <img alt="../_images/yslow-1.jpg" src="../_images/xyslow-1.jpg.pagespeed.ic.htjiu3BAog.jpg" pagespeed_url_hash="2010357581">
 </div>
 <div class="section" id="profile-with-speed-tracer">
-<h3>Profile with Speed Tracer<a class="headerlink" href="whats-next.html#profile-with-speed-tracer" title="Permalink to this headline">¶</a>
+<h3>Profile with Speed Tracer
 </h3>
 <p><a class="reference external" href="https://developers.google.com/web-toolkit/speedtracer/">Speed Tracer</a> is a tool to help you identify and fix performance problems in your web applications. It visualizes metrics that are taken
 from low level instrumentation points inside of the browser and analyzes them as your application runs. Speed Tracer is available as a
@@ -137,12 +137,12 @@ Javascript evaluation and CSS styling.</p>
 </div>
 </div>
 <div class="section" id="use-a-recent-php-version">
-<h2>Use a recent PHP version<a class="headerlink" href="whats-next.html#use-a-recent-php-version" title="Permalink to this headline">¶</a>
+<h2>Use a recent PHP version
 </h2>
 <p>PHP is faster every day, using the latest version improves the performance of your applications and also of Phalcon.</p>
 </div>
 <div class="section" id="use-a-php-bytecode-cache">
-<h2>Use a PHP Bytecode Cache<a class="headerlink" href="whats-next.html#use-a-php-bytecode-cache" title="Permalink to this headline">¶</a>
+<h2>Use a PHP Bytecode Cache
 </h2>
 <p><a class="reference external" href="http://php.net/manual/en/book.apc.php">APC</a> as many other bytecode caches help an application to reduce the overhead of read, tokenize and parse PHP files
 in each request. Once the extension is installed use the following setting to enable APC:</p>
@@ -153,7 +153,7 @@ in each request. Once the extension is installed use the following setting to en
 <p>PHP 5.5 includes a built-in bytecode cache called ZendOptimizer+, this extension is also available for 5.3 and 5.4.</p>
 </div>
 <div class="section" id="do-blocking-work-in-the-background">
-<h2>Do blocking work in the background<a class="headerlink" href="whats-next.html#do-blocking-work-in-the-background" title="Permalink to this headline">¶</a>
+<h2>Do blocking work in the background
 </h2>
 <p>Process a video, send e-mails, compress a file or an image, etc., are slow tasks that must be processed in background jobs.
 There are a variety of tools that provide queuing or messaging systems that work well with PHP:</p>
@@ -167,7 +167,7 @@ There are a variety of tools that provide queuing or messaging systems that work
 </ul>
 </div>
 <div class="section" id="google-page-speed">
-<h2>Google Page Speed<a class="headerlink" href="whats-next.html#google-page-speed" title="Permalink to this headline">¶</a>
+<h2>Google Page Speed
 </h2>
 <p><a class="reference external" href="https://developers.google.com/speed/pagespeed/mod">mod_pagespeed</a> speeds up your site and reduces page load time. This open-source Apache HTTP server module (also available
 for nginx as ngx_pagespeed) automatically applies web performance best practices to pages, and associated assets
@@ -184,6 +184,7 @@ for nginx as ngx_pagespeed) automatically applies web performance best practices
 
 
 </div>
+
 
 </body>
 </html>

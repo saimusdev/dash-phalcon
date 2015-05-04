@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Routing — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,13 +28,12 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="routing">
-<h1>Routing
-</h1>
+<h1>Routing</h1>
 <p>The router component allows defining routes that are mapped to controllers or handlers that should receive
 the request. A router simply parses a URI to determine this information. The router has two modes: MVC
 mode and match-only mode. The first mode is ideal for working with MVC applications.</p>
 <div class="section" id="defining-routes">
-<h2>Defining Routes<a class="headerlink" href="routing.html#defining-routes" title="Permalink to this headline">¶</a>
+<h2>Defining Routes
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Router.html"><em>Phalcon\Mvc\Router</em></a> provides advanced routing capabilities. In MVC mode,
 you can define routes and map them to controllers/actions that you require. A route is defined as follows:</p>
@@ -176,7 +176,7 @@ their relevance, latest routes added have more relevance than first added. Inter
 are traversed in reverse order until <a class="reference internal" href="../api/Phalcon_Mvc_Router.html"><em>Phalcon\Mvc\Router</em></a> finds the
 one that matches the given URI and processes it, while ignoring the rest.</p>
 <div class="section" id="parameters-with-names">
-<h3>Parameters with Names<a class="headerlink" href="routing.html#parameters-with-names" title="Permalink to this headline">¶</a>
+<h3>Parameters with Names
 </h3>
 <p>The example below demonstrates how to define names to route parameters:</p>
 <div class="highlight-php">
@@ -264,7 +264,7 @@ way to create named parameters as part of the pattern:</p>
 </div>
 </div>
 <div class="section" id="short-syntax">
-<h3>Short Syntax<a class="headerlink" href="routing.html#short-syntax" title="Permalink to this headline">¶</a>
+<h3>Short Syntax
 </h3>
 <p>If you don’t like using an array to define the route paths, an alternative syntax is also available.
 The following examples produce the same result:</p>
@@ -288,7 +288,7 @@ The following examples produce the same result:</p>
 </div>
 </div>
 <div class="section" id="mixing-array-and-short-syntax">
-<h3>Mixing Array and Short Syntax<a class="headerlink" href="routing.html#mixing-array-and-short-syntax" title="Permalink to this headline">¶</a>
+<h3>Mixing Array and Short Syntax
 </h3>
 <p>Array and short syntax can be mixed to define a route, in this case note that named parameters automatically
 are added to the route paths according to the position on which they were defined:</p>
@@ -307,7 +307,7 @@ are added to the route paths according to the position on which they were define
 </div>
 </div>
 <div class="section" id="routing-to-modules">
-<h3>Routing to Modules<a class="headerlink" href="routing.html#routing-to-modules" title="Permalink to this headline">¶</a>
+<h3>Routing to Modules
 </h3>
 <p>You can define routes whose paths include modules. This is specially suitable to multi-module applications.
 It’s possible define a default route that includes a module wildcard:</p>
@@ -391,7 +391,7 @@ URL: /admin/users/edit/sonny, will be processed as:</p>
 </div>
 </div>
 <div class="section" id="http-method-restrictions">
-<h3>HTTP Method Restrictions<a class="headerlink" href="routing.html#http-method-restrictions" title="Permalink to this headline">¶</a>
+<h3>HTTP Method Restrictions
 </h3>
 <p>When you add a route using simply add(), the route will be enabled for any HTTP method. Sometimes we can restrict a route to a specific method,
 this is especially useful when creating RESTful applications:</p>
@@ -410,7 +410,7 @@ this is especially useful when creating RESTful applications:</p>
 </div>
 </div>
 <div class="section" id="using-convertions">
-<h3>Using convertions<a class="headerlink" href="routing.html#using-convertions" title="Permalink to this headline">¶</a>
+<h3>Using convertions
 </h3>
 <p>Convertions allow to freely transform the route’s parameters before passing them to the dispatcher, the following examples show how to use them:</p>
 <div class="highlight-php">
@@ -430,7 +430,7 @@ this is especially useful when creating RESTful applications:</p>
 </div>
 </div>
 <div class="section" id="groups-of-routes">
-<h3>Groups of Routes<a class="headerlink" href="routing.html#groups-of-routes" title="Permalink to this headline">¶</a>
+<h3>Groups of Routes
 </h3>
 <p>If a set of routes have common paths they can be grouped to easily maintain them:</p>
 <div class="highlight-php">
@@ -515,7 +515,7 @@ this is especially useful when creating RESTful applications:</p>
 </div>
 </div>
 <div class="section" id="matching-routes">
-<h2>Matching Routes<a class="headerlink" href="routing.html#matching-routes" title="Permalink to this headline">¶</a>
+<h2>Matching Routes
 </h2>
 <p>A valid URI must be passed to Router in order to let it checks the route that matches that given URI.
 By default, the routing URI is taken from the $_GET[‘_url’] variable that is created by the rewrite engine
@@ -555,7 +555,7 @@ module. A couple of rewrite rules that work very well with Phalcon are:</p>
 </div>
 </div>
 <div class="section" id="naming-routes">
-<h2>Naming Routes<a class="headerlink" href="routing.html#naming-routes" title="Permalink to this headline">¶</a>
+<h2>Naming Routes
 </h2>
 <p>Each route that is added to the router is stored internally as an object <a class="reference internal" href="../api/Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>.
 That class encapsulates all the details of each route. For instance, we can give a name to a path to identify it uniquely in our application.
@@ -586,7 +586,7 @@ This is especially useful if you want to create URLs from it.</p>
 </div>
 </div>
 <div class="section" id="usage-examples">
-<h2>Usage Examples<a class="headerlink" href="routing.html#usage-examples" title="Permalink to this headline">¶</a>
+<h2>Usage Examples
 </h2>
 <p>The following are examples of custom routes:</p>
 <div class="highlight-php">
@@ -677,7 +677,7 @@ read unauthorized files. A safe regular expression is: /([a-zA-Z0-9_-]+)</div>
 </blockquote>
 </div>
 <div class="section" id="default-behavior">
-<h2>Default Behavior<a class="headerlink" href="routing.html#default-behavior" title="Permalink to this headline">¶</a>
+<h2>Default Behavior
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Router.html"><em>Phalcon\Mvc\Router</em></a> has a default behavior providing a very simple routing that
 always expects a URI that matches the following pattern: /:controller/:action/:params</p>
@@ -712,7 +712,7 @@ always expects a URI that matches the following pattern: /:controller/:action/:p
 </div>
 </div>
 <div class="section" id="setting-the-default-route">
-<h2>Setting the default route<a class="headerlink" href="routing.html#setting-the-default-route" title="Permalink to this headline">¶</a>
+<h2>Setting the default route
 </h2>
 <p>When your application is accessed without any route, the ‘/’ route is used to determine what paths must be used to show the initial page
 in your website/application:</p>
@@ -727,7 +727,7 @@ in your website/application:</p>
 </div>
 </div>
 <div class="section" id="not-found-paths">
-<h2>Not Found Paths<a class="headerlink" href="routing.html#not-found-paths" title="Permalink to this headline">¶</a>
+<h2>Not Found Paths
 </h2>
 <p>If none of the routes specified in the router are matched, you can define a group of paths to be used in this scenario:</p>
 <div class="highlight-php">
@@ -742,7 +742,7 @@ in your website/application:</p>
 </div>
 </div>
 <div class="section" id="setting-default-paths">
-<h2>Setting default paths<a class="headerlink" href="routing.html#setting-default-paths" title="Permalink to this headline">¶</a>
+<h2>Setting default paths
 </h2>
 <p>It’s possible to define default values for common paths like module, controller or action. When a route is missing any of
 those paths they can be automatically filled by the router:</p>
@@ -764,7 +764,7 @@ those paths they can be automatically filled by the router:</p>
 </div>
 </div>
 <div class="section" id="dealing-with-extra-trailing-slashes">
-<h2>Dealing with extra/trailing slashes<a class="headerlink" href="routing.html#dealing-with-extra-trailing-slashes" title="Permalink to this headline">¶</a>
+<h2>Dealing with extra/trailing slashes
 </h2>
 <p>Sometimes a route could be accessed with extra/trailing slashes and the end of the route, those extra slashes would lead to produce
 a not-found status in the dispatcher. You can set up the router to automatically remove the slashes from the end of handled route:</p>
@@ -792,7 +792,7 @@ a not-found status in the dispatcher. You can set up the router to automatically
 </div>
 </div>
 <div class="section" id="match-callbacks">
-<h2>Match Callbacks<a class="headerlink" href="routing.html#match-callbacks" title="Permalink to this headline">¶</a>
+<h2>Match Callbacks
 </h2>
 <p>Sometimes, routes must be matched if they meet specific conditions, you can add arbitrary conditions to routes using the
 ‘beforeMatch’ callback, if this function return false, the route will be treaded as non-matched:</p>
@@ -836,7 +836,7 @@ a not-found status in the dispatcher. You can set up the router to automatically
 </div>
 </div>
 <div class="section" id="hostname-constraints">
-<h2>Hostname Constraints<a class="headerlink" href="routing.html#hostname-constraints" title="Permalink to this headline">¶</a>
+<h2>Hostname Constraints
 </h2>
 <p>The router allow to set hostname constraints, this means that specific routes or a group of routes can be restricted
 to only match if the route also meets the hostname constraint:</p>
@@ -898,7 +898,7 @@ to only match if the route also meets the hostname constraint:</p>
 </div>
 </div>
 <div class="section" id="uri-sources">
-<h2>URI Sources<a class="headerlink" href="routing.html#uri-sources" title="Permalink to this headline">¶</a>
+<h2>URI Sources
 </h2>
 <p>By default the URI information is obtained from the $_GET[‘_url’] variable, this is passed by the Rewrite-Engine to
 Phalcon, you can also use $_SERVER[‘REQUEST_URI’] if required:</p>
@@ -918,7 +918,7 @@ Phalcon, you can also use $_SERVER[‘REQUEST_URI’] if required:</p>
 </div>
 </div>
 <div class="section" id="testing-your-routes">
-<h2>Testing your routes<a class="headerlink" href="routing.html#testing-your-routes" title="Permalink to this headline">¶</a>
+<h2>Testing your routes
 </h2>
 <p>Since this component has no dependencies, you can create a file as shown below to test your routes:</p>
 <div class="highlight-php">
@@ -962,7 +962,7 @@ Phalcon, you can also use $_SERVER[‘REQUEST_URI’] if required:</p>
 </div>
 </div>
 <div class="section" id="annotations-router">
-<h2>Annotations Router<a class="headerlink" href="routing.html#annotations-router" title="Permalink to this headline">¶</a>
+<h2>Annotations Router
 </h2>
 <p>This component provides a variant that’s integrated with the <a class="reference internal" href="annotations.html"><em>annotations</em></a> service. Using this strategy
 you can write the routes directly in the controllers instead of adding them in the service registration:</p>
@@ -1139,7 +1139,7 @@ you can write the routes directly in the controllers instead of adding them in t
 </div>
 </div>
 <div class="section" id="registering-router-instance">
-<h2>Registering Router instance<a class="headerlink" href="routing.html#registering-router-instance" title="Permalink to this headline">¶</a>
+<h2>Registering Router instance
 </h2>
 <p>You can register router during service registration with Phalcon dependency injector to make it available inside controller.</p>
 <p>You need to add code below in your bootstrap file (for example index.php or app/config/services.php if you use <a class="reference external" href="http://phalconphp.com/en/download/tools">Phalcon Developer Tools</a>)</p>
@@ -1176,7 +1176,7 @@ you can write the routes directly in the controllers instead of adding them in t
 </div>
 </div>
 <div class="section" id="implementing-your-own-router">
-<h2>Implementing your own Router<a class="headerlink" href="routing.html#implementing-your-own-router" title="Permalink to this headline">¶</a>
+<h2>Implementing your own Router
 </h2>
 <p>The <a class="reference internal" href="../api/Phalcon_Mvc_RouterInterface.html"><em>Phalcon\Mvc\RouterInterface</em></a> interface must be implemented to create your own router replacing
 the one provided by Phalcon.</p>
@@ -1192,6 +1192,7 @@ the one provided by Phalcon.</p>
 
 
 </div>
+
 
 </body>
 </html>

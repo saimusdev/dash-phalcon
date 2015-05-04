@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Annotations Parser — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="annotations-parser">
-<h1>Annotations Parser
-</h1>
+<h1>Annotations Parser</h1>
 <p>It is the first time that an annotations parser component is written in C for the PHP world. Phalcon\Annotations is
 a general purpose component that provides ease of parsing and caching annotations in PHP classes to be used in applications.</p>
 <p>Annotations are read from docblocks in classes, methods and properties. An annotation can be placed at any position in the docblock:</p>
@@ -106,7 +106,7 @@ a general purpose component that provides ease of parsing and caching annotation
 </pre></div>
 </div>
 <div class="section" id="reading-annotations">
-<h2>Reading Annotations<a class="headerlink" href="annotations.html#reading-annotations" title="Permalink to this headline">¶</a>
+<h2>Reading Annotations
 </h2>
 <p>A reflector is implemented to easily get the annotations defined on a class using an object-oriented interface:</p>
 <div class="highlight-php">
@@ -141,7 +141,7 @@ only caches the annotations while the request is running, for this reason th ada
 other adapters to swap out when the application is in production stage.</p>
 </div>
 <div class="section" id="types-of-annotations">
-<h2>Types of Annotations<a class="headerlink" href="annotations.html#types-of-annotations" title="Permalink to this headline">¶</a>
+<h2>Types of Annotations
 </h2>
 <p>Annotations may have parameters or not. A parameter could be a simple literal (strings, number, boolean, null), an array, a hashed list or other annotation:</p>
 <div class="highlight-php">
@@ -199,11 +199,11 @@ other adapters to swap out when the application is in production stage.</p>
 </div>
 </div>
 <div class="section" id="practical-usage">
-<h2>Practical Usage<a class="headerlink" href="annotations.html#practical-usage" title="Permalink to this headline">¶</a>
+<h2>Practical Usage
 </h2>
 <p>Next we will explain some practical examples of annotations in PHP applications:</p>
 <div class="section" id="cache-enabler-with-annotations">
-<h3>Cache Enabler with Annotations<a class="headerlink" href="annotations.html#cache-enabler-with-annotations" title="Permalink to this headline">¶</a>
+<h3>Cache Enabler with Annotations
 </h3>
 <p>Let’s pretend we’ve the following controller and the developer wants to create a plugin that automatically start the
 cache if the latest action executed is marked as cacheable. First off all we register a plugin in the Dispatcher service
@@ -310,14 +310,14 @@ to be notified when a route is executed:</p>
 </div>
 </div>
 <div class="section" id="choose-template-to-render">
-<h3>Choose template to render<a class="headerlink" href="annotations.html#choose-template-to-render" title="Permalink to this headline">¶</a>
+<h3>Choose template to render
 </h3>
 <p>In this example we’re going to use annotations to tell <a class="reference internal" href="views.html"><em>Phalcon\Mvc\View\Simple</em></a> what template must me rendered
 once the action has been executed:</p>
 </div>
 </div>
 <div class="section" id="annotations-adapters">
-<h2>Annotations Adapters<a class="headerlink" href="annotations.html#annotations-adapters" title="Permalink to this headline">¶</a>
+<h2>Annotations Adapters
 </h2>
 <p>This component makes use of adapters to cache or no cache the parsed and processed annotations thus improving the performance or providing facilities to development/testing:</p>
 <table border="1" class="docutils">
@@ -357,14 +357,14 @@ once the action has been executed:</p>
 </tbody>
 </table>
 <div class="section" id="implementing-your-own-adapters">
-<h3>Implementing your own adapters<a class="headerlink" href="annotations.html#implementing-your-own-adapters" title="Permalink to this headline">¶</a>
+<h3>Implementing your own adapters
 </h3>
 <p>The <a class="reference internal" href="../api/Phalcon_Annotations_AdapterInterface.html"><em>Phalcon\Annotations\AdapterInterface</em></a> interface must be implemented in order to create your own
 annotations adapters or extend the existing ones.</p>
 </div>
 </div>
 <div class="section" id="external-resources">
-<h2>External Resources<a class="headerlink" href="annotations.html#external-resources" title="Permalink to this headline">¶</a>
+<h2>External Resources
 </h2>
 <ul class="simple">
 <li><a class="reference external" href="http://blog.phalconphp.com/post/47471246411/tutorial-creating-a-custom-models-initializer-with">Tutorial: Creating a custom model’s initializer with Annotations</a></li>
@@ -381,6 +381,7 @@ annotations adapters or extend the existing ones.</p>
 
 
 </div>
+
 
 </body>
 </html>

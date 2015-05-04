@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Volt: Template Engine — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="volt-template-engine">
-<h1>Volt: Template Engine
-</h1>
+<h1>Volt: Template Engine</h1>
 <p>Volt is an ultra-fast and designer friendly templating language written in C for PHP. It provides you a set of
 helpers to write views in an easy way. Volt is highly integrated with other components of Phalcon,
 just as you can use it as a stand-alone component in your applications.</p>
@@ -40,7 +40,7 @@ territory using the same syntax they have been using with similar template engin
 have been enhanced with more elements and of course with the performance that developers have been
 accustomed to while working with Phalcon.</p>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="volt.html#introduction" title="Permalink to this headline">¶</a>
+<h2>Introduction
 </h2>
 <p>Volt views are compiled to pure PHP code, so basically they save the effort of writing PHP code manually:</p>
 <div class="highlight-html+jinja">
@@ -60,7 +60,7 @@ accustomed to while working with Phalcon.</p>
 </div>
 </div>
 <div class="section" id="activating-volt">
-<h2>Activating Volt<a class="headerlink" href="volt.html#activating-volt" title="Permalink to this headline">¶</a>
+<h2>Activating Volt
 </h2>
 <p>As other template engines, you may register Volt in the view component, using a new extension or
 reusing the standard .phtml:</p>
@@ -93,7 +93,7 @@ reusing the standard .phtml:</p>
 </div>
 </div>
 <div class="section" id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="volt.html#basic-usage" title="Permalink to this headline">¶</a>
+<h2>Basic Usage
 </h2>
 <p>A view consists of Volt code, PHP and HTML. A set of special delimiters is available to enter into
 Volt mode. {% ... %} is used to execute statements such as for-loops or assign values and {{ ... }},
@@ -151,7 +151,7 @@ In the above example, three variables were passed to the view: title, menu and p
 </div>
 </div>
 <div class="section" id="variables">
-<h2>Variables<a class="headerlink" href="volt.html#variables" title="Permalink to this headline">¶</a>
+<h2>Variables
 </h2>
 <p>Object variables may have attributes which can be accessed using the syntax: foo.bar.
 If you are passing arrays, you have to use the square bracket syntax: foo[‘bar’]</p>
@@ -162,7 +162,7 @@ If you are passing arrays, you have to use the square bracket syntax: foo[‘bar
 </div>
 </div>
 <div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="volt.html#filters" title="Permalink to this headline">¶</a>
+<h2>Filters
 </h2>
 <p>Variables can be formatted or modified using filters. The pipe operator | is used to apply filters to
 variables:</p>
@@ -351,7 +351,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="comments">
-<h2>Comments<a class="headerlink" href="volt.html#comments" title="Permalink to this headline">¶</a>
+<h2>Comments
 </h2>
 <p>Comments may also be added to a template using the {# ... #} delimiters. All text inside them is just ignored in the final output:</p>
 <div class="highlight-jinja">
@@ -362,11 +362,11 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="list-of-control-structures">
-<h2>List of Control Structures<a class="headerlink" href="volt.html#list-of-control-structures" title="Permalink to this headline">¶</a>
+<h2>List of Control Structures
 </h2>
 <p>Volt provides a set of basic but powerful control structures for use in templates:</p>
 <div class="section" id="for">
-<h3>For<a class="headerlink" href="volt.html#for" title="Permalink to this headline">¶</a>
+<h3>For
 </h3>
 <p>Loop over each item in a sequence. The following example shows how to traverse a set of “robots” and print his/her name:</p>
 <div class="highlight-html+jinja">
@@ -432,7 +432,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="loop-controls">
-<h3>Loop Controls<a class="headerlink" href="volt.html#loop-controls" title="Permalink to this headline">¶</a>
+<h3>Loop Controls
 </h3>
 <p>The ‘break’ and ‘continue’ statements can be used to exit from a loop or force an iteration in the current block:</p>
 <div class="highlight-html+jinja">
@@ -457,7 +457,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="if">
-<h3>If<a class="headerlink" href="volt.html#if" title="Permalink to this headline">¶</a>
+<h3>If
 </h3>
 <p>As PHP, an “if” statement checks if an expression is evaluated as true or false:</p>
 <div class="highlight-html+jinja">
@@ -498,7 +498,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="loop-context">
-<h3>Loop Context<a class="headerlink" href="volt.html#loop-context" title="Permalink to this headline">¶</a>
+<h3>Loop Context
 </h3>
 <p>A special variable is available inside ‘for’ loops providing you information about</p>
 <table border="1" class="docutils">
@@ -567,7 +567,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="assignments">
-<h2>Assignments<a class="headerlink" href="volt.html#assignments" title="Permalink to this headline">¶</a>
+<h2>Assignments
 </h2>
 <p>Variables may be changed in a template using the instruction “set”:</p>
 <div class="highlight-html+jinja">
@@ -624,7 +624,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="expressions">
-<h2>Expressions<a class="headerlink" href="volt.html#expressions" title="Permalink to this headline">¶</a>
+<h2>Expressions
 </h2>
 <p>Volt provides a basic set of expression support, including literals and common operators.</p>
 <p>A expression can be evaluated and printed using the ‘{{‘ and ‘}}’ delimiters:</p>
@@ -638,7 +638,7 @@ variables:</p>
 </pre></div>
 </div>
 <div class="section" id="literals">
-<h3>Literals<a class="headerlink" href="volt.html#literals" title="Permalink to this headline">¶</a>
+<h3>Literals
 </h3>
 <p>The following literals are supported:</p>
 <table border="1" class="docutils">
@@ -681,7 +681,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="arrays">
-<h3>Arrays<a class="headerlink" href="volt.html#arrays" title="Permalink to this headline">¶</a>
+<h3>Arrays
 </h3>
 <p>Whether you’re using PHP 5.3, 5.4 or 5.5, you can create arrays by enclosing a list of values in square brackets:</p>
 <div class="highlight-html+jinja">
@@ -706,7 +706,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="math">
-<h3>Math<a class="headerlink" href="volt.html#math" title="Permalink to this headline">¶</a>
+<h3>Math
 </h3>
 <p>You may make calculations in templates using the following operators:</p>
 <table border="1" class="docutils">
@@ -745,7 +745,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="comparisons">
-<h3>Comparisons<a class="headerlink" href="volt.html#comparisons" title="Permalink to this headline">¶</a>
+<h3>Comparisons
 </h3>
 <p>The following comparison operators are available:</p>
 <table border="1" class="docutils">
@@ -800,7 +800,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="logic">
-<h3>Logic<a class="headerlink" href="volt.html#logic" title="Permalink to this headline">¶</a>
+<h3>Logic
 </h3>
 <p>Logic operators are useful in the “if” expression evaluation to combine multiple tests:</p>
 <table border="1" class="docutils">
@@ -835,7 +835,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="other-operators">
-<h3>Other Operators<a class="headerlink" href="volt.html#other-operators" title="Permalink to this headline">¶</a>
+<h3>Other Operators
 </h3>
 <p>Additional operators seen the following operators are available:</p>
 <table border="1" class="docutils">
@@ -902,7 +902,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="tests">
-<h2>Tests<a class="headerlink" href="volt.html#tests" title="Permalink to this headline">¶</a>
+<h2>Tests
 </h2>
 <p>Tests can be used to test if a variable has a valid expected value. The operator “is” is used to perform the tests:</p>
 <div class="highlight-html+jinja">
@@ -1018,7 +1018,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="macros">
-<h2>Macros<a class="headerlink" href="volt.html#macros" title="Permalink to this headline">¶</a>
+<h2>Macros
 </h2>
 <p>Macros can be used to reuse logic in a template, they act as PHP functions, can receive parameters and return values:</p>
 <div class="highlight-html+jinja">
@@ -1076,7 +1076,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="using-tag-helpers">
-<h2>Using Tag Helpers<a class="headerlink" href="volt.html#using-tag-helpers" title="Permalink to this headline">¶</a>
+<h2>Using Tag Helpers
 </h2>
 <p>Volt is highly integrated with <a class="reference internal" href="tags.html"><em>Phalcon\Tag</em></a>, so it’s easy to use the helpers provided by that component in a Volt template:</p>
 <div class="highlight-html+jinja">
@@ -1213,7 +1213,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="volt.html#functions" title="Permalink to this headline">¶</a>
+<h2>Functions
 </h2>
 <p>The following built-in functions are available in Volt:</p>
 <table border="1" class="docutils">
@@ -1272,7 +1272,7 @@ variables:</p>
 </table>
 </div>
 <div class="section" id="view-integration">
-<h2>View Integration<a class="headerlink" href="volt.html#view-integration" title="Permalink to this headline">¶</a>
+<h2>View Integration
 </h2>
 <p>Also, Volt is integrated with <a class="reference internal" href="views.html"><em>Phalcon\Mvc\View</em></a>, you can play with the view hierarchy and include partials as well:</p>
 <div class="highlight-html+php">
@@ -1296,7 +1296,7 @@ as part of the view which was included:</p>
 </pre></div>
 </div>
 <div class="section" id="include">
-<h3>Include<a class="headerlink" href="volt.html#include" title="Permalink to this headline">¶</a>
+<h3>Include
 </h3>
 <p>‘include’ has a special behavior that will help us improve performance a bit when using Volt, if you specify the extension
 when including the file and it exists when the template is compiled, Volt can inline the contents of the template in the parent
@@ -1309,7 +1309,7 @@ template where it’s included. Templates aren’t inlined if the ‘include’ 
 </div>
 </div>
 <div class="section" id="template-inheritance">
-<h2>Template Inheritance<a class="headerlink" href="volt.html#template-inheritance" title="Permalink to this headline">¶</a>
+<h2>Template Inheritance
 </h2>
 <p>With template inheritance you can create base templates that can be extended by others templates allowing to reuse code. A base template
 define <em>blocks</em> than can be overridden by a child template. Let’s pretend that we have the following base template:</p>
@@ -1367,7 +1367,7 @@ define <em>blocks</em> than can be overridden by a child template. Let’s prete
 </pre></div>
 </div>
 <div class="section" id="multiple-inheritance">
-<h3>Multiple Inheritance<a class="headerlink" href="volt.html#multiple-inheritance" title="Permalink to this headline">¶</a>
+<h3>Multiple Inheritance
 </h3>
 <p>Extended templates can extend other templates. The following example illustrates this:</p>
 <div class="highlight-html+jinja">
@@ -1443,7 +1443,7 @@ the parent templates.</div>
 </div>
 </div>
 <div class="section" id="autoescape-mode">
-<h2>Autoescape mode<a class="headerlink" href="volt.html#autoescape-mode" title="Permalink to this headline">¶</a>
+<h2>Autoescape mode
 </h2>
 <p>You can enable auto-escaping of all variables printed in a block using the autoescape mode:</p>
 <div class="highlight-html+jinja">
@@ -1459,7 +1459,7 @@ the parent templates.</div>
 </div>
 </div>
 <div class="section" id="setting-up-the-volt-engine">
-<h2>Setting up the Volt Engine<a class="headerlink" href="volt.html#setting-up-the-volt-engine" title="Permalink to this headline">¶</a>
+<h2>Setting up the Volt Engine
 </h2>
 <p>Volt can be configured to alter its default behavior, the following example explain how to do that:</p>
 <div class="highlight-php">
@@ -1596,14 +1596,14 @@ views directory. The following examples show how to change the compilation path 
 </div>
 </div>
 <div class="section" id="extending-volt">
-<h2>Extending Volt<a class="headerlink" href="volt.html#extending-volt" title="Permalink to this headline">¶</a>
+<h2>Extending Volt
 </h2>
 <p>Unlike other template engines, Volt itself is not required to run the compiled templates.
 Once the templates are compiled there is no dependence on Volt. With performance independence in mind,
 Volt only acts as a compiler for PHP templates.</p>
 <p>The Volt compiler allow you to extend it adding more functions, tests or filters to the existing ones.</p>
 <div class="section" id="id3">
-<h3>Functions<a class="headerlink" href="volt.html#id3" title="Permalink to this headline">¶</a>
+<h3>Functions
 </h3>
 <p>Functions act as normal PHP functions, a valid string name is required as function name.
 Functions can be added using two strategies, returning a simple string or using an anonymous
@@ -1673,7 +1673,7 @@ as were passed in the arguments:</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>Filters<a class="headerlink" href="volt.html#id4" title="Permalink to this headline">¶</a>
+<h3>Filters
 </h3>
 <p>A filter has the following form in a template: leftExpr|name(optional-args). Adding new filters
 is similar as seen with the functions:</p>
@@ -1702,7 +1702,7 @@ is similar as seen with the functions:</p>
 </div>
 </div>
 <div class="section" id="extensions">
-<h3>Extensions<a class="headerlink" href="volt.html#extensions" title="Permalink to this headline">¶</a>
+<h3>Extensions
 </h3>
 <p>With extensions the developer has more flexibility to extend the template engine, and override the compilation
 of ​a specific instruction, change the behavior of an expression or operator, add functions/filters, and more.</p>
@@ -1772,7 +1772,7 @@ behavior provided by the engine.</p>
 </div>
 </div>
 <div class="section" id="caching-view-fragments">
-<h2>Caching view fragments<a class="headerlink" href="volt.html#caching-view-fragments" title="Permalink to this headline">¶</a>
+<h2>Caching view fragments
 </h2>
 <p>With Volt it’s easy cache view fragments. This caching improves performance preventing
 that the contents of a block from being executed by PHP each time the view is displayed:</p>
@@ -1805,7 +1805,7 @@ that the contents of a block from being executed by PHP each time the view is di
 Learn more about how this integration works in the section <a class="reference internal" href="views.html"><em>“Caching View Fragments”</em></a>.</p>
 </div>
 <div class="section" id="inject-services-into-a-template">
-<h2>Inject Services into a Template<a class="headerlink" href="volt.html#inject-services-into-a-template" title="Permalink to this headline">¶</a>
+<h2>Inject Services into a Template
 </h2>
 <p>If a service container (DI) is available for Volt, you can use the services by only accessing the name of the service in the template:</p>
 <div class="highlight-html+jinja">
@@ -1818,7 +1818,7 @@ Learn more about how this integration works in the section <a class="reference i
 </div>
 </div>
 <div class="section" id="stand-alone-component">
-<h2>Stand-alone component<a class="headerlink" href="volt.html#stand-alone-component" title="Permalink to this headline">¶</a>
+<h2>Stand-alone component
 </h2>
 <p>Using Volt in a stand-alone mode can be demonstrated below:</p>
 <div class="highlight-php">
@@ -1847,7 +1847,7 @@ Learn more about how this integration works in the section <a class="reference i
 </div>
 </div>
 <div class="section" id="external-resources">
-<h2>External Resources<a class="headerlink" href="volt.html#external-resources" title="Permalink to this headline">¶</a>
+<h2>External Resources
 </h2>
 <ul class="simple">
 <li>A bundle for Sublime/Textmate is available <a class="reference external" href="https://github.com/phalcon/volt-sublime-textmate">here</a>
@@ -1873,6 +1873,7 @@ Learn more about how this integration works in the section <a class="reference i
 
 
 </div>
+
 
 </body>
 </html>

@@ -23,8 +23,8 @@ task :default => [
   :extract,
   :plist,
   :db,
-  :clean,
   :parse,
+  :clean,
   :import,
   :rm
 ]
@@ -226,7 +226,8 @@ task :import do
   DASH_DOCSETS_LOCATION = "#{ENV['HOME']}/Library/Application Support/Dash/User Contributed"
   DASH_APP = "/Applications/Dash.app"
   if File.directory? DASH_DOCSETS_LOCATION
-	FileUtils.mkdir_p "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}" if !File.directory? "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}"
+  	FileUtils.rm_rf "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}" if File.directory? "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}"
+	FileUtils.mkdir_p "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}"
   	FileUtils.cp_r DOCSET_FOLDER, "#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}/#{DOCSET_FOLDER}"
   	if File.directory? DASH_APP
 		system "open -a \'#{DASH_APP}\' \'#{DASH_DOCSETS_LOCATION}/#{DOCSET_NAME}/#{DOCSET_FOLDER}\'"

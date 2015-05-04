@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Working with Models — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="working-with-models">
-<h1>Working with Models
-</h1>
+<h1>Working with Models</h1>
 <p>A model represents the information (data) of the application and the rules to manipulate that data. Models are primarily used for managing
 the rules of interaction with a corresponding database table. In most cases, each table in your database will correspond to one model in
 your application. The bulk of your application’s business logic will be concentrated in the models.</p>
@@ -41,7 +41,7 @@ to the respective database engine operations.</p>
 <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a> component documentation.</div>
 </blockquote>
 <div class="section" id="creating-models">
-<h2>Creating Models<a class="headerlink" href="models.html#creating-models" title="Permalink to this headline">¶</a>
+<h2>Creating Models
 </h2>
 <p>A model is a class that extends from <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>. It must be placed in the models directory. A model
 file must contain a single class; its class name should be in camel case notation:</p>
@@ -112,7 +112,7 @@ created you can ‘onConstruct’:</p>
 </pre></div>
 </div>
 <div class="section" id="public-properties-vs-setters-getters">
-<h3>Public properties vs. Setters/Getters<a class="headerlink" href="models.html#public-properties-vs-setters-getters" title="Permalink to this headline">¶</a>
+<h3>Public properties vs. Setters/Getters
 </h3>
 <p>Models can be implemented with properties of public scope, meaning that each property can be read/updated
 from any part of the code that has instantiated that model class without any restrictions:</p>
@@ -183,7 +183,7 @@ extensibility and maintainability of applications. Developers can decide which s
 application they are creating. The ORM is compatible with both schemes of defining properties.</p>
 </div>
 <div class="section" id="models-in-namespaces">
-<h3>Models in Namespaces<a class="headerlink" href="models.html#models-in-namespaces" title="Permalink to this headline">¶</a>
+<h3>Models in Namespaces
 </h3>
 <p>Namespaces can be used to avoid class name collision. The mapped table is taken from the class name, in this case ‘Robots’:</p>
 <div class="highlight-php">
@@ -200,7 +200,7 @@ application they are creating. The ORM is compatible with both schemes of defini
 </div>
 </div>
 <div class="section" id="understanding-records-to-objects">
-<h2>Understanding Records To Objects<a class="headerlink" href="models.html#understanding-records-to-objects" title="Permalink to this headline">¶</a>
+<h2>Understanding Records To Objects
 </h2>
 <p>Every instance of a model represents a row in the table. You can easily access record data by reading object properties. For example,
 for a table “robots” with the records:</p>
@@ -240,7 +240,7 @@ for a table “robots” with the records:</p>
 abstraction for web applications.</p>
 </div>
 <div class="section" id="finding-records">
-<h2>Finding Records<a class="headerlink" href="models.html#finding-records" title="Permalink to this headline">¶</a>
+<h2>Finding Records
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> also offers several methods for querying records. The following examples will show you
 how to query one or more records from a model:</p>
@@ -429,7 +429,7 @@ An example is in order, so taking our Robots model mentioned earlier :</p>
 <p>Notice that we used ‘Name’ in the method call and passed the variable $name to it, which contains the name we are looking for in our table. Notice also that
 when we find a match with our query, all the other properties are available to us as well.</p>
 <div class="section" id="model-resultsets">
-<h3>Model Resultsets<a class="headerlink" href="models.html#model-resultsets" title="Permalink to this headline">¶</a>
+<h3>Model Resultsets
 </h3>
 <p>While findFirst() returns directly an instance of the called class (when there is data to be returned), the find() method returns a
 <a class="reference internal" href="../api/Phalcon_Mvc_Model_Resultset_Simple.html"><em>Phalcon\Mvc\Model\Resultset\Simple</em></a>. This is an object that encapsulates all the functionality
@@ -509,7 +509,7 @@ thus consuming more memory while this process takes place.</p>
 </div>
 </div>
 <div class="section" id="filtering-resultsets">
-<h3>Filtering Resultsets<a class="headerlink" href="models.html#filtering-resultsets" title="Permalink to this headline">¶</a>
+<h3>Filtering Resultsets
 </h3>
 <p>The most efficient way to filter data is setting some search criteria, databases will use indexes set on tables to return data faster.
 Phalcon additionally allows you to filter the data using PHP using any resource that is not available in the database:</p>
@@ -528,7 +528,7 @@ Phalcon additionally allows you to filter the data using PHP using any resource 
 </div>
 </div>
 <div class="section" id="binding-parameters">
-<h3>Binding Parameters<a class="headerlink" href="models.html#binding-parameters" title="Permalink to this headline">¶</a>
+<h3>Binding Parameters
 </h3>
 <p>Bound parameters are also supported in <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>. Although there is a minimal performance
 impact by using bound parameters, you are encouraged to use this methodology so as to eliminate the possibility of your code being subject
@@ -615,7 +615,7 @@ methods like count(), sum(), average() etc.</p>
 </div>
 </div>
 <div class="section" id="initializing-preparing-fetched-records">
-<h2>Initializing/Preparing fetched records<a class="headerlink" href="models.html#initializing-preparing-fetched-records" title="Permalink to this headline">¶</a>
+<h2>Initializing/Preparing fetched records
 </h2>
 <p>May be the case that after obtaining a record from the database is necessary to initialise the data before
 being used by the rest of the application. You can implement the method ‘afterFetch’ in a model, this event
@@ -669,7 +669,7 @@ accessed:</p>
 </div>
 </div>
 <div class="section" id="relationships-between-models">
-<h2>Relationships between Models<a class="headerlink" href="models.html#relationships-between-models" title="Permalink to this headline">¶</a>
+<h2>Relationships between Models
 </h2>
 <p>There are four types of relationships: one-on-one, one-to-many, many-to-one and many-to-many. The relationship may be
 unidirectional or bidirectional, and each can be simple (a one to one model) or more complex (a combination of models).
@@ -677,17 +677,17 @@ The model manager manages foreign key constraints for these relationships, the d
 integrity as well as easy and fast access of related records to a model. Through the implementation of relations,
 it is easy to access data in related models from each record in a uniform way.</p>
 <div class="section" id="unidirectional-relationships">
-<h3>Unidirectional relationships<a class="headerlink" href="models.html#unidirectional-relationships" title="Permalink to this headline">¶</a>
+<h3>Unidirectional relationships
 </h3>
 <p>Unidirectional relations are those that are generated in relation to one another but not vice versa.</p>
 </div>
 <div class="section" id="bidirectional-relations">
-<h3>Bidirectional relations<a class="headerlink" href="models.html#bidirectional-relations" title="Permalink to this headline">¶</a>
+<h3>Bidirectional relations
 </h3>
 <p>The bidirectional relations build relationships in both models and each model defines the inverse relationship of the other.</p>
 </div>
 <div class="section" id="defining-relationships">
-<h3>Defining relationships<a class="headerlink" href="models.html#defining-relationships" title="Permalink to this headline">¶</a>
+<h3>Defining relationships
 </h3>
 <p>In Phalcon, relationships must be defined in the initialize() method of a model. The methods belongsTo(), hasOne(),
 hasMany() and hasManyToMany() define the relationship between one or more fields from the current model to fields in
@@ -844,7 +844,7 @@ of the referenced model and the third the field name in the referenced model. Yo
 </div>
 </div>
 <div class="section" id="taking-advantage-of-relationships">
-<h3>Taking advantage of relationships<a class="headerlink" href="models.html#taking-advantage-of-relationships" title="Permalink to this headline">¶</a>
+<h3>Taking advantage of relationships
 </h3>
 <p>When explicitly defining the relationships between models, it is easy to find related records for a particular record.</p>
 <div class="highlight-php">
@@ -972,7 +972,7 @@ and without:</p>
 </div>
 </div>
 <div class="section" id="aliasing-relationships">
-<h3>Aliasing Relationships<a class="headerlink" href="models.html#aliasing-relationships" title="Permalink to this headline">¶</a>
+<h3>Aliasing Relationships
 </h3>
 <p>To explain better how aliases work, let’s check the following example:</p>
 <p>Table “robots_similar” has the function to define what robots are similar to others:</p>
@@ -1060,7 +1060,7 @@ and without:</p>
 </div>
 </div>
 <div class="section" id="magic-getters-vs-explicit-methods">
-<h3>Magic Getters vs. Explicit methods<a class="headerlink" href="models.html#magic-getters-vs-explicit-methods" title="Permalink to this headline">¶</a>
+<h3>Magic Getters vs. Explicit methods
 </h3>
 <p>Most IDEs and editors with auto-completion capabilities can not infer the correct types when using magic getters,
 instead of use the magic getters you can optionally define those methods explicitly with the corresponding
@@ -1096,7 +1096,7 @@ docblocks helping the IDE to produce a better auto-completion:</p>
 </div>
 </div>
 <div class="section" id="virtual-foreign-keys">
-<h2>Virtual Foreign Keys<a class="headerlink" href="models.html#virtual-foreign-keys" title="Permalink to this headline">¶</a>
+<h2>Virtual Foreign Keys
 </h2>
 <p>By default, relationships do not act like database foreign keys, that is, if you try to insert/update a value without having a valid
 value in the referenced model, Phalcon will not produce a validation message. You can modify this behavior by adding a fourth parameter
@@ -1152,7 +1152,7 @@ if that record is used on a referenced model.</p>
 </pre></div>
 </div>
 <div class="section" id="cascade-restrict-actions">
-<h3>Cascade/Restrict actions<a class="headerlink" href="models.html#cascade-restrict-actions" title="Permalink to this headline">¶</a>
+<h3>Cascade/Restrict actions
 </h3>
 <p>Relationships that act as virtual foreign keys by default restrict the creation/update/deletion of records
 to maintain the integrity of data:</p>
@@ -1187,7 +1187,7 @@ to maintain the integrity of data:</p>
 </div>
 </div>
 <div class="section" id="generating-calculations">
-<h2>Generating Calculations<a class="headerlink" href="models.html#generating-calculations" title="Permalink to this headline">¶</a>
+<h2>Generating Calculations
 </h2>
 <p>Calculations (or aggregations) are helpers for commonly used functions of database systems such as COUNT, SUM, MAX, MIN or AVG.
 <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> allows to use these functions directly from the exposed methods.</p>
@@ -1300,7 +1300,7 @@ to maintain the integrity of data:</p>
 </div>
 </div>
 <div class="section" id="hydration-modes">
-<h2>Hydration Modes<a class="headerlink" href="models.html#hydration-modes" title="Permalink to this headline">¶</a>
+<h2>Hydration Modes
 </h2>
 <p>As mentioned above, resultsets are collections of complete objects, this means that every returned result is an object
 representing a row in the database. These objects can be modified and saved again to persistence:</p>
@@ -1363,7 +1363,7 @@ returned in a resultset is called ‘hydration mode’:</p>
 </div>
 </div>
 <div class="section" id="creating-updating-records">
-<h2>Creating Updating/Records<a class="headerlink" href="models.html#creating-updating-records" title="Permalink to this headline">¶</a>
+<h2>Creating Updating/Records
 </h2>
 <p>The method Phalcon\Mvc\Model::save() allows you to create/update records according to whether they already exist in the table
 associated with a model. The save method is called internally by the create and update methods of <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>.
@@ -1424,7 +1424,7 @@ the mass assignment:</p>
 </pre></div>
 </div>
 <div class="section" id="create-update-with-confidence">
-<h3>Create/Update with Confidence<a class="headerlink" href="models.html#create-update-with-confidence" title="Permalink to this headline">¶</a>
+<h3>Create/Update with Confidence
 </h3>
 <p>When an application has a lot of competition, we could be expecting create a record but it is actually updated. This
 could happen if we use Phalcon\Mvc\Model::save() to persist the records in the database. If we want to be absolutely
@@ -1451,7 +1451,7 @@ sure that a record is created or updated, we can change the save() call with cre
 <p>These methods “create” and “update” also accept an array of values as parameter.</p>
 </div>
 <div class="section" id="auto-generated-identity-columns">
-<h3>Auto-generated identity columns<a class="headerlink" href="models.html#auto-generated-identity-columns" title="Permalink to this headline">¶</a>
+<h3>Auto-generated identity columns
 </h3>
 <p>Some models may have identity columns. These columns usually are the primary key of the mapped table. <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>
 can recognize the identity column omitting it in the generated SQL INSERT, so the database system can generate an auto-generated value for it.
@@ -1484,7 +1484,7 @@ for example: robots_id_seq, if that sequence has a different name, the method �
 </div>
 </div>
 <div class="section" id="storing-related-records">
-<h3>Storing related records<a class="headerlink" href="models.html#storing-related-records" title="Permalink to this headline">¶</a>
+<h3>Storing related records
 </h3>
 <p>Magic properties can be used to store a records and its related properties:</p>
 <div class="highlight-php">
@@ -1552,7 +1552,7 @@ passed back to the user for information regarding any errors.</p>
 <p>You need to overload PhalconMvcModel::save() for this to work from within a model.</p>
 </div>
 <div class="section" id="validation-messages">
-<h3>Validation Messages<a class="headerlink" href="models.html#validation-messages" title="Permalink to this headline">¶</a>
+<h3>Validation Messages
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> has a messaging subsystem that provides a flexible way to output or store the
 validation messages generated during the insert/update processes.</p>
@@ -1635,7 +1635,7 @@ generated the message or the message type:</p>
 </div>
 </div>
 <div class="section" id="events-and-events-manager">
-<h3>Events and Events Manager<a class="headerlink" href="models.html#events-and-events-manager" title="Permalink to this headline">¶</a>
+<h3>Events and Events Manager
 </h3>
 <p>Models allow you to implement events that will be thrown when performing an insert/update/delete. They help define business rules for a
 certain model. The following are the events supported by <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> and their order of execution:</p>
@@ -1737,7 +1737,7 @@ certain model. The following are the events supported by <a class="reference int
 </table>
 </div>
 <div class="section" id="implementing-events-in-the-model-s-class">
-<h3>Implementing Events in the Model’s class<a class="headerlink" href="models.html#implementing-events-in-the-model-s-class" title="Permalink to this headline">¶</a>
+<h3>Implementing Events in the Model’s class
 </h3>
 <p>The easier way to make a model react to events is implement a method with the same name of the event in the model’s class:</p>
 <div class="highlight-php">
@@ -1778,7 +1778,7 @@ certain model. The following are the events supported by <a class="reference int
 </div>
 </div>
 <div class="section" id="using-a-custom-events-manager">
-<h3>Using a custom Events Manager<a class="headerlink" href="models.html#using-a-custom-events-manager" title="Permalink to this headline">¶</a>
+<h3>Using a custom Events Manager
 </h3>
 <p>Additionally, this component is integrated with <a class="reference internal" href="../api/Phalcon_Events_Manager.html"><em>Phalcon\Events\Manager</em></a>,
 this means we can create listeners that run when an event is triggered.</p>
@@ -1861,7 +1861,7 @@ Events will be fired to the listener when ‘robots’ are saved:</p>
 <p>If a listener returns false that will stop the operation that is executing currently.</p>
 </div>
 <div class="section" id="implementing-a-business-rule">
-<h3>Implementing a Business Rule<a class="headerlink" href="models.html#implementing-a-business-rule" title="Permalink to this headline">¶</a>
+<h3>Implementing a Business Rule
 </h3>
 <p>When an insert, update or delete is executed, the model verifies if there are any methods with the names of
 the events listed in the table above.</p>
@@ -1889,7 +1889,7 @@ from being exposed publicly.</p>
 will assume a true value.</p>
 </div>
 <div class="section" id="validating-data-integrity">
-<h3>Validating Data Integrity<a class="headerlink" href="models.html#validating-data-integrity" title="Permalink to this headline">¶</a>
+<h3>Validating Data Integrity
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> provides several events to validate data and implement business rules. The special “validation”
 event allows us to call built-in validators over the record. Phalcon exposes a few built-in validators that can be used at this stage of validation.</p>
@@ -2075,7 +2075,7 @@ the value is not included in the method then the validator will fail and return 
 </div>
 </div>
 <div class="section" id="avoiding-sql-injections">
-<h3>Avoiding SQL injections<a class="headerlink" href="models.html#avoiding-sql-injections" title="Permalink to this headline">¶</a>
+<h3>Avoiding SQL injections
 </h3>
 <p>Every value assigned to a model attribute is escaped depending of its data type. A developer doesn’t need to escape manually
 each value before storing it on the database. Phalcon uses internally the <a class="reference external" href="http://php.net/manual/en/pdostatement.bindparam.php">bound parameters</a>
@@ -2129,7 +2129,7 @@ capability provided by PDO to automatically escape every value to be stored in t
 </div>
 </div>
 <div class="section" id="skipping-columns">
-<h2>Skipping Columns<a class="headerlink" href="models.html#skipping-columns" title="Permalink to this headline">¶</a>
+<h2>Skipping Columns
 </h2>
 <p>To tell Phalcon\Mvc\Model that always omits some fields in the creation and/or update of records in order
 to delegate the database system the assignation of the values by a trigger or a default:</p>
@@ -2190,7 +2190,7 @@ or variable data. The value of these fields is ignored when binding parameters t
 So it could be used to attack the application injecting SQL.</div>
 </blockquote>
 <div class="section" id="dynamic-update">
-<h3>Dynamic Update<a class="headerlink" href="models.html#dynamic-update" title="Permalink to this headline">¶</a>
+<h3>Dynamic Update
 </h3>
 <p>SQL UPDATE statements are by default created with every column defined in the model (full all-field SQL update).
 You can change specific models to make dynamic updates, in this case, just the fields that had changed
@@ -2212,7 +2212,7 @@ this specially helps when the table has blob/text fields:</p>
 </div>
 </div>
 <div class="section" id="deleting-records">
-<h2>Deleting Records<a class="headerlink" href="models.html#deleting-records" title="Permalink to this headline">¶</a>
+<h2>Deleting Records
 </h2>
 <p>The method Phalcon\Mvc\Model::delete() allows to delete a record. You can use it as follows:</p>
 <div class="highlight-php">
@@ -2300,7 +2300,7 @@ performed:</p>
 </div>
 </div>
 <div class="section" id="validation-failed-events">
-<h2>Validation Failed Events<a class="headerlink" href="models.html#validation-failed-events" title="Permalink to this headline">¶</a>
+<h2>Validation Failed Events
 </h2>
 <p>Another type of events are available when the data validation process finds any inconsistency:</p>
 <table border="1" class="docutils">
@@ -2331,7 +2331,7 @@ performed:</p>
 </table>
 </div>
 <div class="section" id="behaviors">
-<h2>Behaviors<a class="headerlink" href="models.html#behaviors" title="Permalink to this headline">¶</a>
+<h2>Behaviors
 </h2>
 <p>Behaviors are shared conducts that several models may adopt in order to re-use code, the ORM provides an API to implement
 behaviors in your models. Also, you can use the events and callbacks as seen before as an alternative to implement Behaviors with more freedom.</p>
@@ -2388,7 +2388,7 @@ behaviors in your models. Also, you can use the events and callbacks as seen bef
 </tbody>
 </table>
 <div class="section" id="timestampable">
-<h3>Timestampable<a class="headerlink" href="models.html#timestampable" title="Permalink to this headline">¶</a>
+<h3>Timestampable
 </h3>
 <p>This behavior receives an array of options, the first level key must be an event name indicating when the column must be assigned:</p>
 <div class="highlight-php">
@@ -2431,7 +2431,7 @@ as format of the PHP’s function <a class="reference external" href="http://php
 <p>If the option ‘format’ is omitted a timestamp using the PHP’s function <a class="reference external" href="http://php.net/manual/en/function.time.php">time</a>, will be used.</p>
 </div>
 <div class="section" id="softdelete">
-<h3>SoftDelete<a class="headerlink" href="models.html#softdelete" title="Permalink to this headline">¶</a>
+<h3>SoftDelete
 </h3>
 <p>This behavior can be used in the following way:</p>
 <div class="highlight-php">
@@ -2500,7 +2500,7 @@ Let’s pretend the table ‘users’ has the following data:</p>
 <p>Note that you need to specify the deleted condition in your queries to effectively ignore them as deleted records, this behavior doesn’t support that.</p>
 </div>
 <div class="section" id="creating-your-own-behaviors">
-<h3>Creating your own behaviors<a class="headerlink" href="models.html#creating-your-own-behaviors" title="Permalink to this headline">¶</a>
+<h3>Creating your own behaviors
 </h3>
 <p>The ORM provides an API to create your own behaviors. A behavior must be a class implementing the <a class="reference internal" href="../api/Phalcon_Mvc_Model_BehaviorInterface.html"><em>Phalcon\Mvc\Model\BehaviorInterface</em></a>
 Also, Phalon\Mvc\Model\Behavior provides most of the methods needed to ease the implementation of behaviors.</p>
@@ -2587,7 +2587,7 @@ that is performed operations over a model:</p>
 </div>
 </div>
 <div class="section" id="using-traits-as-behaviors">
-<h3>Using Traits as behaviors<a class="headerlink" href="models.html#using-traits-as-behaviors" title="Permalink to this headline">¶</a>
+<h3>Using Traits as behaviors
 </h3>
 <p>Starting from PHP 5.4 you can use <a class="reference external" href="http://php.net/manual/en/language.oop5.traits.php">Traits</a> to re-use code in your classes, this is another way to implement
 custom behaviors. The following trait implements a simple version of the Timestampable behavior:</p>
@@ -2623,7 +2623,7 @@ custom behaviors. The following trait implements a simple version of the Timesta
 </div>
 </div>
 <div class="section" id="transactions">
-<h2>Transactions<a class="headerlink" href="models.html#transactions" title="Permalink to this headline">¶</a>
+<h2>Transactions
 </h2>
 <p>When a process performs multiple database operations, it is often that each step is completed successfully so that data integrity can
 be maintained. Transactions offer the ability to ensure that all database operations have been executed successfully before the data
@@ -2631,7 +2631,7 @@ are committed to the database.</p>
 <p>Transactions in Phalcon allow you to commit all operations if they have been executed successfully or rollback
 all operations if something went wrong.</p>
 <div class="section" id="manual-transactions">
-<h3>Manual Transactions<a class="headerlink" href="models.html#manual-transactions" title="Permalink to this headline">¶</a>
+<h3>Manual Transactions
 </h3>
 <p>If an application only uses one connection and the transactions aren’t very complex, a transaction can be
 created by just moving the current connection to transaction mode, doing a rollback or commit if the operation
@@ -2669,7 +2669,7 @@ is successfully or not:</p>
 </div>
 </div>
 <div class="section" id="implicit-transactions">
-<h3>Implicit Transactions<a class="headerlink" href="models.html#implicit-transactions" title="Permalink to this headline">¶</a>
+<h3>Implicit Transactions
 </h3>
 <p>Existing relationships can be used to store records and their related instances, this kind of operation
 implicitly creates a transaction to ensure that data are correctly stored:</p>
@@ -2689,7 +2689,7 @@ implicitly creates a transaction to ensure that data are correctly stored:</p>
 </div>
 </div>
 <div class="section" id="isolated-transactions">
-<h3>Isolated Transactions<a class="headerlink" href="models.html#isolated-transactions" title="Permalink to this headline">¶</a>
+<h3>Isolated Transactions
 </h3>
 <p>Isolated transactions are executed in a new connection ensuring that all the generated SQL,
 virtual foreign key checks and business rules are isolated from the main connection.
@@ -2808,7 +2808,7 @@ is performed. You can use the service container to create the global transaction
 </div>
 </div>
 <div class="section" id="independent-column-mapping">
-<h2>Independent Column Mapping<a class="headerlink" href="models.html#independent-column-mapping" title="Permalink to this headline">¶</a>
+<h2>Independent Column Mapping
 </h2>
 <p>The ORM supports an independent column map, which allows the developer to use different column names in the model to the ones in
 the table. Phalcon will recognize the new column names and will rename them accordingly to match the respective columns in the database.
@@ -2871,11 +2871,11 @@ in the code. A change in the column map in the model will take care of the rest.
 </ul>
 </div>
 <div class="section" id="operations-over-resultsets">
-<h2>Operations over Resultsets<a class="headerlink" href="models.html#operations-over-resultsets" title="Permalink to this headline">¶</a>
+<h2>Operations over Resultsets
 </h2>
 <p>If a resultset is composed of complete objects, the resultset is in the ability to perform operations on the records obtained in a simple manner:</p>
 <div class="section" id="updating-related-records">
-<h3>Updating related records<a class="headerlink" href="models.html#updating-related-records" title="Permalink to this headline">¶</a>
+<h3>Updating related records
 </h3>
 <p>Instead of doing this:</p>
 <div class="highlight-php">
@@ -2923,7 +2923,7 @@ in the code. A change in the column map in the model will take care of the rest.
 </div>
 </div>
 <div class="section" id="deleting-related-records">
-<h3>Deleting related records<a class="headerlink" href="models.html#deleting-related-records" title="Permalink to this headline">¶</a>
+<h3>Deleting related records
 </h3>
 <p>Instead of doing this:</p>
 <div class="highlight-php">
@@ -2962,7 +2962,7 @@ in the code. A change in the column map in the model will take care of the rest.
 </div>
 </div>
 <div class="section" id="record-snapshots">
-<h2>Record Snapshots<a class="headerlink" href="models.html#record-snapshots" title="Permalink to this headline">¶</a>
+<h2>Record Snapshots
 </h2>
 <p>Specific models could be set to maintain a record snapshot when they’re queried. You can use this feature to implement auditing or just to know what
 fields are changed according to the data queried from the persistence:</p>
@@ -2996,7 +2996,7 @@ In models that have this feature activated you can check what fields changed:</p
 </div>
 </div>
 <div class="section" id="models-meta-data">
-<h2>Models Meta-Data<a class="headerlink" href="models.html#models-meta-data" title="Permalink to this headline">¶</a>
+<h2>Models Meta-Data
 </h2>
 <p>To speed up development <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> helps you to query fields and constraints from tables
 related to models. To achieve this, <a class="reference internal" href="../api/Phalcon_Mvc_Model_MetaData.html"><em>Phalcon\Mvc\Model\MetaData</em></a> is available to manage
@@ -3020,7 +3020,7 @@ and cache table meta-data.</p>
 </pre></div>
 </div>
 <div class="section" id="caching-meta-data">
-<h3>Caching Meta-Data<a class="headerlink" href="models.html#caching-meta-data" title="Permalink to this headline">¶</a>
+<h3>Caching Meta-Data
 </h3>
 <p>Once the application is in a production stage, it is not necessary to query the meta-data of the table from the database system each
 time you use the table. This could be done caching the meta-data using any of the following adapters:</p>
@@ -3083,7 +3083,7 @@ time you use the table. This could be done caching the meta-data using any of th
 </div>
 </div>
 <div class="section" id="meta-data-strategies">
-<h3>Meta-Data Strategies<a class="headerlink" href="models.html#meta-data-strategies" title="Permalink to this headline">¶</a>
+<h3>Meta-Data Strategies
 </h3>
 <p>As mentioned above the default strategy to obtain the model’s meta-data is database introspection. In this strategy, the information
 schema is used to know the fields in a table, its primary key, nullable fields, data types, etc.</p>
@@ -3108,12 +3108,12 @@ schema is used to know the fields in a table, its primary key, nullable fields, 
 </div>
 </div>
 <div class="section" id="database-introspection-strategy">
-<h3>Database Introspection Strategy<a class="headerlink" href="models.html#database-introspection-strategy" title="Permalink to this headline">¶</a>
+<h3>Database Introspection Strategy
 </h3>
 <p>This strategy doesn’t require any customization and is implicitly used by all the meta-data adapters.</p>
 </div>
 <div class="section" id="annotations-strategy">
-<h3>Annotations Strategy<a class="headerlink" href="models.html#annotations-strategy" title="Permalink to this headline">¶</a>
+<h3>Annotations Strategy
 </h3>
 <p>This strategy makes use of <a class="reference internal" href="annotations.html"><em>annotations</em></a> to describe the columns in a model:</p>
 <div class="highlight-php">
@@ -3227,7 +3227,7 @@ are handled as simple class attributes.</p>
 </div>
 </div>
 <div class="section" id="manual-meta-data">
-<h3>Manual Meta-Data<a class="headerlink" href="models.html#manual-meta-data" title="Permalink to this headline">¶</a>
+<h3>Manual Meta-Data
 </h3>
 <p>Phalcon can obtain the metadata for each model automatically without the developer must set them manually
 using any of the introspection strategies presented above.</p>
@@ -3314,7 +3314,7 @@ table must be added/modified/removed also for everything to work properly.</p>
 </div>
 </div>
 <div class="section" id="pointing-to-a-different-schema">
-<h2>Pointing to a different schema<a class="headerlink" href="models.html#pointing-to-a-different-schema" title="Permalink to this headline">¶</a>
+<h2>Pointing to a different schema
 </h2>
 <p>If a model is mapped to a table that is in a different schemas/databases than the default. You can use the getSchema method to define that:</p>
 <div class="highlight-php">
@@ -3333,7 +3333,7 @@ table must be added/modified/removed also for everything to work properly.</p>
 </div>
 </div>
 <div class="section" id="setting-multiple-databases">
-<h2>Setting multiple databases<a class="headerlink" href="models.html#setting-multiple-databases" title="Permalink to this headline">¶</a>
+<h2>Setting multiple databases
 </h2>
 <p>In Phalcon, all models can belong to the same database connection or have an individual one. Actually, when
 <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> needs to connect to the database it requests the “db” service
@@ -3444,7 +3444,7 @@ query executed:</p>
 </div>
 </div>
 <div class="section" id="logging-low-level-sql-statements">
-<h2>Logging Low-Level SQL Statements<a class="headerlink" href="models.html#logging-low-level-sql-statements" title="Permalink to this headline">¶</a>
+<h2>Logging Low-Level SQL Statements
 </h2>
 <p>When using high-level abstraction components such as <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> to access a database, it is
 difficult to understand which statements are finally sent to the database system. <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>
@@ -3506,7 +3506,7 @@ statements as they happen.</p>
 </div>
 </div>
 <div class="section" id="profiling-sql-statements">
-<h2>Profiling SQL Statements<a class="headerlink" href="models.html#profiling-sql-statements" title="Permalink to this headline">¶</a>
+<h2>Profiling SQL Statements
 </h2>
 <p>Thanks to <a class="reference internal" href="../api/Phalcon_Db.html"><em>Phalcon\Db</em></a>, the underlying component of <a class="reference internal" href="../api/Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a>,
 it’s possible to profile the SQL statements generated by the ORM in order to analyze the performance of database operations. With
@@ -3572,7 +3572,7 @@ this you can diagnose performance problems and to discover bottlenecks.</p>
 <p>Each generated profile contains the duration in milliseconds that each instruction takes to complete as well as the generated SQL statement.</p>
 </div>
 <div class="section" id="injecting-services-into-models">
-<h2>Injecting services into Models<a class="headerlink" href="models.html#injecting-services-into-models" title="Permalink to this headline">¶</a>
+<h2>Injecting services into Models
 </h2>
 <p>You may be required to access the application services within a model, the following example explains how to do that:</p>
 <div class="highlight-php">
@@ -3599,7 +3599,7 @@ this you can diagnose performance problems and to discover bottlenecks.</p>
 obtaining the “flash” service from the DI container. By doing this, we don’t have to print messages after each save.</p>
 </div>
 <div class="section" id="disabling-enabling-features">
-<h2>Disabling/Enabling Features<a class="headerlink" href="models.html#disabling-enabling-features" title="Permalink to this headline">¶</a>
+<h2>Disabling/Enabling Features
 </h2>
 <p>In the ORM we have implemented a mechanism that allow you to enable/disable specific features or options globally on the fly.
 According to how you use the ORM you can disable that you aren’t using. These options can also be temporarily disabled if required:</p>
@@ -3656,7 +3656,7 @@ According to how you use the ORM you can disable that you aren’t using. These 
 </table>
 </div>
 <div class="section" id="stand-alone-component">
-<h2>Stand-Alone component<a class="headerlink" href="models.html#stand-alone-component" title="Permalink to this headline">¶</a>
+<h2>Stand-Alone component
 </h2>
 <p>Using <a class="reference internal" href="models.html"><em>Phalcon\Mvc\Model</em></a> in a stand-alone mode can be demonstrated below:</p>
 <div class="highlight-php">
@@ -3703,6 +3703,7 @@ According to how you use the ORM you can disable that you aren’t using. These 
 
 
 </div>
+
 
 </body>
 </html>

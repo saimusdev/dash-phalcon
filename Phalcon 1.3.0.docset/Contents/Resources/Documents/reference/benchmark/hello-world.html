@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Hello World Benchmark — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -28,10 +29,9 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="hello-world-benchmark">
-<h1>Hello World Benchmark
-</h1>
+<h1>Hello World Benchmark</h1>
 <div class="section" id="how-the-benchmarks-were-performed">
-<h2>How the benchmarks were performed?<a class="headerlink" href="hello-world.html#how-the-benchmarks-were-performed" title="Permalink to this headline">¶</a>
+<h2>How the benchmarks were performed?
 </h2>
 <p>We created a “Hello World” benchmark seeking to identify the smallest load overhead of each framework. Many
 people don’t like this kind of benchmark because real-world applications require more complex features or
@@ -46,7 +46,7 @@ action only sends data to the view which displays it (“Hello!”). Using the �
 requests using 10 concurrent connections to each framework.</p>
 </div>
 <div class="section" id="what-measurements-were-recorded">
-<h2>What measurements were recorded?<a class="headerlink" href="hello-world.html#what-measurements-were-recorded" title="Permalink to this headline">¶</a>
+<h2>What measurements were recorded?
 </h2>
 <p>These were the measurements we record to identify the overall performance of each framework:</p>
 <ul class="simple">
@@ -57,7 +57,7 @@ requests using 10 concurrent connections to each framework.</p>
 </ul>
 </div>
 <div class="section" id="participant-frameworks">
-<h2>Participant Frameworks<a class="headerlink" href="hello-world.html#participant-frameworks" title="Permalink to this headline">¶</a>
+<h2>Participant Frameworks
 </h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.yiiframework.com/">Yii</a></li>
@@ -70,10 +70,10 @@ requests using 10 concurrent connections to each framework.</p>
 </ul>
 </div>
 <div class="section" id="results">
-<h2>Results<a class="headerlink" href="hello-world.html#results" title="Permalink to this headline">¶</a>
+<h2>Results
 </h2>
 <div class="section" id="yii-yii-debug-false-version-yii-1-1-13">
-<h3>Yii (YII_DEBUG=false) Version yii-1.1.13<a class="headerlink" href="hello-world.html#yii-yii-debug-false-version-yii-1-1-13" title="Permalink to this headline">¶</a>
+<h3>Yii (YII_DEBUG=false) Version yii-1.1.13
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/yii/index.php?r=say/hello</span>
@@ -124,7 +124,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="symfony-version-2-1-6">
-<h3>Symfony Version 2.1.6<a class="headerlink" href="hello-world.html#symfony-version-2-1-6" title="Permalink to this headline">¶</a>
+<h3>Symfony Version 2.1.6
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/Symfony/web/app.php/say/hello/</span>
@@ -175,7 +175,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="codeigniter-2-1-0">
-<h3>CodeIgniter 2.1.0<a class="headerlink" href="hello-world.html#codeigniter-2-1-0" title="Permalink to this headline">¶</a>
+<h3>CodeIgniter 2.1.0
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/codeigniter/index.php/say/hello</span>
@@ -226,7 +226,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="kohana-3-2-0">
-<h3>Kohana 3.2.0<a class="headerlink" href="hello-world.html#kohana-3-2-0" title="Permalink to this headline">¶</a>
+<h3>Kohana 3.2.0
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/kohana/index.php/say/hello</span>
@@ -277,7 +277,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="fuel-1-2-1">
-<h3>Fuel 1.2.1<a class="headerlink" href="hello-world.html#fuel-1-2-1" title="Permalink to this headline">¶</a>
+<h3>Fuel 1.2.1
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/fuel/public/say/hello</span>
@@ -328,7 +328,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="zend-framework-1-11-11">
-<h3>Zend Framework 1.11.11<a class="headerlink" href="hello-world.html#zend-framework-1-11-11" title="Permalink to this headline">¶</a>
+<h3>Zend Framework 1.11.11
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/zendfw/public/index.php</span>
@@ -379,7 +379,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="laravel-3-2-5">
-<h3>Laravel 3.2.5<a class="headerlink" href="hello-world.html#laravel-3-2-5" title="Permalink to this headline">¶</a>
+<h3>Laravel 3.2.5
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/laravel/public/say/hello</span>
@@ -431,7 +431,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="phalcon-version-0-8-0">
-<h3>Phalcon Version 0.8.0<a class="headerlink" href="hello-world.html#phalcon-version-0-8-0" title="Permalink to this headline">¶</a>
+<h3>Phalcon Version 0.8.0
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="x"># ab -n 2000 -c 10 http://localhost/bench/helloworld/phalcon/index.php?_url=/say/hello</span>
@@ -482,7 +482,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="graphs">
-<h3>Graphs<a class="headerlink" href="hello-world.html#graphs" title="Permalink to this headline">¶</a>
+<h3>Graphs
 </h3>
 <p>The first graph shows how many requests per second each framework was able to accept. The second shows the average time across all concurrent requests.</p>
 
@@ -504,7 +504,7 @@ requests using 10 concurrent connections to each framework.</p>
 </div>
 </div>
 <div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="hello-world.html#conclusion" title="Permalink to this headline">¶</a>
+<h2>Conclusion
 </h2>
 <p>The compiled nature of Phalcon offers extraordinary performance that outperforms all other frameworks measured in these benchmarks.</p>
 </div>
@@ -519,6 +519,7 @@ requests using 10 concurrent connections to each framework.</p>
 
 
 </div>
+
 
 </body>
 </html>

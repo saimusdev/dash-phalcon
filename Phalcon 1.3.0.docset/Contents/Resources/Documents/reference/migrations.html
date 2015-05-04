@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Database Migrations — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="database-migrations">
-<h1>Database Migrations
-</h1>
+<h1>Database Migrations</h1>
 <p>Migrations are a convenient way for you to alter your database in a structured and organized manner.</p>
 <blockquote class="highlights">
 <div>
@@ -40,7 +40,7 @@
 <iframe src="http://player.vimeo.com/video/41381817" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 <div class="section" id="schema-dumping">
-<h2>Schema Dumping<a class="headerlink" href="migrations.html#schema-dumping" title="Permalink to this headline">¶</a>
+<h2>Schema Dumping
 </h2>
 <p>The <a class="reference internal" href="tools.html"><em>Phalcon Developer Tools</em></a> provides scripts to manage migrations (generation, running and rollback).</p>
 <p>The available options for generating migrations are:</p>
@@ -59,7 +59,7 @@
 </div>
 </div>
 <div class="section" id="migration-class-anatomy">
-<h2>Migration Class Anatomy<a class="headerlink" href="migrations.html#migration-class-anatomy" title="Permalink to this headline">¶</a>
+<h2>Migration Class Anatomy
 </h2>
 <p>Each file contains a unique class that extends the Phalcon\Mvc\Model\Migration These classes normally have two methods: up() and down(). Up() performs the migration, while down() rolls it back.</p>
 <p>Up() also contains the <em>magic</em> method morphTable(). The magic comes when it recognizes the changes needed to synchronize the actual table in the database to the description given.</p>
@@ -191,7 +191,7 @@
 </tbody>
 </table>
 <div class="section" id="defining-columns">
-<h3>Defining Columns<a class="headerlink" href="migrations.html#defining-columns" title="Permalink to this headline">¶</a>
+<h3>Defining Columns
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Db_Column.html"><em>Phalcon\Db\Column</em></a> is used to define table columns. It encapsulates a wide variety of column related features. Its constructor receives as first parameter the column name and an array describing the column. The following options are available when describing columns:</p>
 <table border="1" class="docutils">
@@ -262,12 +262,12 @@
 </ul>
 </div>
 <div class="section" id="defining-indexes">
-<h3>Defining Indexes<a class="headerlink" href="migrations.html#defining-indexes" title="Permalink to this headline">¶</a>
+<h3>Defining Indexes
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Db_Index.html"><em>Phalcon\Db\Index</em></a> defines table indexes. An index only requires that you define a name for it and a list of its columns. Note that if any index has the name PRIMARY, Phalcon will create a primary key index in that table.</p>
 </div>
 <div class="section" id="defining-references">
-<h3>Defining References<a class="headerlink" href="migrations.html#defining-references" title="Permalink to this headline">¶</a>
+<h3>Defining References
 </h3>
 <p><a class="reference internal" href="../api/Phalcon_Db_Reference.html"><em>Phalcon\Db\Reference</em></a> defines table references (also called foreign keys). The following options can be used to define a reference:</p>
 <table border="1" class="docutils">
@@ -309,7 +309,7 @@
 </div>
 </div>
 <div class="section" id="writing-migrations">
-<h2>Writing Migrations<a class="headerlink" href="migrations.html#writing-migrations" title="Permalink to this headline">¶</a>
+<h2>Writing Migrations
 </h2>
 <p>Migrations aren’t only designed to “morph” table. A migration is just a regular PHP class so you’re not limited to these functions. For example after adding a column you could write code to set the value of that column for existing records. For more details and examples of individual methods, check the <a class="reference internal" href="db.html"><em>database component</em></a>.</p>
 <div class="highlight-php">
@@ -333,7 +333,7 @@
 </div>
 </div>
 <div class="section" id="running-migrations">
-<h2>Running Migrations<a class="headerlink" href="migrations.html#running-migrations" title="Permalink to this headline">¶</a>
+<h2>Running Migrations
 </h2>
 <p>Once the generated migrations are uploaded on the target server, you can easily run them as shown in the following example:</p>
 <div class="figure align-center">
@@ -355,6 +355,7 @@
 
 
 </div>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>View Helpers — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="view-helpers">
-<h1>View Helpers
-</h1>
+<h1>View Helpers</h1>
 <p>Writing and maintaining HTML markup can quickly become a tedious task because of the naming conventions and numerous attributes that have to
 be taken into consideration. Phalcon deals with this complexity by offering <a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a>, which in turn offers
 view helpers to generate HTML markup.</p>
@@ -38,7 +38,7 @@ view helpers to generate HTML markup.</p>
 the <a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> page in the API for a complete reference.</div>
 </blockquote>
 <div class="section" id="document-type-of-content">
-<h2>Document Type of Content<a class="headerlink" href="tags.html#document-type-of-content" title="Permalink to this headline">¶</a>
+<h2>Document Type of Content
 </h2>
 <p>Phalcon provides Phalcon\Tag::setDoctype() helper to set document type of the content. Document type setting may affect HTML output produced by other tag helpers.
 For example, if you set XHTML document type family, helpers that return or output HTML tags will produce self-closing tags to follow valid XHTML standard.</p>
@@ -133,7 +133,7 @@ For example, if you set XHTML document type family, helpers that return or outpu
 </div>
 </div>
 <div class="section" id="generating-links">
-<h2>Generating Links<a class="headerlink" href="tags.html#generating-links" title="Permalink to this headline">¶</a>
+<h2>Generating Links
 </h2>
 <p>A real common task in any web application or website is to produce links that allow us to navigate from one page to another.
 When they are internal URLs we can create them in the following manner:</p>
@@ -163,7 +163,7 @@ When they are internal URLs we can create them in the following manner:</p>
 </div>
 </div>
 <div class="section" id="creating-forms">
-<h2>Creating Forms<a class="headerlink" href="tags.html#creating-forms" title="Permalink to this headline">¶</a>
+<h2>Creating Forms
 </h2>
 <p>Forms in web applications play an essential part in retrieving user input. The following example shows how to implement a simple search form using view helpers:</p>
 <div class="highlight-html+php">
@@ -204,7 +204,7 @@ When they are internal URLs we can create them in the following manner:</p>
 <p>Phalcon also provides a <a class="reference internal" href="forms.html"><em>form builder</em></a> to create forms in an object-oriented manner.</p>
 </div>
 <div class="section" id="helpers-to-generate-form-elements">
-<h2>Helpers to Generate Form Elements<a class="headerlink" href="tags.html#helpers-to-generate-form-elements" title="Permalink to this headline">¶</a>
+<h2>Helpers to Generate Form Elements
 </h2>
 <p>Phalcon provides a series of helpers to generate form elements such as text fields, buttons and more. The first parameter of each helper is always the name of the element to be generated. When the form is submitted, the name will be passed along with the form data. In a controller you can get these values using the same name by using the getPost() and getQuery() methods on the request object ($this-&gt;request).</p>
 <div class="highlight-html+php">
@@ -241,7 +241,7 @@ When they are internal URLs we can create them in the following manner:</p>
 </div>
 </div>
 <div class="section" id="making-select-boxes">
-<h2>Making Select Boxes<a class="headerlink" href="tags.html#making-select-boxes" title="Permalink to this headline">¶</a>
+<h2>Making Select Boxes
 </h2>
 <p>Generating select boxes (select box) is easy, especially if the related data is stored in PHP associative arrays. The helpers for select elements are Phalcon\Tag::select() and Phalcon\Tag::selectStatic().
 Phalcon\Tag::select() has been was specifically designed to work with <a class="reference internal" href="models.html"><em>Phalcon\Mvc\Model</em></a>, while Phalcon\Tag::selectStatic() can with PHP arrays.</p>
@@ -341,7 +341,7 @@ Phalcon\Tag::select() has been was specifically designed to work with <a class="
 </div>
 </div>
 <div class="section" id="assigning-html-attributes">
-<h2>Assigning HTML attributes<a class="headerlink" href="tags.html#assigning-html-attributes" title="Permalink to this headline">¶</a>
+<h2>Assigning HTML attributes
 </h2>
 <p>All the helpers accept an array as their first parameter which can contain additional HTML attributes for the element generated.</p>
 <div class="highlight-html+php">
@@ -368,10 +368,10 @@ Phalcon\Tag::select() has been was specifically designed to work with <a class="
 </div>
 </div>
 <div class="section" id="setting-helper-values">
-<h2>Setting Helper Values<a class="headerlink" href="tags.html#setting-helper-values" title="Permalink to this headline">¶</a>
+<h2>Setting Helper Values
 </h2>
 <div class="section" id="from-controllers">
-<h3>From Controllers<a class="headerlink" href="tags.html#from-controllers" title="Permalink to this headline">¶</a>
+<h3>From Controllers
 </h3>
 <p>It is a good programming principle for MVC frameworks to set specific values for form elements in the view.
 You can set those values directly from the controller using Phalcon\Tag::setDefault().
@@ -418,20 +418,20 @@ a name that matches the preloaded value, it will use it, unless a value is direc
 </div>
 </div>
 <div class="section" id="from-the-request">
-<h3>From the Request<a class="headerlink" href="tags.html#from-the-request" title="Permalink to this headline">¶</a>
+<h3>From the Request
 </h3>
 <p>A special feature that the <a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> helpers have is that they keep the values
 of form helpers between requests. This way you can easily show validation messages without losing entered data.</p>
 </div>
 <div class="section" id="specifying-values-directly">
-<h3>Specifying values directly<a class="headerlink" href="tags.html#specifying-values-directly" title="Permalink to this headline">¶</a>
+<h3>Specifying values directly
 </h3>
 <p>Every form helper supports the parameter “value”. With it you can specify a value for the helper directly.
 When this parameter is present, any preset value using setDefault() or via request will be ignored.</p>
 </div>
 </div>
 <div class="section" id="changing-dynamically-the-document-title">
-<h2>Changing dynamically the Document Title<a class="headerlink" href="tags.html#changing-dynamically-the-document-title" title="Permalink to this headline">¶</a>
+<h2>Changing dynamically the Document Title
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> offers helpers to change dynamically the document title from the controller.
 The following example demonstrates just that:</p>
@@ -479,11 +479,11 @@ The following example demonstrates just that:</p>
 </div>
 </div>
 <div class="section" id="static-content-helpers">
-<h2>Static Content Helpers<a class="headerlink" href="tags.html#static-content-helpers" title="Permalink to this headline">¶</a>
+<h2>Static Content Helpers
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> also provide helpers to generate tags such as script, link or img. They aid in quick and easy generation of the static resources of your application</p>
 <div class="section" id="images">
-<h3>Images<a class="headerlink" href="tags.html#images" title="Permalink to this headline">¶</a>
+<h3>Images
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="cp">&lt;?php</span>
@@ -511,7 +511,7 @@ The following example demonstrates just that:</p>
 </div>
 </div>
 <div class="section" id="stylesheets">
-<h3>Stylesheets<a class="headerlink" href="tags.html#stylesheets" title="Permalink to this headline">¶</a>
+<h3>Stylesheets
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="cp">&lt;?php</span>
@@ -534,7 +534,7 @@ The following example demonstrates just that:</p>
 </div>
 </div>
 <div class="section" id="javascript">
-<h3>Javascript<a class="headerlink" href="tags.html#javascript" title="Permalink to this headline">¶</a>
+<h3>Javascript
 </h3>
 <div class="highlight-php">
 <div class="highlight"><pre><span class="cp">&lt;?php</span>
@@ -557,7 +557,7 @@ The following example demonstrates just that:</p>
 </div>
 </div>
 <div class="section" id="html5-elements-generic-html-helper">
-<h3>HTML5 elements - generic HTML helper<a class="headerlink" href="tags.html#html5-elements-generic-html-helper" title="Permalink to this headline">¶</a>
+<h3>HTML5 elements - generic HTML helper
 </h3>
 <p>Phalcon offers a generic HTML helper that allows the generation of any kind of HTML element. It is up to the developer to produce a valid HTML element name to the helper.</p>
 <div class="highlight-php">
@@ -585,7 +585,7 @@ This is my canvas
 </div>
 </div>
 <div class="section" id="tag-service">
-<h2>Tag Service<a class="headerlink" href="tags.html#tag-service" title="Permalink to this headline">¶</a>
+<h2>Tag Service
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> is available via the ‘tag’ service, this means you can access it from any part
 of the application where the services container is located:</p>
@@ -626,7 +626,7 @@ of the application where the services container is located:</p>
 </div>
 </div>
 <div class="section" id="creating-your-own-helpers">
-<h2>Creating your own helpers<a class="headerlink" href="tags.html#creating-your-own-helpers" title="Permalink to this headline">¶</a>
+<h2>Creating your own helpers
 </h2>
 <p>You can easily create your own helpers. First, start by creating a new folder within the same directory as your controllers and models. Give it a title that is relative to what you are creating. For our example here, we can call it “customhelpers”. Next we will create a new file titled <tt class="docutils literal"><span class="pre">MyTags.php</span></tt> within this new directory. At this point, we have a structure that looks similar to : <tt class="docutils literal"><span class="pre">/app/customhelpers/MyTags.php</span></tt>. In <tt class="docutils literal"><span class="pre">MyTags.php</span></tt>, we will extend the <a class="reference internal" href="../api/Phalcon_Tag.html"><em>Phalcon\Tag</em></a> and implement your own helper. Below is a simple example of a custom helper:</p>
 <div class="highlight-php">
@@ -747,6 +747,7 @@ more friendly syntax for using helpers provided by Phalcon\Tag.</p>
 
 
 </div>
+
 
 </body>
 </html>

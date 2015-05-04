@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Validation — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,8 +28,7 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="validation">
-<h1>Validation
-</h1>
+<h1>Validation</h1>
 <p>Phalcon\Validation is an independent validation component that validates an arbitrary set of data.
 This component can be used to implement validation rules on data objects that do not belong to a model or collection.</p>
 <p>The following example shows its basic usage:</p>
@@ -62,7 +62,7 @@ This component can be used to implement validation rules on data objects that do
 </div>
 <p>The loosely-coupled design of this component allows you to create your own validators along with the ones provided by the framework.</p>
 <div class="section" id="initializing-validation">
-<h2>Initializing Validation<a class="headerlink" href="validation.html#initializing-validation" title="Permalink to this headline">¶</a>
+<h2>Initializing Validation
 </h2>
 <p>Validation chains can be initialized in a direct manner by just adding validators to the Phalcon\Validation object.
 You can put your validations in a separate file for better re-use code and organization:</p>
@@ -107,7 +107,7 @@ You can put your validations in a separate file for better re-use code and organ
 </div>
 </div>
 <div class="section" id="validators">
-<h2>Validators<a class="headerlink" href="validation.html#validators" title="Permalink to this headline">¶</a>
+<h2>Validators
 </h2>
 <p>Phalcon exposes a set of built-in validators for this component:</p>
 <table border="1" class="docutils">
@@ -214,7 +214,7 @@ You can put your validations in a separate file for better re-use code and organ
 <p>It is important that validators return a valid boolean value indicating if the validation was successful or not.</p>
 </div>
 <div class="section" id="validation-messages">
-<h2>Validation Messages<a class="headerlink" href="validation.html#validation-messages" title="Permalink to this headline">¶</a>
+<h2>Validation Messages
 </h2>
 <p><a class="reference internal" href="../api/Phalcon_Validation.html"><em>Phalcon\Validation</em></a> has a messaging subsystem that provides a flexible way to output or store the
 validation messages generated during the validation processes.</p>
@@ -288,7 +288,7 @@ for a specific field using the ‘filter’ method:</p>
 </div>
 </div>
 <div class="section" id="filtering-of-data">
-<h2>Filtering of Data<a class="headerlink" href="validation.html#filtering-of-data" title="Permalink to this headline">¶</a>
+<h2>Filtering of Data
 </h2>
 <p>Data can be filtered prior to the validation ensuring that malicious or incorrect data is not validated.</p>
 <div class="highlight-php">
@@ -313,7 +313,7 @@ for a specific field using the ‘filter’ method:</p>
 component or use the built-in ones.</p>
 </div>
 <div class="section" id="validation-events">
-<h2>Validation Events<a class="headerlink" href="validation.html#validation-events" title="Permalink to this headline">¶</a>
+<h2>Validation Events
 </h2>
 <p>When validations are organized in classes, you can implement the ‘beforeValidation’ and ‘afterValidation’ methods to
 perform additional checks, filters, clean-up, etc. If ‘beforeValidation’ method returns false the validation is automatically
@@ -366,8 +366,7 @@ cancelled:</p>
 </div>
 </div>
 <div class="section" id="cancelling-validations">
-<h1>Cancelling Validations
-</h1>
+<h1>Cancelling Validations</h1>
 <p>By default all validators assigned to a field are tested regardless if one of them have failed or not. You can change
 this behavior by telling the validation component which validator may stop the validation:</p>
 <div class="highlight-php">
@@ -437,6 +436,7 @@ validators in the chain are not executed.</p>
 
 
 </div>
+
 
 </body>
 </html>

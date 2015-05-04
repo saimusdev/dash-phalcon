@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Improving Performance with Cache — Phalcon 1.3.0 documentation</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -27,14 +28,13 @@
 <div class="bodywrapper">
 <div class="body">
 <div class="section" id="improving-performance-with-cache">
-<h1>Improving Performance with Cache
-</h1>
+<h1>Improving Performance with Cache</h1>
 <p>Phalcon provides the <a class="reference internal" href="cache.html"><em>Phalcon\Cache</em></a> class allowing faster access to frequently used or already processed data.
 <a class="reference internal" href="cache.html"><em>Phalcon\Cache</em></a> is written in C, achieving higher performance and reducing the overhead when getting items from the backends.
 This class uses an internal structure of frontend and backend components. Front-end components act as input sources or
 interfaces, while backend components offer storage options to the class.</p>
 <div class="section" id="when-to-implement-cache">
-<h2>When to implement cache?<a class="headerlink" href="cache.html#when-to-implement-cache" title="Permalink to this headline">¶</a>
+<h2>When to implement cache?
 </h2>
 <p>Although this component is very fast, implementing it in cases that are not needed could lead to a loss of performance rather than gain.
 We recommend you check this cases before using a cache:</p>
@@ -50,7 +50,7 @@ be done, especially in the case of Memcache or Apc, with the relevant tools that
 </blockquote>
 </div>
 <div class="section" id="caching-behavior">
-<h2>Caching Behavior<a class="headerlink" href="cache.html#caching-behavior" title="Permalink to this headline">¶</a>
+<h2>Caching Behavior
 </h2>
 <p>The caching process is divided into 2 parts:</p>
 <ul class="simple">
@@ -61,7 +61,7 @@ be done, especially in the case of Memcache or Apc, with the relevant tools that
 </ul>
 </div>
 <div class="section" id="caching-output-fragments">
-<h2>Caching Output Fragments<a class="headerlink" href="cache.html#caching-output-fragments" title="Permalink to this headline">¶</a>
+<h2>Caching Output Fragments
 </h2>
 <p>An output fragment is a piece of HTML or text that is cached as is and returned as is. The output is automatically captured
 from the ob_* functions or the PHP output so that it can be saved in the cache. The following example demonstrates such usage.
@@ -116,12 +116,12 @@ transparently captures that output and stores it in the cache file (when the cac
 pre-compiled from a previous call, thus avoiding expensive operations.</p>
 </div>
 <div class="section" id="caching-arbitrary-data">
-<h2>Caching Arbitrary Data<a class="headerlink" href="cache.html#caching-arbitrary-data" title="Permalink to this headline">¶</a>
+<h2>Caching Arbitrary Data
 </h2>
 <p>Caching just data is equally important for your application. Caching can reduce database load by reusing commonly used (but not updated) data,
 thus speeding up your application.</p>
 <div class="section" id="file-backend-example">
-<h3>File Backend Example<a class="headerlink" href="cache.html#file-backend-example" title="Permalink to this headline">¶</a>
+<h3>File Backend Example
 </h3>
 <p>One of the caching adapters is ‘File’. The only key area for this adapter is the location of where the cache files will be stored.
 This is controlled by the cacheDir option which <em>must</em> have a backslash at the end of it.</p>
@@ -161,7 +161,7 @@ This is controlled by the cacheDir option which <em>must</em> have a backslash a
 </div>
 </div>
 <div class="section" id="memcached-backend-example">
-<h3>Memcached Backend Example<a class="headerlink" href="cache.html#memcached-backend-example" title="Permalink to this headline">¶</a>
+<h3>Memcached Backend Example
 </h3>
 <p>The above example changes slightly (especially in terms of configuration) when we are using a Memcached backend.</p>
 <div class="highlight-php">
@@ -201,7 +201,7 @@ This is controlled by the cacheDir option which <em>must</em> have a backslash a
 </div>
 </div>
 <div class="section" id="querying-the-cache">
-<h2>Querying the cache<a class="headerlink" href="cache.html#querying-the-cache" title="Permalink to this headline">¶</a>
+<h2>Querying the cache
 </h2>
 <p>The elements added to the cache are uniquely identified by a key. In the case of the File backend, the key is the
 actual filename. To retrieve data from the cache, we just have to call it using the unique key. If the key does
@@ -230,7 +230,7 @@ not exist, the get method will return null.</p>
 </div>
 </div>
 <div class="section" id="deleting-data-from-the-cache">
-<h2>Deleting data from the cache<a class="headerlink" href="cache.html#deleting-data-from-the-cache" title="Permalink to this headline">¶</a>
+<h2>Deleting data from the cache
 </h2>
 <p>There are times where you will need to forcibly invalidate a cache entry (due to an update in the cached data).
 The only requirement is to know the key that the data have been stored with.</p>
@@ -249,7 +249,7 @@ The only requirement is to know the key that the data have been stored with.</p>
 </div>
 </div>
 <div class="section" id="checking-cache-existence">
-<h2>Checking cache existence<a class="headerlink" href="cache.html#checking-cache-existence" title="Permalink to this headline">¶</a>
+<h2>Checking cache existence
 </h2>
 <p>It is possible to check if a cache already exists with a given key:</p>
 <div class="highlight-php">
@@ -264,7 +264,7 @@ The only requirement is to know the key that the data have been stored with.</p>
 </div>
 </div>
 <div class="section" id="lifetime">
-<h2>Lifetime<a class="headerlink" href="cache.html#lifetime" title="Permalink to this headline">¶</a>
+<h2>Lifetime
 </h2>
 <p>A “lifetime” is a time in seconds that a cache could live without expire. By default, all the created caches use the lifetime set in the frontend creation.
 You can set a specific lifetime in the creation or retrieving of the data from the cache:</p>
@@ -303,7 +303,7 @@ You can set a specific lifetime in the creation or retrieving of the data from t
 </div>
 </div>
 <div class="section" id="multi-level-cache">
-<h2>Multi-Level Cache<a class="headerlink" href="cache.html#multi-level-cache" title="Permalink to this headline">¶</a>
+<h2>Multi-Level Cache
 </h2>
 <p>This feature ​of the cache component, ​allows ​the developer to implement a multi-level cache​. This new feature is very ​useful
 because you can save the same data in several cache​ locations​ with different lifetimes, reading ​first from the one with
@@ -351,7 +351,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </div>
 </div>
 <div class="section" id="frontend-adapters">
-<h2>Frontend Adapters<a class="headerlink" href="cache.html#frontend-adapters" title="Permalink to this headline">¶</a>
+<h2>Frontend Adapters
 </h2>
 <p>The available frontend adapters that are used as interfaces or input sources to the cache are:</p>
 <table border="1" class="docutils">
@@ -401,13 +401,13 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </tbody>
 </table>
 <div class="section" id="implementing-your-own-frontend-adapters">
-<h3>Implementing your own Frontend adapters<a class="headerlink" href="cache.html#implementing-your-own-frontend-adapters" title="Permalink to this headline">¶</a>
+<h3>Implementing your own Frontend adapters
 </h3>
 <p>The <a class="reference internal" href="../api/Phalcon_Cache_FrontendInterface.html"><em>Phalcon\Cache\FrontendInterface</em></a> interface must be implemented in order to create your own frontend adapters or extend the existing ones.</p>
 </div>
 </div>
 <div class="section" id="backend-adapters">
-<h2>Backend Adapters<a class="headerlink" href="cache.html#backend-adapters" title="Permalink to this headline">¶</a>
+<h2>Backend Adapters
 </h2>
 <p>The backend adapters available to store cache data are:</p>
 <table border="1" class="docutils">
@@ -466,12 +466,12 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </tbody>
 </table>
 <div class="section" id="implementing-your-own-backend-adapters">
-<h3>Implementing your own Backend adapters<a class="headerlink" href="cache.html#implementing-your-own-backend-adapters" title="Permalink to this headline">¶</a>
+<h3>Implementing your own Backend adapters
 </h3>
 <p>The <a class="reference internal" href="../api/Phalcon_Cache_BackendInterface.html"><em>Phalcon\Cache\BackendInterface</em></a> interface must be implemented in order to create your own backend adapters or extend the existing ones.</p>
 </div>
 <div class="section" id="file-backend-options">
-<h3>File Backend Options<a class="headerlink" href="cache.html#file-backend-options" title="Permalink to this headline">¶</a>
+<h3>File Backend Options
 </h3>
 <p>This backend will store cached content into files in the local server. The available options for this backend are:</p>
 <table border="1" class="docutils">
@@ -498,7 +498,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </table>
 </div>
 <div class="section" id="memcached-backend-options">
-<h3>Memcached Backend Options<a class="headerlink" href="cache.html#memcached-backend-options" title="Permalink to this headline">¶</a>
+<h3>Memcached Backend Options
 </h3>
 <p>This backend will store cached content on a memcached server. The available options for this backend are:</p>
 <table border="1" class="docutils">
@@ -533,7 +533,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </table>
 </div>
 <div class="section" id="apc-backend-options">
-<h3>APC Backend Options<a class="headerlink" href="cache.html#apc-backend-options" title="Permalink to this headline">¶</a>
+<h3>APC Backend Options
 </h3>
 <p>This backend will store cached content on Alternative PHP Cache (<a class="reference external" href="http://php.net/apc">APC</a>). The available options for this backend are:</p>
 <table border="1" class="docutils">
@@ -556,7 +556,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </table>
 </div>
 <div class="section" id="mongo-backend-options">
-<h3>Mongo Backend Options<a class="headerlink" href="cache.html#mongo-backend-options" title="Permalink to this headline">¶</a>
+<h3>Mongo Backend Options
 </h3>
 <p>This backend will store cached content on a MongoDB server. The available options for this backend are:</p>
 <table border="1" class="docutils">
@@ -591,7 +591,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 </table>
 </div>
 <div class="section" id="xcache-backend-options">
-<h3>XCache Backend Options<a class="headerlink" href="cache.html#xcache-backend-options" title="Permalink to this headline">¶</a>
+<h3>XCache Backend Options
 </h3>
 <p>This backend will store cached content on XCache (<a class="reference external" href="http://xcache.lighttpd.net/">XCache</a>). The available options for this backend are:</p>
 <table border="1" class="docutils">
@@ -626,6 +626,7 @@ the faster adapter and ending with the slowest one until the data expire​s​:
 
 
 </div>
+
 
 </body>
 </html>
