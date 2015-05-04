@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Validation\Validator\Between — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Validation\Validator\Confirmation" href="Phalcon_Validation_Validator_Confirmation.html">
+    <link rel="prev" title="Class Phalcon\Validation\Validator\Alpha" href="Phalcon_Validation_Validator_Alpha.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-validation-validator-between">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CValidation%5CValidator%5CBetween" id="Phalcon\Validation\Validator\Between" class="dashAnchor"></a><strong>Phalcon\Validation\Validator\Between</strong>
+</h1>
+<p><em>extends</em> class <a class="reference internal" href="Phalcon_Validation_Validator.html"><em>Phalcon\Validation\Validator</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Validation_ValidatorInterface.html"><em>Phalcon\Validation\ValidatorInterface</em></a></p>
+<p>Validates that a value is between an inclusive range of two values. For a value x, the test is passed if minimum&lt;=x&lt;=maximum.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Validation\Validator\Between</span><span class="p">;</span>
+
+<span class="nx">validator</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Between</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+   <span class="s1">'minimum'</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s1">'maximum'</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+   <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="s1">'The price must be between 0 and 100'</span>
+<span class="p">)));</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Validation_Validator_Between.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/validate" id="validate" class="dashAnchor"></a><strong>validate</strong> (<em>unknown</em> $validation, <em>unknown</em> $field)</p>
+<p>Executes the validation</p>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>unknown</em> $options]) inherited from Phalcon\Validation\Validator</p>
+<p>Phalcon\Validation\Validator constructor</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isSetOption" id="isSetOption" class="dashAnchor"></a><strong>isSetOption</strong> (<em>unknown</em> $key) inherited from Phalcon\Validation\Validator</p>
+<p>Checks if an option is defined</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getOption" id="getOption" class="dashAnchor"></a><strong>getOption</strong> (<em>unknown</em> $key) inherited from Phalcon\Validation\Validator</p>
+<p>Returns an option in the validator’s options Returns null if the option hasn’t set</p>
+<p>public  <a name="//apple_ref/cpp/Method/setOption" id="setOption" class="dashAnchor"></a><strong>setOption</strong> (<em>unknown</em> $key, <em>unknown</em> $value) inherited from Phalcon\Validation\Validator</p>
+<p>Sets an option in the validator</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

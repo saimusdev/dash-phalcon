@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Reading Configurations — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="next" title="Pagination" href="pagination.html">
+    <link rel="prev" title="Forms" href="forms.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="reading-configurations">
+<h1>Reading Configurations</h1>
+<p><a class="reference internal" href="../api/Phalcon_Config.html"><em>Phalcon\Config</em></a> is a component used to read configuration files of various formats (using adapters) into
+PHP objects for use in an application.</p>
+<div class="section" id="file-adapters">
+<h2>File Adapters<a class="headerlink" href="config.html#file-adapters" title="Permalink to this headline">¶</a>
+</h2>
+<p>The adapters available are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%">
+<col width="90%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd">
+<th class="head">File Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even">
+<td>Ini</td>
+<td>Uses INI files to store settings. Internally the adapter uses the PHP function parse_ini_file.</td>
+</tr>
+<tr class="row-odd">
+<td>Array</td>
+<td>Uses PHP multidimensional arrays to store settings. This adapter offers the best performance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="native-arrays">
+<h2>Native Arrays<a class="headerlink" href="config.html#native-arrays" title="Permalink to this headline">¶</a>
+</h2>
+<p>The next example shows how to convert native arrays into Phalcon\Config objects. This option offers the best performance since no files are
+read during this request.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Config</span><span class="p">;</span>
+
+<span class="nv">$settings</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"database"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"adapter"</span>    <span class="o">=&gt;</span> <span class="s2">"Mysql"</span><span class="p">,</span>
+        <span class="s2">"host"</span>       <span class="o">=&gt;</span> <span class="s2">"localhost"</span><span class="p">,</span>
+        <span class="s2">"username"</span>   <span class="o">=&gt;</span> <span class="s2">"scott"</span><span class="p">,</span>
+        <span class="s2">"password"</span>   <span class="o">=&gt;</span> <span class="s2">"cheetah"</span><span class="p">,</span>
+        <span class="s2">"dbname"</span>     <span class="o">=&gt;</span> <span class="s2">"test_db"</span><span class="p">,</span>
+    <span class="p">),</span>
+     <span class="s2">"app"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"controllersDir"</span> <span class="o">=&gt;</span> <span class="s2">"../app/controllers/"</span><span class="p">,</span>
+        <span class="s2">"modelsDir"</span>      <span class="o">=&gt;</span> <span class="s2">"../app/models/"</span><span class="p">,</span>
+        <span class="s2">"viewsDir"</span>       <span class="o">=&gt;</span> <span class="s2">"../app/views/"</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s2">"mysetting"</span> <span class="o">=&gt;</span> <span class="s2">"the-value"</span>
+<span class="p">);</span>
+
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Config</span><span class="p">(</span><span class="nv">$settings</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">app</span><span class="o">-&gt;</span><span class="na">controllersDir</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">database</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">mysetting</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you want to better organize your project you can save the array in another file and then read it.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Config</span><span class="p">;</span>
+
+<span class="k">require</span> <span class="s2">"config/config.php"</span><span class="p">;</span>
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Config</span><span class="p">(</span><span class="nv">$settings</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-ini-files">
+<h2>Reading INI Files<a class="headerlink" href="config.html#reading-ini-files" title="Permalink to this headline">¶</a>
+</h2>
+<p>Ini files are a common way to store settings. Phalcon\Config uses the optimized PHP function parse_ini_file to read these files. Files sections are parsed into sub-settings for easy access.</p>
+<div class="highlight-ini">
+<div class="highlight"><pre><span class="k">[database]</span>
+<span class="na">adapter</span>  <span class="o">=</span> <span class="s">Mysql</span>
+<span class="na">host</span>     <span class="o">=</span> <span class="s">localhost</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">scott</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">cheetah</span>
+<span class="na">dbname</span>   <span class="o">=</span> <span class="s">test_db</span>
+
+<span class="k">[phalcon]</span>
+<span class="na">controllersDir</span> <span class="o">=</span> <span class="s">"../app/controllers/"</span>
+<span class="na">modelsDir</span>      <span class="o">=</span> <span class="s">"../app/models/"</span>
+<span class="na">viewsDir</span>       <span class="o">=</span> <span class="s">"../app/views/"</span>
+
+<span class="k">[models]</span>
+<span class="na">metadata.adapter</span>  <span class="o">=</span> <span class="s">"Memory"</span>
+</pre></div>
+</div>
+<p>You can read the file as follows:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Config\Adapter\Ini</span> <span class="k">as</span> <span class="nx">ConfigIni</span><span class="p">;</span>
+
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfigIni</span><span class="p">(</span><span class="s2">"path/config.ini"</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">phalcon</span><span class="o">-&gt;</span><span class="na">controllersDir</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">database</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">models</span><span class="o">-&gt;</span><span class="na">metadata</span><span class="o">-&gt;</span><span class="na">adapter</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="merging-configurations">
+<h2>Merging Configurations<a class="headerlink" href="config.html#merging-configurations" title="Permalink to this headline">¶</a>
+</h2>
+<p>Phalcon\Config can recursively merge the properties of one configuration object into another.
+New properties are added and existing properties are updated.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Config</span><span class="p">;</span>
+
+<span class="nv">$config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Config</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'database'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'host'</span>   <span class="o">=&gt;</span> <span class="s1">'localhost'</span><span class="p">,</span>
+        <span class="s1">'dbname'</span> <span class="o">=&gt;</span> <span class="s1">'test_db'</span>
+    <span class="p">),</span>
+    <span class="s1">'debug'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$config2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Config</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'database'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'dbname'</span> <span class="o">=&gt;</span> <span class="s1">'production_db'</span><span class="p">,</span>
+        <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'scott'</span><span class="p">,</span>
+        <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">'logging'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="nv">$config2</span><span class="p">);</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The above code produces the following:</p>
+<div class="highlight-html">
+<div class="highlight"><pre>Phalcon\Config Object
+(
+    [database] =&gt; Phalcon\Config Object
+        (
+            [host] =&gt; localhost
+            [dbname]   =&gt; production_db
+            [username] =&gt; scott
+            [password] =&gt; secret
+        )
+    [debug] =&gt; 1
+    [logging] =&gt; 1
+)
+</pre></div>
+</div>
+<p>There are more adapters available for this components in the <a class="reference external" href="https://github.com/phalcon/incubator">Phalcon Incubator</a></p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

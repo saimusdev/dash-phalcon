@@ -2,4 +2,4 @@
 ._*
 .bundle
 Gemfile.lock
-"Phalcon 2.0.0.docset"
+*.bundle

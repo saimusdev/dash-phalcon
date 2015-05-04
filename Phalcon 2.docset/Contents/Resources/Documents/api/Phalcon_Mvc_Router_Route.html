@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Mvc\Router\Route — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Mvc\Url" href="Phalcon_Mvc_Url.html">
+    <link rel="prev" title="Class Phalcon\Mvc\Router\Group" href="Phalcon_Mvc_Router_Group.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-mvc-router-route">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CRouter%5CRoute" id="Phalcon\Mvc\Router\Route" class="dashAnchor"></a><strong>Phalcon\Mvc\Router\Route</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Mvc_Router_RouteInterface.html"><em>Phalcon\Mvc\Router\RouteInterface</em></a></p>
+<p>This class represents every route added to the router</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Router_Route.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>unknown</em> $pattern, [<em>unknown</em> $paths], [<em>unknown</em> $httpMethods])</p>
+<p>Phalcon\Mvc\Router\Route constructor</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/compilePattern" id="compilePattern" class="dashAnchor"></a><strong>compilePattern</strong> (<em>unknown</em> $pattern)</p>
+<p>Replaces placeholders from pattern returning a valid PCRE regular expression</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/via" id="via" class="dashAnchor"></a><strong>via</strong> (<em>unknown</em> $httpMethods)</p>
+<p>Set one or more HTTP methods that constraint the matching of the route</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">via</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">);</span>
+ <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">via</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public <em>array|boolean</em>  <a name="//apple_ref/cpp/Method/extractNamedParams" id="extractNamedParams" class="dashAnchor"></a><strong>extractNamedParams</strong> (<em>unknown</em> $pattern)</p>
+<p>Extracts parameters from a string</p>
+<p>public  <a name="//apple_ref/cpp/Method/reConfigure" id="reConfigure" class="dashAnchor"></a><strong>reConfigure</strong> (<em>unknown</em> $pattern, [<em>unknown</em> $paths])</p>
+<p>Reconfigure the route adding a new pattern and a set of paths</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getName" id="getName" class="dashAnchor"></a><strong>getName</strong> ()</p>
+<p>Returns the route’s name</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/setName" id="setName" class="dashAnchor"></a><strong>setName</strong> (<em>unknown</em> $name)</p>
+<p>Sets the route’s name</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'/about'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+     <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'about'</span>
+ <span class="p">))</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">'about'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/beforeMatch" id="beforeMatch" class="dashAnchor"></a><strong>beforeMatch</strong> (<em>unknown</em> $callback)</p>
+<p>Sets a callback that is called if the route is matched. The developer can implement any arbitrary conditions here If the callback returns false the route is treaded as not matched</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getBeforeMatch" id="getBeforeMatch" class="dashAnchor"></a><strong>getBeforeMatch</strong> ()</p>
+<p>Returns the ‘before match’ callback if any</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getRouteId" id="getRouteId" class="dashAnchor"></a><strong>getRouteId</strong> ()</p>
+<p>Returns the route’s id</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getPattern" id="getPattern" class="dashAnchor"></a><strong>getPattern</strong> ()</p>
+<p>Returns the route’s pattern</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getCompiledPattern" id="getCompiledPattern" class="dashAnchor"></a><strong>getCompiledPattern</strong> ()</p>
+<p>Returns the route’s compiled pattern</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getPaths" id="getPaths" class="dashAnchor"></a><strong>getPaths</strong> ()</p>
+<p>Returns the paths</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getReversedPaths" id="getReversedPaths" class="dashAnchor"></a><strong>getReversedPaths</strong> ()</p>
+<p>Returns the paths using positions as keys and names as values</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/setHttpMethods" id="setHttpMethods" class="dashAnchor"></a><strong>setHttpMethods</strong> (<em>unknown</em> $httpMethods)</p>
+<p>Sets a set of HTTP methods that constraint the matching of the route (alias of via)</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setHttpMethods</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">);</span>
+ <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setHttpMethods</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public <em>string|array</em>  <a name="//apple_ref/cpp/Method/getHttpMethods" id="getHttpMethods" class="dashAnchor"></a><strong>getHttpMethods</strong> ()</p>
+<p>Returns the HTTP methods that constraint matching the route</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/setHostname" id="setHostname" class="dashAnchor"></a><strong>setHostname</strong> (<em>unknown</em> $hostname)</p>
+<p>Sets a hostname restriction to the route</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$route</span><span class="o">-&gt;</span><span class="na">setHostname</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getHostname" id="getHostname" class="dashAnchor"></a><strong>getHostname</strong> ()</p>
+<p>Returns the hostname restriction if any</p>
+<p>public <em>Phalcon\Mvc\RouteInterface</em>  <a name="//apple_ref/cpp/Method/setGroup" id="setGroup" class="dashAnchor"></a><strong>setGroup</strong> (<em>unknown</em> $group)</p>
+<p>Sets the group associated with the route</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Group.html"><em>Phalcon\Mvc\Router\Group</em></a> <a href="Phalcon_Mvc_Router_Route.html#id1"><span class="problematic" id="id2">|</span></a>null <a name="//apple_ref/cpp/Method/getGroup" id="getGroup" class="dashAnchor"></a><strong>getGroup</strong> ()</p>
+<p>Returns the group associated with the route</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Router_Route.html"><em>Phalcon\Mvc\Router\Route</em></a>  <a name="//apple_ref/cpp/Method/convert" id="convert" class="dashAnchor"></a><strong>convert</strong> (<em>unknown</em> $name, <em>unknown</em> $converter)</p>
+<p>Adds a converter to perform an additional transformation for certain parameter</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getConverters" id="getConverters" class="dashAnchor"></a><strong>getConverters</strong> ()</p>
+<p>Returns the router converter</p>
+<p>public static  <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> ()</p>
+<p>Resets the internal route id generator</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

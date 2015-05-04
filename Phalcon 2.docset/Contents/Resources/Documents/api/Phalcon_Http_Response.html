@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Http\Response — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Http\Response\Cookies" href="Phalcon_Http_Response_Cookies.html">
+    <link rel="prev" title="Class Phalcon\Http\Request\File" href="Phalcon_Http_Request_File.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-http-response">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CHttp%5CResponse" id="Phalcon\Http\Response" class="dashAnchor"></a><strong>Phalcon\Http\Response</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>, <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\InjectionAwareInterface</span></tt></p>
+<p>Part of the HTTP cycle is return responses to the clients. Phalcon\HTTP\Response is the Phalcon component responsible to achieve this task. HTTP responses are usually composed by headers and body.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Http\Response</span><span class="p">();</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s2">"OK"</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s2">"&lt;html&gt;&lt;body&gt;Hello&lt;/body&gt;&lt;/html&gt;"</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Http_Response.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>unknown</em> $content], [<em>unknown</em> $code], [<em>unknown</em> $status])</p>
+<p>Phalcon\Http\Response constructor</p>
+<p>public  <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<em>unknown</em> $dependencyInjector)</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Returns the internal dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setStatusCode" id="setStatusCode" class="dashAnchor"></a><strong>setStatusCode</strong> (<em>unknown</em> $code, [<em>unknown</em> $message])</p>
+<p>Sets the HTTP response code</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s2">"Not Found"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setHeaders" id="setHeaders" class="dashAnchor"></a><strong>setHeaders</strong> (<em>unknown</em> $headers)</p>
+<p>Sets a headers bag for the response externally</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Response_HeadersInterface.html"><em>Phalcon\Http\Response\HeadersInterface</em></a>  <a name="//apple_ref/cpp/Method/getHeaders" id="getHeaders" class="dashAnchor"></a><strong>getHeaders</strong> ()</p>
+<p>Returns headers set by the user</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setCookies" id="setCookies" class="dashAnchor"></a><strong>setCookies</strong> (<em>unknown</em> $cookies)</p>
+<p>Sets a cookies bag for the response externally</p>
+<p>public <a class="reference internal" href="Phalcon_Http_Response_CookiesInterface.html"><em>Phalcon\Http\Response\CookiesInterface</em></a>  <a name="//apple_ref/cpp/Method/getCookies" id="getCookies" class="dashAnchor"></a><strong>getCookies</strong> ()</p>
+<p>Returns coookies set by the user</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setHeader" id="setHeader" class="dashAnchor"></a><strong>setHeader</strong> (<em>unknown</em> $name, <em>unknown</em> $value)</p>
+<p>Overwrites a header in the response</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"text/plain"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setRawHeader" id="setRawHeader" class="dashAnchor"></a><strong>setRawHeader</strong> (<em>unknown</em> $header)</p>
+<p>Send a raw header to the response</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setRawHeader</span><span class="p">(</span><span class="s2">"HTTP/1.1 404 Not Found"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/resetHeaders" id="resetHeaders" class="dashAnchor"></a><strong>resetHeaders</strong> ()</p>
+<p>Resets all the stablished headers</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setExpires" id="setExpires" class="dashAnchor"></a><strong>setExpires</strong> (<em>unknown</em> $datetime)</p>
+<p>Sets a Expires header to use HTTP cache</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">setExpires</span><span class="p">(</span><span class="k">new</span> <span class="nx">DateTime</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setNotModified" id="setNotModified" class="dashAnchor"></a><strong>setNotModified</strong> ()</p>
+<p>Sends a Not-Modified response</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setContentType" id="setContentType" class="dashAnchor"></a><strong>setContentType</strong> (<em>unknown</em> $contentType, [<em>unknown</em> $charset])</p>
+<p>Sets the response content-type mime, optionally the charset</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">'application/pdf'</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContentType</span><span class="p">(</span><span class="s1">'text/plain'</span><span class="p">,</span> <span class="s1">'UTF-8'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setEtag" id="setEtag" class="dashAnchor"></a><strong>setEtag</strong> (<em>unknown</em> $etag)</p>
+<p>Set a custom ETag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setEtag</span><span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="nb">time</span><span class="p">()));</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/redirect" id="redirect" class="dashAnchor"></a><strong>redirect</strong> ([<em>unknown</em> $location], [<em>unknown</em> $externalRedirect], [<em>unknown</em> $statusCode])</p>
+<p>Redirect by HTTP to another action or URL</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+  <span class="c1">//Using a string redirect (internal/external)</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="s2">"posts/index"</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="s2">"http://en.wikipedia.org"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="s2">"http://www.example.com/new-location"</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="mi">301</span><span class="p">);</span>
+
+<span class="c1">//Making a redirection based on a named route</span>
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"for"</span> <span class="o">=&gt;</span> <span class="s2">"index-lang"</span><span class="p">,</span>
+    <span class="s2">"lang"</span> <span class="o">=&gt;</span> <span class="s2">"jp"</span><span class="p">,</span>
+    <span class="s2">"controller"</span> <span class="o">=&gt;</span> <span class="s2">"index"</span>
+<span class="p">));</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setContent" id="setContent" class="dashAnchor"></a><strong>setContent</strong> (<em>unknown</em> $content)</p>
+<p>Sets HTTP response body</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nx">response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s2">"&lt;h1&gt;Hello!&lt;/h1&gt;"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setJsonContent" id="setJsonContent" class="dashAnchor"></a><strong>setJsonContent</strong> (<em>unknown</em> $content, [<em>unknown</em> $jsonOptions])</p>
+<p>Sets HTTP response body. The parameter is automatically converted to JSON</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setJsonContent</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="s2">"OK"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/appendContent" id="appendContent" class="dashAnchor"></a><strong>appendContent</strong> (<em>unknown</em> $content)</p>
+<p>Appends a string to the HTTP response body</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getContent" id="getContent" class="dashAnchor"></a><strong>getContent</strong> ()</p>
+<p>Gets the HTTP response body</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isSent" id="isSent" class="dashAnchor"></a><strong>isSent</strong> ()</p>
+<p>Check if the response is already sent</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/sendHeaders" id="sendHeaders" class="dashAnchor"></a><strong>sendHeaders</strong> ()</p>
+<p>Sends headers to the client</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/sendCookies" id="sendCookies" class="dashAnchor"></a><strong>sendCookies</strong> ()</p>
+<p>Sends cookies to the client</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/send" id="send" class="dashAnchor"></a><strong>send</strong> ()</p>
+<p>Prints out HTTP response to the client</p>
+<p>public <a class="reference internal" href="Phalcon_Http_ResponseInterface.html"><em>Phalcon\Http\ResponseInterface</em></a>  <a name="//apple_ref/cpp/Method/setFileToSend" id="setFileToSend" class="dashAnchor"></a><strong>setFileToSend</strong> (<em>unknown</em> $filePath, [<em>unknown</em> $attachmentName], [<em>unknown</em> $attachment])</p>
+<p>Sets an attached file to be sent at the end of the request</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

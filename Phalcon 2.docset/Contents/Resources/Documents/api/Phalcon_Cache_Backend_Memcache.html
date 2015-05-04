@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Cache\Backend\Memcache — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Cache\Backend\Memory" href="Phalcon_Cache_Backend_Memory.html">
+    <link rel="prev" title="Class Phalcon\Cache\Backend\Libmemcached" href="Phalcon_Cache_Backend_Libmemcached.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-cache-backend-memcache">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CCache%5CBackend%5CMemcache" id="Phalcon\Cache\Backend\Memcache" class="dashAnchor"></a><strong>Phalcon\Cache\Backend\Memcache</strong>
+</h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_Cache_Backend.html"><em>Phalcon\Cache\Backend</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Cache_BackendInterface.html"><em>Phalcon\Cache\BackendInterface</em></a></p>
+<p>Allows to cache output fragments, PHP data or raw data to a memcache backend  This adapter uses the special memcached key “_PHCM” to store all the keys internally used by the adapter</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">// Cache data for 2 days</span>
+ <span class="nv">$frontCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Cache\Frontend\Data</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"lifetime"</span> <span class="o">=&gt;</span> <span class="mi">172800</span>
+ <span class="p">));</span>
+
+ <span class="c1">//Create the Cache setting memcached connection options</span>
+ <span class="nv">$cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Cache\Backend\Memcache</span><span class="p">(</span><span class="nv">$frontCache</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'localhost'</span><span class="p">,</span>
+    <span class="s1">'port'</span> <span class="o">=&gt;</span> <span class="mi">11211</span><span class="p">,</span>
+    <span class="s1">'persistent'</span> <span class="o">=&gt;</span> <span class="k">false</span>
+ <span class="p">));</span>
+
+ <span class="c1">//Cache arbitrary data</span>
+ <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">'my-data'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+
+ <span class="c1">//Get data</span>
+ <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'my-data'</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Cache_Backend_Memcache.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>unknown</em> $frontend, [<em>unknown</em> $options])</p>
+<p>Phalcon\Cache\Backend\Memcache constructor</p>
+<p>public  <a name="//apple_ref/cpp/Method/_connect" id="_connect" class="dashAnchor"></a><strong>_connect</strong> ()</p>
+<p>Create internal connection to memcached</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> (<em>unknown</em> $keyName, [<em>unknown</em> $lifetime])</p>
+<p>Returns a cached content</p>
+<p>public  <a name="//apple_ref/cpp/Method/save" id="save" class="dashAnchor"></a><strong>save</strong> ([<em>unknown</em> $keyName], [<em>unknown</em> $content], [<em>unknown</em> $lifetime], [<em>unknown</em> $stopBuffer])</p>
+<p>Stores cached content into the file backend and stops the frontend</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> (<em>unknown</em> $keyName)</p>
+<p>Deletes a value from the cache by its key</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/queryKeys" id="queryKeys" class="dashAnchor"></a><strong>queryKeys</strong> ([<em>unknown</em> $prefix])</p>
+<p>Query the existing cached keys</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/exists" id="exists" class="dashAnchor"></a><strong>exists</strong> ([<em>unknown</em> $keyName], [<em>unknown</em> $lifetime])</p>
+<p>Checks if cache exists and it isn’t expired</p>
+<p>public <em>long</em>  <a name="//apple_ref/cpp/Method/increment" id="increment" class="dashAnchor"></a><strong>increment</strong> ([<em>unknown</em> $keyName], [<em>unknown</em> $value])</p>
+<p>Increment of given $keyName by $value</p>
+<p>public <em>long</em>  <a name="//apple_ref/cpp/Method/decrement" id="decrement" class="dashAnchor"></a><strong>decrement</strong> ([<em>unknown</em> $keyName], [<em>unknown</em> $value])</p>
+<p>Decrement of $keyName by given $value</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/flush" id="flush" class="dashAnchor"></a><strong>flush</strong> ()</p>
+<p>Immediately invalidates all existing items.</p>
+<p>public  <a name="//apple_ref/cpp/Method/getFrontend" id="getFrontend" class="dashAnchor"></a><strong>getFrontend</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setFrontend" id="setFrontend" class="dashAnchor"></a><strong>setFrontend</strong> (<em>unknown</em> $frontend) inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getOptions" id="getOptions" class="dashAnchor"></a><strong>getOptions</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setOptions" id="setOptions" class="dashAnchor"></a><strong>setOptions</strong> (<em>unknown</em> $options) inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getLastKey" id="getLastKey" class="dashAnchor"></a><strong>getLastKey</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setLastKey" id="setLastKey" class="dashAnchor"></a><strong>setLastKey</strong> (<em>unknown</em> $lastKey) inherited from Phalcon\Cache\Backend</p>
+<p>...</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/start" id="start" class="dashAnchor"></a><strong>start</strong> (<em>unknown</em> $keyName, [<em>unknown</em> $lifetime]) inherited from Phalcon\Cache\Backend</p>
+<p>Starts a cache. The keyname allows to identify the created fragment</p>
+<p>public  <a name="//apple_ref/cpp/Method/stop" id="stop" class="dashAnchor"></a><strong>stop</strong> ([<em>unknown</em> $stopBuffer]) inherited from Phalcon\Cache\Backend</p>
+<p>Stops the frontend without store any cached content</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isFresh" id="isFresh" class="dashAnchor"></a><strong>isFresh</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Checks whether the last cache is fresh or cached</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isStarted" id="isStarted" class="dashAnchor"></a><strong>isStarted</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Checks whether the cache has starting buffering or not</p>
+<p>public <em>int</em>  <a name="//apple_ref/cpp/Method/getLifetime" id="getLifetime" class="dashAnchor"></a><strong>getLifetime</strong> () inherited from Phalcon\Cache\Backend</p>
+<p>Gets the last lifetime set</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

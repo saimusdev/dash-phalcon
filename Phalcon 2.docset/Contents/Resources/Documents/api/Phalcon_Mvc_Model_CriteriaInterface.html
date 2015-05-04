@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Interface Phalcon\Mvc\Model\CriteriaInterface — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Interface Phalcon\Mvc\Model\ManagerInterface" href="Phalcon_Mvc_Model_ManagerInterface.html">
+    <link rel="prev" title="Interface Phalcon\Mvc\Model\BehaviorInterface" href="Phalcon_Mvc_Model_BehaviorInterface.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="interface-phalcon-mvc-model-criteriainterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CModel%5CCriteriaInterface" id="Phalcon\Mvc\Model\CriteriaInterface" class="dashAnchor"></a><strong>Phalcon\Mvc\Model\CriteriaInterface</strong>
+</h1>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Model_CriteriaInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setModelName" id="setModelName" class="dashAnchor"></a><strong>setModelName</strong> (<em>unknown</em> $modelName)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getModelName" id="getModelName" class="dashAnchor"></a><strong>getModelName</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/bind" id="bind" class="dashAnchor"></a><strong>bind</strong> (<em>unknown</em> $bindParams)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/bindTypes" id="bindTypes" class="dashAnchor"></a><strong>bindTypes</strong> (<em>unknown</em> $bindTypes)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/where" id="where" class="dashAnchor"></a><strong>where</strong> (<em>unknown</em> $conditions)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/conditions" id="conditions" class="dashAnchor"></a><strong>conditions</strong> (<em>unknown</em> $conditions)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/orderBy" id="orderBy" class="dashAnchor"></a><strong>orderBy</strong> (<em>unknown</em> $orderColumns)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/limit" id="limit" class="dashAnchor"></a><strong>limit</strong> (<em>unknown</em> $limit, [<em>unknown</em> $offset])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/forUpdate" id="forUpdate" class="dashAnchor"></a><strong>forUpdate</strong> ([<em>unknown</em> $forUpdate])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/sharedLock" id="sharedLock" class="dashAnchor"></a><strong>sharedLock</strong> ([<em>unknown</em> $sharedLock])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/andWhere" id="andWhere" class="dashAnchor"></a><strong>andWhere</strong> (<em>unknown</em> $conditions, [<em>unknown</em> $bindParams], [<em>unknown</em> $bindTypes])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/orWhere" id="orWhere" class="dashAnchor"></a><strong>orWhere</strong> (<em>unknown</em> $conditions, [<em>unknown</em> $bindParams], [<em>unknown</em> $bindTypes])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/betweenWhere" id="betweenWhere" class="dashAnchor"></a><strong>betweenWhere</strong> (<em>unknown</em> $expr, <em>unknown</em> $minimum, <em>unknown</em> $maximum)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/notBetweenWhere" id="notBetweenWhere" class="dashAnchor"></a><strong>notBetweenWhere</strong> (<em>unknown</em> $expr, <em>unknown</em> $minimum, <em>unknown</em> $maximum)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/inWhere" id="inWhere" class="dashAnchor"></a><strong>inWhere</strong> (<em>unknown</em> $expr, <em>unknown</em> $values)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/notInWhere" id="notInWhere" class="dashAnchor"></a><strong>notInWhere</strong> (<em>unknown</em> $expr, <em>unknown</em> $values)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getWhere" id="getWhere" class="dashAnchor"></a><strong>getWhere</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getConditions" id="getConditions" class="dashAnchor"></a><strong>getConditions</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getLimit" id="getLimit" class="dashAnchor"></a><strong>getLimit</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getOrder" id="getOrder" class="dashAnchor"></a><strong>getOrder</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getParams" id="getParams" class="dashAnchor"></a><strong>getParams</strong> ()</p>
+<p>...</p>
+<p>abstract public static  <a name="//apple_ref/cpp/Method/fromInput" id="fromInput" class="dashAnchor"></a><strong>fromInput</strong> (<em>unknown</em> $dependencyInjector, <em>unknown</em> $modelName, <em>unknown</em> $data)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/execute" id="execute" class="dashAnchor"></a><strong>execute</strong> ()</p>
+<p>...</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

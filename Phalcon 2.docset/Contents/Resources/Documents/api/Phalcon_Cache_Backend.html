@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Abstract class Phalcon\Cache\Backend — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Cache\Backend\Apc" href="Phalcon_Cache_Backend_Apc.html">
+    <link rel="prev" title="Class Phalcon\Assets\Resource\Js" href="Phalcon_Assets_Resource_Js.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="abstract-class-phalcon-cache-backend">
+<h1>Abstract class <a name="//apple_ref/cpp/Class/Phalcon%5CCache%5CBackend" id="Phalcon\Cache\Backend" class="dashAnchor"></a><strong>Phalcon\Cache\Backend</strong>
+</h1>
+<p>This class implements common functionality for backend adapters. A backend cache adapter may extend this class</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Cache_Backend.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/getFrontend" id="getFrontend" class="dashAnchor"></a><strong>getFrontend</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setFrontend" id="setFrontend" class="dashAnchor"></a><strong>setFrontend</strong> (<em>unknown</em> $frontend)</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getOptions" id="getOptions" class="dashAnchor"></a><strong>getOptions</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setOptions" id="setOptions" class="dashAnchor"></a><strong>setOptions</strong> (<em>unknown</em> $options)</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getLastKey" id="getLastKey" class="dashAnchor"></a><strong>getLastKey</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/setLastKey" id="setLastKey" class="dashAnchor"></a><strong>setLastKey</strong> (<em>unknown</em> $lastKey)</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> (<em>unknown</em> $frontend, [<em>unknown</em> $options])</p>
+<p>Phalcon\Cache\Backend constructor</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/start" id="start" class="dashAnchor"></a><strong>start</strong> (<em>unknown</em> $keyName, [<em>unknown</em> $lifetime])</p>
+<p>Starts a cache. The keyname allows to identify the created fragment</p>
+<p>public  <a name="//apple_ref/cpp/Method/stop" id="stop" class="dashAnchor"></a><strong>stop</strong> ([<em>unknown</em> $stopBuffer])</p>
+<p>Stops the frontend without store any cached content</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isFresh" id="isFresh" class="dashAnchor"></a><strong>isFresh</strong> ()</p>
+<p>Checks whether the last cache is fresh or cached</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/isStarted" id="isStarted" class="dashAnchor"></a><strong>isStarted</strong> ()</p>
+<p>Checks whether the cache has starting buffering or not</p>
+<p>public <em>int</em>  <a name="//apple_ref/cpp/Method/getLifetime" id="getLifetime" class="dashAnchor"></a><strong>getLifetime</strong> ()</p>
+<p>Gets the last lifetime set</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>
