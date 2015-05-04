@@ -23,8 +23,8 @@ task :default => [
   :extract,
   :plist,
   :db,
-  :clean,
   :parse,
+  :clean,
   :import,
   :rm
 ]
