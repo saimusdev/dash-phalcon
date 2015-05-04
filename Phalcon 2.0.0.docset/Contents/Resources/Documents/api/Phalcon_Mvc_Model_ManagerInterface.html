@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Interface Phalcon\Mvc\Model\ManagerInterface — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Interface Phalcon\Mvc\Model\MessageInterface" href="Phalcon_Mvc_Model_MessageInterface.html">
+    <link rel="prev" title="Interface Phalcon\Mvc\Model\CriteriaInterface" href="Phalcon_Mvc_Model_CriteriaInterface.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="interface-phalcon-mvc-model-managerinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CModel%5CManagerInterface" id="Phalcon\Mvc\Model\ManagerInterface" class="dashAnchor"></a><strong>Phalcon\Mvc\Model\ManagerInterface</strong>
+</h1>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Model_ManagerInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public  <a name="//apple_ref/cpp/Method/initialize" id="initialize" class="dashAnchor"></a><strong>initialize</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setModelSource" id="setModelSource" class="dashAnchor"></a><strong>setModelSource</strong> (<em>unknown</em> $model, <em>unknown</em> $source)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getModelSource" id="getModelSource" class="dashAnchor"></a><strong>getModelSource</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setModelSchema" id="setModelSchema" class="dashAnchor"></a><strong>setModelSchema</strong> (<em>unknown</em> $model, <em>unknown</em> $schema)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getModelSchema" id="getModelSchema" class="dashAnchor"></a><strong>getModelSchema</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setConnectionService" id="setConnectionService" class="dashAnchor"></a><strong>setConnectionService</strong> (<em>unknown</em> $model, <em>unknown</em> $connectionService)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setReadConnectionService" id="setReadConnectionService" class="dashAnchor"></a><strong>setReadConnectionService</strong> (<em>unknown</em> $model, <em>unknown</em> $connectionService)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getReadConnectionService" id="getReadConnectionService" class="dashAnchor"></a><strong>getReadConnectionService</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setWriteConnectionService" id="setWriteConnectionService" class="dashAnchor"></a><strong>setWriteConnectionService</strong> (<em>unknown</em> $model, <em>unknown</em> $connectionService)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getWriteConnectionService" id="getWriteConnectionService" class="dashAnchor"></a><strong>getWriteConnectionService</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getReadConnection" id="getReadConnection" class="dashAnchor"></a><strong>getReadConnection</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getWriteConnection" id="getWriteConnection" class="dashAnchor"></a><strong>getWriteConnection</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isInitialized" id="isInitialized" class="dashAnchor"></a><strong>isInitialized</strong> (<em>unknown</em> $modelName)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getLastInitialized" id="getLastInitialized" class="dashAnchor"></a><strong>getLastInitialized</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/load" id="load" class="dashAnchor"></a><strong>load</strong> (<em>unknown</em> $modelName, [<em>unknown</em> $newInstance])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addHasOne" id="addHasOne" class="dashAnchor"></a><strong>addHasOne</strong> (<em>unknown</em> $model, <em>unknown</em> $fields, <em>unknown</em> $referencedModel, <em>unknown</em> $referencedFields, [<em>unknown</em> $options])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addBelongsTo" id="addBelongsTo" class="dashAnchor"></a><strong>addBelongsTo</strong> (<em>unknown</em> $model, <em>unknown</em> $fields, <em>unknown</em> $referencedModel, <em>unknown</em> $referencedFields, [<em>unknown</em> $options])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addHasMany" id="addHasMany" class="dashAnchor"></a><strong>addHasMany</strong> (<em>unknown</em> $model, <em>unknown</em> $fields, <em>unknown</em> $referencedModel, <em>unknown</em> $referencedFields, [<em>unknown</em> $options])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/existsBelongsTo" id="existsBelongsTo" class="dashAnchor"></a><strong>existsBelongsTo</strong> (<em>unknown</em> $modelName, <em>unknown</em> $modelRelation)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/existsHasMany" id="existsHasMany" class="dashAnchor"></a><strong>existsHasMany</strong> (<em>unknown</em> $modelName, <em>unknown</em> $modelRelation)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/existsHasOne" id="existsHasOne" class="dashAnchor"></a><strong>existsHasOne</strong> (<em>unknown</em> $modelName, <em>unknown</em> $modelRelation)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBelongsToRecords" id="getBelongsToRecords" class="dashAnchor"></a><strong>getBelongsToRecords</strong> (<em>unknown</em> $method, <em>unknown</em> $modelName, <em>unknown</em> $modelRelation, <em>unknown</em> $record, [<em>unknown</em> $parameters])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHasManyRecords" id="getHasManyRecords" class="dashAnchor"></a><strong>getHasManyRecords</strong> (<em>unknown</em> $method, <em>unknown</em> $modelName, <em>unknown</em> $modelRelation, <em>unknown</em> $record, [<em>unknown</em> $parameters])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHasOneRecords" id="getHasOneRecords" class="dashAnchor"></a><strong>getHasOneRecords</strong> (<em>unknown</em> $method, <em>unknown</em> $modelName, <em>unknown</em> $modelRelation, <em>unknown</em> $record, [<em>unknown</em> $parameters])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getBelongsTo" id="getBelongsTo" class="dashAnchor"></a><strong>getBelongsTo</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHasMany" id="getHasMany" class="dashAnchor"></a><strong>getHasMany</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHasOne" id="getHasOne" class="dashAnchor"></a><strong>getHasOne</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getHasOneAndHasMany" id="getHasOneAndHasMany" class="dashAnchor"></a><strong>getHasOneAndHasMany</strong> (<em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getRelations" id="getRelations" class="dashAnchor"></a><strong>getRelations</strong> (<em>unknown</em> $modelName)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getRelationsBetween" id="getRelationsBetween" class="dashAnchor"></a><strong>getRelationsBetween</strong> (<em>unknown</em> $first, <em>unknown</em> $second)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/createQuery" id="createQuery" class="dashAnchor"></a><strong>createQuery</strong> (<em>unknown</em> $phql)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/executeQuery" id="executeQuery" class="dashAnchor"></a><strong>executeQuery</strong> (<em>unknown</em> $phql, [<em>unknown</em> $placeholders])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/createBuilder" id="createBuilder" class="dashAnchor"></a><strong>createBuilder</strong> ([<em>unknown</em> $params])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addBehavior" id="addBehavior" class="dashAnchor"></a><strong>addBehavior</strong> (<em>unknown</em> $model, <em>unknown</em> $behavior)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/notifyEvent" id="notifyEvent" class="dashAnchor"></a><strong>notifyEvent</strong> (<em>unknown</em> $eventName, <em>unknown</em> $model)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/missingMethod" id="missingMethod" class="dashAnchor"></a><strong>missingMethod</strong> (<em>unknown</em> $model, <em>unknown</em> $eventName, <em>unknown</em> $data)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getLastQuery" id="getLastQuery" class="dashAnchor"></a><strong>getLastQuery</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getRelationByAlias" id="getRelationByAlias" class="dashAnchor"></a><strong>getRelationByAlias</strong> (<em>unknown</em> $modelName, <em>unknown</em> $alias)</p>
+<p>...</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Tutorial 6: Vökuró — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="next" title="Tutorial 3: Creating a Simple REST API" href="tutorial-rest.html">
+    <link rel="prev" title="Tutorial 5: Customizing INVO" href="tutorial-invo-4.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="tutorial-6-vokuro">
+<h1>Tutorial 6: Vökuró</h1>
+<p>Vökuró is another sample application you can use to learn more about Phalcon.
+Vökuró is a small website that shows how to implement a security features and
+management of users and permissions. You can clone its code from <a class="reference external" href="https://github.com/phalcon/vokuro">Github</a>.</p>
+<div class="section" id="project-structure">
+<h2>Project Structure<a class="headerlink" href="tutorial-vokuro.html#project-structure" title="Permalink to this headline">¶</a>
+</h2>
+<p>Once you clone the project in your document root you’ll see the following structure:</p>
+<div class="highlight-bash">
+<div class="highlight"><pre>invo/
+    app/
+        cache/
+        config/
+        controllers/
+        forms/
+        library/
+        models/
+        plugins/
+        views/
+    public/
+        css/
+        js/
+    schemas/
+</pre></div>
+</div>
+<p>This project follows a quite similar structure to INVO. Once you open the application in your
+browser <a class="reference external" href="http://localhost/vokuro">http://localhost/vokuro</a> you’ll see something like this:</p>
+<div class="figure align-center">
+<img alt="../_images/vokuro-1.png" src="../_images/vokuro-1.png">
+</div>
+<p>The application is divided into two parts, a frontend, where visitors can sign up the service
+and a backend where administrative users can manage registered users. Both frontend and backend
+are combined in a single module.</p>
+</div>
+<div class="section" id="load-classes-and-dependencies">
+<h2>Load Classes and Dependencies<a class="headerlink" href="tutorial-vokuro.html#load-classes-and-dependencies" title="Permalink to this headline">¶</a>
+</h2>
+<p>This project uses Phalcon\Loader to load controllers, models, forms, etc. within the project and <a class="reference external" href="https://getcomposer.org/">composer</a>
+to load the project’s dependencies. So, the first thing you have to do before execute Vökuró is
+install its dependencies via <a class="reference external" href="https://getcomposer.org/">composer</a>. Assuming you have it correctly installed, type the
+following command in the console:</p>
+<div class="highlight-bash">
+<div class="highlight"><pre><span class="nb">cd </span>vokuro
+composer install
+</pre></div>
+</div>
+<p>Vökuró sends emails to confirm the sign up of registered users using Swift,
+the composer.json looks like:</p>
+<div class="highlight-json">
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"require"</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"php"</span> <span class="p">:</span> <span class="s2">"&gt;=5.4.0"</span><span class="p">,</span>
+        <span class="nt">"ext-phalcon"</span> <span class="p">:</span> <span class="s2">"&gt;=2.0.0"</span><span class="p">,</span>
+        <span class="nt">"swiftmailer/swiftmailer"</span> <span class="p">:</span> <span class="s2">"5.0.*"</span><span class="p">,</span>
+        <span class="nt">"amazonwebservices/aws-sdk-for-php"</span> <span class="p">:</span> <span class="s2">"~1.0"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, there is a file called app/config/loader.php where all the auto-loading stuff is set up. At the end of
+this file you can see that the composer autoloader is included enabling the application to autoload
+any of the classes in the downloaded dependencies:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// Use composer autoloader to load vendor classes</span>
+<span class="k">require_once</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/../../vendor/autoload.php'</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Moreover, Vökuró, unlike the INVO, utilizes namespaces for controllers and models
+which is the recommended practice to structure a project. This way the autoloader looks slightly
+different than the one we saw before (app/config/loader.php):</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Loader</span><span class="p">();</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Vokuro\Models'</span>      <span class="o">=&gt;</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">modelsDir</span><span class="p">,</span>
+    <span class="s1">'Vokuro\Controllers'</span> <span class="o">=&gt;</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">controllersDir</span><span class="p">,</span>
+    <span class="s1">'Vokuro\Forms'</span>       <span class="o">=&gt;</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">formsDir</span><span class="p">,</span>
+    <span class="s1">'Vokuro'</span>             <span class="o">=&gt;</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="na">application</span><span class="o">-&gt;</span><span class="na">libraryDir</span>
+<span class="p">));</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+<span class="c1">// ...</span>
+</pre></div>
+</div>
+<p>Instead of using registerDirectories, we use registerNamespaces. Every namespace points to a directory
+defined in the configuration file (app/config/config.php). For instance the namespace Vokuro\Controllers
+points to app/controllers so all the classes required by the application within this namespace
+requires it in its definition:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Vokuro\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AboutController</span> <span class="k">extends</span> <span class="nx">ControllerBase</span>
+<span class="p">{</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sign-up">
+<h2>Sign Up<a class="headerlink" href="tutorial-vokuro.html#sign-up" title="Permalink to this headline">¶</a>
+</h2>
+<p>First, let’s check how users are registered in Vökuró. When a user clicks the “Create an Account” button,
+the controller SessionController is invoked and the action “signup” is executed:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Vokuro\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Vokuro\Forms\SignUpForm</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RegisterController</span> <span class="k">extends</span> <span class="nx">ControllerBase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">signupAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SignUpForm</span><span class="p">();</span>
+
+        <span class="c1">// ...</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">form</span> <span class="o">=</span> <span class="nv">$form</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This action simply pass a form instance of SignUpForm to the view, which itself is rendered to
+allow the user enter the login details:</p>
+<div class="highlight-html+jinja">
+<div class="highlight"><pre><span class="cp">{{</span> <span class="nv">form</span><span class="o">(</span><span class="s1">'class'</span><span class="o">:</span> <span class="s1">'form-search'</span><span class="o">)</span> <span class="cp">}}</span>
+
+    <span class="nt">&lt;h2&gt;</span>Sign Up<span class="nt">&lt;/h2&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">form.label</span><span class="o">(</span><span class="s1">'name'</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'name'</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'name'</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">form.label</span><span class="o">(</span><span class="s1">'email'</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'email'</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'email'</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">form.label</span><span class="o">(</span><span class="s1">'password'</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'password'</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'password'</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">form.label</span><span class="o">(</span><span class="s1">'confirmPassword'</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'confirmPassword'</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'confirmPassword'</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span>
+        <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'terms'</span><span class="o">)</span> <span class="cp">}}</span> <span class="cp">{{</span> <span class="nv">form.label</span><span class="o">(</span><span class="s1">'terms'</span><span class="o">)</span> <span class="cp">}}</span>
+        <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'terms'</span><span class="o">)</span> <span class="cp">}}</span>
+    <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'Sign Up'</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/p&gt;</span>
+
+    <span class="cp">{{</span> <span class="nv">form.render</span><span class="o">(</span><span class="s1">'csrf'</span><span class="o">,</span> <span class="o">[</span><span class="s1">'value'</span><span class="o">:</span> <span class="nv">security.getToken</span><span class="o">()])</span> <span class="cp">}}</span>
+    <span class="cp">{{</span> <span class="nv">form.messages</span><span class="o">(</span><span class="s1">'csrf'</span><span class="o">)</span> <span class="cp">}}</span>
+
+    <span class="nt">&lt;hr&gt;</span>
+
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="tutorial-vokuro.html#conclusion" title="Permalink to this headline">¶</a>
+</h2>
+<p>As we have seen, develop a RESTful API with Phalcon is easy. Later in the documentation we’ll explain in detail how to
+use micro applications and the <a class="reference internal" href="phql.html"><em>PHQL</em></a> language.</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

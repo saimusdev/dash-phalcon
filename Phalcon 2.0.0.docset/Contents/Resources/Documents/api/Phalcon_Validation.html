@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Validation — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Validation\Exception" href="Phalcon_Validation_Exception.html">
+    <link rel="prev" title="Class Phalcon\Translate\Exception" href="Phalcon_Translate_Exception.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-validation">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CValidation" id="Phalcon\Validation" class="dashAnchor"></a><strong>Phalcon\Validation</strong>
+</h1>
+<p><em>extends</em> abstract class <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\Injectable</span></tt></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Events_EventsAwareInterface.html"><em>Phalcon\Events\EventsAwareInterface</em></a>, <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\InjectionAwareInterface</span></tt></p>
+<p>Allows to validate data using custom or built-in validators</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Validation.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/setValidators" id="setValidators" class="dashAnchor"></a><strong>setValidators</strong> (<em>unknown</em> $validators)</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>unknown</em> $validators])</p>
+<p>Phalcon\Validation constructor</p>
+<p>public <a class="reference internal" href="Phalcon_Validation_Message_Group.html"><em>Phalcon\Validation\Message\Group</em></a>  <a name="//apple_ref/cpp/Method/validate" id="validate" class="dashAnchor"></a><strong>validate</strong> ([<em>unknown</em> $data], [<em>unknown</em> $entity])</p>
+<p>Validate a set of data according to a set of rules</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/add" id="add" class="dashAnchor"></a><strong>add</strong> (<em>unknown</em> $field, <em>unknown</em> $validator)</p>
+<p>Adds a validator to a field</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/rule" id="rule" class="dashAnchor"></a><strong>rule</strong> (<em>unknown</em> $field, <em>unknown</em> $validator)</p>
+<p>Alias of <cite>add</cite> method</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/rules" id="rules" class="dashAnchor"></a><strong>rules</strong> (<em>unknown</em> $field, <em>unknown</em> $validators)</p>
+<p>Adds the validators to a field</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/setFilters" id="setFilters" class="dashAnchor"></a><strong>setFilters</strong> (<em>unknown</em> $field, <em>unknown</em> $filters)</p>
+<p>Adds filters to the field</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getFilters" id="getFilters" class="dashAnchor"></a><strong>getFilters</strong> ([<em>unknown</em> $field])</p>
+<p>Returns all the filters or a specific one</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/getValidators" id="getValidators" class="dashAnchor"></a><strong>getValidators</strong> ()</p>
+<p>Returns the validators added to the validation</p>
+<p>public <em>object</em>  <a name="//apple_ref/cpp/Method/getEntity" id="getEntity" class="dashAnchor"></a><strong>getEntity</strong> ()</p>
+<p>Returns the bound entity</p>
+<p>public <em>array</em>  <a name="//apple_ref/cpp/Method/setDefaultMessages" id="setDefaultMessages" class="dashAnchor"></a><strong>setDefaultMessages</strong> ([<em>unknown</em> $messages])</p>
+<p>Adds default messages to validators</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getDefaultMessage" id="getDefaultMessage" class="dashAnchor"></a><strong>getDefaultMessage</strong> (<em>unknown</em> $type)</p>
+<p>Get default message for validator type</p>
+<p>public <a class="reference internal" href="Phalcon_Validation_Message_Group.html"><em>Phalcon\Validation\Message\Group</em></a>  <a name="//apple_ref/cpp/Method/getMessages" id="getMessages" class="dashAnchor"></a><strong>getMessages</strong> ()</p>
+<p>Returns the registered validators</p>
+<p>public  <a name="//apple_ref/cpp/Method/setLabels" id="setLabels" class="dashAnchor"></a><strong>setLabels</strong> (<em>unknown</em> $labels)</p>
+<p>Adds labels for fields</p>
+<p>public <em>string</em>  <a name="//apple_ref/cpp/Method/getLabel" id="getLabel" class="dashAnchor"></a><strong>getLabel</strong> (<em>unknown</em> $field)</p>
+<p>Get label for field</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/appendMessage" id="appendMessage" class="dashAnchor"></a><strong>appendMessage</strong> (<em>unknown</em> $message)</p>
+<p>Appends a message to the messages list</p>
+<p>public <a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a>  <a name="//apple_ref/cpp/Method/bind" id="bind" class="dashAnchor"></a><strong>bind</strong> (<em>unknown</em> $entity, <em>unknown</em> $data)</p>
+<p>Assigns the data to an entity The entity is used to obtain the validation values</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getValue" id="getValue" class="dashAnchor"></a><strong>getValue</strong> (<em>unknown</em> $field)</p>
+<p>Gets the a value to validate in the array/object data source</p>
+<p>public  <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<em>unknown</em> $dependencyInjector) inherited from Phalcon\Di\Injectable</p>
+<p>Sets the dependency injector</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> () inherited from Phalcon\Di\Injectable</p>
+<p>Returns the internal dependency injector</p>
+<p>public  <a name="//apple_ref/cpp/Method/setEventsManager" id="setEventsManager" class="dashAnchor"></a><strong>setEventsManager</strong> (<em>unknown</em> $eventsManager) inherited from Phalcon\Di\Injectable</p>
+<p>Sets the event manager</p>
+<p>public <a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a>  <a name="//apple_ref/cpp/Method/getEventsManager" id="getEventsManager" class="dashAnchor"></a><strong>getEventsManager</strong> () inherited from Phalcon\Di\Injectable</p>
+<p>Returns the internal event manager</p>
+<p>public  <a name="//apple_ref/cpp/Method/__get" id="__get" class="dashAnchor"></a><strong>__get</strong> (<em>unknown</em> $propertyName) inherited from Phalcon\Di\Injectable</p>
+<p>Magic method __get</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

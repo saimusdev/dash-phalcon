@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Class Phalcon\Di\FactoryDefault — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="class-phalcon-di-factorydefault">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CDi%5CFactoryDefault" id="Phalcon\Di\FactoryDefault" class="dashAnchor"></a><strong>Phalcon\Di\FactoryDefault</strong>
+</h1>
+<p><em>extends</em> class <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di</span></tt></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Events_EventsAwareInterface.html"><em>Phalcon\Events\EventsAwareInterface</em></a>, ArrayAccess, <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a></p>
+<p>This is a variant of the standard Phalcon\Di. By default it automatically registers all the services provided by the framework. Thanks to this, the developer does not need to register each service individually providing a full stack framework</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_DI_FactoryDefault.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ()</p>
+<p>Phalcon\Di\FactoryDefault constructor</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\ServiceInterface</span></tt>  <a name="//apple_ref/cpp/Method/set" id="set" class="dashAnchor"></a><strong>set</strong> (<em>unknown</em> $name, <em>unknown</em> $definition, [<em>unknown</em> $shared]) inherited from Phalcon\Di</p>
+<p>Registers a service in the services container</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\ServiceInterface</span></tt>  <a name="//apple_ref/cpp/Method/setShared" id="setShared" class="dashAnchor"></a><strong>setShared</strong> (<em>unknown</em> $name, <em>unknown</em> $definition) inherited from Phalcon\Di</p>
+<p>Registers an “always shared” service in the services container</p>
+<p>public  <a name="//apple_ref/cpp/Method/remove" id="remove" class="dashAnchor"></a><strong>remove</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Removes a service in the services container</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\ServiceInterface</span></tt> <a href="Phalcon_DI_FactoryDefault.html#id1"><span class="problematic" id="id2">|</span></a>false <a name="//apple_ref/cpp/Method/attempt" id="attempt" class="dashAnchor"></a><strong>attempt</strong> (<em>unknown</em> $name, <em>unknown</em> $definition, [<em>unknown</em> $shared]) inherited from Phalcon\Di</p>
+<p>Attempts to register a service in the services container Only is successful if a service hasn”t been registered previously with the same name</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\ServiceInterface</span></tt>  <a name="//apple_ref/cpp/Method/setRaw" id="setRaw" class="dashAnchor"></a><strong>setRaw</strong> (<em>unknown</em> $name, <em>unknown</em> $rawDefinition) inherited from Phalcon\Di</p>
+<p>Sets a service using a raw Phalcon\Di\Service definition</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getRaw" id="getRaw" class="dashAnchor"></a><strong>getRaw</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Returns a service definition without resolving</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\ServiceInterface</span></tt>  <a name="//apple_ref/cpp/Method/getService" id="getService" class="dashAnchor"></a><strong>getService</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Returns a Phalcon\Di\Service instance</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/get" id="get" class="dashAnchor"></a><strong>get</strong> (<em>unknown</em> $name, [<em>unknown</em> $parameters]) inherited from Phalcon\Di</p>
+<p>Resolves the service based on its configuration</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/getShared" id="getShared" class="dashAnchor"></a><strong>getShared</strong> (<em>unknown</em> $name, [<em>unknown</em> $parameters]) inherited from Phalcon\Di</p>
+<p>Resolves a service, the resolved service is stored in the DI, subsequent requests for this service will return the same instance</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/has" id="has" class="dashAnchor"></a><strong>has</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Check whether the DI contains a service by a name</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/wasFreshInstance" id="wasFreshInstance" class="dashAnchor"></a><strong>wasFreshInstance</strong> () inherited from Phalcon\Di</p>
+<p>Check whether the last service obtained via getShared produced a fresh instance or an existing one</p>
+<p>public <tt class="xref doc docutils literal"><span class="pre">Phalcon\Di\Service</span></tt> [] <a name="//apple_ref/cpp/Method/getServices" id="getServices" class="dashAnchor"></a><strong>getServices</strong> () inherited from Phalcon\Di</p>
+<p>Return the services registered in the DI</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/offsetExists" id="offsetExists" class="dashAnchor"></a><strong>offsetExists</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Check if a service is registered using the array syntax</p>
+<p>public <em>boolean</em>  <a name="//apple_ref/cpp/Method/offsetSet" id="offsetSet" class="dashAnchor"></a><strong>offsetSet</strong> (<em>unknown</em> $name, <em>unknown</em> $definition) inherited from Phalcon\Di</p>
+<p>Allows to register a shared service using the array syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$di</span><span class="p">[</span><span class="s2">"request"</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Http\Request</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/offsetGet" id="offsetGet" class="dashAnchor"></a><strong>offsetGet</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Allows to obtain a shared service using the array syntax</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$di</span><span class="p">[</span><span class="s2">"request"</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>public  <a name="//apple_ref/cpp/Method/offsetUnset" id="offsetUnset" class="dashAnchor"></a><strong>offsetUnset</strong> (<em>unknown</em> $name) inherited from Phalcon\Di</p>
+<p>Removes a service from the services container using the array syntax</p>
+<p>public  <a name="//apple_ref/cpp/Method/setEventsManager" id="setEventsManager" class="dashAnchor"></a><strong>setEventsManager</strong> (<em>unknown</em> $eventsManager) inherited from Phalcon\Di</p>
+<p>Sets the event manager</p>
+<p>public <a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a>  <a name="//apple_ref/cpp/Method/getEventsManager" id="getEventsManager" class="dashAnchor"></a><strong>getEventsManager</strong> () inherited from Phalcon\Di</p>
+<p>Returns the internal event manager</p>
+<p>public <em>mixed</em>  <a name="//apple_ref/cpp/Method/__call" id="__call" class="dashAnchor"></a><strong>__call</strong> (<em>unknown</em> $method, [<em>unknown</em> $arguments]) inherited from Phalcon\Di</p>
+<p>Magic method to get or set services using setters/getters</p>
+<p>public static  <a name="//apple_ref/cpp/Method/setDefault" id="setDefault" class="dashAnchor"></a><strong>setDefault</strong> (<em>unknown</em> $dependencyInjector) inherited from Phalcon\Di</p>
+<p>Set a default dependency injection container to be obtained into static methods</p>
+<p>public static <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a>  <a name="//apple_ref/cpp/Method/getDefault" id="getDefault" class="dashAnchor"></a><strong>getDefault</strong> () inherited from Phalcon\Di</p>
+<p>Return the lastest DI created</p>
+<p>public static  <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> () inherited from Phalcon\Di</p>
+<p>Resets the internal default DI</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

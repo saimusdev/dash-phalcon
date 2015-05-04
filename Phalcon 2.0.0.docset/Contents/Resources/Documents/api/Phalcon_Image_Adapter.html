@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Abstract class Phalcon\Image\Adapter — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Class Phalcon\Image\Adapter\Imagick" href="Phalcon_Image_Adapter_Imagick.html">
+    <link rel="prev" title="Class Phalcon\Image" href="Phalcon_Image.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="abstract-class-phalcon-image-adapter">
+<h1>Abstract class <a name="//apple_ref/cpp/Class/Phalcon%5CImage%5CAdapter" id="Phalcon\Image\Adapter" class="dashAnchor"></a><strong>Phalcon\Image\Adapter</strong>
+</h1>
+<p>Phalcon\Image  All image adapters must use this class</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Image_Adapter.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public  <a name="//apple_ref/cpp/Method/getImage" id="getImage" class="dashAnchor"></a><strong>getImage</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getRealpath" id="getRealpath" class="dashAnchor"></a><strong>getRealpath</strong> ()</p>
+<p>...</p>
+<p>public  <a name="//apple_ref/cpp/Method/getWidth" id="getWidth" class="dashAnchor"></a><strong>getWidth</strong> ()</p>
+<p>Image width</p>
+<p>public  <a name="//apple_ref/cpp/Method/getHeight" id="getHeight" class="dashAnchor"></a><strong>getHeight</strong> ()</p>
+<p>Image height</p>
+<p>public  <a name="//apple_ref/cpp/Method/getType" id="getType" class="dashAnchor"></a><strong>getType</strong> ()</p>
+<p>Image type Driver dependent</p>
+<p>public  <a name="//apple_ref/cpp/Method/getMime" id="getMime" class="dashAnchor"></a><strong>getMime</strong> ()</p>
+<p>Image mime type</p>
+<p>public  <a name="//apple_ref/cpp/Method/resize" id="resize" class="dashAnchor"></a><strong>resize</strong> ([<em>unknown</em> $width], [<em>unknown</em> $height], [<em>unknown</em> $master])</p>
+<p>Resize the image to the given size</p>
+<p>public  <a name="//apple_ref/cpp/Method/liquidRescale" id="liquidRescale" class="dashAnchor"></a><strong>liquidRescale</strong> (<em>unknown</em> $width, <em>unknown</em> $height, [<em>unknown</em> $deltaX], [<em>unknown</em> $rigidity])</p>
+<p>This method scales the images using liquid rescaling method. Only support Imagick</p>
+<p>public  <a name="//apple_ref/cpp/Method/crop" id="crop" class="dashAnchor"></a><strong>crop</strong> (<em>unknown</em> $width, <em>unknown</em> $height, [<em>unknown</em> $offsetX], [<em>unknown</em> $offsetY])</p>
+<p>Crop an image to the given size</p>
+<p>public  <a name="//apple_ref/cpp/Method/rotate" id="rotate" class="dashAnchor"></a><strong>rotate</strong> (<em>unknown</em> $degrees)</p>
+<p>Rotate the image by a given amount</p>
+<p>public  <a name="//apple_ref/cpp/Method/flip" id="flip" class="dashAnchor"></a><strong>flip</strong> (<em>unknown</em> $direction)</p>
+<p>Flip the image along the horizontal or vertical axis</p>
+<p>public  <a name="//apple_ref/cpp/Method/sharpen" id="sharpen" class="dashAnchor"></a><strong>sharpen</strong> (<em>unknown</em> $amount)</p>
+<p>Sharpen the image by a given amount</p>
+<p>public  <a name="//apple_ref/cpp/Method/reflection" id="reflection" class="dashAnchor"></a><strong>reflection</strong> (<em>unknown</em> $height, [<em>unknown</em> $opacity], [<em>unknown</em> $fadeIn])</p>
+<p>Add a reflection to an image</p>
+<p>public  <a name="//apple_ref/cpp/Method/watermark" id="watermark" class="dashAnchor"></a><strong>watermark</strong> (<em>unknown</em> $watermark, [<em>unknown</em> $offsetX], [<em>unknown</em> $offsetY], [<em>unknown</em> $opacity])</p>
+<p>Add a watermark to an image with a specified opacity</p>
+<p>public  <a name="//apple_ref/cpp/Method/text" id="text" class="dashAnchor"></a><strong>text</strong> (<em>unknown</em> $text, [<em>unknown</em> $offsetX], [<em>unknown</em> $offsetY], [<em>unknown</em> $opacity], [<em>unknown</em> $color], [<em>unknown</em> $size], [<em>unknown</em> $fontfile])</p>
+<p>Add a text to an image with a specified opacity</p>
+<p>public  <a name="//apple_ref/cpp/Method/mask" id="mask" class="dashAnchor"></a><strong>mask</strong> (<em>unknown</em> $watermark)</p>
+<p>Composite one image onto another</p>
+<p>public  <a name="//apple_ref/cpp/Method/background" id="background" class="dashAnchor"></a><strong>background</strong> (<em>unknown</em> $color, [<em>unknown</em> $opacity])</p>
+<p>Set the background color of an image</p>
+<p>public  <a name="//apple_ref/cpp/Method/blur" id="blur" class="dashAnchor"></a><strong>blur</strong> (<em>unknown</em> $radius)</p>
+<p>Blur image</p>
+<p>public  <a name="//apple_ref/cpp/Method/pixelate" id="pixelate" class="dashAnchor"></a><strong>pixelate</strong> (<em>unknown</em> $amount)</p>
+<p>Pixelate image</p>
+<p>public  <a name="//apple_ref/cpp/Method/save" id="save" class="dashAnchor"></a><strong>save</strong> ([<em>unknown</em> $file], [<em>unknown</em> $quality])</p>
+<p>Save the image</p>
+<p>public  <a name="//apple_ref/cpp/Method/render" id="render" class="dashAnchor"></a><strong>render</strong> ([<em>unknown</em> $ext], [<em>unknown</em> $quality])</p>
+<p>Render the image and return the binary string</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>

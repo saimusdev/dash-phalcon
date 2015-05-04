@@ -31,13 +31,14 @@ task :default => [
 
 # Docset specific variables
 DOMAIN = "phalconphp.com"
-DOCS_FOLDER = "docs." << DOMAIN
-DOCSET_NAME = "Phalcon 2.0.0"
+DOCS_FOLDER = "docs." << DOMAIN << "/en/latest"
+DOCSET_NAME = "Phalcon"
+DOCSET_NAME_SMALL = "phalcon2"
 DOCSET_FOLDER = "#{DOCSET_NAME}.docset"
 DOCSET_DOCS_SUBFOLDER = "#{DOCSET_FOLDER}/Contents/Resources/Documents"
 PLIST_FILE = "#{DOCSET_FOLDER}/Contents/Info.plist"
 DATABASE = "#{DOCSET_NAME}.docset/Contents/Resources/docSet.dsidx" 
-LOCAL_DOCS_FOLDER = "phalcon_2.0.0_docs"
+LOCAL_DOCS_FOLDER = DOCS_FOLDER #"phalcon_2.0.0_docs"
 LOCAL_DOCS = LOCAL_DOCS_FOLDER + ".tar.gz"
 ONLINE_DOCS = [
 	"docs.phalconphp.com/en/latest/index.html"
@@ -45,13 +46,14 @@ ONLINE_DOCS = [
 DOCSET_PATH = Pathname.new "#{DOCSET_DOCS_SUBFOLDER}"
 
 UNNECESARY_HTML_NODES = [
-	"/html/body/div[@id='wrapper']/div[@class='size-wrap']",
-	"/html/body/div[@id='wrapper']/div[@class='header-line']",
-	"/html/body/div[@id='wrapper']/div[@class='related']",
+	"/html/body/header[@class='page-header']",
+	"/html/body/div[@class='heading']",
+	"/html/body/div[@class='related']",
 	"/html/body//td[@class='primary-box']",
 	"/html/body//td[@class='second-box']//div[@id='table-of-contents']",
 	"/html/body//td[@class='second-box']//div[@id='other-formats']",	
-	"/html/body/div[@id='wrapper']/div[@id='footer']",
+	"/html/body/div[@class='prefooter']",
+	"/html/body/footer[@class='footer']",
 	"/html/body/div[@id='wrapper']//a[@class='headerlink']",
 	"/html/head//script",
 	"/html/body//script"
@@ -106,8 +108,8 @@ task :download do
         print_task "Downloading from 'http://#{docs}'..."
         system "wget --recursive --page-requisites --adjust-extension --convert-links \
                 --domains #{DOMAIN} --no-parent http://#{docs} 2>&1 | egrep -i '%|Saving to\'"
-        FileUtils.mv docs, DOCSET_PATH
     end
+    FileUtils.mv LOCAL_DOCS_FOLDER, DOCSET_PATH
 end
 
 ##############################################################################################
@@ -155,11 +157,11 @@ task :plist do
         << "<plist version='1.0'>\n" \
         << "<dict>\n" \
         << tab_space << "<key>CFBundleIdentifier</key>\n" \
-        << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
+        << tab_space << "<string>#{DOCSET_NAME_SMALL}</string>\n" \
         << tab_space << "<key>CFBundleName</key>\n" \
         << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
         << tab_space << "<key>DocSetPlatformFamily</key>\n" \
-        << tab_space << "<string>#{DOCSET_NAME}</string>\n" \
+        << tab_space << "<string>#{DOCSET_NAME_SMALL}</string>\n" \
         << tab_space << "<key>isDashDocset</key>\n" \
         << tab_space << "<true/>\n" \
         << tab_space << "<key>dashIndexFilePath</key>\n" \
@@ -242,7 +244,7 @@ end
 # Delete all temporary files
 task :rm do
   print_task "Cleaning..."
-  FileUtils.rm_rf(DOCS_FOLDER) if File.directory? DOCS_FOLDER
+  #FileUtils.rm_rf(DOCS_FOLDER) if File.directory? DOCS_FOLDER
   if File.directory? DOCSET_FOLDER
   	#FileUtils.rm_rf(DOCSET_FOLDER) if File.directory? DOCSET_FOLDER
   	remove_unnecessaries

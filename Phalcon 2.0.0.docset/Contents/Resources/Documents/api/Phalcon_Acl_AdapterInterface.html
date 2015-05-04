@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Interface Phalcon\Acl\AdapterInterface — Phalcon 2.0.0 documentation</title>
+    <meta name="keywords" content="php, phalcon, phalcon php, php framework, faster php framework">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://static.phalconphp.com/css/phalcon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <!--
+    EUROPE <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin-ext' rel='stylesheet' type='text/css'>
+    GREEK <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=greek-ext' rel='stylesheet' type='text/css'>
+    RUSSIA <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+    <link rel="stylesheet" href="../_static/docs.css" type="text/css">
+    
+
+    
+    
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="top" title="Phalcon 2.0.0 documentation" href="../index.html">
+    <link rel="up" title="API Indice" href="index.html">
+    <link rel="next" title="Interface Phalcon\Acl\ResourceInterface" href="Phalcon_Acl_ResourceInterface.html">
+    <link rel="prev" title="Class Phalcon\Version" href="Phalcon_Version.html"> 
+  </head>
+  <body>
+
+
+
+
+    <!--<div class="header-line">
+      <div class="size-wrap">
+        <div class="header-line-title title-white">Documentation</div>
+      </div>
+    </div>-->
+      
+
+      <table width="100%" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+      
+          <td class="second-box" valign="top">
+            <div class="document">
+                <div class="documentwrapper">
+                  <div class="bodywrapper">
+                    <div class="body">
+                      
+  <div class="section" id="interface-phalcon-acl-adapterinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CAcl%5CAdapterInterface" id="Phalcon\Acl\AdapterInterface" class="dashAnchor"></a><strong>Phalcon\Acl\AdapterInterface</strong>
+</h1>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Acl_AdapterInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public  <a name="//apple_ref/cpp/Method/setDefaultAction" id="setDefaultAction" class="dashAnchor"></a><strong>setDefaultAction</strong> (<em>unknown</em> $defaultAccess)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getDefaultAction" id="getDefaultAction" class="dashAnchor"></a><strong>getDefaultAction</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addRole" id="addRole" class="dashAnchor"></a><strong>addRole</strong> (<em>unknown</em> $role, [<em>unknown</em> $accessInherits])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addInherit" id="addInherit" class="dashAnchor"></a><strong>addInherit</strong> (<em>unknown</em> $roleName, <em>unknown</em> $roleToInherit)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isRole" id="isRole" class="dashAnchor"></a><strong>isRole</strong> (<em>unknown</em> $roleName)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isResource" id="isResource" class="dashAnchor"></a><strong>isResource</strong> (<em>unknown</em> $resourceName)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addResource" id="addResource" class="dashAnchor"></a><strong>addResource</strong> (<em>unknown</em> $resourceObject, [<em>unknown</em> $accessList])</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/addResourceAccess" id="addResourceAccess" class="dashAnchor"></a><strong>addResourceAccess</strong> (<em>unknown</em> $resourceName, <em>unknown</em> $accessList)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/dropResourceAccess" id="dropResourceAccess" class="dashAnchor"></a><strong>dropResourceAccess</strong> (<em>unknown</em> $resourceName, <em>unknown</em> $accessList)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/allow" id="allow" class="dashAnchor"></a><strong>allow</strong> (<em>unknown</em> $roleName, <em>unknown</em> $resourceName, <em>unknown</em> $access)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/deny" id="deny" class="dashAnchor"></a><strong>deny</strong> (<em>unknown</em> $roleName, <em>unknown</em> $resourceName, <em>unknown</em> $access)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/isAllowed" id="isAllowed" class="dashAnchor"></a><strong>isAllowed</strong> (<em>unknown</em> $roleName, <em>unknown</em> $resourceName, <em>unknown</em> $access)</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getActiveRole" id="getActiveRole" class="dashAnchor"></a><strong>getActiveRole</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getActiveResource" id="getActiveResource" class="dashAnchor"></a><strong>getActiveResource</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getActiveAccess" id="getActiveAccess" class="dashAnchor"></a><strong>getActiveAccess</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getRoles" id="getRoles" class="dashAnchor"></a><strong>getRoles</strong> ()</p>
+<p>...</p>
+<p>abstract public  <a name="//apple_ref/cpp/Method/getResources" id="getResources" class="dashAnchor"></a><strong>getResources</strong> ()</p>
+<p>...</p>
+</div>
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+
+      
+
+
+    
+    
+
+  </body>
+</html>
