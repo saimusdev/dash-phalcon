@@ -52,6 +52,7 @@ UNNECESARY_HTML_NODES = [
 	"/html/body//td[@class='second-box']//div[@id='table-of-contents']",
 	"/html/body//td[@class='second-box']//div[@id='other-formats']",	
 	"/html/body/div[@id='wrapper']/div[@id='footer']",
+	"/html/body/div[@id='wrapper']//a[@class='headerlink']",
 	"/html/head//script",
 	"/html/body//script"
 ]

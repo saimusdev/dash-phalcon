@@ -1,7 +1,7 @@
-# [Phalcon PHP 1.3.0](http://foundation.zurb.com) Dash docset
+# [Phalcon PHP 2.0.0](http://foundation.zurb.com) Dash docset
 
 
-[Phalcon PHP 1.3.0](http://phalconphp.com/en/) documentation for Dash
+[Phalcon PHP 2.0.0](http://phalconphp.com/en/) documentation for Dash
 
 This docset is to be used with [Dash for Mac](http://kapeli.com/dash) (Mac only App) or [Zeal docs]( http://zealdocs.org) (which is available for Windows and many Linux distros).
 
