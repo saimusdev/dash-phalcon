@@ -9,7 +9,7 @@ This docset is to be used with [Dash for Mac](http://kapeli.com/dash) (Mac only 
 
 #### for Dash
 
-If you plan on using it with **Dash**, just copy the [Phalcon docset](https://github.com/saimusdev/dash-phalcon/releases/download/1.1/Phalcon.1.3.0.docset.zip) provided to '/Users/username/Library/Application Support/Dash/Docsets/'. Visit [Dash](http://kapeli.com/dash) website for more info.
+If you plan on using it with **Dash**, just copy the [Phalcon docset](https://github.com/saimusdev/dash-phalcon/releases/download/1.1/Phalcon_1.3.0_docset.zip) provided to '/Users/username/Library/Application Support/Dash/Docsets/'. Visit [Dash](http://kapeli.com/dash) website for more info.
 
 #### for Zeal
 
