@@ -1,4 +1,5 @@
 .DS_Store
 ._*
+.bundle
 Gemfile.lock
 "Phalcon 2.0.0.docset"
