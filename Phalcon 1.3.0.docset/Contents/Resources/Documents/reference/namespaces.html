@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Working with Namespaces — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="next" title="Events Manager" href="events.html">
+<link rel="prev" title="Micro Applications" href="micro.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="working-with-namespaces">
+<h1>Working with Namespaces
+</h1>
+<p><a class="reference external" href="http://php.net/manual/en/language.namespaces.php">Namespaces</a> can be used to avoid class name collisions; this means that if you have two controllers in an application with the same name,
+a namespace can be used to differentiate them. Namespaces are also useful for creating bundles or modules.</p>
+<div class="section" id="setting-up-the-framework">
+<h2>Setting up the framework<a class="headerlink" href="namespaces.html#setting-up-the-framework" title="Permalink to this headline">¶</a>
+</h2>
+<p>Using namespaces has some implications when loading the appropriate controller. To adjust the framework behavior to namespaces is necessary
+to perform one or all of the following tasks:</p>
+<p>Use an autoload strategy that takes into account the namespaces, for example with Phalcon\Loader:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+       <span class="s1">'Store\Admin\Controllers'</span>    <span class="o">=&gt;</span> <span class="s2">"../bundles/admin/controllers/"</span><span class="p">,</span>
+       <span class="s1">'Store\Admin\Models'</span>    <span class="o">=&gt;</span> <span class="s2">"../bundles/admin/models/"</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Specify it in the routes as a separate parameter in the route’s paths:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$router</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">'/admin/users/my-profile'</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'namespace'</span>  <span class="o">=&gt;</span> <span class="s1">'Store\Admin'</span><span class="p">,</span>
+        <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'Users'</span><span class="p">,</span>
+        <span class="s1">'action'</span>     <span class="o">=&gt;</span> <span class="s1">'profile'</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Passing it as part of the route:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$router</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">'/:namespace/admin/users/my-profile'</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'namespace'</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'Users'</span><span class="p">,</span>
+        <span class="s1">'action'</span>     <span class="o">=&gt;</span> <span class="s1">'profile'</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>If you are only working with the same namespace for every controller in your application, then you can define a default namespace
+in the Dispatcher, by doing this, you don’t need to specify a full class name in the router path:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Registering a dispatcher</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'dispatcher'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Phalcon\Mvc\Dispatcher</span><span class="p">();</span>
+    <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setDefaultNamespace</span><span class="p">(</span><span class="s1">'Store\Admin\Controllers'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$dispatcher</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="controllers-in-namespaces">
+<h2>Controllers in Namespaces<a class="headerlink" href="namespaces.html#controllers-in-namespaces" title="Permalink to this headline">¶</a>
+</h2>
+<p>The following example shows how to implement a controller that use namespaces:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Admin\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UsersController</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">profileAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="models-in-namespaces">
+<h2>Models in Namespaces<a class="headerlink" href="namespaces.html#models-in-namespaces" title="Permalink to this headline">¶</a>
+</h2>
+<p>Take the following into consideration when using models in namespaces:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Models</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Robots</span> <span class="k">extends</span> <span class="nx">\Phalcon\Mvc\Model</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If models have relationships they must include the namespace too:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Store\Models</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Robots</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Model</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">initialize</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasMany</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'Store\Models\Parts'</span><span class="p">,</span> <span class="s1">'robots_id'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'alias'</span> <span class="o">=&gt;</span> <span class="s1">'parts'</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In PHQL you must write the statements including namespaces:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$phql</span> <span class="o">=</span> <span class="s1">'SELECT r.* FROM Store\Models\Robots r JOIN Store\Models\Parts p'</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

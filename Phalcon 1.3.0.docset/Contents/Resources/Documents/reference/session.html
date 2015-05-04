@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Storing data in Session — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="next" title="Filtering and Sanitizing" href="filter.html">
+<link rel="prev" title="Flashing Messages" href="flash.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="storing-data-in-session">
+<h1>Storing data in Session
+</h1>
+<p>The <a class="reference internal" href="../api/Phalcon_Session.html"><em>Phalcon\Session</em></a> provides object-oriented wrappers to access session data.</p>
+<p>Reasons to use this component instead of raw-sessions:</p>
+<ul class="simple">
+<li>You can easily isolate session data across applications on the same domain</li>
+<li>Intercept where session data is set/get in your application</li>
+<li>Change the session adapter according to the application needs</li>
+</ul>
+<div class="section" id="starting-the-session">
+<h2>Starting the Session<a class="headerlink" href="session.html#starting-the-session" title="Permalink to this headline">¶</a>
+</h2>
+<p>Some applications are session-intensive, almost any action that performs requires access to session data. There are others who access session data casually.
+Thanks to the service container, we can ensure that the session is accessed only when it’s clearly needed:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Start the session the first time when some component request the session service</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">setShared</span><span class="p">(</span><span class="s1">'session'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Session\Adapter\Files</span><span class="p">();</span>
+    <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nv">$session</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storing-retrieving-data-in-session">
+<h2>Storing/Retrieving data in Session<a class="headerlink" href="session.html#storing-retrieving-data-in-session" title="Permalink to this headline">¶</a>
+</h2>
+<p>From a controller, a view or any other component that extends <a class="reference internal" href="../api/Phalcon_DI_Injectable.html"><em>Phalcon\DI\Injectable</em></a> you can access the session service
+and store items and retrieve them in the following way:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Set a session variable</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s2">"user-name"</span><span class="p">,</span> <span class="s2">"Michael"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">welcomeAction</span><span class="p">()</span>
+    <span class="p">{</span>
+
+        <span class="c1">//Check if the variable is defined</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s2">"user-name"</span><span class="p">))</span> <span class="p">{</span>
+
+            <span class="c1">//Retrieve its value</span>
+            <span class="nv">$name</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">"user-name"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-destroying-sessions">
+<h2>Removing/Destroying Sessions<a class="headerlink" href="session.html#removing-destroying-sessions" title="Permalink to this headline">¶</a>
+</h2>
+<p>It’s also possible remove specific variables or destroy the whole session:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">removeAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Remove a session variable</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="s2">"user-name"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">logoutAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Destroy the whole session</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isolating-session-data-between-applications">
+<h2>Isolating Session Data between Applications<a class="headerlink" href="session.html#isolating-session-data-between-applications" title="Permalink to this headline">¶</a>
+</h2>
+<p>Sometimes a user can use the same application twice, on the same server, in the same session. Surely, if we use variables in session,
+we want that every application have separate session data (even though the same code and same variable names). To solve this, you can add a
+prefix for every session variable created in a certain application:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">//Isolating the session data</span>
+<span class="nv">$di</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">'session'</span><span class="p">,</span> <span class="k">function</span><span class="p">(){</span>
+
+    <span class="c1">//All variables created will prefixed with "my-app-1"</span>
+    <span class="nv">$session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Session\Adapter\Files</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'uniqueId'</span> <span class="o">=&gt;</span> <span class="s1">'my-app-1'</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nv">$session</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="session-bags">
+<h2>Session Bags<a class="headerlink" href="session.html#session-bags" title="Permalink to this headline">¶</a>
+</h2>
+<p><a class="reference internal" href="../api/Phalcon_Session_Bag.html"><em>Phalcon\Session\Bag</em></a> is a component that helps separating session data into “namespaces”.
+Working by this way you can easily create groups of session variables into the application. By only setting the variables in the “bag”,
+it’s automatically stored in session:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$user</span>       <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Session\Bag</span><span class="p">(</span><span class="s1">'user'</span><span class="p">);</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setDI</span><span class="p">(</span><span class="nv">$di</span><span class="p">);</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s2">"Kimbra Johnson"</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">age</span>  <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="persistent-data-in-components">
+<h2>Persistent Data in Components<a class="headerlink" href="session.html#persistent-data-in-components" title="Permalink to this headline">¶</a>
+</h2>
+<p>Controller, components and classes that extends <a class="reference internal" href="../api/Phalcon_DI_Injectable.html"><em>Phalcon\DI\Injectable</em></a> may inject
+a <a class="reference internal" href="../api/Phalcon_Session_Bag.html"><em>Phalcon\Session\Bag</em></a>. This class isolates variables for every class.
+Thanks to this you can persist data between requests in every class in an independent way.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Controller</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Create a persistent variable "name"</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">persistent</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s2">"Laura"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">welcomeAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">persistent</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">"Welcome, "</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">persistent</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In a component:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Security</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\User\Component</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">auth</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Create a persistent variable "name"</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">persistent</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s2">"Laura"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAuthName</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">persistent</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The data added to the session ($this-&gt;session) are available throughout the application, while persistent ($this-&gt;persistent)
+can only be accessed in the scope of the current class.</p>
+</div>
+<div class="section" id="implementing-your-own-adapters">
+<h2>Implementing your own adapters<a class="headerlink" href="session.html#implementing-your-own-adapters" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <a class="reference internal" href="../api/Phalcon_Session_AdapterInterface.html"><em>Phalcon\Session\AdapterInterface</em></a> interface must be implemented in order to create your own session adapters or extend the existing ones.</p>
+<p>There are more adapters available for this components in the <a class="reference external" href="https://github.com/phalcon/incubator/tree/master/Library/Phalcon/Session/Adapter">Phalcon Incubator</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

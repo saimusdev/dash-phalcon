@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\Mvc\Model\MetaDataInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\Mvc\Model\QueryInterface" href="Phalcon_Mvc_Model_QueryInterface.html">
+<link rel="prev" title="Interface Phalcon\Mvc\Model\MessageInterface" href="Phalcon_Mvc_Model_MessageInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-mvc-model-metadatainterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CModel%5CMetaDataInterface" id="Phalcon\Mvc\Model\MetaDataInterface" class="dashAnchor"></a><strong>Phalcon\Mvc\Model\MetaDataInterface</strong>
+</h1>
+<p>Phalcon\Mvc\Model\MetaDataInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Model_MetaDataInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public <a name="//apple_ref/cpp/Method/setStrategy" id="setStrategy" class="dashAnchor"></a><strong>setStrategy</strong> (<a class="reference internal" href="Phalcon_Mvc_Model_MetaData_Strategy_Introspection.html"><em>Phalcon\Mvc\Model\MetaData\Strategy\Introspection</em></a> $strategy)</p>
+<p>Set the meta-data extraction strategy</p>
+<p>abstract public <a class="reference internal" href="Phalcon_Mvc_Model_MetaData_Strategy_Introspection.html"><em>Phalcon\Mvc\Model\MetaData\Strategy\Introspection</em></a> <a name="//apple_ref/cpp/Method/getStrategy" id="getStrategy" class="dashAnchor"></a><strong>getStrategy</strong> ()</p>
+<p>Return the strategy to obtain the meta-data</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/readMetaData" id="readMetaData" class="dashAnchor"></a><strong>readMetaData</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Reads meta-data for certain model</p>
+<p>abstract public <em>mixed</em> <a name="//apple_ref/cpp/Method/readMetaDataIndex" id="readMetaDataIndex" class="dashAnchor"></a><strong>readMetaDataIndex</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model, <em>int</em> $index)</p>
+<p>Reads meta-data for certain model using a MODEL_* constant</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/writeMetaDataIndex" id="writeMetaDataIndex" class="dashAnchor"></a><strong>writeMetaDataIndex</strong> (<a class="reference internal" href="Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> $model, <em>int</em> $index, <em>mixed</em> $data, <em>unknown</em> $replace)</p>
+<p>Writes meta-data for certain model using a MODEL_* constant</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/readColumnMap" id="readColumnMap" class="dashAnchor"></a><strong>readColumnMap</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Reads the ordered/reversed column map for certain model</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/readColumnMapIndex" id="readColumnMapIndex" class="dashAnchor"></a><strong>readColumnMapIndex</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model, <em>int</em> $index)</p>
+<p>Reads column-map information for certain model using a MODEL_* constant</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getAttributes" id="getAttributes" class="dashAnchor"></a><strong>getAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns table attributes names (fields)</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getPrimaryKeyAttributes" id="getPrimaryKeyAttributes" class="dashAnchor"></a><strong>getPrimaryKeyAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns an array of fields which are part of the primary key</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getNonPrimaryKeyAttributes" id="getNonPrimaryKeyAttributes" class="dashAnchor"></a><strong>getNonPrimaryKeyAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns an arrau of fields which are not part of the primary key</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getNotNullAttributes" id="getNotNullAttributes" class="dashAnchor"></a><strong>getNotNullAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns an array of not null attributes</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getDataTypes" id="getDataTypes" class="dashAnchor"></a><strong>getDataTypes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns attributes and their data types</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getDataTypesNumeric" id="getDataTypesNumeric" class="dashAnchor"></a><strong>getDataTypesNumeric</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns attributes which types are numerical</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getIdentityField" id="getIdentityField" class="dashAnchor"></a><strong>getIdentityField</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns the name of identity field (if one is present)</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getBindTypes" id="getBindTypes" class="dashAnchor"></a><strong>getBindTypes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns attributes and their bind data types</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getAutomaticCreateAttributes" id="getAutomaticCreateAttributes" class="dashAnchor"></a><strong>getAutomaticCreateAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns attributes that must be ignored from the INSERT SQL generation</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getAutomaticUpdateAttributes" id="getAutomaticUpdateAttributes" class="dashAnchor"></a><strong>getAutomaticUpdateAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns attributes that must be ignored from the UPDATE SQL generation</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setAutomaticCreateAttributes" id="setAutomaticCreateAttributes" class="dashAnchor"></a><strong>setAutomaticCreateAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model, <em>array</em> $attributes, <em>unknown</em> $replace)</p>
+<p>Set the attributes that must be ignored from the INSERT SQL generation</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setAutomaticUpdateAttributes" id="setAutomaticUpdateAttributes" class="dashAnchor"></a><strong>setAutomaticUpdateAttributes</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model, <em>array</em> $attributes, <em>unknown</em> $replace)</p>
+<p>Set the attributes that must be ignored from the UPDATE SQL generation</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getColumnMap" id="getColumnMap" class="dashAnchor"></a><strong>getColumnMap</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns the column map if any</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getReverseColumnMap" id="getReverseColumnMap" class="dashAnchor"></a><strong>getReverseColumnMap</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model)</p>
+<p>Returns the reverse column map if any</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/hasAttribute" id="hasAttribute" class="dashAnchor"></a><strong>hasAttribute</strong> (<a class="reference internal" href="Phalcon_Mvc_ModelInterface.html"><em>Phalcon\Mvc\ModelInterface</em></a> $model, <em>string</em> $attribute)</p>
+<p>Check if a model has certain attribute</p>
+<p>abstract public <em>boolean</em> <a name="//apple_ref/cpp/Method/isEmpty" id="isEmpty" class="dashAnchor"></a><strong>isEmpty</strong> ()</p>
+<p>Checks if the internal meta-data container is empty</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> ()</p>
+<p>Resets internal meta-data in order to regenerate it</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/read" id="read" class="dashAnchor"></a><strong>read</strong> (<em>string</em> $key)</p>
+<p>Reads meta-data from the adapter</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/write" id="write" class="dashAnchor"></a><strong>write</strong> (<em>string</em> $key, <em>array</em> $data)</p>
+<p>Writes meta-data to the adapter</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

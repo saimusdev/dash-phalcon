@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Tag — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Tag\Exception" href="Phalcon_Tag_Exception.html">
+<link rel="prev" title="Class Phalcon\Session\Exception" href="Phalcon_Session_Exception.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-tag">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CTag" id="Phalcon\Tag" class="dashAnchor"></a><strong>Phalcon\Tag</strong>
+</h1>
+<p>Phalcon\Tag is designed to simplify building of HTML tags. It provides a set of helpers to generate HTML in a dynamic way. This component is an abstract class that you can extend to add more helpers.</p>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="Phalcon_Tag.html#constants" title="Permalink to this headline">¶</a>
+</h2>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HTML32" id="HTML32" class="dashAnchor"></a><strong>HTML32</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HTML401_STRICT" id="HTML401_STRICT" class="dashAnchor"></a><strong>HTML401_STRICT</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HTML401_TRANSITIONAL" id="HTML401_TRANSITIONAL" class="dashAnchor"></a><strong>HTML401_TRANSITIONAL</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HTML401_FRAMESET" id="HTML401_FRAMESET" class="dashAnchor"></a><strong>HTML401_FRAMESET</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/HTML5" id="HTML5" class="dashAnchor"></a><strong>HTML5</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML10_STRICT" id="XHTML10_STRICT" class="dashAnchor"></a><strong>XHTML10_STRICT</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML10_TRANSITIONAL" id="XHTML10_TRANSITIONAL" class="dashAnchor"></a><strong>XHTML10_TRANSITIONAL</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML10_FRAMESET" id="XHTML10_FRAMESET" class="dashAnchor"></a><strong>XHTML10_FRAMESET</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML11" id="XHTML11" class="dashAnchor"></a><strong>XHTML11</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML20" id="XHTML20" class="dashAnchor"></a><strong>XHTML20</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/XHTML5" id="XHTML5" class="dashAnchor"></a><strong>XHTML5</strong></p>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Tag.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public static <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> $dependencyInjector)</p>
+<p>Sets the dependency injector container.</p>
+<p>public static <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Internally gets the dependency injector</p>
+<p>public static <a class="reference internal" href="Phalcon_Mvc_UrlInterface.html"><em>Phalcon\Mvc\UrlInterface</em></a> <a name="//apple_ref/cpp/Method/getUrlService" id="getUrlService" class="dashAnchor"></a><strong>getUrlService</strong> ()</p>
+<p>Return a URL service from the default DI</p>
+<p>public static <a class="reference internal" href="Phalcon_EscaperInterface.html"><em>Phalcon\EscaperInterface</em></a> <a name="//apple_ref/cpp/Method/getEscaperService" id="getEscaperService" class="dashAnchor"></a><strong>getEscaperService</strong> ()</p>
+<p>Returns an Escaper service from the default DI</p>
+<p>public static <em>bool</em> <a name="//apple_ref/cpp/Method/getAutoescape" id="getAutoescape" class="dashAnchor"></a><strong>getAutoescape</strong> ()</p>
+<p>Get current autoescape mode</p>
+<p>public static <a name="//apple_ref/cpp/Method/setAutoescape" id="setAutoescape" class="dashAnchor"></a><strong>setAutoescape</strong> (<em>boolean</em> $autoescape)</p>
+<p>Set autoescape mode in generated html</p>
+<p>public static <a name="//apple_ref/cpp/Method/setDefault" id="setDefault" class="dashAnchor"></a><strong>setDefault</strong> (<em>string</em> $id, <em>string</em> $value)</p>
+<p>Assigns default values to generated tags by helpers</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//Assigning "peter" to "name" component</span>
+ <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">setDefault</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"peter"</span><span class="p">);</span>
+
+ <span class="c1">//Later in the view</span>
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">textField</span><span class="p">(</span><span class="s2">"name"</span><span class="p">);</span> <span class="c1">//Will have the value "peter" by default</span>
+</pre></div>
+</div>
+<p>public static <a name="//apple_ref/cpp/Method/setDefaults" id="setDefaults" class="dashAnchor"></a><strong>setDefaults</strong> (<em>array</em> $values)</p>
+<p>Assigns default values to generated tags by helpers</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//Assigning "peter" to "name" component</span>
+ <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">setDefaults</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"peter"</span><span class="p">));</span>
+
+ <span class="c1">//Later in the view</span>
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">textField</span><span class="p">(</span><span class="s2">"name"</span><span class="p">);</span> <span class="c1">//Will have the value "peter" by default</span>
+</pre></div>
+</div>
+<p>public static <a name="//apple_ref/cpp/Method/displayTo" id="displayTo" class="dashAnchor"></a><strong>displayTo</strong> (<em>string</em> $id, <em>string</em> $value)</p>
+<p>Alias of Phalcon\Tag::setDefault</p>
+<p>public static <em>boolean</em> <a name="//apple_ref/cpp/Method/hasValue" id="hasValue" class="dashAnchor"></a><strong>hasValue</strong> (<em>string</em> $name)</p>
+<p>Check if a helper has a default value set using Phalcon\Tag::setDefault or value from $_POST</p>
+<p>public static <em>mixed</em> <a name="//apple_ref/cpp/Method/getValue" id="getValue" class="dashAnchor"></a><strong>getValue</strong> (<em>string</em> $name, [<em>array</em> $params])</p>
+<p>Every helper calls this function to check whether a component has a predefined value using Phalcon\Tag::setDefault or value from $_POST</p>
+<p>public static <a name="//apple_ref/cpp/Method/resetInput" id="resetInput" class="dashAnchor"></a><strong>resetInput</strong> ()</p>
+<p>Resets the request and internal values to avoid those fields will have any default value</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/linkTo" id="linkTo" class="dashAnchor"></a><strong>linkTo</strong> (<em>array|string</em> $parameters, [<em>string</em> $text])</p>
+<p>Builds a HTML A tag using framework conventions</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="s1">'signup/register'</span><span class="p">,</span> <span class="s1">'Register Here!'</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'signup/register'</span><span class="p">,</span> <span class="s1">'Register Here!'</span><span class="p">));</span>
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'signup/register'</span><span class="p">,</span> <span class="s1">'Register Here!'</span><span class="p">,</span> <span class="s1">'class'</span> <span class="o">=&gt;</span> <span class="s1">'btn-primary'</span><span class="p">));</span>
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="s1">'http://phalconphp.com/'</span><span class="p">,</span> <span class="s1">'Google'</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'http://phalconphp.com/'</span><span class="p">,</span> <span class="s1">'Phalcon Home'</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">));</span>
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">linkTo</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'http://phalconphp.com/'</span><span class="p">,</span> <span class="s1">'Phalcon Home'</span><span class="p">,</span> <span class="s1">'local'</span> <span class="o">=&gt;</span><span class="k">FALSE</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>protected static <em>string</em> <a name="//apple_ref/cpp/Method/_inputField" id="_inputField" class="dashAnchor"></a><strong>_inputField</strong> ()</p>
+<p>Builds generic INPUT tags</p>
+<p>protected static <em>string</em> <a name="//apple_ref/cpp/Method/_inputFieldChecked" id="_inputFieldChecked" class="dashAnchor"></a><strong>_inputFieldChecked</strong> ()</p>
+<p>Builds INPUT tags that implements the checked attribute</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/colorField" id="colorField" class="dashAnchor"></a><strong>colorField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”color”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/textField" id="textField" class="dashAnchor"></a><strong>textField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”text”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">textField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"size"</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/numericField" id="numericField" class="dashAnchor"></a><strong>numericField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”number”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">numericField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"price"</span><span class="p">,</span> <span class="s2">"min"</span> <span class="o">=&gt;</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"max"</span> <span class="o">=&gt;</span> <span class="s2">"5"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/rangeField" id="rangeField" class="dashAnchor"></a><strong>rangeField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”range”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/emailField" id="emailField" class="dashAnchor"></a><strong>emailField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”email”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">emailField</span><span class="p">(</span><span class="s2">"email"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/dateField" id="dateField" class="dashAnchor"></a><strong>dateField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”date”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">dateField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"born"</span><span class="p">,</span> <span class="s2">"value"</span> <span class="o">=&gt;</span> <span class="s2">"14-12-1980"</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/dateTimeField" id="dateTimeField" class="dashAnchor"></a><strong>dateTimeField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”datetime”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/dateTimeLocalField" id="dateTimeLocalField" class="dashAnchor"></a><strong>dateTimeLocalField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”datetime-local”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/monthField" id="monthField" class="dashAnchor"></a><strong>monthField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”month”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/timeField" id="timeField" class="dashAnchor"></a><strong>timeField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”time”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/weekField" id="weekField" class="dashAnchor"></a><strong>weekField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”week”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/passwordField" id="passwordField" class="dashAnchor"></a><strong>passwordField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”password”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">passwordField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"size"</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/hiddenField" id="hiddenField" class="dashAnchor"></a><strong>hiddenField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”hidden”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">hiddenField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"value"</span> <span class="o">=&gt;</span> <span class="s2">"mike"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/searchField" id="searchField" class="dashAnchor"></a><strong>searchField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”search”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/telField" id="telField" class="dashAnchor"></a><strong>telField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”tel”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/urlField" id="urlField" class="dashAnchor"></a><strong>urlField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”url”] tag</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/fileField" id="fileField" class="dashAnchor"></a><strong>fileField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”file”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">fileField</span><span class="p">(</span><span class="s2">"file"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/checkField" id="checkField" class="dashAnchor"></a><strong>checkField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”check”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">checkField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"terms"</span><span class="p">,</span> <span class="s2">"value"</span> <span class="o">=&gt;</span> <span class="s2">"Y"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/radioField" id="radioField" class="dashAnchor"></a><strong>radioField</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”radio”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">radioField</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"wheather"</span><span class="p">,</span> <span class="s2">"value"</span> <span class="o">=&gt;</span> <span class="s2">"hot"</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">radio_field</span><span class="p">(</span><span class="s1">'Save'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/imageInput" id="imageInput" class="dashAnchor"></a><strong>imageInput</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”image”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">imageInput</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"src"</span> <span class="o">=&gt;</span> <span class="s2">"/img/button.png"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">image_input</span><span class="p">(</span><span class="s1">'src'</span><span class="o">:</span> <span class="s1">'/img/button.png'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/submitButton" id="submitButton" class="dashAnchor"></a><strong>submitButton</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML input[type=”submit”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">submitButton</span><span class="p">(</span><span class="s2">"Save"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">submit_button</span><span class="p">(</span><span class="s1">'Save'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/selectStatic" id="selectStatic" class="dashAnchor"></a><strong>selectStatic</strong> (<em>array</em> $parameters, [<em>array</em> $data])</p>
+<p>Builds a HTML SELECT tag using a PHP array for options</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">selectStatic</span><span class="p">(</span><span class="s2">"status"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">"A"</span> <span class="o">=&gt;</span> <span class="s2">"Active"</span><span class="p">,</span> <span class="s2">"I"</span> <span class="o">=&gt;</span> <span class="s2">"Inactive"</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/select" id="select" class="dashAnchor"></a><strong>select</strong> (<em>array</em> $parameters, [<em>array</em> $data])</p>
+<p>Builds a HTML SELECT tag using a Phalcon\Mvc\Model resultset as options</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">select</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s2">"robotId"</span><span class="p">,</span>
+    <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="s2">"type = 'mechanical'"</span><span class="p">),</span>
+    <span class="s2">"using"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">)</span>
+    <span class="p">));</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">select</span><span class="p">(</span><span class="s2">"robotId"</span><span class="p">,</span> <span class="nx">robots</span><span class="p">,</span> <span class="s2">"using"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">])</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/textArea" id="textArea" class="dashAnchor"></a><strong>textArea</strong> (<em>array</em> $parameters)</p>
+<p>Builds a HTML TEXTAREA tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">textArea</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"comments"</span><span class="p">,</span> <span class="s2">"cols"</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"rows"</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">text_area</span><span class="p">(</span><span class="s2">"comments"</span><span class="p">,</span> <span class="s2">"cols"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"rows"</span><span class="o">:</span> <span class="mi">4</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/form" id="form" class="dashAnchor"></a><strong>form</strong> ([<em>array</em> $parameters])</p>
+<p>Builds a HTML FORM tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">form</span><span class="p">(</span><span class="s2">"posts/save"</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">form</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"posts/save"</span><span class="p">,</span> <span class="s2">"method"</span> <span class="o">=&gt;</span> <span class="s2">"post"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">form</span><span class="p">(</span><span class="s2">"posts/save"</span><span class="p">)</span> <span class="p">}}</span>
+ <span class="p">{{</span> <span class="nx">form</span><span class="p">(</span><span class="s2">"posts/save"</span><span class="p">,</span> <span class="s2">"method"</span><span class="o">:</span> <span class="s2">"post"</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/endForm" id="endForm" class="dashAnchor"></a><strong>endForm</strong> ()</p>
+<p>Builds a HTML close FORM tag</p>
+<p>public static <a name="//apple_ref/cpp/Method/setTitle" id="setTitle" class="dashAnchor"></a><strong>setTitle</strong> (<em>string</em> $title)</p>
+<p>Set the title of view content</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">setTitle</span><span class="p">(</span><span class="s1">'Welcome to my Page'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <a name="//apple_ref/cpp/Method/setTitleSeparator" id="setTitleSeparator" class="dashAnchor"></a><strong>setTitleSeparator</strong> (<em>unknown</em> $separator)</p>
+<p>Set the title separator of view content</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">setTitleSeparator</span><span class="p">(</span><span class="s1">'-'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <a name="//apple_ref/cpp/Method/appendTitle" id="appendTitle" class="dashAnchor"></a><strong>appendTitle</strong> (<em>string</em> $title)</p>
+<p>Appends a text to current document title</p>
+<p>public static <a name="//apple_ref/cpp/Method/prependTitle" id="prependTitle" class="dashAnchor"></a><strong>prependTitle</strong> (<em>string</em> $title)</p>
+<p>Prepends a text to current document title</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/getTitle" id="getTitle" class="dashAnchor"></a><strong>getTitle</strong> ([<em>unknown</em> $tags])</p>
+<p>Gets the current document title</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">getTitle</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="p">{{</span> <span class="nx">get_title</span><span class="p">()</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/getTitleSeparator" id="getTitleSeparator" class="dashAnchor"></a><strong>getTitleSeparator</strong> ()</p>
+<p>Gets the current document title separator</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">getTitleSeparator</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="p">{{</span> <span class="nx">get_title_separator</span><span class="p">()</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/stylesheetLink" id="stylesheetLink" class="dashAnchor"></a><strong>stylesheetLink</strong> ([<em>array</em> $parameters], [<em>boolean</em> $local])</p>
+<p>Builds a LINK[rel=”stylesheet”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">stylesheetLink</span><span class="p">(</span><span class="s2">"http://fonts.googleapis.com/css?family=Rosario"</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">stylesheetLink</span><span class="p">(</span><span class="s2">"css/style.css"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Volt Syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="p">{{</span> <span class="nx">stylesheet_link</span><span class="p">(</span><span class="s2">"http://fonts.googleapis.com/css?family=Rosario"</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="p">}}</span>
+    <span class="p">{{</span> <span class="nx">stylesheet_link</span><span class="p">(</span><span class="s2">"css/style.css"</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/javascriptInclude" id="javascriptInclude" class="dashAnchor"></a><strong>javascriptInclude</strong> ([<em>array</em> $parameters], [<em>boolean</em> $local])</p>
+<p>Builds a SCRIPT[type=”javascript”] tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">javascriptInclude</span><span class="p">(</span><span class="s2">"http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">javascriptInclude</span><span class="p">(</span><span class="s2">"javascript/jquery.js"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Volt syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="p">{{</span> <span class="nx">javascript_include</span><span class="p">(</span><span class="s2">"http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="p">}}</span>
+ <span class="p">{{</span> <span class="nx">javascript_include</span><span class="p">(</span><span class="s2">"javascript/jquery.js"</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/image" id="image" class="dashAnchor"></a><strong>image</strong> ([<em>array</em> $parameters], [<em>boolean</em> $local])</p>
+<p>Builds HTML IMG tags</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">image</span><span class="p">(</span><span class="s2">"img/bg.png"</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">image</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">"img/photo.jpg"</span><span class="p">,</span> <span class="s2">"alt"</span> <span class="o">=&gt;</span> <span class="s2">"Some Photo"</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Volt Syntax:</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+    <span class="p">{{</span> <span class="nx">image</span><span class="p">(</span><span class="s2">"img/bg.png"</span><span class="p">)</span> <span class="p">}}</span>
+    <span class="p">{{</span> <span class="nx">image</span><span class="p">(</span><span class="s2">"img/photo.jpg"</span><span class="p">,</span> <span class="s2">"alt"</span><span class="o">:</span> <span class="s2">"Some Photo"</span><span class="p">)</span> <span class="p">}}</span>
+    <span class="p">{{</span> <span class="nx">image</span><span class="p">(</span><span class="s2">"http://static.mywebsite.com/img/bg.png"</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>public static <em>text</em> <a name="//apple_ref/cpp/Method/friendlyTitle" id="friendlyTitle" class="dashAnchor"></a><strong>friendlyTitle</strong> (<em>string</em> $text, [<em>string</em> $separator], [<em>boolean</em> $lowercase])</p>
+<p>Converts texts into URL-friendly titles</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">friendlyTitle</span><span class="p">(</span><span class="s1">'These are big important news'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>public static <a name="//apple_ref/cpp/Method/setDocType" id="setDocType" class="dashAnchor"></a><strong>setDocType</strong> (<em>string</em> $doctype)</p>
+<p>Set the document type of content</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/getDocType" id="getDocType" class="dashAnchor"></a><strong>getDocType</strong> ()</p>
+<p>Get the document type declaration of content</p>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/tagHtml" id="tagHtml" class="dashAnchor"></a><strong>tagHtml</strong> (<em>string</em> $tagName, [<em>array</em> $parameters], [<em>boolean</em> $selfClose], [<em>boolean</em> $onlyStart], [<em>boolean</em> $useEol])</p>
+<p>Builds a HTML tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">tagHtml</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$parameters</span><span class="p">,</span> <span class="nv">$selfClose</span><span class="p">,</span> <span class="nv">$onlyStart</span><span class="p">,</span> <span class="nv">$eol</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <em>string</em> <a name="//apple_ref/cpp/Method/tagHtmlClose" id="tagHtmlClose" class="dashAnchor"></a><strong>tagHtmlClose</strong> (<em>string</em> $tagName, [<em>boolean</em> $useEol])</p>
+<p>Builds a HTML tag closing tag</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nx">Phalcon\Tag</span><span class="o">::</span><span class="na">tagHtmlClose</span><span class="p">(</span><span class="s1">'script'</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

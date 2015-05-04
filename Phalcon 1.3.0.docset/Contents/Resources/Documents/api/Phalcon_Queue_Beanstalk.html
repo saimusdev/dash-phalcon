@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Queue\Beanstalk — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Queue\Beanstalk\Job" href="Phalcon_Queue_Beanstalk_Job.html">
+<link rel="prev" title="Class Phalcon\Paginator\Exception" href="Phalcon_Paginator_Exception.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-queue-beanstalk">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CQueue%5CBeanstalk" id="Phalcon\Queue\Beanstalk" class="dashAnchor"></a><strong>Phalcon\Queue\Beanstalk</strong>
+</h1>
+<p>Class to access the beanstalk queue service. Partially implements the protocol version 1.2</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Queue_Beanstalk.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>array</em> $options])</p>
+<p>public <a name="//apple_ref/cpp/Method/connect" id="connect" class="dashAnchor"></a><strong>connect</strong> ()</p>
+<p>...</p>
+<p>public <em>string|boolean</em> <a name="//apple_ref/cpp/Method/put" id="put" class="dashAnchor"></a><strong>put</strong> (<em>string</em> $data, [<em>array</em> $options])</p>
+<p>Inserts jobs into the queue</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em> <a name="//apple_ref/cpp/Method/reserve" id="reserve" class="dashAnchor"></a><strong>reserve</strong> ([<em>unknown</em> $timeout])</p>
+<p>Reserves a job in the queue</p>
+<p>public <em>string|boolean</em> <a name="//apple_ref/cpp/Method/choose" id="choose" class="dashAnchor"></a><strong>choose</strong> (<em>string</em> $tube)</p>
+<p>Change the active tube. By default the tube is ‘default’</p>
+<p>public <em>string|boolean</em> <a name="//apple_ref/cpp/Method/watch" id="watch" class="dashAnchor"></a><strong>watch</strong> (<em>string</em> $tube)</p>
+<p>Change the active tube. By default the tube is ‘default’</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em> <a name="//apple_ref/cpp/Method/peekReady" id="peekReady" class="dashAnchor"></a><strong>peekReady</strong> ()</p>
+<p>Inspect the next ready job.</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em> <a name="//apple_ref/cpp/Method/peekDelayed" id="peekDelayed" class="dashAnchor"></a><strong>peekDelayed</strong> ()</p>
+<p>Return the delayed job with the shortest delay left</p>
+<p>public <em>boolean|PhalconQueueBeanstalkJob</em> <a name="//apple_ref/cpp/Method/peekBuried" id="peekBuried" class="dashAnchor"></a><strong>peekBuried</strong> ()</p>
+<p>Return the next job in the list of buried jobs</p>
+<p>protected <em>array</em> <a name="//apple_ref/cpp/Method/readStatus" id="readStatus" class="dashAnchor"></a><strong>readStatus</strong> ()</p>
+<p>Reads the latest status from the Beanstalkd server</p>
+<p>public <em>string|boolean Data or `false` on error.</em> <a name="//apple_ref/cpp/Method/read" id="read" class="dashAnchor"></a><strong>read</strong> ([<em>unknown</em> $length])</p>
+<p>Reads a packet from the socket. Prior to reading from the socket will check for availability of the connection.</p>
+<p>protected <em>integer|boolean</em> <a name="//apple_ref/cpp/Method/write" id="write" class="dashAnchor"></a><strong>write</strong> ()</p>
+<p>Writes data to the socket. Performs a connection if none is available</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/disconnect" id="disconnect" class="dashAnchor"></a><strong>disconnect</strong> ()</p>
+<p>Closes the connection to the beanstalk server.</p>
+<p>public <a name="//apple_ref/cpp/Method/__sleep" id="__sleep" class="dashAnchor"></a><strong>__sleep</strong> ()</p>
+<p>...</p>
+<p>public <a name="//apple_ref/cpp/Method/__wakeup" id="__wakeup" class="dashAnchor"></a><strong>__wakeup</strong> ()</p>
+<p>...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

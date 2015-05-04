@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Validation\Validator\Email — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Validation\Validator\ExclusionIn" href="Phalcon_Validation_Validator_ExclusionIn.html">
+<link rel="prev" title="Class Phalcon\Validation\Validator\Confirmation" href="Phalcon_Validation_Validator_Confirmation.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-validation-validator-email">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CValidation%5CValidator%5CEmail" id="Phalcon\Validation\Validator\Email" class="dashAnchor"></a><strong>Phalcon\Validation\Validator\Email</strong>
+</h1>
+<p><em>extends</em> abstract class <a class="reference internal" href="Phalcon_Validation_Validator.html"><em>Phalcon\Validation\Validator</em></a></p>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Validation_ValidatorInterface.html"><em>Phalcon\Validation\ValidatorInterface</em></a></p>
+<p>Checks if a value has a correct e-mail format</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Validation\Validator\Email</span> <span class="k">as</span> <span class="nx">EmailValidator</span><span class="p">;</span>
+
+<span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">EmailValidator</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+   <span class="s1">'message'</span> <span class="o">=&gt;</span> <span class="s1">'The e-mail is not valid'</span>
+<span class="p">)));</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Validation_Validator_Email.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/validate" id="validate" class="dashAnchor"></a><strong>validate</strong> (<a class="reference internal" href="Phalcon_Validation.html"><em>Phalcon\Validation</em></a> $validator, <em>string</em> $attribute)</p>
+<p>Executes the validation</p>
+<p>public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<em>array</em> $options]) inherited from Phalcon\Validation\Validator</p>
+<p>Phalcon\Validation\Validator constructor</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/isSetOption" id="isSetOption" class="dashAnchor"></a><strong>isSetOption</strong> (<em>string</em> $key) inherited from Phalcon\Validation\Validator</p>
+<p>Checks if an option is defined</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/getOption" id="getOption" class="dashAnchor"></a><strong>getOption</strong> (<em>string</em> $key) inherited from Phalcon\Validation\Validator</p>
+<p>Returns an option in the validator’s options Returns null if the option hasn’t been set</p>
+<p>public <a name="//apple_ref/cpp/Method/setOption" id="setOption" class="dashAnchor"></a><strong>setOption</strong> (<em>string</em> $key, <em>mixed</em> $value) inherited from Phalcon\Validation\Validator</p>
+<p>Sets an option in the validator</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

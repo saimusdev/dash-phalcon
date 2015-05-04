@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interface Phalcon\Mvc\Router\RouteInterface — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Interface Phalcon\Mvc\UrlInterface" href="Phalcon_Mvc_UrlInterface.html">
+<link rel="prev" title="Interface Phalcon\Mvc\RouterInterface" href="Phalcon_Mvc_RouterInterface.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interface-phalcon-mvc-router-routeinterface">
+<h1>Interface <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CRouter%5CRouteInterface" id="Phalcon\Mvc\Router\RouteInterface" class="dashAnchor"></a><strong>Phalcon\Mvc\Router\RouteInterface</strong>
+</h1>
+<p>Phalcon\Mvc\Router\RouteInterface initializer</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Router_RouteInterface.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/compilePattern" id="compilePattern" class="dashAnchor"></a><strong>compilePattern</strong> (<em>string</em> $pattern)</p>
+<p>Replaces placeholders from pattern returning a valid PCRE regular expression</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/via" id="via" class="dashAnchor"></a><strong>via</strong> (<em>string|array</em> $httpMethods)</p>
+<p>Set one or more HTTP methods that constraint the matching of the route</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/reConfigure" id="reConfigure" class="dashAnchor"></a><strong>reConfigure</strong> (<em>string</em> $pattern, [<em>array</em> $paths])</p>
+<p>Reconfigure the route adding a new pattern and a set of paths</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getName" id="getName" class="dashAnchor"></a><strong>getName</strong> ()</p>
+<p>Returns the route’s name</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setName" id="setName" class="dashAnchor"></a><strong>setName</strong> (<em>string</em> $name)</p>
+<p>Sets the route’s name</p>
+<p>abstract public <a name="//apple_ref/cpp/Method/setHttpMethods" id="setHttpMethods" class="dashAnchor"></a><strong>setHttpMethods</strong> (<em>string|array</em> $httpMethods)</p>
+<p>Sets a set of HTTP methods that constraint the matching of the route</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getRouteId" id="getRouteId" class="dashAnchor"></a><strong>getRouteId</strong> ()</p>
+<p>Returns the route’s id</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getPattern" id="getPattern" class="dashAnchor"></a><strong>getPattern</strong> ()</p>
+<p>Returns the route’s pattern</p>
+<p>abstract public <em>string</em> <a name="//apple_ref/cpp/Method/getCompiledPattern" id="getCompiledPattern" class="dashAnchor"></a><strong>getCompiledPattern</strong> ()</p>
+<p>Returns the route’s pattern</p>
+<p>abstract public <em>array</em> <a name="//apple_ref/cpp/Method/getPaths" id="getPaths" class="dashAnchor"></a><strong>getPaths</strong> ()</p>
+<p>Returns the paths</p>
+<p>abstract public <em>string|array</em> <a name="//apple_ref/cpp/Method/getHttpMethods" id="getHttpMethods" class="dashAnchor"></a><strong>getHttpMethods</strong> ()</p>
+<p>Returns the HTTP methods that constraint matching the route</p>
+<p>abstract public static <a name="//apple_ref/cpp/Method/reset" id="reset" class="dashAnchor"></a><strong>reset</strong> ()</p>
+<p>Resets the internal route id generator</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

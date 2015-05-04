@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Loader — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Loader\Exception" href="Phalcon_Loader_Exception.html">
+<link rel="prev" title="Class Phalcon\Kernel" href="Phalcon_Kernel.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-loader">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CLoader" id="Phalcon\Loader" class="dashAnchor"></a><strong>Phalcon\Loader</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Events_EventsAwareInterface.html"><em>Phalcon\Events\EventsAwareInterface</em></a></p>
+<p>This component helps to load your project classes automatically based on some conventions</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//Creates the autoloader</span>
+ <span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phalcon\Loader</span><span class="p">();</span>
+
+ <span class="c1">//Register some namespaces</span>
+ <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">registerNamespaces</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+   <span class="s1">'Example\Base'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/base/'</span><span class="p">,</span>
+   <span class="s1">'Example\Adapter'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/adapter/'</span><span class="p">,</span>
+   <span class="s1">'Example'</span> <span class="o">=&gt;</span> <span class="s1">'vendor/example/'</span>
+ <span class="p">));</span>
+
+ <span class="c1">//register autoloader</span>
+ <span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">register</span><span class="p">();</span>
+
+ <span class="c1">//Requiring this class will automatically include file vendor/example/adapter/Some.php</span>
+ <span class="nv">$adapter</span> <span class="o">=</span> <span class="nx">Example\Adapter\Some</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Loader.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ()</p>
+<p>Phalcon\Loader constructor</p>
+<p>public <a name="//apple_ref/cpp/Method/setEventsManager" id="setEventsManager" class="dashAnchor"></a><strong>setEventsManager</strong> (<a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> $eventsManager)</p>
+<p>Sets the events manager</p>
+<p>public <a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> <a name="//apple_ref/cpp/Method/getEventsManager" id="getEventsManager" class="dashAnchor"></a><strong>getEventsManager</strong> ()</p>
+<p>Returns the internal event manager</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/setExtensions" id="setExtensions" class="dashAnchor"></a><strong>setExtensions</strong> (<em>array</em> $extensions)</p>
+<p>Sets an array of extensions that the loader must try in each attempt to locate the file</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/getExtensions" id="getExtensions" class="dashAnchor"></a><strong>getExtensions</strong> ()</p>
+<p>Return file extensions registered in the loader</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/registerNamespaces" id="registerNamespaces" class="dashAnchor"></a><strong>registerNamespaces</strong> (<em>array</em> $namespaces, [<em>boolean</em> $merge])</p>
+<p>Register namespaces and their related directories</p>
+<p>public <em>array</em> <a name="//apple_ref/cpp/Method/getNamespaces" id="getNamespaces" class="dashAnchor"></a><strong>getNamespaces</strong> ()</p>
+<p>Return current namespaces registered in the autoloader</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/registerPrefixes" id="registerPrefixes" class="dashAnchor"></a><strong>registerPrefixes</strong> (<em>array</em> $prefixes, [<em>boolean</em> $merge])</p>
+<p>Register directories on which “not found” classes could be found</p>
+<p>public <a name="//apple_ref/cpp/Method/getPrefixes" id="getPrefixes" class="dashAnchor"></a><strong>getPrefixes</strong> ()</p>
+<p>Return current prefixes registered in the autoloader</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/registerDirs" id="registerDirs" class="dashAnchor"></a><strong>registerDirs</strong> (<em>array</em> $directories, [<em>boolean</em> $merge])</p>
+<p>Register directories on which “not found” classes could be found</p>
+<p>public <a name="//apple_ref/cpp/Method/getDirs" id="getDirs" class="dashAnchor"></a><strong>getDirs</strong> ()</p>
+<p>Return current directories registered in the autoloader</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/registerClasses" id="registerClasses" class="dashAnchor"></a><strong>registerClasses</strong> (<em>array</em> $classes, [<em>boolean</em> $merge])</p>
+<p>Register classes and their locations</p>
+<p>public <a name="//apple_ref/cpp/Method/getClasses" id="getClasses" class="dashAnchor"></a><strong>getClasses</strong> ()</p>
+<p>Return the current class-map registered in the autoloader</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/register" id="register" class="dashAnchor"></a><strong>register</strong> ()</p>
+<p>Register the autoload method</p>
+<p>public <a class="reference internal" href="Phalcon_Loader.html"><em>Phalcon\Loader</em></a> <a name="//apple_ref/cpp/Method/unregister" id="unregister" class="dashAnchor"></a><strong>unregister</strong> ()</p>
+<p>Unregister the autoload method</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/autoLoad" id="autoLoad" class="dashAnchor"></a><strong>autoLoad</strong> (<em>string</em> $className)</p>
+<p>Makes the work of autoload registered classes</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getFoundPath" id="getFoundPath" class="dashAnchor"></a><strong>getFoundPath</strong> ()</p>
+<p>Get the path when a class was found</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getCheckedPath" id="getCheckedPath" class="dashAnchor"></a><strong>getCheckedPath</strong> ()</p>
+<p>Get the path the loader is checking for a path</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>

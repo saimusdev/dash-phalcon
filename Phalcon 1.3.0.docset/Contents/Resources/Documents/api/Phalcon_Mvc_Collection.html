@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Phalcon\Mvc\Collection — Phalcon 1.3.0 documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300italic,400italic,500italic&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../_static/A.pygments.css+style.css+docs.css,Mcc.WzpOlAvwWN.css.pagespeed.cf.Utjfc6NUWU.css" type="text/css">
+
+
+
+<link rel="shortcut icon" href="../_static/favicon.ico">
+<link rel="top" title="Phalcon 1.3.0 documentation" href="../index.html">
+<link rel="up" title="API Indice" href="index.html">
+<link rel="next" title="Class Phalcon\Mvc\Collection\Document" href="Phalcon_Mvc_Collection_Document.html">
+<link rel="prev" title="Class Phalcon\Mvc\Application\Exception" href="Phalcon_Mvc_Application_Exception.html">
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<table width="100%" align="center">
+<tr>
+
+<td class="second-box" valign="top">
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="class-phalcon-mvc-collection">
+<h1>Class <a name="//apple_ref/cpp/Class/Phalcon%5CMvc%5CCollection" id="Phalcon\Mvc\Collection" class="dashAnchor"></a><strong>Phalcon\Mvc\Collection</strong>
+</h1>
+<p><em>implements</em> <a class="reference internal" href="Phalcon_Mvc_CollectionInterface.html"><em>Phalcon\Mvc\CollectionInterface</em></a>, <a class="reference internal" href="Phalcon_DI_InjectionAwareInterface.html"><em>Phalcon\DI\InjectionAwareInterface</em></a>, Serializable</p>
+<p>This component implements a high level abstraction for NoSQL databases which works with documents</p>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="Phalcon_Mvc_Collection.html#constants" title="Permalink to this headline">¶</a>
+</h2>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/OP_NONE" id="OP_NONE" class="dashAnchor"></a><strong>OP_NONE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/OP_CREATE" id="OP_CREATE" class="dashAnchor"></a><strong>OP_CREATE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/OP_UPDATE" id="OP_UPDATE" class="dashAnchor"></a><strong>OP_UPDATE</strong></p>
+<p><em>integer</em> <a name="//apple_ref/cpp/Constant/OP_DELETE" id="OP_DELETE" class="dashAnchor"></a><strong>OP_DELETE</strong></p>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="Phalcon_Mvc_Collection.html#methods" title="Permalink to this headline">¶</a>
+</h2>
+<p>final public <a name="//apple_ref/cpp/Method/__construct" id="__construct" class="dashAnchor"></a><strong>__construct</strong> ([<a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> $dependencyInjector])</p>
+<p>Phalcon\Mvc\Model constructor</p>
+<p>public <a name="//apple_ref/cpp/Method/setId" id="setId" class="dashAnchor"></a><strong>setId</strong> (<em>mixed</em> $id)</p>
+<p>Sets a value for the _id property, creates a MongoId object if needed</p>
+<p>public <em>MongoId</em> <a name="//apple_ref/cpp/Method/getId" id="getId" class="dashAnchor"></a><strong>getId</strong> ()</p>
+<p>Returns the value of the _id property</p>
+<p>public <a name="//apple_ref/cpp/Method/setDI" id="setDI" class="dashAnchor"></a><strong>setDI</strong> (<a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> $dependencyInjector)</p>
+<p>Sets the dependency injection container</p>
+<p>public <a class="reference internal" href="Phalcon_DiInterface.html"><em>Phalcon\DiInterface</em></a> <a name="//apple_ref/cpp/Method/getDI" id="getDI" class="dashAnchor"></a><strong>getDI</strong> ()</p>
+<p>Returns the dependency injection container</p>
+<p>protected <a name="//apple_ref/cpp/Method/setEventsManager" id="setEventsManager" class="dashAnchor"></a><strong>setEventsManager</strong> (<a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> $eventsManager)</p>
+<p>Sets a custom events manager</p>
+<p>protected <a class="reference internal" href="Phalcon_Events_ManagerInterface.html"><em>Phalcon\Events\ManagerInterface</em></a> <a name="//apple_ref/cpp/Method/getEventsManager" id="getEventsManager" class="dashAnchor"></a><strong>getEventsManager</strong> ()</p>
+<p>Returns the custom events manager</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model_ManagerInterface.html"><em>Phalcon\Mvc\Model\ManagerInterface</em></a> <a name="//apple_ref/cpp/Method/getModelsManager" id="getModelsManager" class="dashAnchor"></a><strong>getModelsManager</strong> ()</p>
+<p>Returns the models manager related to the entity instance</p>
+<p>public <em>array</em> <a name="//apple_ref/cpp/Method/getReservedAttributes" id="getReservedAttributes" class="dashAnchor"></a><strong>getReservedAttributes</strong> ()</p>
+<p>Returns an array with reserved properties that cannot be part of the insert/update</p>
+<p>protected <a name="//apple_ref/cpp/Method/useImplicitObjectIds" id="useImplicitObjectIds" class="dashAnchor"></a><strong>useImplicitObjectIds</strong> ()</p>
+<p>Sets if a model must use implicit objects ids</p>
+<p>protected <a class="reference internal" href="Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> <a name="//apple_ref/cpp/Method/setSource" id="setSource" class="dashAnchor"></a><strong>setSource</strong> ()</p>
+<p>Sets collection name which model should be mapped</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getSource" id="getSource" class="dashAnchor"></a><strong>getSource</strong> ()</p>
+<p>Returns collection name mapped in the model</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model.html"><em>Phalcon\Mvc\Model</em></a> <a name="//apple_ref/cpp/Method/setConnectionService" id="setConnectionService" class="dashAnchor"></a><strong>setConnectionService</strong> (<em>string</em> $connectionService)</p>
+<p>Sets the DependencyInjection connection service name</p>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/getConnectionService" id="getConnectionService" class="dashAnchor"></a><strong>getConnectionService</strong> ()</p>
+<p>Returns DependencyInjection connection service</p>
+<p>public <em>MongoDb</em> <a name="//apple_ref/cpp/Method/getConnection" id="getConnection" class="dashAnchor"></a><strong>getConnection</strong> ()</p>
+<p>Retrieves a database connection</p>
+<p>public <em>mixed</em> <a name="//apple_ref/cpp/Method/readAttribute" id="readAttribute" class="dashAnchor"></a><strong>readAttribute</strong> (<em>string</em> $attribute)</p>
+<p>Reads an attribute value by its name</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">readAttribute</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public <a name="//apple_ref/cpp/Method/writeAttribute" id="writeAttribute" class="dashAnchor"></a><strong>writeAttribute</strong> (<em>string</em> $attribute, <em>mixed</em> $value)</p>
+<p>Writes an attribute value by its name</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">writeAttribute</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Rosey'</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>public static <a class="reference internal" href="Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> <a name="//apple_ref/cpp/Method/cloneResult" id="cloneResult" class="dashAnchor"></a><strong>cloneResult</strong> (<a class="reference internal" href="Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> $collection, <em>array</em> $document)</p>
+<p>Returns a cloned collection</p>
+<p>protected static <em>array</em> <a name="//apple_ref/cpp/Method/_getResultset" id="_getResultset" class="dashAnchor"></a><strong>_getResultset</strong> ()</p>
+<p>Returns a collection resultset</p>
+<p>protected static <em>int</em> <a name="//apple_ref/cpp/Method/_getGroupResultset" id="_getGroupResultset" class="dashAnchor"></a><strong>_getGroupResultset</strong> ()</p>
+<p>Perform a count over a resultset</p>
+<p>protected <em>boolean</em> <a name="//apple_ref/cpp/Method/_preSave" id="_preSave" class="dashAnchor"></a><strong>_preSave</strong> ()</p>
+<p>Executes internal hooks before save a document</p>
+<p>protected <em>boolean</em> <a name="//apple_ref/cpp/Method/_postSave" id="_postSave" class="dashAnchor"></a><strong>_postSave</strong> ()</p>
+<p>Executes internal events after save a document</p>
+<p>protected <a name="//apple_ref/cpp/Method/validate" id="validate" class="dashAnchor"></a><strong>validate</strong> ()</p>
+<p>Executes validators on every validation call</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Mvc\Model\Validator\ExclusionIn</span> <span class="k">as</span> <span class="nx">ExclusionIn</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Subscriptors</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Collection</span>
+<span class="p">{</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">validation</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExclusionIn</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">'field'</span> <span class="o">=&gt;</span> <span class="s1">'status'</span><span class="p">,</span>
+            <span class="s1">'domain'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'I'</span><span class="p">)</span>
+    <span class="p">)));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validationHasFailed</span><span class="p">()</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/validationHasFailed" id="validationHasFailed" class="dashAnchor"></a><strong>validationHasFailed</strong> ()</p>
+<p>Check whether validation process has generated any messages</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Phalcon\Mvc\Model\Validator\ExclusionIn</span> <span class="k">as</span> <span class="nx">ExclusionIn</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Subscriptors</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Collection</span>
+<span class="p">{</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">validation</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExclusionIn</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+            <span class="s1">'field'</span> <span class="o">=&gt;</span> <span class="s1">'status'</span><span class="p">,</span>
+            <span class="s1">'domain'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'I'</span><span class="p">)</span>
+    <span class="p">)));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validationHasFailed</span><span class="p">()</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/fireEvent" id="fireEvent" class="dashAnchor"></a><strong>fireEvent</strong> (<em>string</em> $eventName)</p>
+<p>Fires an internal event</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/fireEventCancel" id="fireEventCancel" class="dashAnchor"></a><strong>fireEventCancel</strong> (<em>string</em> $eventName)</p>
+<p>Fires an internal event that cancels the operation</p>
+<p>protected <em>boolean</em> <a name="//apple_ref/cpp/Method/_cancelOperation" id="_cancelOperation" class="dashAnchor"></a><strong>_cancelOperation</strong> ()</p>
+<p>Cancel the current operation</p>
+<p>protected <a name="//apple_ref/cpp/Method/_exists" id="_exists" class="dashAnchor"></a><strong>_exists</strong> ()</p>
+<p>Checks if the document exists in the collection</p>
+<p>public <a class="reference internal" href="Phalcon_Mvc_Model_MessageInterface.html"><em>Phalcon\Mvc\Model\MessageInterface</em></a> [] <a name="//apple_ref/cpp/Method/getMessages" id="getMessages" class="dashAnchor"></a><strong>getMessages</strong> ()</p>
+<p>Returns all the validation messages</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$robot</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Robots</span><span class="p">();</span>
+<span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">type</span> <span class="o">=</span> <span class="s1">'mechanical'</span><span class="p">;</span>
+<span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">'Astro Boy'</span><span class="p">;</span>
+<span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">year</span> <span class="o">=</span> <span class="mi">1952</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">()</span> <span class="o">==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">"Umh, We can't store robots right now "</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">"Great, a new robot was saved successfully!"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>public <a name="//apple_ref/cpp/Method/appendMessage" id="appendMessage" class="dashAnchor"></a><strong>appendMessage</strong> (<a class="reference internal" href="Phalcon_Mvc_Model_MessageInterface.html"><em>Phalcon\Mvc\Model\MessageInterface</em></a> $message)</p>
+<p>Appends a customized message on the validation process</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">\Phalcon\Mvc\Model\Message</span> <span class="k">as</span> <span class="nx">Message</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Robots</span> <span class="k">extends</span> <span class="nx">Phalcon\Mvc\Model</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">beforeSave</span><span class="p">()</span>
+    <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">==</span> <span class="s1">'Peter'</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nv">$message</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Message</span><span class="p">(</span><span class="s2">"Sorry, but a robot cannot be named Peter"</span><span class="p">);</span>
+                    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">appendMessage</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/save" id="save" class="dashAnchor"></a><strong>save</strong> ()</p>
+<p>Creates/Updates a collection based on the values in the attributes</p>
+<p>public static <a class="reference internal" href="Phalcon_Mvc_Collection.html"><em>Phalcon\Mvc\Collection</em></a> <a name="//apple_ref/cpp/Method/findById" id="findById" class="dashAnchor"></a><strong>findById</strong> (<em>string|MongoId</em> $id)</p>
+<p>Find a document by its id (_id)</p>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/findFirst" id="findFirst" class="dashAnchor"></a><strong>findFirst</strong> ([<em>array</em> $parameters])</p>
+<p>Allows to query the first record that match the specified conditions</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//What's the first robot in the robots table?</span>
+ <span class="nv">$robot</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">findFirst</span><span class="p">();</span>
+ <span class="k">echo</span> <span class="s2">"The robot name is "</span><span class="p">,</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+ <span class="c1">//What's the first mechanical robot in robots table?</span>
+ <span class="nv">$robot</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">findFirst</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="k">array</span><span class="p">(</span><span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"mechanical"</span><span class="p">)</span>
+ <span class="p">));</span>
+ <span class="k">echo</span> <span class="s2">"The first mechanical robot name is "</span><span class="p">,</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+ <span class="c1">//Get first virtual robot ordered by name</span>
+ <span class="nv">$robot</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">findFirst</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="k">array</span><span class="p">(</span><span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"mechanical"</span><span class="p">),</span>
+     <span class="s2">"order"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+ <span class="p">));</span>
+ <span class="k">echo</span> <span class="s2">"The first virtual robot name is "</span><span class="p">,</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/find" id="find" class="dashAnchor"></a><strong>find</strong> ([<em>array</em> $parameters])</p>
+<p>Allows to query a set of records that match the specified conditions</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="c1">//How many robots are there?</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">();</span>
+ <span class="k">echo</span> <span class="s2">"There are "</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$robots</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+ <span class="c1">//How many mechanical robots are there?</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="k">array</span><span class="p">(</span><span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"mechanical"</span><span class="p">)</span>
+ <span class="p">));</span>
+ <span class="k">echo</span> <span class="s2">"There are "</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$robots</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+ <span class="c1">//Get and print virtual robots ordered by name</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">findFirst</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="k">array</span><span class="p">(</span><span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"virtual"</span><span class="p">),</span>
+     <span class="s2">"order"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+ <span class="p">));</span>
+ <span class="k">foreach</span> <span class="p">(</span><span class="nv">$robots</span> <span class="k">as</span> <span class="nv">$robot</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">echo</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1">//Get first 100 virtual robots ordered by name</span>
+ <span class="nv">$robots</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+     <span class="k">array</span><span class="p">(</span><span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"virtual"</span><span class="p">),</span>
+     <span class="s2">"order"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">),</span>
+     <span class="s2">"limit"</span> <span class="o">=&gt;</span> <span class="mi">100</span>
+ <span class="p">));</span>
+ <span class="k">foreach</span> <span class="p">(</span><span class="nv">$robots</span> <span class="k">as</span> <span class="nv">$robot</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">echo</span> <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/count" id="count" class="dashAnchor"></a><strong>count</strong> ([<em>array</em> $parameters])</p>
+<p>Perform a count over a collection</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="k">echo</span> <span class="s1">'There are '</span><span class="p">,</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">count</span><span class="p">(),</span> <span class="s1">' robots'</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/aggregate" id="aggregate" class="dashAnchor"></a><strong>aggregate</strong> (<em>array</em> $parameters)</p>
+<p>Perform an aggregation using the Mongo aggregation framework</p>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/summatory" id="summatory" class="dashAnchor"></a><strong>summatory</strong> (<em>string</em> $field, [<em>array</em> $conditions], [<em>string</em> $finalize])</p>
+<p>Allows to perform a summatory group for a column in the collection</p>
+<p>public <em>boolean</em> <a name="//apple_ref/cpp/Method/delete" id="delete" class="dashAnchor"></a><strong>delete</strong> ()</p>
+<p>Deletes a model instance. Returning true on success or false otherwise.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$robot</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">findFirst</span><span class="p">();</span>
+<span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nx">Robots</span><span class="o">::</span><span class="na">find</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$robot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>public <em>array</em> <a name="//apple_ref/cpp/Method/toArray" id="toArray" class="dashAnchor"></a><strong>toArray</strong> ()</p>
+<p>Returns the instance as an array representation</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nb">print_r</span><span class="p">(</span><span class="nv">$robot</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>public <em>string</em> <a name="//apple_ref/cpp/Method/serialize" id="serialize" class="dashAnchor"></a><strong>serialize</strong> ()</p>
+<p>Serializes the object ignoring connections or protected properties</p>
+<p>public <a name="//apple_ref/cpp/Method/unserialize" id="unserialize" class="dashAnchor"></a><strong>unserialize</strong> ([<em>unknown</em> $serialized])</p>
+<p>Unserializes the object from a serialized string</p>
+<p>public static <em>array</em> <a name="//apple_ref/cpp/Method/execute" id="execute" class="dashAnchor"></a><strong>execute</strong> (<em>mixed</em> $code, [<em>array</em> $args])</p>
+<p>Runs JavaScript code on the database server.</p>
+<div class="highlight-php">
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+ <span class="nv">$ret</span> <span class="o">=</span> <span class="nx">Robots</span><span class="o">::</span><span class="na">execute</span><span class="p">(</span><span class="s2">"function() { return 'Hello, world!';}"</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nv">$ret</span><span class="p">[</span><span class="s1">'retval'</span><span class="p">],</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+</body>
+</html>
