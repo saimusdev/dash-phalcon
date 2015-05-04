@@ -19,8 +19,8 @@ require 'zlib'
 task :all => :default
 task :default => [
   :create,
-  #:download,
-  :extract,
+  :download,
+  #:extract,
   :plist,
   :db,
   :parse,
@@ -32,12 +32,12 @@ task :default => [
 # Docset specific variables
 DOMAIN = "phalconphp.com"
 DOCS_FOLDER = "docs." << DOMAIN
-DOCSET_NAME = "Phalcon 1.3.0"
+DOCSET_NAME = "Phalcon 2.0.0"
 DOCSET_FOLDER = "#{DOCSET_NAME}.docset"
 DOCSET_DOCS_SUBFOLDER = "#{DOCSET_FOLDER}/Contents/Resources/Documents"
 PLIST_FILE = "#{DOCSET_FOLDER}/Contents/Info.plist"
 DATABASE = "#{DOCSET_NAME}.docset/Contents/Resources/docSet.dsidx" 
-LOCAL_DOCS_FOLDER = "phalcon_1.3.0_docs"
+LOCAL_DOCS_FOLDER = "phalcon_2.0.0_docs"
 LOCAL_DOCS = LOCAL_DOCS_FOLDER + ".tar.gz"
 ONLINE_DOCS = [
 	"docs.phalconphp.com/en/latest/index.html"
